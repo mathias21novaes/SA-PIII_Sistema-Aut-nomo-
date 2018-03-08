@@ -1,6 +1,6 @@
 ﻿namespace President_Me___Home
 {
-    partial class Form3
+    partial class Criar
     {
         /// <summary>
         /// Required designer variable.
@@ -59,6 +59,7 @@
             // 
             // txtnomePartida
             // 
+            this.txtnomePartida.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtnomePartida.Location = new System.Drawing.Point(24, 177);
             this.txtnomePartida.Multiline = true;
             this.txtnomePartida.Name = "txtnomePartida";

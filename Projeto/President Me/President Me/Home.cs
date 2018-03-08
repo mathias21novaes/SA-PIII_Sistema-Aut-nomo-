@@ -12,23 +12,24 @@ using MePresidentaServidor;
 
 namespace President_Me___Home
 {
-    public partial class Form1 : Form
+    public partial class Home : Form
     {
-        public Form1()
+        public Home()
         {
             InitializeComponent();
+            
         }
 
         private void btn_Entrar_Click(object sender, EventArgs e)
         {
-            Form2 openForm = new Form2();
+            Entrar openForm = new Entrar();
             openForm.Show();
             Visible = false;
         }
 
         private void btnCriar_Click(object sender, EventArgs e)
         {
-            Form3 openForm = new Form3();
+            Criar openForm = new Criar();
             openForm.Show();
             Visible = false;
         }

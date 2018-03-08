@@ -11,23 +11,26 @@ using MePresidentaServidor;
 
 namespace President_Me___Home
 {
-    public partial class Form2 : Form
+    public partial class Entrar : Form
     {
-        public Form2()
+        public Entrar()
         {
             InitializeComponent();
+            Criar f = new Criar();
+            txtIdPartida.Text = f.criarPartida;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form1 openForm = new Form1();
+            Home openForm = new Home();
             openForm.Show();
             Visible = false;
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-                   }
+
+        }
 
         private void btnListar_Click(object sender, EventArgs e)
         {
@@ -39,6 +42,18 @@ namespace President_Me___Home
         private void txtListar_TextChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void btnIniciar_Click_1(object sender, EventArgs e)
+        {
+            Tabuleiro openForm = new Tabuleiro();
+            openForm.Show();
+            Visible = false;
+        }
+
+        private void txtId_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

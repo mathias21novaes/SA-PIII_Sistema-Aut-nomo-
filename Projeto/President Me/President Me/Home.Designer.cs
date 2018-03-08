@@ -1,6 +1,6 @@
 ﻿namespace President_Me___Home
 {
-    partial class Form1
+    partial class Home
     {
         /// <summary>
         /// Variável de designer necessária.
@@ -39,7 +39,7 @@
             this.btn_Entrar.Name = "btn_Entrar";
             this.btn_Entrar.Size = new System.Drawing.Size(127, 56);
             this.btn_Entrar.TabIndex = 0;
-            this.btn_Entrar.Text = "Entrar Partida";
+            this.btn_Entrar.Text = "Iniciar Partida";
             this.btn_Entrar.UseVisualStyleBackColor = true;
             this.btn_Entrar.Click += new System.EventHandler(this.btn_Entrar_Click);
             // 

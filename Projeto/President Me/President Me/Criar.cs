@@ -11,16 +11,17 @@ using MePresidentaServidor;
 
 namespace President_Me___Home
 {
-    public partial class Form3 : Form
+    public partial class Criar : Form
     {
-        public Form3()
+        public Criar()
         {
             InitializeComponent();
-        }
+            public string criarPartida { get; set; }
+    }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form1 openForm = new Form1();
+            Home openForm = new Home();
             openForm.Show();
             Visible = false;
         }
@@ -31,7 +32,8 @@ namespace President_Me___Home
             //string senhaPartida;
 
             string criarPartida = Jogo.CriarPartida(txtnomePartida.Text, txtsenhaPartida.Text);
-            MessageBox.Show(criarPartida);
+            txtId.Show(criarPartida);
+   
         }
 
         private void txtnomePartida_TextChanged(object sender, EventArgs e)
