@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.btnCriar = new System.Windows.Forms.Button();
+            this.txtnomePartida = new System.Windows.Forms.TextBox();
+            this.txtsenhaPartida = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -47,30 +47,33 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // btnCriar
             // 
-            this.button2.Location = new System.Drawing.Point(67, 314);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(133, 59);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Criar Partida";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnCriar.Location = new System.Drawing.Point(67, 314);
+            this.btnCriar.Name = "btnCriar";
+            this.btnCriar.Size = new System.Drawing.Size(133, 59);
+            this.btnCriar.TabIndex = 2;
+            this.btnCriar.Text = "Criar Partida";
+            this.btnCriar.UseVisualStyleBackColor = true;
+            this.btnCriar.Click += new System.EventHandler(this.btnCriar_Click);
             // 
-            // textBox1
+            // txtnomePartida
             // 
-            this.textBox1.Location = new System.Drawing.Point(24, 177);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(227, 31);
-            this.textBox1.TabIndex = 3;
+            this.txtnomePartida.Location = new System.Drawing.Point(24, 177);
+            this.txtnomePartida.Multiline = true;
+            this.txtnomePartida.Name = "txtnomePartida";
+            this.txtnomePartida.Size = new System.Drawing.Size(227, 31);
+            this.txtnomePartida.TabIndex = 3;
+            this.txtnomePartida.TextChanged += new System.EventHandler(this.txtnomePartida_TextChanged);
             // 
-            // textBox2
+            // txtsenhaPartida
             // 
-            this.textBox2.Location = new System.Drawing.Point(24, 254);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(227, 31);
-            this.textBox2.TabIndex = 4;
+            this.txtsenhaPartida.Location = new System.Drawing.Point(24, 254);
+            this.txtsenhaPartida.Multiline = true;
+            this.txtsenhaPartida.Name = "txtsenhaPartida";
+            this.txtsenhaPartida.Size = new System.Drawing.Size(227, 31);
+            this.txtsenhaPartida.TabIndex = 4;
+            this.txtsenhaPartida.TextChanged += new System.EventHandler(this.txtsenhaPartida_TextChanged);
             // 
             // label1
             // 
@@ -108,9 +111,9 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.txtsenhaPartida);
+            this.Controls.Add(this.txtnomePartida);
+            this.Controls.Add(this.btnCriar);
             this.Controls.Add(this.button1);
             this.Name = "Form3";
             this.Text = "President Me - Criar Partida";
@@ -122,9 +125,9 @@
         #endregion
 
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button btnCriar;
+        private System.Windows.Forms.TextBox txtnomePartida;
+        private System.Windows.Forms.TextBox txtsenhaPartida;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;

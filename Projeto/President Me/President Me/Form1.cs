@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MePresidentaServidor;
+
 
 namespace President_Me___Home
 {
@@ -17,23 +19,23 @@ namespace President_Me___Home
             InitializeComponent();
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void btn_Entrar_Click(object sender, EventArgs e)
         {
             Form2 openForm = new Form2();
             openForm.Show();
             Visible = false;
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnCriar_Click(object sender, EventArgs e)
         {
             Form3 openForm = new Form3();
             openForm.Show();
             Visible = false;
+        }
+
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

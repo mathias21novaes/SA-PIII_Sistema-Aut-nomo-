@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MePresidentaServidor;
 
 namespace President_Me___Home
 {
@@ -23,5 +24,25 @@ namespace President_Me___Home
             openForm.Show();
             Visible = false;
         }
+
+        private void btnCriar_Click(object sender, EventArgs e)
+        {
+            //string nomePartida;
+            //string senhaPartida;
+
+            string criarPartida = Jogo.CriarPartida(txtnomePartida.Text, txtsenhaPartida.Text);
+            MessageBox.Show(criarPartida);
+        }
+
+        private void txtnomePartida_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtsenhaPartida_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+    
     }
 }

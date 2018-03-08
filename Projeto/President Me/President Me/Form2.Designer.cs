@@ -37,8 +37,8 @@
             this.button2 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.txtListar = new System.Windows.Forms.TextBox();
+            this.btnListar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -121,30 +121,32 @@
             this.textBox3.Size = new System.Drawing.Size(227, 31);
             this.textBox3.TabIndex = 14;
             // 
-            // textBox4
+            // txtListar
             // 
-            this.textBox4.Location = new System.Drawing.Point(291, 193);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(170, 262);
-            this.textBox4.TabIndex = 16;
+            this.txtListar.Location = new System.Drawing.Point(291, 193);
+            this.txtListar.Multiline = true;
+            this.txtListar.Name = "txtListar";
+            this.txtListar.Size = new System.Drawing.Size(170, 262);
+            this.txtListar.TabIndex = 16;
+            this.txtListar.TextChanged += new System.EventHandler(this.txtListar_TextChanged);
             // 
-            // button3
+            // btnListar
             // 
-            this.button3.Location = new System.Drawing.Point(308, 141);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(140, 46);
-            this.button3.TabIndex = 17;
-            this.button3.Text = "Listar Partidas";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnListar.Location = new System.Drawing.Point(318, 146);
+            this.btnListar.Name = "btnListar";
+            this.btnListar.Size = new System.Drawing.Size(119, 36);
+            this.btnListar.TabIndex = 17;
+            this.btnListar.Text = "Listar Partidas";
+            this.btnListar.UseVisualStyleBackColor = true;
+            this.btnListar.Click += new System.EventHandler(this.btnListar_Click);
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(494, 505);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.btnListar);
+            this.Controls.Add(this.txtListar);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.label3);
@@ -172,7 +174,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.TextBox txtListar;
+        private System.Windows.Forms.Button btnListar;
     }
 }
