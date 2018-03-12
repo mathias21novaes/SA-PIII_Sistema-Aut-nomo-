@@ -7,14 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MePresidentaServidor;
 
-namespace President_Me___Home
+namespace President_Me
 {
     public partial class Tabuleiro : Form
     {
         public Tabuleiro()
         {
             InitializeComponent();
+            Lobby f = new Lobby();
+            f.ShowDialog();
+            //lblNome.Text = f.partida;
         }
     }
 }
