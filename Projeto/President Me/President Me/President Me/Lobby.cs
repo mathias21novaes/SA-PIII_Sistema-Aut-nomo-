@@ -13,9 +13,10 @@ namespace President_Me
 {
     public partial class Lobby : Form
     {
-        public Lobby()
+        public Lobby(string versao)
         {
             InitializeComponent();
+            lblversao.Text = versao;
         }
 
         private void btnSair_Click(object sender, EventArgs e)
@@ -33,6 +34,11 @@ namespace President_Me
         {
             Criar_Partida c = new Criar_Partida();
             c.ShowDialog();
+        }
+
+        private void Lobby_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

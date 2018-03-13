@@ -16,9 +16,9 @@ namespace President_Me
         public Tabuleiro()
         {
             InitializeComponent();
-            Lobby f = new Lobby();
+            string versao = "3.0";
+            Lobby f = new Lobby(versao);
             f.ShowDialog();
-            //lblNome.Text = f.partida;
         }
     }
 }

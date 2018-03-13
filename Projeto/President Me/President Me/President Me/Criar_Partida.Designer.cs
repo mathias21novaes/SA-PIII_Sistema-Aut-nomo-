@@ -35,6 +35,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblPartidaCriada = new System.Windows.Forms.Label();
+            this.lblidc = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnVoltar_Criar
@@ -99,11 +100,22 @@
             this.lblPartidaCriada.TabIndex = 6;
             this.lblPartidaCriada.Text = "*";
             // 
+            // lblidc
+            // 
+            this.lblidc.AutoSize = true;
+            this.lblidc.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblidc.Location = new System.Drawing.Point(31, 297);
+            this.lblidc.Name = "lblidc";
+            this.lblidc.Size = new System.Drawing.Size(15, 18);
+            this.lblidc.TabIndex = 7;
+            this.lblidc.Text = "*";
+            // 
             // Criar_Partida
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 372);
+            this.Controls.Add(this.lblidc);
             this.Controls.Add(this.lblPartidaCriada);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -127,5 +139,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblPartidaCriada;
+        private System.Windows.Forms.Label lblidc;
     }
 }

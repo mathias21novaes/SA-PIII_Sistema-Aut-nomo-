@@ -16,6 +16,7 @@ namespace President_Me
         public string Nome_Partida { get; set; }
         public string Senha_Partida { get; set; }
         public string Id { get; set; }
+        public string versao { get; set; }
 
         public Criar_Partida()
         {
@@ -24,7 +25,7 @@ namespace President_Me
 
         private void btnVoltar_Criar_Click(object sender, EventArgs e)
         {
-            Lobby f = new Lobby();
+            Lobby f = new Lobby(versao);
             this.Close();
         }
 
@@ -35,6 +36,7 @@ namespace President_Me
             this.Id = Jogo.CriarPartida(Nome_Partida, Senha_Partida);
             //MessageBox.Show("P A R T I D A   C R I A D A !");
             lblPartidaCriada.Text = "PARTIDA CRIADA";
+            lblidc.Text = Id;
 
         }
     }
