@@ -35,14 +35,18 @@
             this.txtJogador = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.lblSenhaJogador = new System.Windows.Forms.Label();
-            this.lblDadosJogador = new System.Windows.Forms.Label();
+            this.lblDadosJogadorSenha = new System.Windows.Forms.Label();
+            this.lblDadosJogadorId = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.lblid = new System.Windows.Forms.Label();
             this.txtId_Entrar = new System.Windows.Forms.TextBox();
             this.txtSenha_Entrar = new System.Windows.Forms.TextBox();
+            this.btnIniciar = new System.Windows.Forms.Button();
+            this.lblEntrou = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lbljogador = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnEntrar
@@ -109,25 +113,25 @@
             this.label2.TabIndex = 8;
             this.label2.Text = "SENHA DO JOGADOR";
             // 
-            // lblSenhaJogador
+            // lblDadosJogadorSenha
             // 
-            this.lblSenhaJogador.AutoSize = true;
-            this.lblSenhaJogador.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSenhaJogador.Location = new System.Drawing.Point(206, 208);
-            this.lblSenhaJogador.Name = "lblSenhaJogador";
-            this.lblSenhaJogador.Size = new System.Drawing.Size(15, 18);
-            this.lblSenhaJogador.TabIndex = 9;
-            this.lblSenhaJogador.Text = "*";
+            this.lblDadosJogadorSenha.AutoSize = true;
+            this.lblDadosJogadorSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDadosJogadorSenha.Location = new System.Drawing.Point(206, 208);
+            this.lblDadosJogadorSenha.Name = "lblDadosJogadorSenha";
+            this.lblDadosJogadorSenha.Size = new System.Drawing.Size(15, 18);
+            this.lblDadosJogadorSenha.TabIndex = 9;
+            this.lblDadosJogadorSenha.Text = "*";
             // 
-            // lblDadosJogador
+            // lblDadosJogadorId
             // 
-            this.lblDadosJogador.AutoSize = true;
-            this.lblDadosJogador.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDadosJogador.Location = new System.Drawing.Point(55, 208);
-            this.lblDadosJogador.Name = "lblDadosJogador";
-            this.lblDadosJogador.Size = new System.Drawing.Size(15, 18);
-            this.lblDadosJogador.TabIndex = 10;
-            this.lblDadosJogador.Text = "*";
+            this.lblDadosJogadorId.AutoSize = true;
+            this.lblDadosJogadorId.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDadosJogadorId.Location = new System.Drawing.Point(55, 208);
+            this.lblDadosJogadorId.Name = "lblDadosJogadorId";
+            this.lblDadosJogadorId.Size = new System.Drawing.Size(15, 18);
+            this.lblDadosJogadorId.TabIndex = 10;
+            this.lblDadosJogadorId.Text = "*";
             // 
             // label3
             // 
@@ -180,19 +184,62 @@
             this.txtSenha_Entrar.Size = new System.Drawing.Size(130, 20);
             this.txtSenha_Entrar.TabIndex = 16;
             // 
+            // btnIniciar
+            // 
+            this.btnIniciar.Location = new System.Drawing.Point(12, 243);
+            this.btnIniciar.Name = "btnIniciar";
+            this.btnIniciar.Size = new System.Drawing.Size(105, 49);
+            this.btnIniciar.TabIndex = 17;
+            this.btnIniciar.Text = "INICIAR";
+            this.btnIniciar.UseVisualStyleBackColor = true;
+            this.btnIniciar.Click += new System.EventHandler(this.btnIniciar_Click);
+            // 
+            // lblEntrou
+            // 
+            this.lblEntrou.AutoSize = true;
+            this.lblEntrou.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEntrou.Location = new System.Drawing.Point(138, 243);
+            this.lblEntrou.Name = "lblEntrou";
+            this.lblEntrou.Size = new System.Drawing.Size(15, 18);
+            this.lblEntrou.TabIndex = 18;
+            this.lblEntrou.Text = "*";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(138, 279);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(121, 13);
+            this.label6.TabIndex = 19;
+            this.label6.Text = "id do jogador a começar";
+            // 
+            // lbljogador
+            // 
+            this.lbljogador.AutoSize = true;
+            this.lbljogador.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbljogador.Location = new System.Drawing.Point(138, 306);
+            this.lbljogador.Name = "lbljogador";
+            this.lbljogador.Size = new System.Drawing.Size(15, 18);
+            this.lbljogador.TabIndex = 20;
+            this.lbljogador.Text = "*";
+            // 
             // Entrar_Partida
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(525, 355);
+            this.Controls.Add(this.lbljogador);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.lblEntrou);
+            this.Controls.Add(this.btnIniciar);
             this.Controls.Add(this.txtSenha_Entrar);
             this.Controls.Add(this.txtId_Entrar);
             this.Controls.Add(this.lblid);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.lblDadosJogador);
-            this.Controls.Add(this.lblSenhaJogador);
+            this.Controls.Add(this.lblDadosJogadorId);
+            this.Controls.Add(this.lblDadosJogadorSenha);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtJogador);
@@ -216,13 +263,17 @@
         private System.Windows.Forms.TextBox txtJogador;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label lblSenhaJogador;
-        private System.Windows.Forms.Label lblDadosJogador;
+        private System.Windows.Forms.Label lblDadosJogadorSenha;
+        private System.Windows.Forms.Label lblDadosJogadorId;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lblid;
         private System.Windows.Forms.TextBox txtId_Entrar;
         private System.Windows.Forms.TextBox txtSenha_Entrar;
+        private System.Windows.Forms.Button btnIniciar;
+        private System.Windows.Forms.Label lblEntrou;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lbljogador;
     }
 }

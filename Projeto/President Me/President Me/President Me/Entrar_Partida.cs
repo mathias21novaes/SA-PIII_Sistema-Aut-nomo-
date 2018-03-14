@@ -13,6 +13,7 @@ namespace President_Me
 {
     public partial class Entrar_Partida : Form
     {
+        //---VARIAVEIS---
         public int idpartida { get; set; }
         public string idp { get; set; }
         public string nome_jogador { get; set; }
@@ -20,6 +21,8 @@ namespace President_Me
         public string listar { get; set; }
         public string idesenha_jogador { get; set; }
         public string versao { get; set; }
+        public string idJogador { get; set; }
+        public string DadosJogador { get; set; }
 
         public Entrar_Partida()
         {
@@ -33,7 +36,15 @@ namespace President_Me
             this.nome_jogador = txtJogador.Text;
             this.senha_partida = txtSenha_Entrar.Text;
             this.idesenha_jogador = Jogo.Entrar(idpartida, nome_jogador, senha_partida);
-            lblDadosJogador.Text = this.idesenha_jogador;
+
+            string[] colunas = this.idesenha_jogador.Split(',');
+            for(int i = 0; i < colunas.Length; i++)
+            {
+                if (i == 0)
+                    lblDadosJogadorId.Text = colunas[i];
+                if (i == 1)
+                    lblDadosJogadorSenha.Text = colunas[i];
+            }
         }
 
         private void btnVoltar_Entrar_Click(object sender, EventArgs e)
@@ -48,9 +59,10 @@ namespace President_Me
             txtListarPartidas.Text = Jogo.ListarPartidas();        
         }
 
-        private void txtNomeP_TextChanged(object sender, EventArgs e)
+        private void btnIniciar_Click(object sender, EventArgs e)
         {
-
+            lblEntrou.Text = "Entrou na Partida";
+            lbljogador.Text = Jogo.Iniciar(idpartida, senha_partida);
         }
     }
 }
