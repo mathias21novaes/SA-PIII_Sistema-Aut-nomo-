@@ -45,8 +45,6 @@
             this.txtSenha_Entrar = new System.Windows.Forms.TextBox();
             this.btnIniciar = new System.Windows.Forms.Button();
             this.lblEntrou = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.lbljogador = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnEntrar
@@ -198,38 +196,17 @@
             // 
             this.lblEntrou.AutoSize = true;
             this.lblEntrou.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEntrou.Location = new System.Drawing.Point(138, 243);
+            this.lblEntrou.Location = new System.Drawing.Point(138, 257);
             this.lblEntrou.Name = "lblEntrou";
             this.lblEntrou.Size = new System.Drawing.Size(15, 18);
             this.lblEntrou.TabIndex = 18;
             this.lblEntrou.Text = "*";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(138, 279);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(121, 13);
-            this.label6.TabIndex = 19;
-            this.label6.Text = "id do jogador a começar";
-            // 
-            // lbljogador
-            // 
-            this.lbljogador.AutoSize = true;
-            this.lbljogador.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbljogador.Location = new System.Drawing.Point(138, 306);
-            this.lbljogador.Name = "lbljogador";
-            this.lbljogador.Size = new System.Drawing.Size(15, 18);
-            this.lbljogador.TabIndex = 20;
-            this.lbljogador.Text = "*";
             // 
             // Entrar_Partida
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(525, 355);
-            this.Controls.Add(this.lbljogador);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.lblEntrou);
             this.Controls.Add(this.btnIniciar);
             this.Controls.Add(this.txtSenha_Entrar);
@@ -273,7 +250,5 @@
         private System.Windows.Forms.TextBox txtSenha_Entrar;
         private System.Windows.Forms.Button btnIniciar;
         private System.Windows.Forms.Label lblEntrou;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label lbljogador;
     }
 }

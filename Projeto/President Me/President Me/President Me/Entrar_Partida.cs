@@ -64,7 +64,7 @@ namespace President_Me
         private void btnIniciar_Click(object sender, EventArgs e)
         {
             lblEntrou.Text = "Entrou na Partida";
-            lbljogador.Text = Jogo.Iniciar(idpartida, senha_partida);
+            idJogador = Jogo.Iniciar(idpartida, senha_partida);
             iniciou_partida = true;
             this.Close();
         }

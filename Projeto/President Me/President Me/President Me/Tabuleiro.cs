@@ -13,13 +13,20 @@ namespace President_Me
 {
     public partial class Tabuleiro : Form
     {
+
+        public string jogadorVez { get; set; }
+
         public Tabuleiro()
         {
             InitializeComponent();
             string versao = "3.0";
             Lobby f = new Lobby(versao);
             f.ShowDialog();
-            //Entrar_Partida.idJogador;
+            jogadorVez = Entrar_Partida.idJogador;
+            lblVez.Text = jogadorVez;
+
+
+
         }
     }
 }
