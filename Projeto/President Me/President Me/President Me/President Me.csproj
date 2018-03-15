@@ -91,6 +91,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Tabuleiro.resx">
       <DependentUpon>Tabuleiro.cs</DependentUpon>
@@ -107,6 +108,45 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Personagens\A.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Personagens\B.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Personagens\C.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Personagens\D.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Personagens\E.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Personagens\F.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Personagens\G.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Personagens\H.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Personagens\I.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Personagens\J.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Personagens\K.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Personagens\L.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Personagens\M.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

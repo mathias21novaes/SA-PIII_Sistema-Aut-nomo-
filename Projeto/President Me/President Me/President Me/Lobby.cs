@@ -28,6 +28,9 @@ namespace President_Me
         {
             Entrar_Partida p = new Entrar_Partida();
             p.ShowDialog();
+            if (p.iniciou_partida == true)
+                this.Close();
+            //this.Close();
         }
 
         private void btnCriar_Partida_Click(object sender, EventArgs e)

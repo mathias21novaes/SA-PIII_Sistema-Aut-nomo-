@@ -19,6 +19,7 @@ namespace President_Me
             string versao = "3.0";
             Lobby f = new Lobby(versao);
             f.ShowDialog();
+            //Entrar_Partida.idJogador;
         }
     }
 }

@@ -21,8 +21,9 @@ namespace President_Me
         public string listar { get; set; }
         public string idesenha_jogador { get; set; }
         public string versao { get; set; }
-        public string idJogador { get; set; }
+        public static string idJogador { get; set; }
         public string DadosJogador { get; set; }
+        public bool iniciou_partida { get; set; }
 
         public Entrar_Partida()
         {
@@ -50,6 +51,7 @@ namespace President_Me
         private void btnVoltar_Entrar_Click(object sender, EventArgs e)
         {
             Lobby f = new Lobby(versao);
+            iniciou_partida = false;
             this.Close();
         }
 
@@ -63,6 +65,8 @@ namespace President_Me
         {
             lblEntrou.Text = "Entrou na Partida";
             lbljogador.Text = Jogo.Iniciar(idpartida, senha_partida);
+            iniciou_partida = true;
+            this.Close();
         }
     }
 }

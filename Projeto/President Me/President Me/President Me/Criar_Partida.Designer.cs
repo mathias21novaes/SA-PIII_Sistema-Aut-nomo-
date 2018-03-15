@@ -40,12 +40,15 @@
             // 
             // btnVoltar_Criar
             // 
-            this.btnVoltar_Criar.Location = new System.Drawing.Point(197, 324);
+            this.btnVoltar_Criar.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnVoltar_Criar.FlatAppearance.BorderSize = 0;
+            this.btnVoltar_Criar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVoltar_Criar.Location = new System.Drawing.Point(160, 287);
             this.btnVoltar_Criar.Name = "btnVoltar_Criar";
-            this.btnVoltar_Criar.Size = new System.Drawing.Size(64, 27);
+            this.btnVoltar_Criar.Size = new System.Drawing.Size(101, 64);
             this.btnVoltar_Criar.TabIndex = 0;
             this.btnVoltar_Criar.Text = "VOLTAR";
-            this.btnVoltar_Criar.UseVisualStyleBackColor = true;
+            this.btnVoltar_Criar.UseVisualStyleBackColor = false;
             this.btnVoltar_Criar.Click += new System.EventHandler(this.btnVoltar_Criar_Click);
             // 
             // btnCriar
