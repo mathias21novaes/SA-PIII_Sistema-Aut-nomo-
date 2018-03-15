@@ -23,8 +23,14 @@ namespace President_Me
             Lobby f = new Lobby(versao);
             f.ShowDialog();
             jogadorVez = Entrar_Partida.idJogador;
-            lblVez.Text = jogadorVez;
+            jogadorVez = lblVez.Text;
 
+            //if(Entrar_Partida.iniciou_partida == true)
+            //{
+            //    Jogo            }
+
+
+           
 
 
         }

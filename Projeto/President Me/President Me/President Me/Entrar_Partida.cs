@@ -23,7 +23,7 @@ namespace President_Me
         public string versao { get; set; }
         public static string idJogador { get; set; }
         public string DadosJogador { get; set; }
-        public bool iniciou_partida { get; set; }
+        public static bool iniciou_partida { get; set; }
 
         public Entrar_Partida()
         {
