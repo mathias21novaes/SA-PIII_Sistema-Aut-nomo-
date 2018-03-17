@@ -24,6 +24,7 @@ namespace President_Me
         public static string idJogador { get; set; }
         public string DadosJogador { get; set; }
         public static bool iniciou_partida { get; set; }
+        public int numJogadores { get; set; }
 
         public Entrar_Partida()
         {
@@ -46,6 +47,7 @@ namespace President_Me
                 if (i == 1)
                     lblDadosJogadorSenha.Text = colunas[i];
             }
+            this.numJogadores++;
         }
 
         private void btnVoltar_Entrar_Click(object sender, EventArgs e)
@@ -63,10 +65,18 @@ namespace President_Me
 
         private void btnIniciar_Click(object sender, EventArgs e)
         {
-            lblEntrou.Text = "Entrou na Partida";
-            idJogador = Jogo.Iniciar(idpartida, senha_partida);
-            iniciou_partida = true;
-            this.Close();
+            if (numJogadores >= 2 && numJogadores <= 6)
+            {
+                lblEntrou.Text = "Entrou na Partida";
+                idJogador = Jogo.Iniciar(idpartida, senha_partida);
+                iniciou_partida = true;
+                this.Close();
+            }
+            else
+            {
+                lblEntrou.Text = "JOGADORES INSUFICIENTES";
+                iniciou_partida = false;
+            }
         }
     }
 }
