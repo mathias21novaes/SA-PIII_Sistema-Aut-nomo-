@@ -61,7 +61,7 @@
             // 
             // pict1
             // 
-            this.pict1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.pict1.BackColor = System.Drawing.Color.Transparent;
             this.pict1.Image = global::President_Me.Properties.Resources.A;
             this.pict1.Location = new System.Drawing.Point(68, 105);
             this.pict1.Margin = new System.Windows.Forms.Padding(0);
@@ -72,7 +72,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.Image = global::President_Me.Properties.Resources.B;
             this.pictureBox2.Location = new System.Drawing.Point(164, 105);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(0);
@@ -83,7 +83,7 @@
             // 
             // pictureBox3
             // 
-            this.pictureBox3.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox3.Image = global::President_Me.Properties.Resources.C;
             this.pictureBox3.Location = new System.Drawing.Point(260, 105);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(0);
@@ -94,7 +94,7 @@
             // 
             // pictureBox4
             // 
-            this.pictureBox4.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox4.Image = global::President_Me.Properties.Resources.D;
             this.pictureBox4.Location = new System.Drawing.Point(356, 105);
             this.pictureBox4.Margin = new System.Windows.Forms.Padding(0);
@@ -105,7 +105,7 @@
             // 
             // pictureBox5
             // 
-            this.pictureBox5.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox5.Image = global::President_Me.Properties.Resources.E;
             this.pictureBox5.Location = new System.Drawing.Point(68, 197);
             this.pictureBox5.Margin = new System.Windows.Forms.Padding(0);
@@ -116,7 +116,7 @@
             // 
             // pictureBox6
             // 
-            this.pictureBox6.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.pictureBox6.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox6.Image = global::President_Me.Properties.Resources.F;
             this.pictureBox6.Location = new System.Drawing.Point(164, 197);
             this.pictureBox6.Margin = new System.Windows.Forms.Padding(0);
@@ -127,7 +127,7 @@
             // 
             // pictureBox7
             // 
-            this.pictureBox7.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.pictureBox7.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox7.Image = global::President_Me.Properties.Resources.G;
             this.pictureBox7.Location = new System.Drawing.Point(260, 197);
             this.pictureBox7.Margin = new System.Windows.Forms.Padding(0);
@@ -138,7 +138,7 @@
             // 
             // pictureBox8
             // 
-            this.pictureBox8.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.pictureBox8.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox8.Image = global::President_Me.Properties.Resources.H;
             this.pictureBox8.Location = new System.Drawing.Point(356, 197);
             this.pictureBox8.Margin = new System.Windows.Forms.Padding(0);
@@ -149,7 +149,7 @@
             // 
             // pictureBox9
             // 
-            this.pictureBox9.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.pictureBox9.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox9.Image = global::President_Me.Properties.Resources.I;
             this.pictureBox9.Location = new System.Drawing.Point(68, 289);
             this.pictureBox9.Margin = new System.Windows.Forms.Padding(0);
@@ -160,7 +160,7 @@
             // 
             // pictureBox10
             // 
-            this.pictureBox10.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.pictureBox10.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox10.Image = global::President_Me.Properties.Resources.J;
             this.pictureBox10.Location = new System.Drawing.Point(164, 289);
             this.pictureBox10.Margin = new System.Windows.Forms.Padding(0);
@@ -171,7 +171,7 @@
             // 
             // pictureBox11
             // 
-            this.pictureBox11.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.pictureBox11.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox11.Image = global::President_Me.Properties.Resources.K;
             this.pictureBox11.Location = new System.Drawing.Point(260, 289);
             this.pictureBox11.Margin = new System.Windows.Forms.Padding(0);
@@ -182,7 +182,7 @@
             // 
             // pictureBox12
             // 
-            this.pictureBox12.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.pictureBox12.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox12.Image = global::President_Me.Properties.Resources.L;
             this.pictureBox12.Location = new System.Drawing.Point(356, 289);
             this.pictureBox12.Margin = new System.Windows.Forms.Padding(0);
@@ -193,7 +193,7 @@
             // 
             // pictureBox13
             // 
-            this.pictureBox13.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.pictureBox13.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox13.Image = global::President_Me.Properties.Resources.M;
             this.pictureBox13.Location = new System.Drawing.Point(68, 381);
             this.pictureBox13.Margin = new System.Windows.Forms.Padding(0);

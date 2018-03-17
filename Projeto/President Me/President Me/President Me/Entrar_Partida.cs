@@ -25,6 +25,7 @@ namespace President_Me
         public string DadosJogador { get; set; }
         public static bool iniciou_partida { get; set; }
         public int numJogadores { get; set; }
+        public string ListarJogadores { get; set; }
 
         public Entrar_Partida()
         {
@@ -48,6 +49,9 @@ namespace President_Me
                     lblDadosJogadorSenha.Text = colunas[i];
             }
             this.numJogadores++;
+
+            ListarJogadores = Jogo.ListarJogadores(idpartida);
+            txtListarJogadores.Text = ListarJogadores;
         }
 
         private void btnVoltar_Entrar_Click(object sender, EventArgs e)

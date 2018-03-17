@@ -24,7 +24,7 @@ namespace President_Me
             Lobby f = new Lobby(versao);
             f.ShowDialog();
             jogadorVez = Entrar_Partida.idJogador;
-            jogadorVez = lblVez.Text;
+            lblVez.Text = jogadorVez;
         }
 
         private Point primeiroPoint = new Point();

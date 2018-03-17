@@ -45,6 +45,8 @@
             this.txtSenha_Entrar = new System.Windows.Forms.TextBox();
             this.btnIniciar = new System.Windows.Forms.Button();
             this.lblEntrou = new System.Windows.Forms.Label();
+            this.txtListarJogadores = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnEntrar
@@ -69,7 +71,7 @@
             // 
             // txtListarPartidas
             // 
-            this.txtListarPartidas.Location = new System.Drawing.Point(322, 91);
+            this.txtListarPartidas.Location = new System.Drawing.Point(625, 72);
             this.txtListarPartidas.Multiline = true;
             this.txtListarPartidas.Name = "txtListarPartidas";
             this.txtListarPartidas.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -78,9 +80,9 @@
             // 
             // btnListarPartida
             // 
-            this.btnListarPartida.Location = new System.Drawing.Point(322, 46);
+            this.btnListarPartida.Location = new System.Drawing.Point(625, 26);
             this.btnListarPartida.Name = "btnListarPartida";
-            this.btnListarPartida.Size = new System.Drawing.Size(161, 34);
+            this.btnListarPartida.Size = new System.Drawing.Size(172, 34);
             this.btnListarPartida.TabIndex = 4;
             this.btnListarPartida.Text = "LISTAR PARTIDAS";
             this.btnListarPartida.UseVisualStyleBackColor = true;
@@ -202,11 +204,31 @@
             this.lblEntrou.TabIndex = 18;
             this.lblEntrou.Text = "*";
             // 
+            // txtListarJogadores
+            // 
+            this.txtListarJogadores.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtListarJogadores.Location = new System.Drawing.Point(358, 72);
+            this.txtListarJogadores.Multiline = true;
+            this.txtListarJogadores.Name = "txtListarJogadores";
+            this.txtListarJogadores.Size = new System.Drawing.Size(163, 233);
+            this.txtListarJogadores.TabIndex = 19;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(407, 51);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(73, 13);
+            this.label6.TabIndex = 20;
+            this.label6.Text = "JOGADORES";
+            // 
             // Entrar_Partida
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(525, 355);
+            this.ClientSize = new System.Drawing.Size(809, 355);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.txtListarJogadores);
             this.Controls.Add(this.lblEntrou);
             this.Controls.Add(this.btnIniciar);
             this.Controls.Add(this.txtSenha_Entrar);
@@ -250,5 +272,7 @@
         private System.Windows.Forms.TextBox txtSenha_Entrar;
         private System.Windows.Forms.Button btnIniciar;
         private System.Windows.Forms.Label lblEntrou;
+        private System.Windows.Forms.TextBox txtListarJogadores;
+        private System.Windows.Forms.Label label6;
     }
 }
