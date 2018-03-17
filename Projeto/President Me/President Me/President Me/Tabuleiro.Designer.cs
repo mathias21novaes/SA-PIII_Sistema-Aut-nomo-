@@ -205,27 +205,32 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(54, 521);
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Bahnschrift SemiBold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.Location = new System.Drawing.Point(63, 511);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 13);
+            this.label1.Size = new System.Drawing.Size(180, 29);
             this.label1.TabIndex = 13;
             this.label1.Text = "ID DO JOGADOR";
             // 
             // lblVez
             // 
             this.lblVez.AutoSize = true;
-            this.lblVez.Location = new System.Drawing.Point(176, 521);
+            this.lblVez.BackColor = System.Drawing.Color.Transparent;
+            this.lblVez.Font = new System.Drawing.Font("Bahnschrift SemiBold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVez.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblVez.Location = new System.Drawing.Point(280, 514);
             this.lblVez.Name = "lblVez";
-            this.lblVez.Size = new System.Drawing.Size(11, 13);
+            this.lblVez.Size = new System.Drawing.Size(0, 25);
             this.lblVez.TabIndex = 14;
-            this.lblVez.Text = "*";
             // 
             // Tabuleiro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(1214, 686);
+            this.ClientSize = new System.Drawing.Size(1273, 686);
             this.Controls.Add(this.lblVez);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox13);

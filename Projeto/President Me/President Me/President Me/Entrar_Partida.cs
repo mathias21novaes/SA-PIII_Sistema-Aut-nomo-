@@ -69,7 +69,7 @@ namespace President_Me
 
         private void btnIniciar_Click(object sender, EventArgs e)
         {
-            if (numJogadores >= 2 && numJogadores <= 6)
+            if (numJogadores > 1 && numJogadores < 7)
             {
                 lblEntrou.Text = "Entrou na Partida";
                 idJogador = Jogo.Iniciar(idpartida, senha_partida);
