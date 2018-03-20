@@ -21,7 +21,7 @@ namespace President_Me
         public string listar { get; set; }
         public string idesenha_jogador { get; set; }
         public string versao { get; set; }
-        public static string idJogador { get; set; }
+        public static  string idJogador { get; set; }
         public string DadosJogador { get; set; }
         public static bool iniciou_partida { get; set; }
         public int numJogadores { get; set; }
