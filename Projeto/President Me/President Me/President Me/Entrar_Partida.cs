@@ -26,6 +26,7 @@ namespace President_Me
         public static bool iniciou_partida { get; set; }
         public int numJogadores { get; set; }
         public string ListarJogadores { get; set; }
+        public static string []colunas { get; set; }
 
         public Entrar_Partida()
         {
@@ -40,7 +41,7 @@ namespace President_Me
             this.senha_partida = txtSenha_Entrar.Text;
             this.idesenha_jogador = Jogo.Entrar(idpartida, nome_jogador, senha_partida);
 
-            string[] colunas = this.idesenha_jogador.Split(',');
+            colunas = this.idesenha_jogador.Split(',');
             for(int i = 0; i < colunas.Length; i++)
             {
                 if (i == 0)

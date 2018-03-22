@@ -134,9 +134,9 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.BackgroundImage = global::President_Me.Properties.Resources.logo;
-            this.pictureBox1.Location = new System.Drawing.Point(25, -52);
+            this.pictureBox1.Location = new System.Drawing.Point(0, -50);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(207, 143);
+            this.pictureBox1.Size = new System.Drawing.Size(199, 154);
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
             // 
