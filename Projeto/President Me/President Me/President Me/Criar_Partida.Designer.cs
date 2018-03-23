@@ -126,6 +126,7 @@
             this.Controls.Add(this.txtNome_Partida);
             this.Controls.Add(this.btnCriar);
             this.Controls.Add(this.btnVoltar_Criar);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Criar_Partida";
             this.Text = "Criar";
             this.ResumeLayout(false);

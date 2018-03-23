@@ -147,6 +147,7 @@
             this.BackColor = System.Drawing.Color.MidnightBlue;
             this.ClientSize = new System.Drawing.Size(743, 400);
             this.Controls.Add(this.panel2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Lobby";
             this.Text = "Lobby";
             this.Load += new System.EventHandler(this.Lobby_Load);

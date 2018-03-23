@@ -246,6 +246,7 @@
             this.Controls.Add(this.txtListarPartidas);
             this.Controls.Add(this.btnVoltar_Entrar);
             this.Controls.Add(this.btnEntrar);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Entrar_Partida";
             this.Text = "Entrar";
             this.ResumeLayout(false);

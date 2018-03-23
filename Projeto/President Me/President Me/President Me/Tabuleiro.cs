@@ -28,16 +28,16 @@ namespace President_Me
             Lobby f = new Lobby(versao);
             f.ShowDialog();
             jogadorid = Entrar_Partida.idJogador;
-            vez = int.Parse(jogadorid);
-            lblVez.Text = jogadorVez;
+            //vez = int.Parse(jogadorid);
+            //lblVez.Text = jogadorVez;
 
-            jogadorVez = Jogo.VerificarVez(vez);
+            //jogadorVez = Jogo.VerificarVez(vez);
             //Entrar_Partida.colunas[0] = jogador;
-            while(jogador != vez)
-            {
-                Thread.Sleep(3000);
+            //while(jogador != vez)
+            //{
+             //   Thread.Sleep(3000);
                 //string fdsfd= Jogo.VerificarVez(vez);
-            }
+            //}
 
         }
 
