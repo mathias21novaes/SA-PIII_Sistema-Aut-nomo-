@@ -64,8 +64,12 @@ namespace President_Me
 
         private void btnListarPartida_Click(object sender, EventArgs e)
         {
-            listar = txtListarPartidas.Text;
-            txtListarPartidas.Text = Jogo.ListarPartidas();        
+            listar = Jogo.ListarPartidas();
+            txtListarPartidas.Text = listar;
+            //listPartidas.Items.Add(listar);
+            //listar = txtListarJogadores.Text;
+
+            
         }
 
         private void btnIniciar_Click(object sender, EventArgs e)

@@ -47,6 +47,7 @@
             this.lblEntrou = new System.Windows.Forms.Label();
             this.txtListarJogadores = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.listPartidas = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // btnEntrar
@@ -222,11 +223,22 @@
             this.label6.TabIndex = 20;
             this.label6.Text = "JOGADORES";
             // 
+            // listPartidas
+            // 
+            this.listPartidas.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listPartidas.FormattingEnabled = true;
+            this.listPartidas.ItemHeight = 18;
+            this.listPartidas.Location = new System.Drawing.Point(358, 358);
+            this.listPartidas.Name = "listPartidas";
+            this.listPartidas.Size = new System.Drawing.Size(268, 220);
+            this.listPartidas.TabIndex = 21;
+            // 
             // Entrar_Partida
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(809, 355);
+            this.ClientSize = new System.Drawing.Size(809, 587);
+            this.Controls.Add(this.listPartidas);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtListarJogadores);
             this.Controls.Add(this.lblEntrou);
@@ -275,5 +287,6 @@
         private System.Windows.Forms.Label lblEntrou;
         private System.Windows.Forms.TextBox txtListarJogadores;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ListBox listPartidas;
     }
 }
