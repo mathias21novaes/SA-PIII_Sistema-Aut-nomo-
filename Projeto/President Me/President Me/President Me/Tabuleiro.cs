@@ -26,6 +26,7 @@ namespace President_Me
             InitializeComponent();
             string versao = "3.0";
             Lobby f = new Lobby(versao);
+            //f.Location = new Point(700, 700);
             f.ShowDialog();
             jogadorid = Entrar_Partida.idJogador;
             //vez = int.Parse(jogadorid);

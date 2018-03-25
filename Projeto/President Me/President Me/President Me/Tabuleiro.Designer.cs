@@ -247,6 +247,7 @@
             this.Controls.Add(this.pict2);
             this.Controls.Add(this.pict1);
             this.Name = "Tabuleiro";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tabuleiro";
             ((System.ComponentModel.ISupportInitialize)(this.pict1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pict2)).EndInit();

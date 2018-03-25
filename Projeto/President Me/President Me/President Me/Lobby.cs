@@ -17,33 +17,34 @@ namespace President_Me
         {
             InitializeComponent();
             lblversao.Text = versao;
-        }
-
-        private void btnSair_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void btnEntrar_partida_Click(object sender, EventArgs e)
-        {
-            Entrar_Partida p = new Entrar_Partida();
-            p.ShowDialog();
-            if(Entrar_Partida.iniciou_partida == true)
-            {
-                this.Close();
-            }
-
-        }
-
-        private void btnCriar_Partida_Click(object sender, EventArgs e)
-        {
-            Criar_Partida c = new Criar_Partida();
-            c.ShowDialog();
+            //StartPosition = Center;
+            Location = new Point(700, 700);
         }
 
         private void Lobby_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btn_fechar_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btn_entrar_Click(object sender, EventArgs e)
+        {
+            Entrar_Partida p = new Entrar_Partida();
+            p.ShowDialog();
+            if (Entrar_Partida.iniciou_partida == true)
+            {
+                this.Close();
+            }
+        }
+
+        private void btn_criar_Click(object sender, EventArgs e)
+        {
+            Criar_Partida c = new Criar_Partida();
+            c.ShowDialog();
         }
     }
 }

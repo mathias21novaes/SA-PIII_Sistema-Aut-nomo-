@@ -128,6 +128,7 @@
             this.Controls.Add(this.btnVoltar_Criar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Criar_Partida";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Criar";
             this.ResumeLayout(false);
             this.PerformLayout();

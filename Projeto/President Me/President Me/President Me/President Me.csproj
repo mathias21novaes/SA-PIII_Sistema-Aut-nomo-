@@ -151,5 +151,20 @@
   <ItemGroup>
     <None Include="logo.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="IMAGENS\BOTOES\button_entrar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMAGENS\BOTOES\button_criar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMAGENS\icone_fechar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMAGENS\brasil.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mapa-do-brasil-cinza.svg.hi.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
