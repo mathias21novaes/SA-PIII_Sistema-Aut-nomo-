@@ -66,7 +66,6 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = global::President_Me.Properties.Resources.mapa_do_brasil_cinza_svg_hi;
             this.pictureBox1.Location = new System.Drawing.Point(345, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(283, 313);
@@ -77,7 +76,6 @@
             // btn_fechar
             // 
             this.btn_fechar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_fechar.Image = global::President_Me.Properties.Resources.icone_fechar;
             this.btn_fechar.Location = new System.Drawing.Point(593, 4);
             this.btn_fechar.Name = "btn_fechar";
             this.btn_fechar.Size = new System.Drawing.Size(35, 30);
@@ -90,7 +88,6 @@
             // 
             this.btn_criar.BackColor = System.Drawing.Color.Transparent;
             this.btn_criar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_criar.Image = global::President_Me.Properties.Resources.button_criar;
             this.btn_criar.Location = new System.Drawing.Point(326, 209);
             this.btn_criar.Name = "btn_criar";
             this.btn_criar.Size = new System.Drawing.Size(175, 54);
@@ -103,7 +100,6 @@
             // 
             this.btn_entrar.BackColor = System.Drawing.Color.Transparent;
             this.btn_entrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_entrar.Image = global::President_Me.Properties.Resources.button_entrar;
             this.btn_entrar.Location = new System.Drawing.Point(120, 209);
             this.btn_entrar.Name = "btn_entrar";
             this.btn_entrar.Size = new System.Drawing.Size(175, 54);
