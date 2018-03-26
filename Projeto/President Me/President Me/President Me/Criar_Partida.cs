@@ -23,21 +23,20 @@ namespace President_Me
             InitializeComponent();
         }
 
-        private void btnVoltar_Criar_Click(object sender, EventArgs e)
+        private void btn_voltar_Click(object sender, EventArgs e)
         {
             Lobby f = new Lobby(versao);
             this.Close();
         }
 
-        private void btnCriar_Click(object sender, EventArgs e)
+        private void btn_criar_Click(object sender, EventArgs e)
         {
             this.Nome_Partida = txtNome_Partida.Text;
             this.Senha_Partida = txtSenha_Partida.Text;
             this.Id = Jogo.CriarPartida(Nome_Partida, Senha_Partida);
             //MessageBox.Show("P A R T I D A   C R I A D A !");
-            lblPartidaCriada.Text = "PARTIDA CRIADA";
-            lblidc.Text = Id;
-
+            lbl_PartidaCriada1.Text = "PARTIDA CRIADA";
+            lbl_PartidaCriada2.Text = "COM SUCESSO";
         }
     }
 }
