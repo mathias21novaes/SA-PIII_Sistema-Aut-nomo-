@@ -61,11 +61,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Helvetica LT Std", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.DarkBlue;
-            this.label3.Location = new System.Drawing.Point(104, 27);
+            this.label3.Location = new System.Drawing.Point(86, 23);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(268, 32);
+            this.label3.Size = new System.Drawing.Size(289, 31);
             this.label3.TabIndex = 9;
             this.label3.Text = "CRIE UMA PARTIDA";
             // 
@@ -83,21 +83,23 @@
             // 
             this.txtNome_Partida.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.txtNome_Partida.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtNome_Partida.Font = new System.Drawing.Font("Helvetica LT Std", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNome_Partida.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNome_Partida.Location = new System.Drawing.Point(35, 39);
             this.txtNome_Partida.Name = "txtNome_Partida";
-            this.txtNome_Partida.Size = new System.Drawing.Size(267, 23);
+            this.txtNome_Partida.Size = new System.Drawing.Size(267, 22);
             this.txtNome_Partida.TabIndex = 2;
+            this.txtNome_Partida.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtSenha_Partida
             // 
             this.txtSenha_Partida.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.txtSenha_Partida.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtSenha_Partida.Font = new System.Drawing.Font("Helvetica LT Std", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSenha_Partida.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSenha_Partida.Location = new System.Drawing.Point(35, 104);
             this.txtSenha_Partida.Name = "txtSenha_Partida";
-            this.txtSenha_Partida.Size = new System.Drawing.Size(267, 23);
+            this.txtSenha_Partida.Size = new System.Drawing.Size(267, 22);
             this.txtSenha_Partida.TabIndex = 3;
+            this.txtSenha_Partida.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label1
             // 

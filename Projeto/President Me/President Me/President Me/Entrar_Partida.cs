@@ -66,10 +66,7 @@ namespace President_Me
         {
             listar = Jogo.ListarPartidas();
             txtListarPartidas.Text = listar;
-            //listPartidas.Items.Add(listar);
-            //listar = txtListarJogadores.Text;
-
-            
+            checkListar.Text = listar;
         }
 
         private void btnIniciar_Click(object sender, EventArgs e)
