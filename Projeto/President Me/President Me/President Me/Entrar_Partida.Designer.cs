@@ -47,13 +47,12 @@
             this.lblEntrou = new System.Windows.Forms.Label();
             this.txtListarJogadores = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.checkListar = new System.Windows.Forms.CheckedListBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.data = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.listPartidas = new System.Windows.Forms.ListBox();
+            this.txtPartidaSelct = new System.Windows.Forms.TextBox();
+            this.lblStatus = new System.Windows.Forms.Label();
+            this.lblnome = new System.Windows.Forms.Label();
+            this.lbldata = new System.Windows.Forms.Label();
+            this.lblidd = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnEntrar
@@ -78,7 +77,7 @@
             // 
             // txtListarPartidas
             // 
-            this.txtListarPartidas.Location = new System.Drawing.Point(475, 59);
+            this.txtListarPartidas.Location = new System.Drawing.Point(488, 59);
             this.txtListarPartidas.Multiline = true;
             this.txtListarPartidas.Name = "txtListarPartidas";
             this.txtListarPartidas.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -87,7 +86,7 @@
             // 
             // btnListarPartida
             // 
-            this.btnListarPartida.Location = new System.Drawing.Point(475, 13);
+            this.btnListarPartida.Location = new System.Drawing.Point(488, 12);
             this.btnListarPartida.Name = "btnListarPartida";
             this.btnListarPartida.Size = new System.Drawing.Size(172, 34);
             this.btnListarPartida.TabIndex = 4;
@@ -229,55 +228,69 @@
             this.label6.TabIndex = 20;
             this.label6.Text = "JOGADORES";
             // 
-            // checkListar
+            // listPartidas
             // 
-            this.checkListar.FormattingEnabled = true;
-            this.checkListar.Location = new System.Drawing.Point(653, 75);
-            this.checkListar.Name = "checkListar";
-            this.checkListar.Size = new System.Drawing.Size(185, 214);
-            this.checkListar.TabIndex = 21;
+            this.listPartidas.FormattingEnabled = true;
+            this.listPartidas.Location = new System.Drawing.Point(689, 59);
+            this.listPartidas.Name = "listPartidas";
+            this.listPartidas.Size = new System.Drawing.Size(200, 303);
+            this.listPartidas.TabIndex = 21;
+            this.listPartidas.SelectedIndexChanged += new System.EventHandler(this.listPartidas_SelectedIndexChanged);
             // 
-            // dataGridView1
+            // txtPartidaSelct
             // 
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.id,
-            this.status,
-            this.data,
-            this.nome});
-            this.dataGridView1.Location = new System.Drawing.Point(306, 315);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(444, 163);
-            this.dataGridView1.TabIndex = 22;
+            this.txtPartidaSelct.Location = new System.Drawing.Point(370, 396);
+            this.txtPartidaSelct.Name = "txtPartidaSelct";
+            this.txtPartidaSelct.Size = new System.Drawing.Size(264, 20);
+            this.txtPartidaSelct.TabIndex = 22;
             // 
-            // id
+            // lblStatus
             // 
-            this.id.HeaderText = "id";
-            this.id.Name = "id";
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.Location = new System.Drawing.Point(673, 440);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(11, 13);
+            this.lblStatus.TabIndex = 23;
+            this.lblStatus.Text = "*";
             // 
-            // status
+            // lblnome
             // 
-            this.status.HeaderText = "status";
-            this.status.Name = "status";
+            this.lblnome.AutoSize = true;
+            this.lblnome.Location = new System.Drawing.Point(839, 440);
+            this.lblnome.Name = "lblnome";
+            this.lblnome.Size = new System.Drawing.Size(11, 13);
+            this.lblnome.TabIndex = 24;
+            this.lblnome.Text = "*";
             // 
-            // data
+            // lbldata
             // 
-            this.data.HeaderText = "data";
-            this.data.Name = "data";
+            this.lbldata.AutoSize = true;
+            this.lbldata.Location = new System.Drawing.Point(787, 440);
+            this.lbldata.Name = "lbldata";
+            this.lbldata.Size = new System.Drawing.Size(11, 13);
+            this.lbldata.TabIndex = 25;
+            this.lbldata.Text = "*";
             // 
-            // nome
+            // lblidd
             // 
-            this.nome.HeaderText = "nome";
-            this.nome.Name = "nome";
+            this.lblidd.AutoSize = true;
+            this.lblidd.Location = new System.Drawing.Point(731, 440);
+            this.lblidd.Name = "lblidd";
+            this.lblidd.Size = new System.Drawing.Size(11, 13);
+            this.lblidd.TabIndex = 26;
+            this.lblidd.Text = "*";
             // 
             // Entrar_Partida
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1164, 490);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.checkListar);
+            this.Controls.Add(this.lblidd);
+            this.Controls.Add(this.lbldata);
+            this.Controls.Add(this.lblnome);
+            this.Controls.Add(this.lblStatus);
+            this.Controls.Add(this.txtPartidaSelct);
+            this.Controls.Add(this.listPartidas);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtListarJogadores);
             this.Controls.Add(this.lblEntrou);
@@ -301,7 +314,6 @@
             this.Name = "Entrar_Partida";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Entrar";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -328,11 +340,11 @@
         private System.Windows.Forms.Label lblEntrou;
         private System.Windows.Forms.TextBox txtListarJogadores;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.CheckedListBox checkListar;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn status;
-        private System.Windows.Forms.DataGridViewTextBoxColumn data;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nome;
+        private System.Windows.Forms.ListBox listPartidas;
+        private System.Windows.Forms.TextBox txtPartidaSelct;
+        private System.Windows.Forms.Label lblStatus;
+        private System.Windows.Forms.Label lblnome;
+        private System.Windows.Forms.Label lbldata;
+        private System.Windows.Forms.Label lblidd;
     }
 }
