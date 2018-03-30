@@ -28,10 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnEntrar = new System.Windows.Forms.Button();
-            this.btnVoltar_Entrar = new System.Windows.Forms.Button();
-            this.txtListarPartidas = new System.Windows.Forms.TextBox();
-            this.btnListarPartida = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Entrar_Partida));
             this.txtJogador = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -39,72 +36,41 @@
             this.lblDadosJogadorId = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.lblid = new System.Windows.Forms.Label();
-            this.txtId_Entrar = new System.Windows.Forms.TextBox();
             this.txtSenha_Entrar = new System.Windows.Forms.TextBox();
-            this.btnIniciar = new System.Windows.Forms.Button();
             this.lblEntrou = new System.Windows.Forms.Label();
             this.txtListarJogadores = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.listPartidas = new System.Windows.Forms.ListBox();
-            this.txtPartidaSelct = new System.Windows.Forms.TextBox();
-            this.lblStatus = new System.Windows.Forms.Label();
-            this.lblnome = new System.Windows.Forms.Label();
-            this.lbldata = new System.Windows.Forms.Label();
-            this.lblidd = new System.Windows.Forms.Label();
+            this.btn_voltar = new System.Windows.Forms.PictureBox();
+            this.btn_iniciar = new System.Windows.Forms.PictureBox();
+            this.btn_entrar = new System.Windows.Forms.PictureBox();
+            this.btn_listar = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lblnumJog = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_voltar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_iniciar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_entrar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_listar)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnEntrar
-            // 
-            this.btnEntrar.Location = new System.Drawing.Point(199, 22);
-            this.btnEntrar.Name = "btnEntrar";
-            this.btnEntrar.Size = new System.Drawing.Size(75, 42);
-            this.btnEntrar.TabIndex = 0;
-            this.btnEntrar.Text = "Entrar";
-            this.btnEntrar.UseVisualStyleBackColor = true;
-            this.btnEntrar.Click += new System.EventHandler(this.btnEntrar_Click);
-            // 
-            // btnVoltar_Entrar
-            // 
-            this.btnVoltar_Entrar.Location = new System.Drawing.Point(12, 315);
-            this.btnVoltar_Entrar.Name = "btnVoltar_Entrar";
-            this.btnVoltar_Entrar.Size = new System.Drawing.Size(65, 28);
-            this.btnVoltar_Entrar.TabIndex = 2;
-            this.btnVoltar_Entrar.Text = "VOLTAR";
-            this.btnVoltar_Entrar.UseVisualStyleBackColor = true;
-            this.btnVoltar_Entrar.Click += new System.EventHandler(this.btnVoltar_Entrar_Click);
-            // 
-            // txtListarPartidas
-            // 
-            this.txtListarPartidas.Location = new System.Drawing.Point(488, 59);
-            this.txtListarPartidas.Multiline = true;
-            this.txtListarPartidas.Name = "txtListarPartidas";
-            this.txtListarPartidas.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtListarPartidas.Size = new System.Drawing.Size(172, 233);
-            this.txtListarPartidas.TabIndex = 3;
-            // 
-            // btnListarPartida
-            // 
-            this.btnListarPartida.Location = new System.Drawing.Point(488, 12);
-            this.btnListarPartida.Name = "btnListarPartida";
-            this.btnListarPartida.Size = new System.Drawing.Size(172, 34);
-            this.btnListarPartida.TabIndex = 4;
-            this.btnListarPartida.Text = "LISTAR PARTIDAS";
-            this.btnListarPartida.UseVisualStyleBackColor = true;
-            this.btnListarPartida.Click += new System.EventHandler(this.btnListarPartida_Click);
             // 
             // txtJogador
             // 
-            this.txtJogador.Location = new System.Drawing.Point(23, 91);
+            this.txtJogador.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtJogador.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtJogador.Location = new System.Drawing.Point(26, 249);
             this.txtJogador.Name = "txtJogador";
-            this.txtJogador.Size = new System.Drawing.Size(130, 20);
+            this.txtJogador.Size = new System.Drawing.Size(182, 22);
             this.txtJogador.TabIndex = 6;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(20, 161);
+            this.label1.Location = new System.Drawing.Point(55, 572);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(92, 13);
             this.label1.TabIndex = 7;
@@ -113,7 +79,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(156, 161);
+            this.label2.Location = new System.Drawing.Point(244, 572);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(118, 13);
             this.label2.TabIndex = 8;
@@ -123,7 +89,7 @@
             // 
             this.lblDadosJogadorSenha.AutoSize = true;
             this.lblDadosJogadorSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDadosJogadorSenha.Location = new System.Drawing.Point(206, 208);
+            this.lblDadosJogadorSenha.Location = new System.Drawing.Point(368, 571);
             this.lblDadosJogadorSenha.Name = "lblDadosJogadorSenha";
             this.lblDadosJogadorSenha.Size = new System.Drawing.Size(15, 18);
             this.lblDadosJogadorSenha.TabIndex = 9;
@@ -133,7 +99,7 @@
             // 
             this.lblDadosJogadorId.AutoSize = true;
             this.lblDadosJogadorId.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDadosJogadorId.Location = new System.Drawing.Point(55, 208);
+            this.lblDadosJogadorId.Location = new System.Drawing.Point(153, 568);
             this.lblDadosJogadorId.Name = "lblDadosJogadorId";
             this.lblDadosJogadorId.Size = new System.Drawing.Size(15, 18);
             this.lblDadosJogadorId.TabIndex = 10;
@@ -142,87 +108,54 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(20, 75);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(35, 228);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(59, 13);
+            this.label3.Size = new System.Drawing.Size(63, 18);
             this.label3.TabIndex = 11;
-            this.label3.Text = "JOGADOR";
+            this.label3.Text = "Jogador";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(156, 75);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(230, 228);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(112, 13);
+            this.label4.Size = new System.Drawing.Size(120, 18);
             this.label4.TabIndex = 12;
-            this.label4.Text = "SENHA DA PARTIDA";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(20, 22);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(86, 13);
-            this.label5.TabIndex = 13;
-            this.label5.Text = "ID DA PARTIDA";
-            // 
-            // lblid
-            // 
-            this.lblid.AutoSize = true;
-            this.lblid.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblid.Location = new System.Drawing.Point(167, 18);
-            this.lblid.Name = "lblid";
-            this.lblid.Size = new System.Drawing.Size(15, 18);
-            this.lblid.TabIndex = 14;
-            this.lblid.Text = "*";
-            // 
-            // txtId_Entrar
-            // 
-            this.txtId_Entrar.Location = new System.Drawing.Point(112, 19);
-            this.txtId_Entrar.Name = "txtId_Entrar";
-            this.txtId_Entrar.Size = new System.Drawing.Size(39, 20);
-            this.txtId_Entrar.TabIndex = 15;
+            this.label4.Text = "Senha da Partida";
             // 
             // txtSenha_Entrar
             // 
-            this.txtSenha_Entrar.Location = new System.Drawing.Point(159, 91);
+            this.txtSenha_Entrar.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtSenha_Entrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSenha_Entrar.Location = new System.Drawing.Point(220, 249);
             this.txtSenha_Entrar.Name = "txtSenha_Entrar";
-            this.txtSenha_Entrar.Size = new System.Drawing.Size(130, 20);
+            this.txtSenha_Entrar.Size = new System.Drawing.Size(182, 22);
             this.txtSenha_Entrar.TabIndex = 16;
-            // 
-            // btnIniciar
-            // 
-            this.btnIniciar.Location = new System.Drawing.Point(12, 243);
-            this.btnIniciar.Name = "btnIniciar";
-            this.btnIniciar.Size = new System.Drawing.Size(105, 49);
-            this.btnIniciar.TabIndex = 17;
-            this.btnIniciar.Text = "INICIAR";
-            this.btnIniciar.UseVisualStyleBackColor = true;
-            this.btnIniciar.Click += new System.EventHandler(this.btnIniciar_Click);
             // 
             // lblEntrou
             // 
             this.lblEntrou.AutoSize = true;
-            this.lblEntrou.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEntrou.Location = new System.Drawing.Point(138, 257);
+            this.lblEntrou.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEntrou.Location = new System.Drawing.Point(149, 469);
             this.lblEntrou.Name = "lblEntrou";
-            this.lblEntrou.Size = new System.Drawing.Size(15, 18);
+            this.lblEntrou.Size = new System.Drawing.Size(0, 20);
             this.lblEntrou.TabIndex = 18;
-            this.lblEntrou.Text = "*";
             // 
             // txtListarJogadores
             // 
             this.txtListarJogadores.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtListarJogadores.Location = new System.Drawing.Point(306, 32);
+            this.txtListarJogadores.Location = new System.Drawing.Point(247, 510);
             this.txtListarJogadores.Multiline = true;
             this.txtListarJogadores.Name = "txtListarJogadores";
-            this.txtListarJogadores.Size = new System.Drawing.Size(163, 233);
+            this.txtListarJogadores.Size = new System.Drawing.Size(54, 44);
             this.txtListarJogadores.TabIndex = 19;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(355, 11);
+            this.label6.Location = new System.Drawing.Point(244, 494);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(73, 13);
             this.label6.TabIndex = 20;
@@ -230,101 +163,154 @@
             // 
             // listPartidas
             // 
+            this.listPartidas.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.listPartidas.FormattingEnabled = true;
-            this.listPartidas.Location = new System.Drawing.Point(689, 59);
+            this.listPartidas.Location = new System.Drawing.Point(26, 35);
             this.listPartidas.Name = "listPartidas";
-            this.listPartidas.Size = new System.Drawing.Size(200, 303);
+            this.listPartidas.Size = new System.Drawing.Size(376, 182);
             this.listPartidas.TabIndex = 21;
             this.listPartidas.SelectedIndexChanged += new System.EventHandler(this.listPartidas_SelectedIndexChanged);
             // 
-            // txtPartidaSelct
+            // btn_voltar
             // 
-            this.txtPartidaSelct.Location = new System.Drawing.Point(370, 396);
-            this.txtPartidaSelct.Name = "txtPartidaSelct";
-            this.txtPartidaSelct.Size = new System.Drawing.Size(264, 20);
-            this.txtPartidaSelct.TabIndex = 22;
+            this.btn_voltar.BackColor = System.Drawing.Color.Transparent;
+            this.btn_voltar.Image = ((System.Drawing.Image)(resources.GetObject("btn_voltar.Image")));
+            this.btn_voltar.Location = new System.Drawing.Point(348, 505);
+            this.btn_voltar.Name = "btn_voltar";
+            this.btn_voltar.Size = new System.Drawing.Size(112, 49);
+            this.btn_voltar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.btn_voltar.TabIndex = 27;
+            this.btn_voltar.TabStop = false;
+            this.btn_voltar.Click += new System.EventHandler(this.btn_voltar_Click);
             // 
-            // lblStatus
+            // btn_iniciar
             // 
-            this.lblStatus.AutoSize = true;
-            this.lblStatus.Location = new System.Drawing.Point(673, 440);
-            this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(11, 13);
-            this.lblStatus.TabIndex = 23;
-            this.lblStatus.Text = "*";
+            this.btn_iniciar.BackColor = System.Drawing.Color.Transparent;
+            this.btn_iniciar.Image = ((System.Drawing.Image)(resources.GetObject("btn_iniciar.Image")));
+            this.btn_iniciar.Location = new System.Drawing.Point(31, 500);
+            this.btn_iniciar.Name = "btn_iniciar";
+            this.btn_iniciar.Size = new System.Drawing.Size(175, 54);
+            this.btn_iniciar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.btn_iniciar.TabIndex = 28;
+            this.btn_iniciar.TabStop = false;
+            this.btn_iniciar.Click += new System.EventHandler(this.btn_iniciar_Click);
             // 
-            // lblnome
+            // btn_entrar
             // 
-            this.lblnome.AutoSize = true;
-            this.lblnome.Location = new System.Drawing.Point(839, 440);
-            this.lblnome.Name = "lblnome";
-            this.lblnome.Size = new System.Drawing.Size(11, 13);
-            this.lblnome.TabIndex = 24;
-            this.lblnome.Text = "*";
+            this.btn_entrar.BackColor = System.Drawing.Color.Transparent;
+            this.btn_entrar.Image = global::President_Me.Properties.Resources.button_entrar;
+            this.btn_entrar.Location = new System.Drawing.Point(26, 286);
+            this.btn_entrar.Name = "btn_entrar";
+            this.btn_entrar.Size = new System.Drawing.Size(175, 54);
+            this.btn_entrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.btn_entrar.TabIndex = 29;
+            this.btn_entrar.TabStop = false;
+            this.btn_entrar.Click += new System.EventHandler(this.btn_entrar_Click);
             // 
-            // lbldata
+            // btn_listar
             // 
-            this.lbldata.AutoSize = true;
-            this.lbldata.Location = new System.Drawing.Point(787, 440);
-            this.lbldata.Name = "lbldata";
-            this.lbldata.Size = new System.Drawing.Size(11, 13);
-            this.lbldata.TabIndex = 25;
-            this.lbldata.Text = "*";
+            this.btn_listar.BackColor = System.Drawing.Color.Transparent;
+            this.btn_listar.Image = ((System.Drawing.Image)(resources.GetObject("btn_listar.Image")));
+            this.btn_listar.Location = new System.Drawing.Point(227, 286);
+            this.btn_listar.Name = "btn_listar";
+            this.btn_listar.Size = new System.Drawing.Size(175, 54);
+            this.btn_listar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.btn_listar.TabIndex = 30;
+            this.btn_listar.TabStop = false;
+            this.btn_listar.Click += new System.EventHandler(this.btn_listar_Click);
             // 
-            // lblidd
+            // panel1
             // 
-            this.lblidd.AutoSize = true;
-            this.lblidd.Location = new System.Drawing.Point(731, 440);
-            this.lblidd.Name = "lblidd";
-            this.lblidd.Size = new System.Drawing.Size(11, 13);
-            this.lblidd.TabIndex = 26;
-            this.lblidd.Text = "*";
+            this.panel1.BackColor = System.Drawing.Color.SteelBlue;
+            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.btn_listar);
+            this.panel1.Controls.Add(this.btn_entrar);
+            this.panel1.Controls.Add(this.listPartidas);
+            this.panel1.Controls.Add(this.txtSenha_Entrar);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.txtJogador);
+            this.panel1.Location = new System.Drawing.Point(31, 98);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(429, 360);
+            this.panel1.TabIndex = 31;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(68, 22);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(64, 64);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 32;
+            this.pictureBox1.TabStop = false;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.DarkBlue;
+            this.label5.Location = new System.Drawing.Point(150, 36);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(267, 31);
+            this.label5.TabIndex = 33;
+            this.label5.Text = "ENTRAR PARTIDA";
+            // 
+            // lblnumJog
+            // 
+            this.lblnumJog.AutoSize = true;
+            this.lblnumJog.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblnumJog.Location = new System.Drawing.Point(116, 469);
+            this.lblnumJog.Name = "lblnumJog";
+            this.lblnumJog.Size = new System.Drawing.Size(0, 20);
+            this.lblnumJog.TabIndex = 34;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(35, 11);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(135, 18);
+            this.label7.TabIndex = 31;
+            this.label7.Text = "Selecione a Partida";
             // 
             // Entrar_Partida
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1164, 490);
-            this.Controls.Add(this.lblidd);
-            this.Controls.Add(this.lbldata);
-            this.Controls.Add(this.lblnome);
-            this.Controls.Add(this.lblStatus);
-            this.Controls.Add(this.txtPartidaSelct);
-            this.Controls.Add(this.listPartidas);
+            this.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.ClientSize = new System.Drawing.Size(491, 593);
+            this.Controls.Add(this.lblnumJog);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.btn_iniciar);
+            this.Controls.Add(this.btn_voltar);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtListarJogadores);
             this.Controls.Add(this.lblEntrou);
-            this.Controls.Add(this.btnIniciar);
-            this.Controls.Add(this.txtSenha_Entrar);
-            this.Controls.Add(this.txtId_Entrar);
-            this.Controls.Add(this.lblid);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.lblDadosJogadorId);
             this.Controls.Add(this.lblDadosJogadorSenha);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtJogador);
-            this.Controls.Add(this.btnListarPartida);
-            this.Controls.Add(this.txtListarPartidas);
-            this.Controls.Add(this.btnVoltar_Entrar);
-            this.Controls.Add(this.btnEntrar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Entrar_Partida";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Entrar";
+            ((System.ComponentModel.ISupportInitialize)(this.btn_voltar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_iniciar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_entrar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_listar)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnEntrar;
-        private System.Windows.Forms.Button btnVoltar_Entrar;
-        private System.Windows.Forms.TextBox txtListarPartidas;
-        private System.Windows.Forms.Button btnListarPartida;
         private System.Windows.Forms.TextBox txtJogador;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
@@ -332,19 +318,19 @@
         private System.Windows.Forms.Label lblDadosJogadorId;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label lblid;
-        private System.Windows.Forms.TextBox txtId_Entrar;
         private System.Windows.Forms.TextBox txtSenha_Entrar;
-        private System.Windows.Forms.Button btnIniciar;
         private System.Windows.Forms.Label lblEntrou;
         private System.Windows.Forms.TextBox txtListarJogadores;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ListBox listPartidas;
-        private System.Windows.Forms.TextBox txtPartidaSelct;
-        private System.Windows.Forms.Label lblStatus;
-        private System.Windows.Forms.Label lblnome;
-        private System.Windows.Forms.Label lbldata;
-        private System.Windows.Forms.Label lblidd;
+        private System.Windows.Forms.PictureBox btn_voltar;
+        private System.Windows.Forms.PictureBox btn_iniciar;
+        private System.Windows.Forms.PictureBox btn_entrar;
+        private System.Windows.Forms.PictureBox btn_listar;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblnumJog;
+        private System.Windows.Forms.Label label7;
     }
 }

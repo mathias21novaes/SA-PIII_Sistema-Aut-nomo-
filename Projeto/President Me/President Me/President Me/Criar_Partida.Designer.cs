@@ -50,7 +50,7 @@
             // 
             this.btn_voltar.BackColor = System.Drawing.Color.Transparent;
             this.btn_voltar.Image = ((System.Drawing.Image)(resources.GetObject("btn_voltar.Image")));
-            this.btn_voltar.Location = new System.Drawing.Point(260, 332);
+            this.btn_voltar.Location = new System.Drawing.Point(257, 364);
             this.btn_voltar.Name = "btn_voltar";
             this.btn_voltar.Size = new System.Drawing.Size(112, 49);
             this.btn_voltar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -63,7 +63,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.DarkBlue;
-            this.label3.Location = new System.Drawing.Point(86, 23);
+            this.label3.Location = new System.Drawing.Point(83, 36);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(289, 31);
             this.label3.TabIndex = 9;
@@ -72,7 +72,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(26, 6);
+            this.pictureBox1.Location = new System.Drawing.Point(23, 19);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(64, 64);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -131,7 +131,7 @@
             this.lbl_PartidaCriada1.BackColor = System.Drawing.Color.Transparent;
             this.lbl_PartidaCriada1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_PartidaCriada1.ForeColor = System.Drawing.Color.Black;
-            this.lbl_PartidaCriada1.Location = new System.Drawing.Point(39, 332);
+            this.lbl_PartidaCriada1.Location = new System.Drawing.Point(52, 364);
             this.lbl_PartidaCriada1.Name = "lbl_PartidaCriada1";
             this.lbl_PartidaCriada1.Size = new System.Drawing.Size(0, 20);
             this.lbl_PartidaCriada1.TabIndex = 6;
@@ -154,7 +154,7 @@
             this.lbl_PartidaCriada2.BackColor = System.Drawing.Color.Transparent;
             this.lbl_PartidaCriada2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_PartidaCriada2.ForeColor = System.Drawing.Color.Black;
-            this.lbl_PartidaCriada2.Location = new System.Drawing.Point(50, 357);
+            this.lbl_PartidaCriada2.Location = new System.Drawing.Point(63, 389);
             this.lbl_PartidaCriada2.Name = "lbl_PartidaCriada2";
             this.lbl_PartidaCriada2.Size = new System.Drawing.Size(0, 20);
             this.lbl_PartidaCriada2.TabIndex = 12;
@@ -167,7 +167,7 @@
             this.panel1.Controls.Add(this.btn_criar);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.txtSenha_Partida);
-            this.panel1.Location = new System.Drawing.Point(34, 88);
+            this.panel1.Location = new System.Drawing.Point(32, 108);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(337, 216);
             this.panel1.TabIndex = 13;
@@ -177,7 +177,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.ClientSize = new System.Drawing.Size(404, 409);
+            this.ClientSize = new System.Drawing.Size(404, 450);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lbl_PartidaCriada2);
             this.Controls.Add(this.pictureBox1);

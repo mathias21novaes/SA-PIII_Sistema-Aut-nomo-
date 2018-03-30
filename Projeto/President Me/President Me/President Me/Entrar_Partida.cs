@@ -36,60 +36,56 @@ namespace President_Me
             InitializeComponent();
         }
 
-        private void btnEntrar_Click(object sender, EventArgs e)
-        {
-            txtId_Entrar.Text = id[1];
-            //this.idp = txtId_Entrar.Text;
-            idpartida = int.Parse(id[1]);
-            this.nome_jogador = txtJogador.Text;
-            this.senha_partida = txtSenha_Entrar.Text;
-            this.idesenha_jogador = Jogo.Entrar(idpartida, nome_jogador, senha_partida);
-
-            colunas = this.idesenha_jogador.Split(',');
-            for(int i = 0; i < colunas.Length; i++)
-            {
-                if (i == 0)
-                    lblDadosJogadorId.Text = colunas[0];
-                if (i == 1)
-                    lblDadosJogadorSenha.Text = colunas[1];
-            }
-            this.numJogadores++;
-
-            ListarJogadores = Jogo.ListarJogadores(idpartida);
-            txtListarJogadores.Text = ListarJogadores;
-        }
-
-        private void btnVoltar_Entrar_Click(object sender, EventArgs e)
+        private void btn_voltar_Click(object sender, EventArgs e)
         {
             Lobby f = new Lobby(versao);
             iniciou_partida = false;
             this.Close();
         }
 
-        private void btnListarPartida_Click(object sender, EventArgs e)
+        private void btn_listar_Click(object sender, EventArgs e)
         {
             listar = Jogo.ListarPartidas();
-            txtListarPartidas.Text = listar;
+            //txtListarPartidas.Text = listar;
             listP = this.listar.Split('\n');
-            for(int i = 0; i <listP.Length; i++)
+            for (int i = 0; i < listP.Length; i++)
             {
                 listPartidas.Items.Add(listP[i].ToString());
             }
-
         }
 
-        private void btnIniciar_Click(object sender, EventArgs e)
+        private void btn_entrar_Click(object sender, EventArgs e)
+        {
+            //txtId_Entrar.Text = id[1];
+            //this.idp = txtId_Entrar.Text;
+            idpartida = int.Parse(id[1]);
+            this.nome_jogador = txtJogador.Text;
+            this.senha_partida = txtSenha_Entrar.Text;
+            this.idesenha_jogador = Jogo.Entrar(idpartida, nome_jogador, senha_partida);
+            lblEntrou.Text = "ENTROU NA PARTIDA";
+            //lblEntrou.Text = "";
+
+            colunas = this.idesenha_jogador.Split(',');
+            lblDadosJogadorId.Text = colunas[0];
+            lblDadosJogadorSenha.Text = colunas[1];
+            this.numJogadores++;
+
+            ListarJogadores = Jogo.ListarJogadores(idpartida);
+            txtListarJogadores.Text = ListarJogadores;
+        }
+
+        private void btn_iniciar_Click(object sender, EventArgs e)
         {
             if (numJogadores > 1 && numJogadores < 7)
             {
-                lblEntrou.Text = "Entrou na Partida";
+                //lblEntrou.Text = "ENTROU NA PARTIDA";
                 idJogador = Jogo.Iniciar(idpartida, senha_partida);
                 iniciou_partida = true;
                 this.Close();
             }
             else
             {
-                lblEntrou.Text = "JOGADORES INSUFICIENTES";
+                lblnumJog.Text = "JOGADORES INSUFICIENTES";
                 iniciou_partida = false;
             }
         }
@@ -97,13 +93,11 @@ namespace President_Me
         private void listPartidas_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.listpartidas = listPartidas.Text.ToString();
-            txtPartidaSelct.Text = listpartidas;
-
             id = this.listpartidas.Split(',');
-            lblStatus.Text = id[0];
-            lblidd.Text = id[1];
-            lbldata.Text = id[2];
-            lblnome.Text = id[3];
+            String status = id[0];
+            String idl = id[1];
+            String data = id[2];
+            String nome = id[3];
         }
     }
 }
