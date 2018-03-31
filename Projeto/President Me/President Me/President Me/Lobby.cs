@@ -13,11 +13,11 @@ namespace President_Me
 {
     public partial class Lobby : Form
     {
+
         public Lobby(string versao)
         {
             InitializeComponent();
             lblversao.Text = versao;
-            //StartPosition = Center;
             Location = new Point(700, 700);
         }
 
@@ -35,6 +35,7 @@ namespace President_Me
         {
             Entrar_Partida p = new Entrar_Partida();
             p.ShowDialog();
+
             if (Entrar_Partida.iniciou_partida == true)
             {
                 this.Close();

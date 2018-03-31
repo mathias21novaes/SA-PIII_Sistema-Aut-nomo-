@@ -49,6 +49,7 @@
             // btn_voltar
             // 
             this.btn_voltar.BackColor = System.Drawing.Color.Transparent;
+            this.btn_voltar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_voltar.Image = ((System.Drawing.Image)(resources.GetObject("btn_voltar.Image")));
             this.btn_voltar.Location = new System.Drawing.Point(257, 364);
             this.btn_voltar.Name = "btn_voltar";
@@ -139,6 +140,7 @@
             // btn_criar
             // 
             this.btn_criar.BackColor = System.Drawing.Color.Transparent;
+            this.btn_criar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_criar.Image = ((System.Drawing.Image)(resources.GetObject("btn_criar.Image")));
             this.btn_criar.Location = new System.Drawing.Point(75, 142);
             this.btn_criar.Name = "btn_criar";
