@@ -14,27 +14,34 @@ namespace President_Me
     public partial class Entrar_Partida : Form
     {
         //---VARIAVEIS---
-        public int idpartida { get; set; }
+
+        public string Versao { get; set; }
+
         public string idp { get; set; }
+        public int idpartida { get; set; }
         public string nome_jogador { get; set; }
         public string senha_partida { get; set; }
-        public string listar { get; set; }
-        public string idesenha_jogador { get; set; }
-        public string versao { get; set; }
-        public static  string idJogador { get; set; }
-        public string DadosJogador { get; set; }
-        public static bool iniciou_partida { get; set; }
+
         public int numJogadores { get; set; }
+        public string idesenha_jogador { get; set; }
         public static string ListarJogadores { get; set; }
+        public static bool iniciou_partida { get; set; }
+
         public static string []colunas { get; set; }
         public string []listP { get; set; }
-        public string listpartidas { get; set; }
         public static string []id { get; set; }
+
+        public string listar { get; set; }
+        public string listpartidas { get; set; }
+
+        public static string Jogador { get; set; }
+        public static string JogadorId { get; set; }
+        public static string JogadorSenha { get; set; }
 
         public Entrar_Partida()
         {
             InitializeComponent();
-            listar = Jogo.ListarPartidas();
+            listar = MePresidentaServidor.Jogo.ListarPartidas();
             listP = this.listar.Split('\n');
             for (int i = 0; i < listP.Length; i++)
             {
@@ -44,7 +51,7 @@ namespace President_Me
 
         private void btn_voltar_Click(object sender, EventArgs e)
         {
-            Lobby f = new Lobby(versao);
+            Lobby f = new Lobby(Versao);
             iniciou_partida = false;
             this.Close();
         }
@@ -52,24 +59,26 @@ namespace President_Me
         private void btn_entrar_Click(object sender, EventArgs e)
         {
             idpartida = int.Parse(id[1]);
-            this.nome_jogador = txtJogador.Text;
-            this.senha_partida = txtSenha_Entrar.Text;
-            this.idesenha_jogador = Jogo.Entrar(idpartida, nome_jogador, senha_partida);
+            nome_jogador = txtJogador.Text;
+            senha_partida = txtSenha_Entrar.Text;
+            this.idesenha_jogador = MePresidentaServidor.Jogo.Entrar(idpartida, nome_jogador, senha_partida);
             lblEntrou1.Text = "ENTROU NA PARTIDA";
 
             colunas = this.idesenha_jogador.Split(',');
-            lblDadosJogadorId.Text = colunas[0];
-            lblDadosJogadorSenha.Text = colunas[1];
+            JogadorId = colunas[0];
+            JogadorSenha = colunas[1];
+            lblDadosJogadorId.Text = JogadorId;
+            lblDadosJogadorSenha.Text = JogadorSenha;
             this.numJogadores++;
 
-            ListarJogadores = Jogo.ListarJogadores(idpartida);
+            ListarJogadores = MePresidentaServidor.Jogo.ListarJogadores(idpartida);
         }
 
         private void btn_iniciar_Click(object sender, EventArgs e)
         {
             if (numJogadores > 1 && numJogadores < 7)
             {
-                idJogador = Jogo.Iniciar(idpartida, senha_partida);
+                Jogador = MePresidentaServidor.Jogo.Iniciar(idpartida, senha_partida);
                 iniciou_partida = true;
                 this.Close();
             }

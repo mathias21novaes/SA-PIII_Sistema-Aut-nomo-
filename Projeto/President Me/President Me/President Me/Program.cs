@@ -16,7 +16,7 @@ namespace President_Me
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Tabuleiro());
+            Application.Run(new Jogo());
         }
     }
 }

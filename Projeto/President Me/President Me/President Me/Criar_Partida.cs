@@ -13,10 +13,10 @@ namespace President_Me
 {
     public partial class Criar_Partida : Form
     {
+        public string Id { get; set; }
+        public string Versao { get; set; }
         public string Nome_Partida { get; set; }
         public string Senha_Partida { get; set; }
-        public string Id { get; set; }
-        public string versao { get; set; }
 
         public Criar_Partida()
         {
@@ -25,7 +25,7 @@ namespace President_Me
 
         private void btn_voltar_Click(object sender, EventArgs e)
         {
-            Lobby f = new Lobby(versao);
+            Lobby f = new Lobby(Versao);
             this.Close();
         }
 
@@ -33,8 +33,7 @@ namespace President_Me
         {
             this.Nome_Partida = txtNome_Partida.Text;
             this.Senha_Partida = txtSenha_Partida.Text;
-            this.Id = Jogo.CriarPartida(Nome_Partida, Senha_Partida);
-            //MessageBox.Show("P A R T I D A   C R I A D A !");
+            this.Id = MePresidentaServidor.Jogo.CriarPartida(Nome_Partida, Senha_Partida);
             lbl_PartidaCriada1.Text = "PARTIDA CRIADA";
             lbl_PartidaCriada2.Text = "COM SUCESSO";
         }

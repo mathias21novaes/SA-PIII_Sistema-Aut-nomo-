@@ -14,10 +14,10 @@ namespace President_Me
     public partial class Lobby : Form
     {
 
-        public Lobby(string versao)
+        public Lobby(string Versao)
         {
             InitializeComponent();
-            lblversao.Text = versao;
+            lblversao.Text = Versao;
             Location = new Point(700, 700);
         }
 
