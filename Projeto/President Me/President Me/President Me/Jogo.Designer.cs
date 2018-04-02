@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Jogo));
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.lblListarJogadores = new System.Windows.Forms.Label();
+            this.btn_fechar = new System.Windows.Forms.PictureBox();
+            this.lblidjog = new System.Windows.Forms.Label();
             this.lblidj = new System.Windows.Forms.Label();
             this.lblsj = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -40,34 +40,45 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.lblpontjog = new System.Windows.Forms.Label();
+            this.lblnomejog = new System.Windows.Forms.Label();
+            this.txtidjog = new System.Windows.Forms.TextBox();
+            this.txtnomejog = new System.Windows.Forms.TextBox();
+            this.txtpontjog = new System.Windows.Forms.TextBox();
+            this.btn_nao = new System.Windows.Forms.PictureBox();
+            this.btn_sim = new System.Windows.Forms.PictureBox();
+            this.btn_promover = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_fechar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_nao)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_sim)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_promover)).BeginInit();
             this.SuspendLayout();
             // 
-            // pictureBox1
+            // btn_fechar
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(1185, 7);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(43, 38);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.btn_fechar.Image = ((System.Drawing.Image)(resources.GetObject("btn_fechar.Image")));
+            this.btn_fechar.Location = new System.Drawing.Point(1185, 7);
+            this.btn_fechar.Name = "btn_fechar";
+            this.btn_fechar.Size = new System.Drawing.Size(43, 38);
+            this.btn_fechar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btn_fechar.TabIndex = 0;
+            this.btn_fechar.TabStop = false;
+            this.btn_fechar.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // lblListarJogadores
+            // lblidjog
             // 
-            this.lblListarJogadores.AutoSize = true;
-            this.lblListarJogadores.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblListarJogadores.Location = new System.Drawing.Point(890, 155);
-            this.lblListarJogadores.Name = "lblListarJogadores";
-            this.lblListarJogadores.Size = new System.Drawing.Size(60, 24);
-            this.lblListarJogadores.TabIndex = 23;
-            this.lblListarJogadores.Text = "label2";
+            this.lblidjog.AutoSize = true;
+            this.lblidjog.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblidjog.Location = new System.Drawing.Point(894, 74);
+            this.lblidjog.Name = "lblidjog";
+            this.lblidjog.Size = new System.Drawing.Size(60, 24);
+            this.lblidjog.TabIndex = 23;
+            this.lblidjog.Text = "label2";
             // 
             // lblidj
             // 
@@ -119,6 +130,7 @@
             // 
             // pictureBox2
             // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(22, 482);
             this.pictureBox2.Name = "pictureBox2";
@@ -130,7 +142,7 @@
             // pictureBox3
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.Azure;
-            this.pictureBox3.Location = new System.Drawing.Point(875, 59);
+            this.pictureBox3.Location = new System.Drawing.Point(865, 284);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(342, 143);
             this.pictureBox3.TabIndex = 29;
@@ -163,32 +175,120 @@
             this.pictureBox6.TabIndex = 32;
             this.pictureBox6.TabStop = false;
             // 
+            // lblpontjog
+            // 
+            this.lblpontjog.AutoSize = true;
+            this.lblpontjog.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblpontjog.Location = new System.Drawing.Point(1139, 75);
+            this.lblpontjog.Name = "lblpontjog";
+            this.lblpontjog.Size = new System.Drawing.Size(60, 24);
+            this.lblpontjog.TabIndex = 33;
+            this.lblpontjog.Text = "label2";
+            // 
+            // lblnomejog
+            // 
+            this.lblnomejog.AutoSize = true;
+            this.lblnomejog.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblnomejog.Location = new System.Drawing.Point(1018, 75);
+            this.lblnomejog.Name = "lblnomejog";
+            this.lblnomejog.Size = new System.Drawing.Size(60, 24);
+            this.lblnomejog.TabIndex = 34;
+            this.lblnomejog.Text = "label2";
+            // 
+            // txtidjog
+            // 
+            this.txtidjog.Location = new System.Drawing.Point(878, 127);
+            this.txtidjog.Multiline = true;
+            this.txtidjog.Name = "txtidjog";
+            this.txtidjog.Size = new System.Drawing.Size(101, 112);
+            this.txtidjog.TabIndex = 35;
+            // 
+            // txtnomejog
+            // 
+            this.txtnomejog.Location = new System.Drawing.Point(985, 127);
+            this.txtnomejog.Multiline = true;
+            this.txtnomejog.Name = "txtnomejog";
+            this.txtnomejog.Size = new System.Drawing.Size(115, 112);
+            this.txtnomejog.TabIndex = 36;
+            // 
+            // txtpontjog
+            // 
+            this.txtpontjog.Location = new System.Drawing.Point(1106, 127);
+            this.txtpontjog.Multiline = true;
+            this.txtpontjog.Name = "txtpontjog";
+            this.txtpontjog.Size = new System.Drawing.Size(101, 112);
+            this.txtpontjog.TabIndex = 37;
+            // 
+            // btn_nao
+            // 
+            this.btn_nao.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btn_nao.Image = ((System.Drawing.Image)(resources.GetObject("btn_nao.Image")));
+            this.btn_nao.Location = new System.Drawing.Point(306, 605);
+            this.btn_nao.Name = "btn_nao";
+            this.btn_nao.Size = new System.Drawing.Size(83, 52);
+            this.btn_nao.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.btn_nao.TabIndex = 38;
+            this.btn_nao.TabStop = false;
+            // 
+            // btn_sim
+            // 
+            this.btn_sim.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btn_sim.Image = ((System.Drawing.Image)(resources.GetObject("btn_sim.Image")));
+            this.btn_sim.Location = new System.Drawing.Point(217, 605);
+            this.btn_sim.Name = "btn_sim";
+            this.btn_sim.Size = new System.Drawing.Size(83, 52);
+            this.btn_sim.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.btn_sim.TabIndex = 39;
+            this.btn_sim.TabStop = false;
+            // 
+            // btn_promover
+            // 
+            this.btn_promover.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btn_promover.Image = ((System.Drawing.Image)(resources.GetObject("btn_promover.Image")));
+            this.btn_promover.Location = new System.Drawing.Point(215, 664);
+            this.btn_promover.Name = "btn_promover";
+            this.btn_promover.Size = new System.Drawing.Size(175, 54);
+            this.btn_promover.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.btn_promover.TabIndex = 40;
+            this.btn_promover.TabStop = false;
+            // 
             // Jogo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.ClientSize = new System.Drawing.Size(1234, 752);
+            this.Controls.Add(this.btn_promover);
+            this.Controls.Add(this.btn_sim);
+            this.Controls.Add(this.btn_nao);
+            this.Controls.Add(this.txtpontjog);
+            this.Controls.Add(this.txtnomejog);
+            this.Controls.Add(this.txtidjog);
+            this.Controls.Add(this.lblnomejog);
+            this.Controls.Add(this.lblpontjog);
             this.Controls.Add(this.pictureBox6);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.lblListarJogadores);
+            this.Controls.Add(this.lblidjog);
             this.Controls.Add(this.lblidj);
             this.Controls.Add(this.lblsj);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.btn_fechar);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.pictureBox3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Jogo";
             this.Text = "tab";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_fechar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_nao)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_sim)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_promover)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -196,8 +296,8 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label lblListarJogadores;
+        private System.Windows.Forms.PictureBox btn_fechar;
+        private System.Windows.Forms.Label lblidjog;
         private System.Windows.Forms.Label lblidj;
         private System.Windows.Forms.Label lblsj;
         private System.Windows.Forms.Label label2;
@@ -207,5 +307,13 @@
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.Label lblpontjog;
+        private System.Windows.Forms.Label lblnomejog;
+        private System.Windows.Forms.TextBox txtidjog;
+        private System.Windows.Forms.TextBox txtnomejog;
+        private System.Windows.Forms.TextBox txtpontjog;
+        private System.Windows.Forms.PictureBox btn_nao;
+        private System.Windows.Forms.PictureBox btn_sim;
+        private System.Windows.Forms.PictureBox btn_promover;
     }
 }

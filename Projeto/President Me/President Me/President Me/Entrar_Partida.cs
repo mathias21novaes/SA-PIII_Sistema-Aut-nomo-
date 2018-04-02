@@ -24,12 +24,13 @@ namespace President_Me
 
         public int numJogadores { get; set; }
         public string idesenha_jogador { get; set; }
-        public static string ListarJogadores { get; set; }
+        public string ListarJogadores { get; set; }
         public static bool iniciou_partida { get; set; }
 
         public static string []colunas { get; set; }
         public string []listP { get; set; }
         public static string []id { get; set; }
+        public static string []jog { get; set; }
 
         public string listar { get; set; }
         public string listpartidas { get; set; }
@@ -37,6 +38,10 @@ namespace President_Me
         public static string Jogador { get; set; }
         public static string JogadorId { get; set; }
         public static string JogadorSenha { get; set; }
+
+        public static string idj { get; set; }
+        public static string nomej { get; set; }
+        public static string pontj { get; set; }
 
         public Entrar_Partida()
         {
@@ -72,6 +77,10 @@ namespace President_Me
             this.numJogadores++;
 
             ListarJogadores = MePresidentaServidor.Jogo.ListarJogadores(idpartida);
+            jog = this.ListarJogadores.Split(',');
+            idj = jog[0];
+            nomej = jog[1];
+            pontj = jog[2];
         }
 
         private void btn_iniciar_Click(object sender, EventArgs e)
