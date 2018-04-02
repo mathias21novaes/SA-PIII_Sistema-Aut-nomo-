@@ -22,16 +22,17 @@ namespace President_Me
         public Jogo()
         {
             InitializeComponent();
-            InitializeComponente();
-            /*string versao = "3.0";
+            //InitializeComponente();
+            string versao = "3.0";
             Lobby f = new Lobby(versao);
             f.Location = new Point(700, 700);
             f.ShowDialog();
             lblidjog.Text = Entrar_Partida.idj;
             lblnomejog.Text = Entrar_Partida.nomej;
             lblpontjog.Text = Entrar_Partida.pontj;
+            //lblidjog.Text = Entrar_Partida.ListarJogadores;
 
-            */
+            
             txtidjog.Text = Entrar_Partida.idj;
             txtnomejog.Text = Entrar_Partida.nomej;
             txtpontjog.Text = Entrar_Partida.pontj;
@@ -59,10 +60,10 @@ namespace President_Me
         {
             Application.Exit();
         }
-        private void InitializeComponente()
+        /*private void InitializeComponente()
         {
             pictureBox6.Image = pictureBox7;
-        }
+        }*/
         //private Point primeiroPoint = new Point();
     }
 }

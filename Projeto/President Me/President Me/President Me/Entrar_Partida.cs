@@ -77,7 +77,7 @@ namespace President_Me
             this.numJogadores++;
 
             ListarJogadores = MePresidentaServidor.Jogo.ListarJogadores(idpartida);
-            jog = this.ListarJogadores.Split(',');
+            jog = this.ListarJogadores.Split(',','\r','\n');
             idj = jog[0];
             nomej = jog[1];
             pontj = jog[2];
