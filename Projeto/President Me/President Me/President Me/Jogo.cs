@@ -13,23 +13,25 @@ namespace President_Me
 {
     public partial class Jogo : Form
     {
-        //public int jogador { get; set; }
-        //public int vez { get; set; }
-        //public string jogadorVez { get; set; }
-        //public string jogadorid { get; set; }
-        //public string jogadorsenha { get; set; }
-
+        /*public int jogador { get; set; }
+        public int vez { get; set; }
+        public string jogadorVez { get; set; }
+        public string jogadorid { get; set; }
+        public string jogadorsenha { get; set; }
+        */
         public Jogo()
         {
             InitializeComponent();
-            //string versao = "3.0";
-            //Lobby f = new Lobby(versao);
-            //f.Location = new Point(700, 700);
-            //f.ShowDialog();
-            //lblidjog.Text = Entrar_Partida.idj;
-            //lblnomejog.Text = Entrar_Partida.nomej;
-            //lblpontjog.Text = Entrar_Partida.pontj;
+            InitializeComponente();
+            /*string versao = "3.0";
+            Lobby f = new Lobby(versao);
+            f.Location = new Point(700, 700);
+            f.ShowDialog();
+            lblidjog.Text = Entrar_Partida.idj;
+            lblnomejog.Text = Entrar_Partida.nomej;
+            lblpontjog.Text = Entrar_Partida.pontj;
 
+            */
             txtidjog.Text = Entrar_Partida.idj;
             txtnomejog.Text = Entrar_Partida.nomej;
             txtpontjog.Text = Entrar_Partida.pontj;
@@ -41,23 +43,26 @@ namespace President_Me
 
 
 
-            //vez = int.Parse(jogadorid);
-            //lblVez.Text = jogadorVez;
+            /*vez = int.Parse(jogadorid);
+            lblVez.Text = jogadorVez;
 
-            //jogadorVez = Jogo.VerificarVez(vez);
-            //Entrar_Partida.colunas[0] = jogador;
-            //while(jogador != vez)
-            //{
-            //   Thread.Sleep(3000);
-            //string fdsfd= Jogo.VerificarVez(vez);
-            //}
+            jogadorVez = Jogo.VerificarVez(vez);
+            Entrar_Partida.colunas[0] = jogador;
+            while(jogador != vez)
+            {
+              Thread.Sleep(3000);
+            string fdsfd= Jogo.VerificarVez(vez);
+            }*/
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-
+        private void InitializeComponente()
+        {
+            pictureBox6.Image = pictureBox7;
+        }
         //private Point primeiroPoint = new Point();
     }
 }
