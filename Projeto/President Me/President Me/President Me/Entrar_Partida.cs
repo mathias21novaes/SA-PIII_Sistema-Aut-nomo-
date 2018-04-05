@@ -19,7 +19,7 @@ namespace President_Me
 
         public string idp { get; set; }
         public int idpartida { get; set; }
-        public string nome_jogador { get; set; }
+        public static string nome_jogador { get; set; }
         public string senha_partida { get; set; }
 
         public int numJogadores { get; set; }
@@ -85,7 +85,7 @@ namespace President_Me
 
         private void btn_iniciar_Click(object sender, EventArgs e)
         {
-            if (numJogadores > 1 && numJogadores < 7)
+            if (numJogadores > 0 && numJogadores < 7)
             {
                 Jogador = MePresidentaServidor.Jogo.Iniciar(idpartida, senha_partida);
                 iniciou_partida = true;
@@ -106,6 +106,11 @@ namespace President_Me
             String idl = id[1];
             String data = id[2];
             String nome = id[3];
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+           
         }
     }
 }

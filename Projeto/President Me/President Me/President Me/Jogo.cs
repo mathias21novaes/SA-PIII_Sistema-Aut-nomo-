@@ -23,10 +23,10 @@ namespace President_Me
         {
             InitializeComponent();
             //InitializeComponente();
-            /*string versao = "3.0";
+            string versao = "3.0";
             Lobby f = new Lobby(versao);
             f.Location = new Point(700, 700);
-            f.ShowDialog();*/
+            f.ShowDialog();
             lblidjog.Text = Entrar_Partida.idj;
             lblnomejog.Text = Entrar_Partida.nomej;
             lblpontjog.Text = Entrar_Partida.pontj;
@@ -41,6 +41,7 @@ namespace President_Me
             //apenas ver se deixa desse jeito ou se tem uma forma de definir quem começa a jogar
             lblidj.Text = Entrar_Partida.JogadorId;
             lblsj.Text = Entrar_Partida.JogadorSenha;
+            lblnj.Text = Entrar_Partida.nome_jogador;
 
 
 

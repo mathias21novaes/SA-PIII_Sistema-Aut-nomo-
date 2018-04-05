@@ -23,9 +23,9 @@ namespace President_Me
         {
             InitializeComponent();
             string versao = "3.0";
-            //Lobby f = new Lobby(versao);
-           // f.Location = new Point(700, 700);
-            //f.ShowDialog();
+            Lobby f = new Lobby(versao);
+            f.Location = new Point(700, 700);
+            f.ShowDialog();
             lblListarJogadores.Text = Entrar_Partida.ListarJogadores;
             //verificar o codigo abaixo pois eles estão recebendo o ultimo jogador que entrou na partida
             //apenas ver se deixa desse jeito ou se tem uma forma de definir quem começa a jogar
