@@ -26,6 +26,7 @@ namespace President_Me
         public string idesenha_jogador { get; set; }
         public string ListarJogadores { get; set; }
         public static bool iniciou_partida { get; set; }
+        public bool initpart { get; set; }
 
         public static string []colunas { get; set; }
         public string []listP { get; set; }
@@ -58,6 +59,7 @@ namespace President_Me
         {
             Lobby f = new Lobby(Versao);
             iniciou_partida = false;
+            initpart = false;
             this.Close();
         }
 
@@ -85,7 +87,7 @@ namespace President_Me
 
         private void btn_iniciar_Click(object sender, EventArgs e)
         {
-            if (numJogadores > 0 && numJogadores < 7)
+            if (initpart == true)
             {
                 Jogador = MePresidentaServidor.Jogo.Iniciar(idpartida, senha_partida);
                 iniciou_partida = true;
@@ -108,9 +110,13 @@ namespace President_Me
             String nome = id[3];
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void NumJogadores_Tick(object sender, EventArgs e)
         {
-           
+            if(numJogadores > 1 && numJogadores < 7)
+            {
+                initpart = true;
+                btn_iniciar.Enabled = true;
+            }
         }
     }
 }
