@@ -20,14 +20,15 @@ namespace President_Me
         public string jogadorid { get; set; }
         public string jogadorsenha { get; set; }
         */
+
         public Jogo()
         {
             InitializeComponent();
             InitializeComponente();
             string versao = "3.0";
-            //Lobby f = new Lobby(versao);
+            Lobby f = new Lobby(versao);
             //f.Location = new Point(700, 700);
-           // f.ShowDialog();
+            f.ShowDialog();
             lblidjog.Text = Entrar_Partida.idj;
             lblnomejog.Text = Entrar_Partida.nomej;
             lblpontjog.Text = Entrar_Partida.pontj;
@@ -62,6 +63,8 @@ namespace President_Me
         {
             Application.Exit();
         }
+
+
         private void InitializeComponente()
         {
             //timertrue();
