@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Entrar_Partida));
             this.txtJogador = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -47,6 +48,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.lblnumJog = new System.Windows.Forms.Label();
+            this.NumJogadores = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.btn_voltar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_iniciar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_entrar)).BeginInit();
@@ -168,6 +170,7 @@
             // 
             this.btn_iniciar.BackColor = System.Drawing.Color.Transparent;
             this.btn_iniciar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_iniciar.Enabled = false;
             this.btn_iniciar.Image = ((System.Drawing.Image)(resources.GetObject("btn_iniciar.Image")));
             this.btn_iniciar.Location = new System.Drawing.Point(31, 500);
             this.btn_iniciar.Name = "btn_iniciar";
@@ -246,6 +249,12 @@
             this.lblnumJog.Size = new System.Drawing.Size(0, 20);
             this.lblnumJog.TabIndex = 34;
             // 
+            // NumJogadores
+            // 
+            this.NumJogadores.Enabled = true;
+            this.NumJogadores.Interval = 1500;
+            this.NumJogadores.Tick += new System.EventHandler(this.NumJogadores_Tick);
+            // 
             // Entrar_Partida
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -296,5 +305,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lblnumJog;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Timer NumJogadores;
     }
 }
