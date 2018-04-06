@@ -25,6 +25,8 @@ namespace President_Me
         public int idjog { get; set; }
         public static string[] jog { get; set; }
         public string ListarJogadores { get; set; }
+        public string personagens { get; set; }
+        public string voto { get; set; }
 
         public Jogo()
         {
@@ -47,6 +49,9 @@ namespace President_Me
 
             ListarJogadores = MePresidentaServidor.Jogo.ListarJogadores(Entrar_Partida.idpartida);
             lblidjog.Text = ListarJogadores;
+
+            this.personagens = MePresidentaServidor.Jogo.ListarPersonagens();
+            lblnomejog.Text = personagens;
 
             /*jog = ListarJogadores.Split(',');
             string idj = jog[0];
@@ -77,6 +82,18 @@ namespace President_Me
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btn_sim_Click(object sender, EventArgs e)
+        {
+            voto = "SIM";
+            lblpontjog.Text = voto;
+        }
+
+        private void btn_nao_Click(object sender, EventArgs e)
+        {
+            voto = "NÃO";
+            lblpontjog.Text = voto;
         }
 
 
