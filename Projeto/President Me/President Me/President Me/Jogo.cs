@@ -20,38 +20,47 @@ namespace President_Me
         public string jogadorid { get; set; }
         public string jogadorsenha { get; set; }
         */
+
         public string Cartas { get; set; }
         public int idjog { get; set; }
+        public static string[] jog { get; set; }
+        public string ListarJogadores { get; set; }
 
         public Jogo()
         {
             InitializeComponent();
-            InitializeComponente();
+            //InitializeComponente();
             string versao = "3.0";
             Lobby f = new Lobby(versao);
             //f.Location = new Point(700, 700);
             f.ShowDialog();
 
-            lblidjog.Text = Entrar_Partida.idj;
-            lblnomejog.Text = Entrar_Partida.nomej;
-            lblpontjog.Text = Entrar_Partida.pontj;
-            //lblidjog.Text = Entrar_Partida.ListarJogadores;
-            txtidjog.Text = Entrar_Partida.idj;
-            txtnomejog.Text = Entrar_Partida.nomej;
-            txtpontjog.Text = Entrar_Partida.pontj;
-            
-            //lblidjog.Text = Entrar_Partida.ListarJogadores;
             //verificar o codigo abaixo pois eles estão recebendo o ultimo jogador que entrou na partida
             //apenas ver se deixa desse jeito ou se tem uma forma de definir quem começa a jogar
             lblidj.Text = Entrar_Partida.JogadorId;
             idjog = int.Parse(Entrar_Partida.JogadorId);
-            //idjog = Convert.ToInt32(Entrar_Partida.JogadorId);
             lblsj.Text = Entrar_Partida.JogadorSenha;
             lblnj.Text = Entrar_Partida.nome_jogador;
+
             this.Cartas = MePresidentaServidor.Jogo.ListarCartas(idjog, Entrar_Partida.JogadorSenha);
             lblCartas.Text = Cartas;
 
+            ListarJogadores = MePresidentaServidor.Jogo.ListarJogadores(Entrar_Partida.idpartida);
+            lblidjog.Text = ListarJogadores;
 
+            /*jog = ListarJogadores.Split(',');
+            string idj = jog[0];
+            string nomej = jog[1];
+            string pontj = jog[2];
+            string idj2 = jog[3];
+
+            /*lblidjog.Text = idj;
+            lblnomejog.Text = nomej;
+            lblpontjog.Text = pontj;*/
+            //lblidjog.Text = Entrar_Partida.ListarJogadores;
+            /*xtidjog.Text = idj;
+            txtnomejog.Text = nomej;
+            txtpontjog.Text = pontj;*/
 
             /*vez = int.Parse(jogadorid);
             lblVez.Text = jogadorVez;
@@ -71,7 +80,7 @@ namespace President_Me
         }
 
 
-        private void InitializeComponente()
+        /*private void InitializeComponente()
         {
             //timertrue();
             if(txtidjog != txtnomejog)
@@ -79,7 +88,7 @@ namespace President_Me
                  
                 A.Location = new Point(603, 646);
             }
-        }
+        }*/
         /*Função esperar um tempo
          private async void timertrue()
         {

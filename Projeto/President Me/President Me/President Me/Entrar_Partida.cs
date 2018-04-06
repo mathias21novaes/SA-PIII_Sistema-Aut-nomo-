@@ -18,20 +18,20 @@ namespace President_Me
         public string Versao { get; set; }
 
         public string idp { get; set; }
-        public int idpartida { get; set; }
+        public static int idpartida { get; set; }
         public static string nome_jogador { get; set; }
         public string senha_partida { get; set; }
 
         public int numJogadores { get; set; }
         public string idesenha_jogador { get; set; }
-        public string ListarJogadores { get; set; }
+        //public string ListarJogadores { get; set; }
         public static bool iniciou_partida { get; set; }
         //public bool initpart { get; set; }
 
         public static string []colunas { get; set; }
         public string []listP { get; set; }
         public static string []id { get; set; }
-        public static string []jog { get; set; }
+        //public static string []jog { get; set; }
 
         public string listar { get; set; }
         public string listpartidas { get; set; }
@@ -40,9 +40,9 @@ namespace President_Me
         public static string JogadorId { get; set; }
         public static string JogadorSenha { get; set; }
 
-        public static string idj { get; set; }
+        /*public static string idj { get; set; }
         public static string nomej { get; set; }
-        public static string pontj { get; set; }
+        public static string pontj { get; set; }*/
 
         public Entrar_Partida()
         {
@@ -78,11 +78,11 @@ namespace President_Me
             lblDadosJogadorSenha.Text = JogadorSenha;
             this.numJogadores++;
 
-            ListarJogadores = MePresidentaServidor.Jogo.ListarJogadores(idpartida);
+            /*ListarJogadores = MePresidentaServidor.Jogo.ListarJogadores(idpartida);
             jog = this.ListarJogadores.Split(',','\r','\n');
             idj = jog[0];
             nomej = jog[1];
-            pontj = jog[2];
+            pontj = jog[2];*/
         }
 
         private void btn_iniciar_Click(object sender, EventArgs e)

@@ -895,7 +895,7 @@
             this.lblCartas.BackColor = System.Drawing.Color.Azure;
             this.lblCartas.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCartas.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblCartas.Location = new System.Drawing.Point(251, 142);
+            this.lblCartas.Location = new System.Drawing.Point(232, 139);
             this.lblCartas.Name = "lblCartas";
             this.lblCartas.Size = new System.Drawing.Size(18, 24);
             this.lblCartas.TabIndex = 64;
