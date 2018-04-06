@@ -91,6 +91,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblCartas = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.btn_fechar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -888,12 +889,25 @@
             this.panel1.Size = new System.Drawing.Size(418, 704);
             this.panel1.TabIndex = 58;
             // 
+            // lblCartas
+            // 
+            this.lblCartas.AutoSize = true;
+            this.lblCartas.BackColor = System.Drawing.Color.Azure;
+            this.lblCartas.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCartas.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblCartas.Location = new System.Drawing.Point(251, 142);
+            this.lblCartas.Name = "lblCartas";
+            this.lblCartas.Size = new System.Drawing.Size(18, 24);
+            this.lblCartas.TabIndex = 64;
+            this.lblCartas.Text = "*";
+            // 
             // Jogo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.ClientSize = new System.Drawing.Size(1234, 755);
+            this.Controls.Add(this.lblCartas);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.lblnj);
             this.Controls.Add(this.label4);
@@ -1055,5 +1069,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lblCartas;
     }
 }

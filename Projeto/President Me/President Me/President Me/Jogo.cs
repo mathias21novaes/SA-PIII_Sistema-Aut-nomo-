@@ -20,6 +20,8 @@ namespace President_Me
         public string jogadorid { get; set; }
         public string jogadorsenha { get; set; }
         */
+        public string Cartas { get; set; }
+        public int idjog { get; set; }
 
         public Jogo()
         {
@@ -29,21 +31,25 @@ namespace President_Me
             Lobby f = new Lobby(versao);
             //f.Location = new Point(700, 700);
             f.ShowDialog();
+
             lblidjog.Text = Entrar_Partida.idj;
             lblnomejog.Text = Entrar_Partida.nomej;
             lblpontjog.Text = Entrar_Partida.pontj;
             //lblidjog.Text = Entrar_Partida.ListarJogadores;
-
-            
             txtidjog.Text = Entrar_Partida.idj;
             txtnomejog.Text = Entrar_Partida.nomej;
             txtpontjog.Text = Entrar_Partida.pontj;
+            
             //lblidjog.Text = Entrar_Partida.ListarJogadores;
             //verificar o codigo abaixo pois eles estão recebendo o ultimo jogador que entrou na partida
             //apenas ver se deixa desse jeito ou se tem uma forma de definir quem começa a jogar
             lblidj.Text = Entrar_Partida.JogadorId;
+            idjog = int.Parse(Entrar_Partida.JogadorId);
+            //idjog = Convert.ToInt32(Entrar_Partida.JogadorId);
             lblsj.Text = Entrar_Partida.JogadorSenha;
             lblnj.Text = Entrar_Partida.nome_jogador;
+            this.Cartas = MePresidentaServidor.Jogo.ListarCartas(idjog, Entrar_Partida.JogadorSenha);
+            lblCartas.Text = Cartas;
 
 
 

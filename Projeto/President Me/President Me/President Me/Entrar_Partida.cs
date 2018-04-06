@@ -87,7 +87,7 @@ namespace President_Me
 
         private void btn_iniciar_Click(object sender, EventArgs e)
         {
-            if (numJogadores > 1 && numJogadores < 7)
+            if (numJogadores > 0 && numJogadores < 7)
             {
                 Jogador = MePresidentaServidor.Jogo.Iniciar(idpartida, senha_partida);
                 iniciou_partida = true;
