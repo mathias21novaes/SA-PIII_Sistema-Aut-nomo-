@@ -27,6 +27,7 @@ namespace President_Me
         public string ListarJogadores { get; set; }
         public string personagens { get; set; }
         public string voto { get; set; }
+        public int contvoto { get; set; }
 
         public Jogo()
         {
@@ -84,6 +85,7 @@ namespace President_Me
             Application.Exit();
         }
 
+        //votação
         private void btn_sim_Click(object sender, EventArgs e)
         {
             voto = "SIM";
@@ -94,7 +96,14 @@ namespace President_Me
         {
             voto = "NÃO";
             lblpontjog.Text = voto;
+            contvoto++;
+            if (contvoto > 3)
+            {
+                lblpontjog.Text = "NÃO PODE MAIS VOTAR (NÃO)";
+                btn_nao.Enabled = false;
+            }
         }
+
 
 
         /*private void InitializeComponente()

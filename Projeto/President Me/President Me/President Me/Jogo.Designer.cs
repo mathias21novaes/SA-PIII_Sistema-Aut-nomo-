@@ -39,7 +39,6 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.lblpontjog = new System.Windows.Forms.Label();
             this.lblnomejog = new System.Windows.Forms.Label();
             this.txtidjog = new System.Windows.Forms.TextBox();
             this.txtnomejog = new System.Windows.Forms.TextBox();
@@ -90,11 +89,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblCartas = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.label7 = new System.Windows.Forms.Label();
+            this.lblpontjog = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.btn_fechar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -140,7 +136,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.panel1.SuspendLayout();
-            this.tabControl1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_fechar
@@ -254,16 +249,6 @@
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox5.TabIndex = 31;
             this.pictureBox5.TabStop = false;
-            // 
-            // lblpontjog
-            // 
-            this.lblpontjog.AutoSize = true;
-            this.lblpontjog.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblpontjog.Location = new System.Drawing.Point(1139, 75);
-            this.lblpontjog.Name = "lblpontjog";
-            this.lblpontjog.Size = new System.Drawing.Size(60, 24);
-            this.lblpontjog.TabIndex = 33;
-            this.lblpontjog.Text = "label2";
             // 
             // lblnomejog
             // 
@@ -889,50 +874,6 @@
             this.label6.TabIndex = 65;
             this.label6.Text = "PERSONAGENS";
             // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl1.Location = new System.Drawing.Point(857, 449);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(350, 279);
-            this.tabControl1.TabIndex = 66;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.BackColor = System.Drawing.Color.Azure;
-            this.tabPage1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabPage1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.tabPage1.Location = new System.Drawing.Point(4, 29);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(342, 246);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "TABULEIRO  ";
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.BackColor = System.Drawing.Color.Azure;
-            this.tabPage2.Location = new System.Drawing.Point(4, 29);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(342, 246);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "HISTÓRICO  ";
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.BackColor = System.Drawing.Color.Azure;
-            this.tabPage3.Location = new System.Drawing.Point(4, 29);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(342, 246);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "VOTAÇÃO ";
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -945,14 +886,24 @@
             this.label7.TabIndex = 67;
             this.label7.Text = "label7";
             // 
+            // lblpontjog
+            // 
+            this.lblpontjog.AutoSize = true;
+            this.lblpontjog.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblpontjog.Location = new System.Drawing.Point(1102, 74);
+            this.lblpontjog.Name = "lblpontjog";
+            this.lblpontjog.Size = new System.Drawing.Size(60, 24);
+            this.lblpontjog.TabIndex = 33;
+            this.lblpontjog.Text = "label2";
+            // 
             // Jogo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.ClientSize = new System.Drawing.Size(1234, 755);
+            this.Controls.Add(this.lblpontjog);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.lblnomejog);
             this.Controls.Add(this.lblCartas);
@@ -980,7 +931,6 @@
             this.Controls.Add(this.txtnomejog);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.txtidjog);
-            this.Controls.Add(this.lblpontjog);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.lblidjog);
             this.Controls.Add(this.lblidj);
@@ -1041,7 +991,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.tabControl1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1059,7 +1008,6 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.Label lblpontjog;
         private System.Windows.Forms.Label lblnomejog;
         private System.Windows.Forms.TextBox txtidjog;
         private System.Windows.Forms.TextBox txtnomejog;
@@ -1110,10 +1058,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblCartas;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblpontjog;
     }
 }
