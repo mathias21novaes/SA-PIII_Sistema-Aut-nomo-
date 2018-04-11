@@ -32,7 +32,7 @@ namespace President_Me
         public Jogo()
         {
             InitializeComponent();
-            //InitializeComponente();
+            InitializeComponente();
             string versao = "3.0";
             Lobby f = new Lobby(versao);
             //f.Location = new Point(700, 700);
@@ -106,20 +106,20 @@ namespace President_Me
 
 
 
-        /*private void InitializeComponente()
+        private void InitializeComponente()
         {
-            //timertrue();
+            timertrue();
             if(txtidjog != txtnomejog)
             {
                  
                 A.Location = new Point(603, 646);
             }
-        }*/
-        /*Função esperar um tempo
-         private async void timertrue()
+        }
+        //Função esperar um tempo
+        private async void timertrue()
         {
             await Task.Delay(8000);
-        }*/
+        }
         //private Point primeiroPoint = new Point();
     }
 }

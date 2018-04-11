@@ -85,12 +85,13 @@
             this.label4 = new System.Windows.Forms.Label();
             this.lblnj = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.lblCartas = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.lblpontjog = new System.Windows.Forms.Label();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.btn_fechar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -135,13 +136,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox24)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_fechar
             // 
             this.btn_fechar.Image = ((System.Drawing.Image)(resources.GetObject("btn_fechar.Image")));
-            this.btn_fechar.Location = new System.Drawing.Point(1180, 7);
+            this.btn_fechar.Location = new System.Drawing.Point(1170, 9);
             this.btn_fechar.Name = "btn_fechar";
             this.btn_fechar.Size = new System.Drawing.Size(48, 45);
             this.btn_fechar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -153,7 +153,7 @@
             // 
             this.lblidjog.AutoSize = true;
             this.lblidjog.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblidjog.Location = new System.Drawing.Point(894, 74);
+            this.lblidjog.Location = new System.Drawing.Point(892, 542);
             this.lblidjog.Name = "lblidjog";
             this.lblidjog.Size = new System.Drawing.Size(60, 24);
             this.lblidjog.TabIndex = 23;
@@ -221,7 +221,7 @@
             // pictureBox3
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.Azure;
-            this.pictureBox3.Location = new System.Drawing.Point(865, 284);
+            this.pictureBox3.Location = new System.Drawing.Point(859, 343);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(342, 143);
             this.pictureBox3.TabIndex = 29;
@@ -264,7 +264,7 @@
             // 
             // txtidjog
             // 
-            this.txtidjog.Location = new System.Drawing.Point(865, 188);
+            this.txtidjog.Location = new System.Drawing.Point(860, 154);
             this.txtidjog.Multiline = true;
             this.txtidjog.Name = "txtidjog";
             this.txtidjog.Size = new System.Drawing.Size(101, 112);
@@ -272,7 +272,7 @@
             // 
             // txtnomejog
             // 
-            this.txtnomejog.Location = new System.Drawing.Point(972, 188);
+            this.txtnomejog.Location = new System.Drawing.Point(967, 154);
             this.txtnomejog.Multiline = true;
             this.txtnomejog.Name = "txtnomejog";
             this.txtnomejog.Size = new System.Drawing.Size(115, 112);
@@ -280,7 +280,7 @@
             // 
             // txtpontjog
             // 
-            this.txtpontjog.Location = new System.Drawing.Point(1106, 188);
+            this.txtpontjog.Location = new System.Drawing.Point(1100, 154);
             this.txtpontjog.Multiline = true;
             this.txtpontjog.Name = "txtpontjog";
             this.txtpontjog.Size = new System.Drawing.Size(101, 112);
@@ -478,7 +478,7 @@
             this.pictureBox7.ErrorImage = null;
             this.pictureBox7.ImageLocation = "5";
             this.pictureBox7.InitialImage = null;
-            this.pictureBox7.Location = new System.Drawing.Point(182, 33);
+            this.pictureBox7.Location = new System.Drawing.Point(604, 58);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(51, 48);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -491,7 +491,7 @@
             this.pictureBox43.ErrorImage = null;
             this.pictureBox43.ImageLocation = "5";
             this.pictureBox43.InitialImage = null;
-            this.pictureBox43.Location = new System.Drawing.Point(292, 425);
+            this.pictureBox43.Location = new System.Drawing.Point(566, 154);
             this.pictureBox43.Name = "pictureBox43";
             this.pictureBox43.Size = new System.Drawing.Size(51, 48);
             this.pictureBox43.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -504,7 +504,7 @@
             this.pictureBox42.ErrorImage = null;
             this.pictureBox42.ImageLocation = "5";
             this.pictureBox42.InitialImage = null;
-            this.pictureBox42.Location = new System.Drawing.Point(219, 425);
+            this.pictureBox42.Location = new System.Drawing.Point(491, 154);
             this.pictureBox42.Name = "pictureBox42";
             this.pictureBox42.Size = new System.Drawing.Size(51, 48);
             this.pictureBox42.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -517,7 +517,7 @@
             this.pictureBox41.ErrorImage = null;
             this.pictureBox41.ImageLocation = "5";
             this.pictureBox41.InitialImage = null;
-            this.pictureBox41.Location = new System.Drawing.Point(292, 324);
+            this.pictureBox41.Location = new System.Drawing.Point(566, 250);
             this.pictureBox41.Name = "pictureBox41";
             this.pictureBox41.Size = new System.Drawing.Size(51, 48);
             this.pictureBox41.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -530,7 +530,7 @@
             this.pictureBox40.ErrorImage = null;
             this.pictureBox40.ImageLocation = "5";
             this.pictureBox40.InitialImage = null;
-            this.pictureBox40.Location = new System.Drawing.Point(219, 324);
+            this.pictureBox40.Location = new System.Drawing.Point(641, 154);
             this.pictureBox40.Name = "pictureBox40";
             this.pictureBox40.Size = new System.Drawing.Size(51, 48);
             this.pictureBox40.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -543,7 +543,7 @@
             this.pictureBox39.ErrorImage = null;
             this.pictureBox39.ImageLocation = "5";
             this.pictureBox39.InitialImage = null;
-            this.pictureBox39.Location = new System.Drawing.Point(292, 225);
+            this.pictureBox39.Location = new System.Drawing.Point(491, 250);
             this.pictureBox39.Name = "pictureBox39";
             this.pictureBox39.Size = new System.Drawing.Size(51, 48);
             this.pictureBox39.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -556,7 +556,7 @@
             this.pictureBox38.ErrorImage = null;
             this.pictureBox38.ImageLocation = "5";
             this.pictureBox38.InitialImage = null;
-            this.pictureBox38.Location = new System.Drawing.Point(219, 225);
+            this.pictureBox38.Location = new System.Drawing.Point(491, 349);
             this.pictureBox38.Name = "pictureBox38";
             this.pictureBox38.Size = new System.Drawing.Size(51, 48);
             this.pictureBox38.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -569,7 +569,7 @@
             this.pictureBox37.ErrorImage = null;
             this.pictureBox37.ImageLocation = "5";
             this.pictureBox37.InitialImage = null;
-            this.pictureBox37.Location = new System.Drawing.Point(292, 129);
+            this.pictureBox37.Location = new System.Drawing.Point(491, 551);
             this.pictureBox37.Name = "pictureBox37";
             this.pictureBox37.Size = new System.Drawing.Size(51, 48);
             this.pictureBox37.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -582,7 +582,7 @@
             this.pictureBox36.ErrorImage = null;
             this.pictureBox36.ImageLocation = "5";
             this.pictureBox36.InitialImage = null;
-            this.pictureBox36.Location = new System.Drawing.Point(219, 129);
+            this.pictureBox36.Location = new System.Drawing.Point(641, 551);
             this.pictureBox36.Name = "pictureBox36";
             this.pictureBox36.Size = new System.Drawing.Size(51, 48);
             this.pictureBox36.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -595,7 +595,7 @@
             this.pictureBox35.ErrorImage = null;
             this.pictureBox35.ImageLocation = "5";
             this.pictureBox35.InitialImage = null;
-            this.pictureBox35.Location = new System.Drawing.Point(144, 129);
+            this.pictureBox35.Location = new System.Drawing.Point(491, 450);
             this.pictureBox35.Name = "pictureBox35";
             this.pictureBox35.Size = new System.Drawing.Size(51, 48);
             this.pictureBox35.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -608,7 +608,7 @@
             this.pictureBox34.ErrorImage = null;
             this.pictureBox34.ImageLocation = "5";
             this.pictureBox34.InitialImage = null;
-            this.pictureBox34.Location = new System.Drawing.Point(144, 225);
+            this.pictureBox34.Location = new System.Drawing.Point(566, 450);
             this.pictureBox34.Name = "pictureBox34";
             this.pictureBox34.Size = new System.Drawing.Size(51, 48);
             this.pictureBox34.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -621,7 +621,7 @@
             this.pictureBox33.ErrorImage = null;
             this.pictureBox33.ImageLocation = "5";
             this.pictureBox33.InitialImage = null;
-            this.pictureBox33.Location = new System.Drawing.Point(144, 324);
+            this.pictureBox33.Location = new System.Drawing.Point(641, 250);
             this.pictureBox33.Name = "pictureBox33";
             this.pictureBox33.Size = new System.Drawing.Size(51, 48);
             this.pictureBox33.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -634,7 +634,7 @@
             this.pictureBox32.ErrorImage = null;
             this.pictureBox32.ImageLocation = "5";
             this.pictureBox32.InitialImage = null;
-            this.pictureBox32.Location = new System.Drawing.Point(144, 425);
+            this.pictureBox32.Location = new System.Drawing.Point(714, 154);
             this.pictureBox32.Name = "pictureBox32";
             this.pictureBox32.Size = new System.Drawing.Size(51, 48);
             this.pictureBox32.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -647,7 +647,7 @@
             this.pictureBox31.ErrorImage = null;
             this.pictureBox31.ImageLocation = "5";
             this.pictureBox31.InitialImage = null;
-            this.pictureBox31.Location = new System.Drawing.Point(69, 129);
+            this.pictureBox31.Location = new System.Drawing.Point(714, 250);
             this.pictureBox31.Name = "pictureBox31";
             this.pictureBox31.Size = new System.Drawing.Size(51, 48);
             this.pictureBox31.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -660,7 +660,7 @@
             this.pictureBox30.ErrorImage = null;
             this.pictureBox30.ImageLocation = "5";
             this.pictureBox30.InitialImage = null;
-            this.pictureBox30.Location = new System.Drawing.Point(69, 225);
+            this.pictureBox30.Location = new System.Drawing.Point(714, 349);
             this.pictureBox30.Name = "pictureBox30";
             this.pictureBox30.Size = new System.Drawing.Size(51, 48);
             this.pictureBox30.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -673,7 +673,7 @@
             this.pictureBox29.ErrorImage = null;
             this.pictureBox29.ImageLocation = "5";
             this.pictureBox29.InitialImage = null;
-            this.pictureBox29.Location = new System.Drawing.Point(69, 324);
+            this.pictureBox29.Location = new System.Drawing.Point(641, 450);
             this.pictureBox29.Name = "pictureBox29";
             this.pictureBox29.Size = new System.Drawing.Size(51, 48);
             this.pictureBox29.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -686,7 +686,7 @@
             this.pictureBox28.ErrorImage = null;
             this.pictureBox28.ImageLocation = "5";
             this.pictureBox28.InitialImage = null;
-            this.pictureBox28.Location = new System.Drawing.Point(69, 425);
+            this.pictureBox28.Location = new System.Drawing.Point(566, 551);
             this.pictureBox28.Name = "pictureBox28";
             this.pictureBox28.Size = new System.Drawing.Size(51, 48);
             this.pictureBox28.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -699,7 +699,7 @@
             this.pictureBox27.ErrorImage = null;
             this.pictureBox27.ImageLocation = "5";
             this.pictureBox27.InitialImage = null;
-            this.pictureBox27.Location = new System.Drawing.Point(69, 526);
+            this.pictureBox27.Location = new System.Drawing.Point(641, 349);
             this.pictureBox27.Name = "pictureBox27";
             this.pictureBox27.Size = new System.Drawing.Size(51, 48);
             this.pictureBox27.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -712,7 +712,7 @@
             this.pictureBox26.ErrorImage = null;
             this.pictureBox26.ImageLocation = "5";
             this.pictureBox26.InitialImage = null;
-            this.pictureBox26.Location = new System.Drawing.Point(292, 526);
+            this.pictureBox26.Location = new System.Drawing.Point(714, 551);
             this.pictureBox26.Name = "pictureBox26";
             this.pictureBox26.Size = new System.Drawing.Size(51, 48);
             this.pictureBox26.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -725,7 +725,7 @@
             this.pictureBox25.ErrorImage = null;
             this.pictureBox25.ImageLocation = "5";
             this.pictureBox25.InitialImage = null;
-            this.pictureBox25.Location = new System.Drawing.Point(219, 526);
+            this.pictureBox25.Location = new System.Drawing.Point(714, 450);
             this.pictureBox25.Name = "pictureBox25";
             this.pictureBox25.Size = new System.Drawing.Size(51, 48);
             this.pictureBox25.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -738,7 +738,7 @@
             this.pictureBox24.ErrorImage = null;
             this.pictureBox24.ImageLocation = "5";
             this.pictureBox24.InitialImage = null;
-            this.pictureBox24.Location = new System.Drawing.Point(144, 526);
+            this.pictureBox24.Location = new System.Drawing.Point(566, 349);
             this.pictureBox24.Name = "pictureBox24";
             this.pictureBox24.Size = new System.Drawing.Size(51, 48);
             this.pictureBox24.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -751,7 +751,7 @@
             this.pictureBox1.ErrorImage = null;
             this.pictureBox1.ImageLocation = "5";
             this.pictureBox1.InitialImage = null;
-            this.pictureBox1.Location = new System.Drawing.Point(182, 622);
+            this.pictureBox1.Location = new System.Drawing.Point(604, 647);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(51, 48);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -807,48 +807,6 @@
             this.label5.TabIndex = 62;
             this.label5.Text = "ÁREA DO JOGADOR";
             // 
-            // pictureBox6
-            // 
-            this.pictureBox6.BackColor = System.Drawing.Color.Azure;
-            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(16, 13);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(387, 676);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox6.TabIndex = 32;
-            this.pictureBox6.TabStop = false;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.SteelBlue;
-            this.panel1.Controls.Add(this.pictureBox7);
-            this.panel1.Controls.Add(this.pictureBox43);
-            this.panel1.Controls.Add(this.pictureBox42);
-            this.panel1.Controls.Add(this.pictureBox41);
-            this.panel1.Controls.Add(this.pictureBox40);
-            this.panel1.Controls.Add(this.pictureBox39);
-            this.panel1.Controls.Add(this.pictureBox38);
-            this.panel1.Controls.Add(this.pictureBox37);
-            this.panel1.Controls.Add(this.pictureBox36);
-            this.panel1.Controls.Add(this.pictureBox35);
-            this.panel1.Controls.Add(this.pictureBox34);
-            this.panel1.Controls.Add(this.pictureBox33);
-            this.panel1.Controls.Add(this.pictureBox32);
-            this.panel1.Controls.Add(this.pictureBox31);
-            this.panel1.Controls.Add(this.pictureBox30);
-            this.panel1.Controls.Add(this.pictureBox29);
-            this.panel1.Controls.Add(this.pictureBox28);
-            this.panel1.Controls.Add(this.pictureBox27);
-            this.panel1.Controls.Add(this.pictureBox26);
-            this.panel1.Controls.Add(this.pictureBox25);
-            this.panel1.Controls.Add(this.pictureBox24);
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.pictureBox6);
-            this.panel1.Location = new System.Drawing.Point(421, 24);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(418, 704);
-            this.panel1.TabIndex = 58;
-            // 
             // lblCartas
             // 
             this.lblCartas.AutoSize = true;
@@ -890,40 +848,102 @@
             // 
             this.lblpontjog.AutoSize = true;
             this.lblpontjog.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblpontjog.Location = new System.Drawing.Point(1102, 74);
+            this.lblpontjog.Location = new System.Drawing.Point(1042, 542);
             this.lblpontjog.Name = "lblpontjog";
             this.lblpontjog.Size = new System.Drawing.Size(60, 24);
             this.lblpontjog.TabIndex = 33;
             this.lblpontjog.Text = "label2";
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.BackColor = System.Drawing.Color.Azure;
+            this.pictureBox6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox6.Location = new System.Drawing.Point(860, 78);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(341, 62);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox6.TabIndex = 84;
+            this.pictureBox6.TabStop = false;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.DarkBlue;
+            this.label8.Location = new System.Drawing.Point(884, 61);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(295, 33);
+            this.label8.TabIndex = 85;
+            this.label8.Text = "ÁREA DO JOGADOR";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.Azure;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label9.Location = new System.Drawing.Point(1022, 107);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(21, 25);
+            this.label9.TabIndex = 86;
+            this.label9.Text = "*";
             // 
             // Jogo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.ClientSize = new System.Drawing.Size(1234, 755);
-            this.Controls.Add(this.lblpontjog);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.lblnomejog);
-            this.Controls.Add(this.lblCartas);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.lblnj);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(1223, 755);
             this.Controls.Add(this.P);
             this.Controls.Add(this.O);
-            this.Controls.Add(this.L);
-            this.Controls.Add(this.M);
             this.Controls.Add(this.N);
+            this.Controls.Add(this.M);
+            this.Controls.Add(this.L);
             this.Controls.Add(this.I);
-            this.Controls.Add(this.F);
             this.Controls.Add(this.G);
+            this.Controls.Add(this.F);
             this.Controls.Add(this.E);
             this.Controls.Add(this.D);
             this.Controls.Add(this.C);
             this.Controls.Add(this.B);
             this.Controls.Add(this.A);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.pictureBox6);
+            this.Controls.Add(this.pictureBox27);
+            this.Controls.Add(this.pictureBox29);
+            this.Controls.Add(this.pictureBox24);
+            this.Controls.Add(this.pictureBox25);
+            this.Controls.Add(this.pictureBox32);
+            this.Controls.Add(this.pictureBox28);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pictureBox33);
+            this.Controls.Add(this.pictureBox42);
+            this.Controls.Add(this.pictureBox26);
+            this.Controls.Add(this.pictureBox43);
+            this.Controls.Add(this.pictureBox7);
+            this.Controls.Add(this.lblpontjog);
+            this.Controls.Add(this.pictureBox34);
+            this.Controls.Add(this.pictureBox40);
+            this.Controls.Add(this.pictureBox30);
+            this.Controls.Add(this.pictureBox41);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.pictureBox38);
+            this.Controls.Add(this.pictureBox39);
+            this.Controls.Add(this.lblnomejog);
+            this.Controls.Add(this.lblCartas);
+            this.Controls.Add(this.pictureBox37);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.pictureBox36);
+            this.Controls.Add(this.lblnj);
+            this.Controls.Add(this.pictureBox35);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.pictureBox31);
             this.Controls.Add(this.btn_promover);
             this.Controls.Add(this.btn_sim);
             this.Controls.Add(this.btn_nao);
@@ -940,7 +960,6 @@
             this.Controls.Add(this.btn_fechar);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Jogo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -989,8 +1008,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox24)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1054,11 +1071,12 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblnj;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblCartas;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label lblpontjog;
+        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
     }
 }
