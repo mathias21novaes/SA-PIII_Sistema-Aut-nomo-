@@ -14,12 +14,11 @@ namespace President_Me
 {
     public partial class Jogo : Form
     {
-        /*public int jogador { get; set; }
+        public int jogador { get; set; }
         public int vez { get; set; }
         public string jogadorVez { get; set; }
         public string jogadorid { get; set; }
         public string jogadorsenha { get; set; }
-        */
 
         public string Cartas { get; set; }
         public int idjog { get; set; }
@@ -28,6 +27,14 @@ namespace President_Me
         public string personagens { get; set; }
         public string voto { get; set; }
         public int contvoto { get; set; }
+
+        public string personagem { get; set; }
+        public int setor { get; set; }
+        public string ColocarPersonagem { get; set; }
+        public string colocar { get; set; }
+        public int idjogador { get; set; }
+        public string senha { get; set; }
+        //public int jog { get; set; }
 
         public Jogo()
         {
@@ -111,7 +118,9 @@ namespace President_Me
             timertrue();
             if(txtidjog != txtnomejog)
             {
-                 
+                idjogador = Convert.ToInt32(Entrar_Partida.JogadorId);
+                senha = Entrar_Partida.JogadorSenha;
+                //colocar = MePresidentaServidor.Jogo.ColocarPersonagem(idjogador, senha, setor, personagem);
                 A.Location = new Point(603, 646);
             }
         }
