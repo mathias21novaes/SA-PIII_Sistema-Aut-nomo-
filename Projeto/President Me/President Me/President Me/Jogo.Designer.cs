@@ -92,13 +92,12 @@
             this.lblpontjog = new System.Windows.Forms.Label();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.lblJogo = new System.Windows.Forms.Label();
             this.btnColocar = new System.Windows.Forms.Button();
             this.cbPersonagens = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.cbSetores = new System.Windows.Forms.ComboBox();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.mensagem = new System.Windows.Forms.Label();
+            this.timer_Verificavez = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.btn_fechar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -160,7 +159,7 @@
             // 
             this.lblidjog.AutoSize = true;
             this.lblidjog.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblidjog.Location = new System.Drawing.Point(892, 542);
+            this.lblidjog.Location = new System.Drawing.Point(869, 519);
             this.lblidjog.Name = "lblidjog";
             this.lblidjog.Size = new System.Drawing.Size(60, 24);
             this.lblidjog.TabIndex = 23;
@@ -855,7 +854,7 @@
             // 
             this.lblpontjog.AutoSize = true;
             this.lblpontjog.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblpontjog.Location = new System.Drawing.Point(1042, 542);
+            this.lblpontjog.Location = new System.Drawing.Point(1096, 508);
             this.lblpontjog.Name = "lblpontjog";
             this.lblpontjog.Size = new System.Drawing.Size(60, 24);
             this.lblpontjog.TabIndex = 33;
@@ -879,23 +878,23 @@
             this.label8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.DarkBlue;
-            this.label8.Location = new System.Drawing.Point(884, 61);
+            this.label8.Location = new System.Drawing.Point(897, 66);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(295, 33);
+            this.label8.Size = new System.Drawing.Size(270, 33);
             this.label8.TabIndex = 85;
-            this.label8.Text = "ÁREA DO JOGADOR";
+            this.label8.Text = "STATUS DO JOGO";
             // 
-            // label9
+            // lblJogo
             // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.Azure;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label9.Location = new System.Drawing.Point(1022, 107);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(21, 25);
-            this.label9.TabIndex = 86;
-            this.label9.Text = "*";
+            this.lblJogo.AutoSize = true;
+            this.lblJogo.BackColor = System.Drawing.Color.Azure;
+            this.lblJogo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblJogo.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblJogo.Location = new System.Drawing.Point(868, 108);
+            this.lblJogo.Name = "lblJogo";
+            this.lblJogo.Size = new System.Drawing.Size(21, 25);
+            this.lblJogo.TabIndex = 86;
+            this.lblJogo.Text = "*";
             // 
             // btnColocar
             // 
@@ -931,18 +930,10 @@
             this.cbSetores.Size = new System.Drawing.Size(121, 21);
             this.cbSetores.TabIndex = 90;
             // 
-            // timer1
+            // timer_Verificavez
             // 
-            this.timer1.Interval = 3000;
-            // 
-            // mensagem
-            // 
-            this.mensagem.AutoSize = true;
-            this.mensagem.Location = new System.Drawing.Point(1002, 508);
-            this.mensagem.Name = "mensagem";
-            this.mensagem.Size = new System.Drawing.Size(41, 13);
-            this.mensagem.TabIndex = 91;
-            this.mensagem.Text = "label10";
+            this.timer_Verificavez.Interval = 3000;
+            this.timer_Verificavez.Tick += new System.EventHandler(this.timer_Verificavez_Tick);
             // 
             // Jogo
             // 
@@ -951,7 +942,6 @@
             this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1223, 755);
-            this.Controls.Add(this.mensagem);
             this.Controls.Add(this.cbSetores);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.cbPersonagens);
@@ -969,7 +959,7 @@
             this.Controls.Add(this.C);
             this.Controls.Add(this.B);
             this.Controls.Add(this.A);
-            this.Controls.Add(this.label9);
+            this.Controls.Add(this.lblJogo);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.pictureBox6);
             this.Controls.Add(this.pos22);
@@ -1137,12 +1127,11 @@
         private System.Windows.Forms.Label lblpontjog;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lblJogo;
         private System.Windows.Forms.Button btnColocar;
         private System.Windows.Forms.ComboBox cbPersonagens;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.ComboBox cbSetores;
-        private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Label mensagem;
+        private System.Windows.Forms.Timer timer_Verificavez;
     }
 }
