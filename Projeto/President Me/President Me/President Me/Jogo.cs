@@ -34,6 +34,7 @@ namespace President_Me
         public string colocar { get; set; }
         public int idjogador { get; set; }
         public string senha { get; set; }
+        public string [,] matriz { get; set; } =  new string [20,4];
         //public int jog { get; set; }
 
         public Jogo()
@@ -128,6 +129,49 @@ namespace President_Me
         private async void timertrue()
         {
             await Task.Delay(8000);
+        }
+
+        private void Jogo_Load(object sender, EventArgs e)
+        {
+            cbPersonagens.Items.Add('A');
+            cbPersonagens.Items.Add('B');
+            cbPersonagens.Items.Add('C');
+            cbPersonagens.Items.Add('D');
+            cbPersonagens.Items.Add('E');
+            cbPersonagens.Items.Add('F');
+            cbPersonagens.Items.Add('G');
+            cbPersonagens.Items.Add('I');
+            cbPersonagens.Items.Add('L');
+            cbPersonagens.Items.Add('M');
+            cbPersonagens.Items.Add('N');
+            cbPersonagens.Items.Add('O');
+            cbPersonagens.Items.Add('P');
+
+            cbSetores.Items.Add('1');
+            cbSetores.Items.Add('2');
+            cbSetores.Items.Add('3');
+            cbSetores.Items.Add('4');
+
+            matriz[0, 0] = Convert.ToString(this.pos00.Location.X) + ',' + Convert.ToString(this.pos00.Location.Y) + ",false";
+            matriz[0, 1] = Convert.ToString(this.pos01.Location.X) + ',' + Convert.ToString(this.pos01.Location.Y) + ",false";
+            matriz[0, 2] = Convert.ToString(this.pos02.Location.X) + ',' + Convert.ToString(this.pos02.Location.Y) + ",false";
+            matriz[0, 3] = Convert.ToString(this.pos03.Location.X) + ',' + Convert.ToString(this.pos03.Location.Y) + ",false";
+            matriz[1, 0] = Convert.ToString(this.pos10.Location.X) + ',' + Convert.ToString(this.pos10.Location.Y) + ",false";
+            matriz[1, 1] = Convert.ToString(this.pos11.Location.X) + ',' + Convert.ToString(this.pos11.Location.Y) + ",false";
+            matriz[1, 2] = Convert.ToString(this.pos12.Location.X) + ',' + Convert.ToString(this.pos12.Location.Y) + ",false";
+            matriz[1, 3] = Convert.ToString(this.pos13.Location.X) + ',' + Convert.ToString(this.pos13.Location.Y) + ",false";
+            matriz[2, 0] = Convert.ToString(this.pos20.Location.X) + ',' + Convert.ToString(this.pos20.Location.Y) + ",false";
+            matriz[2, 1] = Convert.ToString(this.pos21.Location.X) + ',' + Convert.ToString(this.pos21.Location.Y) + ",false";
+            matriz[2, 2] = Convert.ToString(this.pos22.Location.X) + ',' + Convert.ToString(this.pos22.Location.Y) + ",false";
+            matriz[2, 3] = Convert.ToString(this.pos23.Location.X) + ',' + Convert.ToString(this.pos23.Location.Y) + ",false";
+            matriz[3, 0] = Convert.ToString(this.pos30.Location.X) + ',' + Convert.ToString(this.pos30.Location.Y) + ",false";
+            matriz[3, 1] = Convert.ToString(this.pos31.Location.X) + ',' + Convert.ToString(this.pos31.Location.Y) + ",false";
+            matriz[3, 2] = Convert.ToString(this.pos32.Location.X) + ',' + Convert.ToString(this.pos32.Location.Y) + ",false";
+            matriz[3, 3] = Convert.ToString(this.pos33.Location.X) + ',' + Convert.ToString(this.pos33.Location.Y) + ",false";
+            matriz[4, 0] = Convert.ToString(this.pos40.Location.X) + ',' + Convert.ToString(this.pos40.Location.Y) + ",false";
+            matriz[4, 1] = Convert.ToString(this.pos41.Location.X) + ',' + Convert.ToString(this.pos41.Location.Y) + ",false";
+            matriz[4, 2] = Convert.ToString(this.pos42.Location.X) + ',' + Convert.ToString(this.pos42.Location.Y) + ",false";
+            matriz[4, 3] = Convert.ToString(this.pos43.Location.X) + ',' + Convert.ToString(this.pos43.Location.Y) + ",false";
         }
         //private Point primeiroPoint = new Point();
     }
