@@ -274,18 +274,38 @@ namespace President_Me
             string[] tabuleiro = verificavez.Split('\n');
             string jogadorDaVez = tabuleiro[0];
             lbljogadorvez.Text = jogadorDaVez;
+            string[] personagem;
 
             if (jogadorDaVez.Contains(Entrar_Partida.JogadorId))
             {
                 lblJogo.Text = "SUA VEZ DE JOGAR";
                 this.btnColocar.Enabled = true;
+                atualizacao = true;
                 //moverPersonagem(cbPersonagens.Text.Substring(0, 1), Convert.ToInt32(cbSetores.Text), true);
             }
             else
             {
                 lblJogo.Text = "AGUARDE SUA VEZ";
                 this.btnColocar.Enabled = false;
-                atualizacao = true;
+                
+            }
+
+
+            if (tabuleiro.Length > 2)
+            {
+                for (int i = 0; i < tabuleiro.Length - 1; i++)
+                {
+                    personagem = tabuleiro[i].Split(',');
+                    if (cbPersonagens.Items.Contains(personagem[1]) && atualizacao == true)
+                    {
+                        atualizaPersonagem(personagem[1], Convert.ToInt32(personagem[0]));
+                    }
+                    else if (cbPersonagens.Items.Contains(personagem[1]))
+                    {
+                        moverPersonagem(personagem[1], Convert.ToInt32(personagem[0]), false);
+                    }
+
+                }
             }
         }
 
@@ -377,27 +397,26 @@ namespace President_Me
                 }
             }
         }
-        public void atualizaTabuleiro(string tabuleiro)
+        /*public void atualizaTabuleiro(string tabuleiro)
         {
-            tabuleiro = tabuleiro.Replace("\r", "");
-            string[] posicoes = tabuleiro.Split('\n');
             string[] personagem;
+            tabuleiro = verificavez.Split('\n');
             if (tabuleiro.Length > 2)
             {
-                for (int i = 0; i < posicoes.Length - 1; i++)
+                for (int i = 0; i < tabuleiro.Length - 1; i++)
                 {
-                    personagem = posicoes[i].Split(',');
+                    personagem = tabuleiro[i].Split(',');
                     if (cbPersonagens.Items.Contains(personagem[1]) && atualizacao == true)
                     {
-                        moverPersonagem(personagem[1], Convert.ToInt32(personagem[0]), false);
-                    }
-                    else
-                    {
                         atualizaPersonagem(personagem[1], Convert.ToInt32(personagem[0]));
+                    }
+                    else if (cbPersonagens.Items.Contains(personagem[1]))
+                    {
+                        moverPersonagem(personagem[1], Convert.ToInt32(personagem[0]), false);
                     }
 
                 }
             }
-        }
+        }*/
     }
 }
