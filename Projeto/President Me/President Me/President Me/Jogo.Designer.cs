@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Jogo));
             this.btn_fechar = new System.Windows.Forms.PictureBox();
             this.lblidjog = new System.Windows.Forms.Label();
@@ -96,6 +97,8 @@
             this.cbPersonagens = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.cbSetores = new System.Windows.Forms.ComboBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.mensagem = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.btn_fechar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -896,17 +899,18 @@
             // 
             // btnColocar
             // 
-            this.btnColocar.Location = new System.Drawing.Point(982, 664);
+            this.btnColocar.Location = new System.Drawing.Point(986, 664);
             this.btnColocar.Name = "btnColocar";
             this.btnColocar.Size = new System.Drawing.Size(75, 23);
             this.btnColocar.TabIndex = 87;
             this.btnColocar.Text = "Colocar";
             this.btnColocar.UseVisualStyleBackColor = true;
+            this.btnColocar.Click += new System.EventHandler(this.btnColocar_Click);
             // 
             // cbPersonagens
             // 
             this.cbPersonagens.FormattingEnabled = true;
-            this.cbPersonagens.Location = new System.Drawing.Point(860, 722);
+            this.cbPersonagens.Location = new System.Drawing.Point(860, 615);
             this.cbPersonagens.Name = "cbPersonagens";
             this.cbPersonagens.Size = new System.Drawing.Size(121, 21);
             this.cbPersonagens.TabIndex = 88;
@@ -922,10 +926,23 @@
             // cbSetores
             // 
             this.cbSetores.FormattingEnabled = true;
-            this.cbSetores.Location = new System.Drawing.Point(1058, 722);
+            this.cbSetores.Location = new System.Drawing.Point(1058, 615);
             this.cbSetores.Name = "cbSetores";
             this.cbSetores.Size = new System.Drawing.Size(121, 21);
             this.cbSetores.TabIndex = 90;
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 3000;
+            // 
+            // mensagem
+            // 
+            this.mensagem.AutoSize = true;
+            this.mensagem.Location = new System.Drawing.Point(1002, 508);
+            this.mensagem.Name = "mensagem";
+            this.mensagem.Size = new System.Drawing.Size(41, 13);
+            this.mensagem.TabIndex = 91;
+            this.mensagem.Text = "label10";
             // 
             // Jogo
             // 
@@ -934,6 +951,7 @@
             this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1223, 755);
+            this.Controls.Add(this.mensagem);
             this.Controls.Add(this.cbSetores);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.cbPersonagens);
@@ -1124,5 +1142,7 @@
         private System.Windows.Forms.ComboBox cbPersonagens;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.ComboBox cbSetores;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label mensagem;
     }
 }

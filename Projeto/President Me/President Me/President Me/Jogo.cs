@@ -30,17 +30,13 @@ namespace President_Me
 
         public string personagem { get; set; }
         public int setor { get; set; }
-        public string ColocarPersonagem { get; set; }
-        public string colocar { get; set; }
-        public int idjogador { get; set; }
-        public string senha { get; set; }
         public string [,] matriz { get; set; } =  new string [20,4];
         //public int jog { get; set; }
 
         public Jogo()
         {
             InitializeComponent();
-            InitializeComponente();
+            //InitializeComponente();
             string versao = "3.0";
             Lobby f = new Lobby(versao);
             //f.Location = new Point(700, 700);
@@ -114,17 +110,17 @@ namespace President_Me
 
 
 
-        private void InitializeComponente()
+        /*private void InitializeComponente()
         {
             timertrue();
             if(txtidjog != txtnomejog)
             {
-                idjogador = Convert.ToInt32(Entrar_Partida.JogadorId);
-                senha = Entrar_Partida.JogadorSenha;
+                //idjogador = Convert.ToInt32(Entrar_Partida.JogadorId);
+                //senha = Entrar_Partida.JogadorSenha;
                 //colocar = MePresidentaServidor.Jogo.ColocarPersonagem(idjogador, senha, setor, personagem);
                 A.Location = new Point(603, 646);
             }
-        }
+        }*/
         //Função esperar um tempo
         private async void timertrue()
         {
@@ -172,6 +168,164 @@ namespace President_Me
             matriz[4, 1] = Convert.ToString(this.pos41.Location.X) + ',' + Convert.ToString(this.pos41.Location.Y) + ",false";
             matriz[4, 2] = Convert.ToString(this.pos42.Location.X) + ',' + Convert.ToString(this.pos42.Location.Y) + ",false";
             matriz[4, 3] = Convert.ToString(this.pos43.Location.X) + ',' + Convert.ToString(this.pos43.Location.Y) + ",false";
+        }
+
+        private void btnColocar_Click(object sender, EventArgs e)
+        {
+            if (String.IsNullOrEmpty(this.cbPersonagens.Text) || String.IsNullOrEmpty(this.cbSetores.Text))
+            {
+                MessageBox.Show("Selecione o personagem e o destino.");
+                return;
+            }
+            moverPersonagem(cbPersonagens.Text.Substring(0, 1), Convert.ToInt32(cbSetores.Text), true);
+        }
+        public int moverPersonagem(string personagem, int setor, bool serv)
+        {
+            string[] aux = { };
+            Control persona = null;
+            bool entrou = true;
+            string senha = Entrar_Partida.JogadorSenha;
+            if (serv)
+          {
+               string ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Convert.ToInt32(Entrar_Partida.JogadorId), senha, setor, personagem);
+               if (ColocarPersonagem.Contains("ERRO"))
+              {
+                 MessageBox.Show(ColocarPersonagem);
+                 return -1;
+              }
+          }
+
+                for (int i = 0; i < 4; i++)
+                {
+                    aux = this.matriz[(Convert.ToInt32(setor) - 1), i].Split(',');
+                    if (aux[2] == "false")
+                    {
+                        //persona.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+
+                        cbPersonagens.Items.Remove(personagem);
+                        return 1;
+                        if (cbPersonagens.Text == "A")
+                        {
+                            A.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                            entrou = true;
+
+                            break;
+
+                        }
+                        else if (cbPersonagens.Text == "B")
+                        {
+                            B.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                            entrou = true;
+
+                            break;
+                        }
+                        else if (cbPersonagens.Text == "C")
+                        {
+                            C.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                            entrou = true;
+
+                            break;
+                        }
+                        else if (cbPersonagens.Text == "D")
+                        {
+                            D.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                            entrou = true;
+
+                            break;
+                        }
+                        else if (cbPersonagens.Text == "E")
+                        {
+                            E.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                            entrou = true;
+
+                            break;
+                        }
+                        else if (cbPersonagens.Text == "F")
+                        {
+                            F.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                            entrou = true;
+
+                            break;
+                        }
+                        else if (cbPersonagens.Text == "G")
+                        {
+                            G.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                            entrou = true;
+
+                            break;
+                        }
+                        else if (cbPersonagens.Text == "I")
+                        {
+                            I.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                            entrou = true;
+
+                            break;
+                        }
+                        else if (cbPersonagens.Text == "L")
+                        {
+                            L.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                            entrou = true;
+
+                            break;
+                        }
+                        else if (cbPersonagens.Text == "M")
+                        {
+                            M.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                            entrou = true;
+
+                            break;
+                        }
+                        else if (cbPersonagens.Text == "N")
+                        {
+                            N.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                            entrou = true;
+
+                            break;
+                        }
+                        else if (cbPersonagens.Text == "O")
+                        {
+                            O.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                            entrou = true;
+
+                            break;
+                        }
+                        else if (cbPersonagens.Text == "P")
+                        {
+                            P.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                            entrou = true;
+
+                            break;
+                        }
+                    }
+                    if (entrou == false)
+                    {
+                        //MessageBox.Show("Nível cheio");
+                        matriz[(Convert.ToInt32(cbSetores) - 1), i] = aux[0] + ',' + aux[1] + ',' + true;
+                    }
+                }
+            return 0;  
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            string verificavez = MePresidentaServidor.Jogo.VerificarVez(Convert.ToInt32(Entrar_Partida.JogadorId)); verificavez = verificavez.Replace("\r", "");
+            string[] tabuleiro = verificavez.Split('\n');
+            string jogadorDaVez = tabuleiro[0];
+
+            if (jogadorDaVez.Contains(Entrar_Partida.JogadorId))
+            {
+                mensagem.Text = "Sua Vez, Faça uma Jogada";
+                mensagem.ForeColor = Color.LimeGreen;
+                this.btnColocar.Enabled = true;
+                moverPersonagem(cbPersonagens.Text.Substring(0, 1), Convert.ToInt32(cbSetores.Text), true);
+            }
+            else 
+            {
+                mensagem.Text = "Aguarde sua Vez!";
+                mensagem.ForeColor = Color.Red;
+                this.btnColocar.Enabled = false;
+            }
+
         }
         //private Point primeiroPoint = new Point();
     }

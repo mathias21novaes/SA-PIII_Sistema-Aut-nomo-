@@ -30,7 +30,7 @@ namespace President_Me
 
         public static string []colunas { get; set; }
         public string []listP { get; set; }
-        public static string []id { get; set; }
+        public static string[] id { get; set; } = new string[2];
         //public static string []jog { get; set; }
 
         public string listar { get; set; }
@@ -65,7 +65,7 @@ namespace President_Me
 
         private void btn_entrar_Click(object sender, EventArgs e)
         {
-            idpartida = int.Parse(id[1]);
+            idpartida = Convert.ToInt32(id[1]);
             nome_jogador = txtJogador.Text;
             senha_partida = txtSenha_Entrar.Text;
             this.idesenha_jogador = MePresidentaServidor.Jogo.Entrar(idpartida, nome_jogador, senha_partida);
