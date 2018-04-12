@@ -167,7 +167,8 @@ namespace President_Me
             if (serv)
             {
                string ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Convert.ToInt32(Entrar_Partida.JogadorId), senha, setor, personagem);
-               if (ColocarPersonagem.Contains("ERRO"))
+               txthistorico.Text = ColocarPersonagem;
+                if (ColocarPersonagem.Contains("ERRO"))
                {
                     MessageBox.Show(ColocarPersonagem);
                     return -1;
@@ -274,13 +275,13 @@ namespace President_Me
             string[] tabuleiro = verificavez.Split('\n');
             string jogadorDaVez = tabuleiro[0];
             lbljogadorvez.Text = jogadorDaVez;
-            string[] personagem;
+            string[] personagem = { };
+            atualizacao = true;
 
             if (jogadorDaVez.Contains(Entrar_Partida.JogadorId))
             {
                 lblJogo.Text = "SUA VEZ DE JOGAR";
                 this.btnColocar.Enabled = true;
-                atualizacao = true;
                 //moverPersonagem(cbPersonagens.Text.Substring(0, 1), Convert.ToInt32(cbSetores.Text), true);
             }
             else

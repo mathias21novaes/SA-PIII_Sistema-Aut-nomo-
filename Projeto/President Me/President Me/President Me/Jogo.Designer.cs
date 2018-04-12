@@ -99,6 +99,7 @@
             this.cbSetores = new System.Windows.Forms.ComboBox();
             this.timer_Verificavez = new System.Windows.Forms.Timer(this.components);
             this.lbljogadorvez = new System.Windows.Forms.Label();
+            this.txthistorico = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.btn_fechar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -945,6 +946,14 @@
             this.lbljogadorvez.TabIndex = 91;
             this.lbljogadorvez.Text = "label9";
             // 
+            // txthistorico
+            // 
+            this.txthistorico.Location = new System.Drawing.Point(1058, 535);
+            this.txthistorico.Multiline = true;
+            this.txthistorico.Name = "txthistorico";
+            this.txthistorico.Size = new System.Drawing.Size(153, 74);
+            this.txthistorico.TabIndex = 92;
+            // 
             // Jogo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -952,6 +961,7 @@
             this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1223, 755);
+            this.Controls.Add(this.txthistorico);
             this.Controls.Add(this.lbljogadorvez);
             this.Controls.Add(this.cbSetores);
             this.Controls.Add(this.comboBox2);
@@ -1145,5 +1155,6 @@
         private System.Windows.Forms.ComboBox cbSetores;
         private System.Windows.Forms.Timer timer_Verificavez;
         private System.Windows.Forms.Label lbljogadorvez;
+        private System.Windows.Forms.TextBox txthistorico;
     }
 }
