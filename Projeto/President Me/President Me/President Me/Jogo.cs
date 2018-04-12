@@ -296,14 +296,17 @@ namespace President_Me
             {
                 for (int i = 0; i < tabuleiro.Length - 1; i++)
                 {
+                    this.personagem = txthistorico.Text;
                     personagem = tabuleiro[i].Split(',');
-                    if (cbPersonagens.Items.Contains(personagem[1]) && atualizacao == true)
+                    string num = tabuleiro[0];
+                    string letra = tabuleiro[1];
+                    if (cbPersonagens.Items.Contains(letra) && atualizacao == true)
                     {
-                        atualizaPersonagem(personagem[1], Convert.ToInt32(personagem[0]));
+                        atualizaPersonagem(letra, Convert.ToInt32(num));
                     }
-                    else if (cbPersonagens.Items.Contains(personagem[1]))
+                    else if (cbPersonagens.Items.Contains(letra))
                     {
-                        moverPersonagem(personagem[1], Convert.ToInt32(personagem[0]), false);
+                        moverPersonagem(letra, Convert.ToInt32(num), false);
                     }
 
                 }
