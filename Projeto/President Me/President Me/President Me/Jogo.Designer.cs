@@ -98,6 +98,7 @@
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.cbSetores = new System.Windows.Forms.ComboBox();
             this.timer_Verificavez = new System.Windows.Forms.Timer(this.components);
+            this.lbljogadorvez = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.btn_fechar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -935,6 +936,15 @@
             this.timer_Verificavez.Interval = 3000;
             this.timer_Verificavez.Tick += new System.EventHandler(this.timer_Verificavez_Tick);
             // 
+            // lbljogadorvez
+            // 
+            this.lbljogadorvez.AutoSize = true;
+            this.lbljogadorvez.Location = new System.Drawing.Point(870, 720);
+            this.lbljogadorvez.Name = "lbljogadorvez";
+            this.lbljogadorvez.Size = new System.Drawing.Size(35, 13);
+            this.lbljogadorvez.TabIndex = 91;
+            this.lbljogadorvez.Text = "label9";
+            // 
             // Jogo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -942,6 +952,7 @@
             this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1223, 755);
+            this.Controls.Add(this.lbljogadorvez);
             this.Controls.Add(this.cbSetores);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.cbPersonagens);
@@ -1133,5 +1144,6 @@
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.ComboBox cbSetores;
         private System.Windows.Forms.Timer timer_Verificavez;
+        private System.Windows.Forms.Label lbljogadorvez;
     }
 }
