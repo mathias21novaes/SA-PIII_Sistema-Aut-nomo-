@@ -31,6 +31,7 @@ namespace President_Me
         public string personagem { get; set; }
         public int setor { get; set; }
         public string [,] matriz { get; set; } =  new string [20,4];
+        public bool atualizacao { get; set; } = false;
 
         public Jogo()
         {
@@ -160,7 +161,6 @@ namespace President_Me
         public int moverPersonagem(string personagem, int setor, bool serv)
         {
             string[] aux = { };
-            Control person = null;
             bool entrou = true;
             string senha = Entrar_Partida.JogadorSenha;
 
@@ -177,11 +177,8 @@ namespace President_Me
             for (int i = 0; i < 4; i++)
             {
                 aux = matriz[(Convert.ToInt32(setor) - 1), i].Split(',');
-                A.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
                 if (aux[2] == "false")
                 {
-                    //persona.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
-                    //return 1;
                     if(cbPersonagens.Text == "A")
                     {
                         A.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
@@ -194,65 +191,65 @@ namespace President_Me
                         entrou = true;
                         break;
                     }
-                    else if (cbPersonagens.SelectedText == "C")
+                    else if (cbPersonagens.Text == "C")
                     {
                         C.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
                         entrou = true;
                         break;
                     }
-                    else if (cbPersonagens.SelectedText == "D")
+                    else if (cbPersonagens.Text == "D")
                     {
                         D.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
                         entrou = true;
                     }
-                    else if (cbPersonagens.SelectedText == "E")
+                    else if (cbPersonagens.Text == "E")
                     {
                         E.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
                         entrou = true;
                         break;
                     }
-                    else if (cbPersonagens.SelectedText == "F")
+                    else if (cbPersonagens.Text == "F")
                     {
                         F.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
                         entrou = true;
                     }
-                    else if (cbPersonagens.SelectedText == "G")
+                    else if (cbPersonagens.Text == "G")
                     {
                         G.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
                         entrou = true;
                         break;
                     }
-                    else if (cbPersonagens.SelectedText == "I")
+                    else if (cbPersonagens.Text == "I")
                     {
                         I.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
                         entrou = true;
                         break;
                     }
-                    else if (cbPersonagens.SelectedText == "L")
+                    else if (cbPersonagens.Text == "L")
                     {
                         L.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
                         entrou = true;
                         break;
                     }
-                    else if (cbPersonagens.SelectedText == "M")
+                    else if (cbPersonagens.Text == "M")
                     {
                         M.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
                         entrou = true;
                         break;
                     }
-                    else if (cbPersonagens.SelectedText == "N")
+                    else if (cbPersonagens.Text == "N")
                     {
                         N.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
                         entrou = true;
                         break;
                     }
-                    else if (cbPersonagens.SelectedText == "O")
+                    else if (cbPersonagens.Text == "O")
                     {
                         O.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
                         entrou = true;
                         break;
                     }
-                    else if (cbPersonagens.SelectedText == "P")
+                    else if (cbPersonagens.Text == "P")
                     {
                         P.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
                         entrou = true;
@@ -288,10 +285,99 @@ namespace President_Me
             {
                 lblJogo.Text = "AGUARDE SUA VEZ";
                 this.btnColocar.Enabled = false;
+                atualizacao = true;
             }
         }
 
-        /*public void atualizaTabuleiro(string tabuleiro)
+        public void atualizaPersonagem(string personagem, int setor)
+        {
+            string[] aux = { };
+            bool entrou = true;
+            for (int i = 0; i < 4; i++)
+            {
+                aux = matriz[(Convert.ToInt32(setor) - 1), i].Split(',');
+                if (aux[2] == "false")
+                {
+                    if (cbPersonagens.Text == "A")
+                    {
+                        A.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                        entrou = true;
+                        break;
+                    }
+                    else if (cbPersonagens.Text == "B")
+                    {
+                        B.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                        entrou = true;
+                        break;
+                    }
+                    else if (cbPersonagens.Text == "C")
+                    {
+                        C.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                        entrou = true;
+                        break;
+                    }
+                    else if (cbPersonagens.Text == "D")
+                    {
+                        D.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                        entrou = true;
+                    }
+                    else if (cbPersonagens.Text == "E")
+                    {
+                        E.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                        entrou = true;
+                        break;
+                    }
+                    else if (cbPersonagens.Text == "F")
+                    {
+                        F.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                        entrou = true;
+                    }
+                    else if (cbPersonagens.Text == "G")
+                    {
+                        G.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                        entrou = true;
+                        break;
+                    }
+                    else if (cbPersonagens.Text == "I")
+                    {
+                        I.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                        entrou = true;
+                        break;
+                    }
+                    else if (cbPersonagens.Text == "L")
+                    {
+                        L.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                        entrou = true;
+                        break;
+                    }
+                    else if (cbPersonagens.Text == "M")
+                    {
+                        M.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                        entrou = true;
+                        break;
+                    }
+                    else if (cbPersonagens.Text == "N")
+                    {
+                        N.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                        entrou = true;
+                        break;
+                    }
+                    else if (cbPersonagens.Text == "O")
+                    {
+                        O.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                        entrou = true;
+                        break;
+                    }
+                    else if (cbPersonagens.Text == "P")
+                    {
+                        P.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                        entrou = true;
+                        break;
+                    }
+                }
+            }
+        }
+        public void atualizaTabuleiro(string tabuleiro)
         {
             tabuleiro = tabuleiro.Replace("\r", "");
             string[] posicoes = tabuleiro.Split('\n');
@@ -301,17 +387,17 @@ namespace President_Me
                 for (int i = 0; i < posicoes.Length - 1; i++)
                 {
                     personagem = posicoes[i].Split(',');
-                    if ()
+                    if (cbPersonagens.Items.Contains(personagem[1]) && atualizacao == true)
                     {
                         moverPersonagem(personagem[1], Convert.ToInt32(personagem[0]), false);
                     }
                     else
                     {
-                        movePersonagem(personagem[1], Convert.ToInt32(personagem[0]));
+                        atualizaPersonagem(personagem[1], Convert.ToInt32(personagem[0]));
                     }
 
                 }
             }
-        }*/
+        }
     }
 }
