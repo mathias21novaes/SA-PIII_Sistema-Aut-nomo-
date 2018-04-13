@@ -315,7 +315,7 @@ namespace President_Me
             string[] aux = { };
             bool entrou = true;
 
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i <= 3; i++)
             {
                 aux = matriz[(Convert.ToInt32(setor) - 1), i].Split(',');
                 if (aux[2] == "false")
