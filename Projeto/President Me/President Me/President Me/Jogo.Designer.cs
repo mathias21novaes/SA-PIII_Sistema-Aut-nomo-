@@ -60,7 +60,7 @@
             this.L = new System.Windows.Forms.PictureBox();
             this.O = new System.Windows.Forms.PictureBox();
             this.P = new System.Windows.Forms.PictureBox();
-            this.ptbRei = new System.Windows.Forms.PictureBox();
+            this.candidato = new System.Windows.Forms.PictureBox();
             this.pos41 = new System.Windows.Forms.PictureBox();
             this.pos40 = new System.Windows.Forms.PictureBox();
             this.pos31 = new System.Windows.Forms.PictureBox();
@@ -121,7 +121,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.L)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.O)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.P)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbRei)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.candidato)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pos41)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pos40)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pos31)).BeginInit();
@@ -155,7 +155,7 @@
             this.btn_fechar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btn_fechar.TabIndex = 0;
             this.btn_fechar.TabStop = false;
-            this.btn_fechar.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.btn_fechar.Click += new System.EventHandler(this.btn_fechar_Click);
             // 
             // lblidjog
             // 
@@ -480,18 +480,18 @@
             this.P.TabIndex = 57;
             this.P.TabStop = false;
             // 
-            // ptbRei
+            // candidato
             // 
-            this.ptbRei.BackColor = System.Drawing.Color.Transparent;
-            this.ptbRei.ErrorImage = null;
-            this.ptbRei.ImageLocation = "5";
-            this.ptbRei.InitialImage = null;
-            this.ptbRei.Location = new System.Drawing.Point(604, 57);
-            this.ptbRei.Name = "ptbRei";
-            this.ptbRei.Size = new System.Drawing.Size(51, 48);
-            this.ptbRei.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.ptbRei.TabIndex = 83;
-            this.ptbRei.TabStop = false;
+            this.candidato.BackColor = System.Drawing.Color.Transparent;
+            this.candidato.ErrorImage = null;
+            this.candidato.ImageLocation = "5";
+            this.candidato.InitialImage = null;
+            this.candidato.Location = new System.Drawing.Point(604, 57);
+            this.candidato.Name = "candidato";
+            this.candidato.Size = new System.Drawing.Size(51, 48);
+            this.candidato.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.candidato.TabIndex = 83;
+            this.candidato.TabStop = false;
             // 
             // pos41
             // 
@@ -994,7 +994,7 @@
             this.Controls.Add(this.pos40);
             this.Controls.Add(this.pos03);
             this.Controls.Add(this.pos41);
-            this.Controls.Add(this.ptbRei);
+            this.Controls.Add(this.candidato);
             this.Controls.Add(this.lblpontjog);
             this.Controls.Add(this.pos11);
             this.Controls.Add(this.pos42);
@@ -1056,7 +1056,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.L)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.O)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.P)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbRei)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.candidato)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pos41)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pos40)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pos31)).EndInit();
@@ -1138,7 +1138,7 @@
         private System.Windows.Forms.PictureBox pos13;
         private System.Windows.Forms.PictureBox pos21;
         private System.Windows.Forms.PictureBox ptbOperario;
-        private System.Windows.Forms.PictureBox ptbRei;
+        private System.Windows.Forms.PictureBox candidato;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblnj;
         private System.Windows.Forms.Label label5;

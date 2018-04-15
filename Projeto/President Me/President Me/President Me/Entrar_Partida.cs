@@ -20,7 +20,7 @@ namespace President_Me
         public string idp { get; set; }
         public static int idpartida { get; set; }
         public static string nome_jogador { get; set; }
-        public string senha_partida { get; set; }
+        public static string senha_partida { get; set; }
 
         public int numJogadores { get; set; }
         public string idesenha_jogador { get; set; }
