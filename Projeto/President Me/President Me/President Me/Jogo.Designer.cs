@@ -101,6 +101,7 @@
             this.lbljogadorvez = new System.Windows.Forms.Label();
             this.txthistorico = new System.Windows.Forms.TextBox();
             this.lblpromover = new System.Windows.Forms.TextBox();
+            this.btnpromover = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.btn_fechar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -962,6 +963,16 @@
             this.lblpromover.Size = new System.Drawing.Size(100, 20);
             this.lblpromover.TabIndex = 93;
             // 
+            // btnpromover
+            // 
+            this.btnpromover.Location = new System.Drawing.Point(1020, 450);
+            this.btnpromover.Name = "btnpromover";
+            this.btnpromover.Size = new System.Drawing.Size(75, 23);
+            this.btnpromover.TabIndex = 94;
+            this.btnpromover.Text = "Promover";
+            this.btnpromover.UseVisualStyleBackColor = true;
+            this.btnpromover.Click += new System.EventHandler(this.btnpromover_Click);
+            // 
             // Jogo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -969,6 +980,7 @@
             this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1223, 755);
+            this.Controls.Add(this.btnpromover);
             this.Controls.Add(this.lblpromover);
             this.Controls.Add(this.txthistorico);
             this.Controls.Add(this.lbljogadorvez);
@@ -1166,5 +1178,6 @@
         private System.Windows.Forms.Label lbljogadorvez;
         private System.Windows.Forms.TextBox txthistorico;
         private System.Windows.Forms.TextBox lblpromover;
+        private System.Windows.Forms.Button btnpromover;
     }
 }

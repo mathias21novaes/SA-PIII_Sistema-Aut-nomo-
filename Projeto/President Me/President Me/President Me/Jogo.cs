@@ -406,25 +406,31 @@ namespace President_Me
                 }
             }
         }
-        /*public void atualizaTabuleiro(string tabuleiro)
+
+        private void btnpromover_Click(object sender, EventArgs e)
         {
-            string[] personagem;
-            tabuleiro = verificavez.Split('\n');
-            if (tabuleiro.Length > 2)
-            {
-                for (int i = 0; i < tabuleiro.Length - 1; i++)
-                {
-                    personagem = tabuleiro[i].Split(',');
-                    if (cbPersonagens.Items.Contains(personagem[1]) && atualizacao == true)
-                    {
-                        atualizaPersonagem(personagem[1], Convert.ToInt32(personagem[0]));
-                    }
-                    else if (cbPersonagens.Items.Contains(personagem[1]))
-                    {
-                        moverPersonagem(personagem[1], Convert.ToInt32(personagem[0]), false);
-                    }
-                }
-            }
-        }*/
+            string personagem = lblpromover.Text;
+            promover(personagem);
+        }
+        /*public void atualizaTabuleiro(string tabuleiro)
+{
+   string[] personagem;
+   tabuleiro = verificavez.Split('\n');
+   if (tabuleiro.Length > 2)
+   {
+       for (int i = 0; i < tabuleiro.Length - 1; i++)
+       {
+           personagem = tabuleiro[i].Split(',');
+           if (cbPersonagens.Items.Contains(personagem[1]) && atualizacao == true)
+           {
+               atualizaPersonagem(personagem[1], Convert.ToInt32(personagem[0]));
+           }
+           else if (cbPersonagens.Items.Contains(personagem[1]))
+           {
+               moverPersonagem(personagem[1], Convert.ToInt32(personagem[0]), false);
+           }
+       }
+   }
+}*/
     }
 }
