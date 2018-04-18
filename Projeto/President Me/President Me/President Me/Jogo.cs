@@ -268,6 +268,13 @@ namespace President_Me
             return 0;
         }
 
+        public void promover(string personagem)
+        {
+            string senha = Entrar_Partida.JogadorSenha;
+            string promover = MePresidentaServidor.Jogo.Promover(Convert.ToInt32(Entrar_Partida.JogadorId), senha, personagem);
+            txthistorico.Text = promover;
+        }
+
         private void timer_Verificavez_Tick(object sender, EventArgs e)
         {
             string verificavez = MePresidentaServidor.Jogo.VerificarVez(idjog);
