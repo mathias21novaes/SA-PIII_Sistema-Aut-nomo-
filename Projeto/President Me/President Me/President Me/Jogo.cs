@@ -30,33 +30,21 @@ namespace President_Me
 
         public string personagem { get; set; }
         public int setor { get; set; }
-        public string [,] matriz { get; set; } =  new string [20,4];
+        public string[,] matriz { get; set; } = new string[20, 4];
         public bool atualizacao { get; set; } = false;
-        public string presidente { get; set; }
-
-        /*------------------------------------------------------------------*/
-        public string idPartida { get; set; }
-        public string idJogador { get; set; }
-        public string senhaPartida { get; set; }
-        public string senhaJogador { get; set; }
-        public string vezJogador { get; set; }
 
         public Jogo()
         {
             InitializeComponent();
-
             string versao = "3.0";
             Lobby f = new Lobby(versao);
             f.ShowDialog();
 
-            this.idJogador = Entrar_Partida.JogadorId;
-            this.senhaJogador = Entrar_Partida.JogadorSenha;
-            this.idPartida = Convert.ToString(Entrar_Partida.idpartida);
-            this.senhaPartida = Entrar_Partida.senha_partida;
-            lblnj.Text = Entrar_Partida.nome_jogador;
-            lblidj.Text = idJogador;
-            lblsj.Text = senhaJogador;
+            timer_Verificavez.Enabled = true;
 
+            lblidj.Text = Entrar_Partida.JogadorId;
+            lblsj.Text = Entrar_Partida.JogadorSenha;
+            lblnj.Text = Entrar_Partida.nome_jogador;
             if (String.IsNullOrEmpty(Entrar_Partida.JogadorId))
             {
                 this.Close();
@@ -64,24 +52,57 @@ namespace President_Me
             else
                 idjog = int.Parse(Entrar_Partida.JogadorId);
 
-            timer_Verificavez.Enabled = true;
-
             //DEVERÁ SER SER FEITO UM TRATAMENTO DE ERRO NO CÓDIGO DE LISTAR CARTAS
-            this.Cartas = MePresidentaServidor.Jogo.ListarCartas(idjog, Entrar_Partida.JogadorSenha);
-            this.ListarJogadores = MePresidentaServidor.Jogo.ListarJogadores(Entrar_Partida.idpartida);
-            this.personagens = MePresidentaServidor.Jogo.ListarPersonagens();
+            Cartas = MePresidentaServidor.Jogo.ListarCartas(idjog, Entrar_Partida.JogadorSenha);
             lblCartas.Text = Cartas;
+
+            ListarJogadores = MePresidentaServidor.Jogo.ListarJogadores(Entrar_Partida.idpartida);
             lblidjog.Text = ListarJogadores;
+
+            this.personagens = MePresidentaServidor.Jogo.ListarPersonagens();
             lblnomejog.Text = personagens;
+
+            /*if (Entrar_Partida.iniciou_partida == true)
+            {
+                timer_Verificavez.Enabled = true;
+            }*/
         }
 
-        private void btn_fechar_Click(object sender, EventArgs e)
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
+        //votação
+        private void btn_sim_Click(object sender, EventArgs e)
+        {
+            voto = "SIM";
+            lblpontjog.Text = voto;
+        }
+
+        private void btn_nao_Click(object sender, EventArgs e)
+        {
+            voto = "NÃO";
+            lblpontjog.Text = voto;
+            contvoto++;
+            if (contvoto > 3)
+            {
+                lblpontjog.Text = "NÃO PODE MAIS VOTAR (NÃO)";
+                btn_nao.Enabled = false;
+            }
+        }
+
         private void Jogo_Load(object sender, EventArgs e)
         {
+            //timer_Verificavez.Enabled = true;
+            /*if (Entrar_Partida.iniciou_partida == true)
+            {
+                timer_Verificavez.Enabled = true;
+            }*/
+
+            //ACRESCENTANDO DADOS NOS COMBO BOX
+
+            //PERSONAGENS
             cbPersonagens.Items.Add("A");
             cbPersonagens.Items.Add("B");
             cbPersonagens.Items.Add("C");
@@ -96,72 +117,13 @@ namespace President_Me
             cbPersonagens.Items.Add("O");
             cbPersonagens.Items.Add("P");
 
-            cria_matriz();
-
+            //SETORES
             cbSetores.Items.Add("1");
             cbSetores.Items.Add("2");
             cbSetores.Items.Add("3");
             cbSetores.Items.Add("4");
 
-        }
-
-        public void mostrar_matriz()
-        {
-            string tabuleiro = MePresidentaServidor.Jogo.VerificarVez(Convert.ToInt32(idJogador));
-            tabuleiro = tabuleiro.Replace("\r", "");
-            string[] posicoes = tabuleiro.Split('\n');
-            string[] personagem;
-            if (posicoes.Length > 1)
-            {
-                for (int i = 1; i < posicoes.Length - 1; i++)
-                {
-                    personagem = posicoes[i].Split(',');
-                    atualizarTabuleiro(personagem[1], Convert.ToInt32(personagem[0]));
-                }
-            }
-        }
-
-        public void atualizarTabuleiro(string personagem, int nivel)
-        {
-            string[] aux = { };
-            Control psng = null;
-            foreach (Control con in this.Controls)
-            {
-                if (con is PictureBox)
-                {
-                    if (Convert.ToString(con.Tag) == personagem)
-                    {
-                        psng = con;
-                        break;
-                    }
-                }
-            }
-
-            if (nivel == 10)
-            {
-                presidente = personagem;
-                psng.Location = candidato.Location;
-                //inGame = 3;
-                return;
-            }
-            else
-            {
-                for (int i = 0; i < 4; i++)
-                {
-                    aux = this.matriz[Convert.ToInt32(nivel), i].Split(',');
-                    if (aux[2] == "false")
-                    {
-                        psng.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
-                        this.matriz[Convert.ToInt32(nivel), i] = aux[0] + ',' + aux[1] + ',' + personagem;
-                        this.cbPersonagens.Items.Remove(personagem);
-                        break;
-                    }
-                }
-            }
-        }
-
-        public void cria_matriz()
-        {
+            //DECLARAÇÃO DA MATRIZ
             matriz[0, 0] = Convert.ToString(this.pos00.Location.X) + ',' + Convert.ToString(this.pos00.Location.Y) + ",false";
             matriz[0, 1] = Convert.ToString(this.pos01.Location.X) + ',' + Convert.ToString(this.pos01.Location.Y) + ",false";
             matriz[0, 2] = Convert.ToString(this.pos02.Location.X) + ',' + Convert.ToString(this.pos02.Location.Y) + ",false";
@@ -182,26 +144,6 @@ namespace President_Me
             matriz[4, 1] = Convert.ToString(this.pos41.Location.X) + ',' + Convert.ToString(this.pos41.Location.Y) + ",false";
             matriz[4, 2] = Convert.ToString(this.pos42.Location.X) + ',' + Convert.ToString(this.pos42.Location.Y) + ",false";
             matriz[4, 3] = Convert.ToString(this.pos43.Location.X) + ',' + Convert.ToString(this.pos43.Location.Y) + ",false";
-            presidente = "";
-        }
-
-        //votação
-        private void btn_sim_Click(object sender, EventArgs e)
-        {
-            voto = "SIM";
-            lblpontjog.Text = voto;
-        }
-
-        private void btn_nao_Click(object sender, EventArgs e)
-        {
-            voto = "NÃO";
-            lblpontjog.Text = voto;
-            contvoto++;
-            if (contvoto > 3)
-            {
-                lblpontjog.Text = "NÃO PODE MAIS VOTAR (NÃO)";
-                btn_nao.Enabled = false;
-            }
         }
 
         private void btnColocar_Click(object sender, EventArgs e)
@@ -224,13 +166,13 @@ namespace President_Me
 
             if (serv)
             {
-               string ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Convert.ToInt32(Entrar_Partida.JogadorId), senha, setor, personagem);
-               txthistorico.Text = ColocarPersonagem;
+                string ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Convert.ToInt32(Entrar_Partida.JogadorId), senha, setor, personagem);
+                txthistorico.Text = ColocarPersonagem;
                 if (ColocarPersonagem.Contains("ERRO"))
-               {
+                {
                     MessageBox.Show(ColocarPersonagem);
                     return -1;
-               }
+                }
             }
 
             for (int i = 0; i < 4; i++)
@@ -238,8 +180,7 @@ namespace President_Me
                 aux = matriz[(Convert.ToInt32(setor) - 1), i].Split(',');
                 if (aux[2] == "false")
                 {
-
-                    if(cbPersonagens.Text == "A")
+                    if (cbPersonagens.Text == "A")
                     {
                         A.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
                         entrou = true;
@@ -261,7 +202,6 @@ namespace President_Me
                     {
                         D.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
                         entrou = true;
-                        break;
                     }
                     else if (cbPersonagens.Text == "E")
                     {
@@ -320,12 +260,12 @@ namespace President_Me
                     return 1;
                 }
                 if (entrou == false)
-                    {
-                        //MessageBox.Show("Nível cheio");
-                        matriz[(Convert.ToInt32(cbSetores) - 1), i] = aux[0] + ',' + aux[1] + ',' + true;
-                    }
+                {
+                    //MessageBox.Show("Nível cheio");
+                    matriz[(Convert.ToInt32(cbSetores) - 1), i] = aux[0] + ',' + aux[1] + ',' + true;
+                }
             }
-            return 0;  
+            return 0;
         }
 
         private void timer_Verificavez_Tick(object sender, EventArgs e)
@@ -341,52 +281,33 @@ namespace President_Me
             if (jogadorDaVez.Contains(Entrar_Partida.JogadorId))
             {
                 lblJogo.Text = "SUA VEZ DE JOGAR";
-                btnColocar.Enabled = true;
-                moverPersonagem(cbPersonagens.Text.Substring(0, 1), Convert.ToInt32(cbSetores.Text), true);
+                this.btnColocar.Enabled = true;
+                //moverPersonagem(cbPersonagens.Text.Substring(0, 1), Convert.ToInt32(cbSetores.Text), true);
             }
             else
             {
                 lblJogo.Text = "AGUARDE SUA VEZ";
                 this.btnColocar.Enabled = false;
-                
+
             }
 
-            for (int i = 0; i < tabuleiro.Length-1; i++)
-                {
-                    this.personagem = txthistorico.Text;
-                    personagem = tabuleiro[i].Split(',');
-                    string num = tabuleiro[0];
-                    string letra = tabuleiro[1];
-                    if (cbPersonagens.Items.Contains(letra) && atualizacao == true)
-                    {
-                        atualizaPersonagem(letra, Convert.ToInt32(num));
-                    }
-                    else if (cbPersonagens.Items.Contains(letra))
-                    {
-                        moverPersonagem(letra, Convert.ToInt32(num), false);
-                    }
-
-               }
-
-            //string[] personagem;
-            /*tabuleiro = verificavez.Split('\n');
-            if (tabuleiro.Length > 2)
+            for (int i = 0; i < tabuleiro.Length - 1; i++)
             {
-                for (int i = 0; i < tabuleiro.Length - 1; i++)
+                this.personagem = txthistorico.Text;
+                personagem = tabuleiro[i].Split(',');
+                string num = tabuleiro[0];
+                string letra = tabuleiro[1];
+                if (cbPersonagens.Items.Contains(letra) && atualizacao == true)
                 {
-                    personagem = tabuleiro[i].Split(',');
-                    if (cbPersonagens.Items.Contains(personagem[1]) && atualizacao == true)
-                    {
-                        atualizaPersonagem(personagem[1], Convert.ToInt32(personagem[0]));
-                    }
-                    else if (cbPersonagens.Items.Contains(personagem[1]))
-                    {
-                        moverPersonagem(personagem[1], Convert.ToInt32(personagem[0]), false);
-                    }
-
+                    atualizaPersonagem(letra, Convert.ToInt32(num));
                 }
-            }*/
-            
+                else if (cbPersonagens.Items.Contains(letra))
+                {
+                    moverPersonagem(letra, Convert.ToInt32(num), false);
+                }
+
+            }
+
         }
 
         public void atualizaPersonagem(string personagem, int setor)
@@ -394,7 +315,7 @@ namespace President_Me
             string[] aux = { };
             bool entrou = true;
 
-            for (int i = 0; i <= 3; i++)
+            for (int i = 0; i < 4; i++)
             {
                 aux = matriz[(Convert.ToInt32(setor) - 1), i].Split(',');
                 if (aux[2] == "false")
@@ -495,15 +416,8 @@ namespace President_Me
                     {
                         moverPersonagem(personagem[1], Convert.ToInt32(personagem[0]), false);
                     }
-
                 }
             }
         }*/
-
-        /*---------------------------------------area de teste de código--------------------------------------------*/
     }
 }
-
-
-
-
