@@ -76,19 +76,29 @@ namespace President_Me
         //votação
         private void btn_sim_Click(object sender, EventArgs e)
         {
-            voto = "SIM";
-            lblpontjog.Text = voto;
+            voto = "S";
+            lblpontjog.Text = "SIM";
         }
 
         private void btn_nao_Click(object sender, EventArgs e)
         {
-            voto = "NÃO";
-            lblpontjog.Text = voto;
+            voto = "N";
+            lblpontjog.Text = "NÃO";
             contvoto++;
             if (contvoto > 3)
             {
                 lblpontjog.Text = "NÃO PODE MAIS VOTAR (NÃO)";
                 btn_nao.Enabled = false;
+            }
+        }
+
+        public void votacao(string voto)
+        {
+            string senha = Entrar_Partida.JogadorSenha;
+            string votar = MePresidentaServidor.Jogo.Votar(Convert.ToInt32(Entrar_Partida.JogadorId), senha, voto);
+            if (votar.Contains("ERRO"))
+            {
+                MessageBox.Show(votar);
             }
         }
 
@@ -117,12 +127,12 @@ namespace President_Me
             cbPersonagens.Items.Add("O");
             cbPersonagens.Items.Add("P");
 
-
             //SETORES
             cbSetores.Items.Add("1");
             cbSetores.Items.Add("2");
             cbSetores.Items.Add("3");
             cbSetores.Items.Add("4");
+            cbSetores.Items.Add("5");
 
             //DECLARAÇÃO DA MATRIZ
             matriz[0, 0] = Convert.ToString(this.pos00.Location.X) + ',' + Convert.ToString(this.pos00.Location.Y) + ",false";
@@ -145,6 +155,10 @@ namespace President_Me
             matriz[4, 1] = Convert.ToString(this.pos41.Location.X) + ',' + Convert.ToString(this.pos41.Location.Y) + ",false";
             matriz[4, 2] = Convert.ToString(this.pos42.Location.X) + ',' + Convert.ToString(this.pos42.Location.Y) + ",false";
             matriz[4, 3] = Convert.ToString(this.pos43.Location.X) + ',' + Convert.ToString(this.pos43.Location.Y) + ",false";
+            matriz[5, 0] = Convert.ToString(this.pos40.Location.X) + ',' + Convert.ToString(this.pos40.Location.Y) + ",false";
+            matriz[5, 1] = Convert.ToString(this.pos41.Location.X) + ',' + Convert.ToString(this.pos41.Location.Y) + ",false";
+            matriz[5, 2] = Convert.ToString(this.pos42.Location.X) + ',' + Convert.ToString(this.pos42.Location.Y) + ",false";
+            matriz[5, 3] = Convert.ToString(this.pos43.Location.X) + ',' + Convert.ToString(this.pos43.Location.Y) + ",false";
         }
 
         private void btnColocar_Click(object sender, EventArgs e)
@@ -421,30 +435,33 @@ namespace President_Me
             }
         }
 
-        private void btnpromover_Click(object sender, EventArgs e)
+        private void btn_promover_Click(object sender, EventArgs e)
         {
             string personagem = lblpromover.Text;
             promover(personagem);
         }
+
+
+
         /*public void atualizaTabuleiro(string tabuleiro)
-{
-   string[] personagem;
-   tabuleiro = verificavez.Split('\n');
-   if (tabuleiro.Length > 2)
-   {
-       for (int i = 0; i < tabuleiro.Length - 1; i++)
-       {
-           personagem = tabuleiro[i].Split(',');
-           if (cbPersonagens.Items.Contains(personagem[1]) && atualizacao == true)
+        {
+           string[] personagem;
+           tabuleiro = verificavez.Split('\n');
+           if (tabuleiro.Length > 2)
            {
-               atualizaPersonagem(personagem[1], Convert.ToInt32(personagem[0]));
+               for (int i = 0; i < tabuleiro.Length - 1; i++)
+               {
+                   personagem = tabuleiro[i].Split(',');
+                   if (cbPersonagens.Items.Contains(personagem[1]) && atualizacao == true)
+                   {
+                       atualizaPersonagem(personagem[1], Convert.ToInt32(personagem[0]));
+                   }
+                   else if (cbPersonagens.Items.Contains(personagem[1]))
+                   {
+                       moverPersonagem(personagem[1], Convert.ToInt32(personagem[0]), false);
+                   }
+               }
            }
-           else if (cbPersonagens.Items.Contains(personagem[1]))
-           {
-               moverPersonagem(personagem[1], Convert.ToInt32(personagem[0]), false);
-           }
-       }
-   }
-}*/
+        }*/
     }
 }

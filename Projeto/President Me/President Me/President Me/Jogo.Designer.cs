@@ -101,7 +101,7 @@
             this.lbljogadorvez = new System.Windows.Forms.Label();
             this.txthistorico = new System.Windows.Forms.TextBox();
             this.lblpromover = new System.Windows.Forms.TextBox();
-            this.btnpromover = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.btn_fechar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -332,6 +332,7 @@
             this.btn_promover.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.btn_promover.TabIndex = 40;
             this.btn_promover.TabStop = false;
+            this.btn_promover.Click += new System.EventHandler(this.btn_promover_Click);
             // 
             // A
             // 
@@ -848,7 +849,7 @@
             this.label7.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label7.Location = new System.Drawing.Point(88, 646);
+            this.label7.Location = new System.Drawing.Point(93, 519);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(57, 20);
             this.label7.TabIndex = 67;
@@ -958,20 +959,22 @@
             // 
             // lblpromover
             // 
-            this.lblpromover.Location = new System.Drawing.Point(859, 450);
+            this.lblpromover.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.lblpromover.Location = new System.Drawing.Point(339, 566);
+            this.lblpromover.Multiline = true;
             this.lblpromover.Name = "lblpromover";
-            this.lblpromover.Size = new System.Drawing.Size(100, 20);
+            this.lblpromover.Size = new System.Drawing.Size(49, 28);
             this.lblpromover.TabIndex = 93;
             // 
-            // btnpromover
+            // label9
             // 
-            this.btnpromover.Location = new System.Drawing.Point(1020, 450);
-            this.btnpromover.Name = "btnpromover";
-            this.btnpromover.Size = new System.Drawing.Size(75, 23);
-            this.btnpromover.TabIndex = 94;
-            this.btnpromover.Text = "Promover";
-            this.btnpromover.UseVisualStyleBackColor = true;
-            this.btnpromover.Click += new System.EventHandler(this.btnpromover_Click);
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.label9.Location = new System.Drawing.Point(267, 581);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(66, 13);
+            this.label9.TabIndex = 94;
+            this.label9.Text = "Personagem";
             // 
             // Jogo
             // 
@@ -980,7 +983,7 @@
             this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1223, 755);
-            this.Controls.Add(this.btnpromover);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.lblpromover);
             this.Controls.Add(this.txthistorico);
             this.Controls.Add(this.lbljogadorvez);
@@ -1178,6 +1181,6 @@
         private System.Windows.Forms.Label lbljogadorvez;
         private System.Windows.Forms.TextBox txthistorico;
         private System.Windows.Forms.TextBox lblpromover;
-        private System.Windows.Forms.Button btnpromover;
+        private System.Windows.Forms.Label label9;
     }
 }
