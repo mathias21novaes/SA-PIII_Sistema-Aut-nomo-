@@ -30,7 +30,7 @@ namespace President_Me
 
         public string personagem { get; set; }
         public int setor { get; set; }
-        public string[,] matriz { get; set; } = new string[20, 4];
+        public string[,] matriz { get; set; } = new string[22, 4];
         public bool atualizacao { get; set; } = false;
         public string[] vot { get; set; } = { };
         public string presidente { get; set; }
@@ -164,6 +164,7 @@ namespace President_Me
             matriz[5, 1] = Convert.ToString(this.pos41.Location.X) + ',' + Convert.ToString(this.pos41.Location.Y) + ",false";
             matriz[5, 2] = Convert.ToString(this.pos42.Location.X) + ',' + Convert.ToString(this.pos42.Location.Y) + ",false";
             matriz[5, 3] = Convert.ToString(this.pos43.Location.X) + ',' + Convert.ToString(this.pos43.Location.Y) + ",false";
+            matriz[6, 0] = Convert.ToString(this.pos43.Location.X) + ',' + Convert.ToString(this.pos43.Location.Y) + ",false";
 
             presidente = "";
         }
@@ -298,6 +299,11 @@ namespace President_Me
                 {
                     //MessageBox.Show("Nível cheio");
                     matriz[(Convert.ToInt32(cbSetores) - 1), i] = aux[0] + ',' + aux[1] + ',' + true;
+                }
+                aux = matriz[6, 0].Split(',');
+                if (aux[2] == "true")
+                {
+                    votacao(voto);
                 }
             }
             return 0;
