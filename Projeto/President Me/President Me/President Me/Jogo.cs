@@ -97,15 +97,15 @@ namespace President_Me
 
         public void votacao(string voto)
         {
-            if(hr_votar == true)
-            {
+            /*if(hr_votar == true)
+            {*/
                 string senha = Entrar_Partida.JogadorSenha;
                 string votar = MePresidentaServidor.Jogo.Votar(Convert.ToInt32(Entrar_Partida.JogadorId), senha, voto);
                 if (votar.Contains("ERRO"))
                 {
                     MessageBox.Show(votar);
                 }
-            }
+            /*}*/
         }
 
         private void Jogo_Load(object sender, EventArgs e)
@@ -311,13 +311,14 @@ namespace President_Me
 
             string[] vot = { };
             string vota = txthistorico.Text;
+            vota = vota.Replace("\r","");
             vot = vota.Split(',');
             string setor = vot[0];
 
-            if(setor == "10")
+            if(Convert.ToInt32(setor) == 10)
             {
                 lblJogo.Text = "HORA DE VOTAR";
-                hr_votar = true;
+                votacao(voto);
             }
             
         }
