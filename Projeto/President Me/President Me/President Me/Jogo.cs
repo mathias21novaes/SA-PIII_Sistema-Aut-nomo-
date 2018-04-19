@@ -32,6 +32,9 @@ namespace President_Me
         public int setor { get; set; }
         public string[,] matriz { get; set; } = new string[20, 4];
         public bool atualizacao { get; set; } = false;
+        public string[] vot { get; set; } = { };
+        public string presidente { get; set; }
+        public bool hr_votar { get; set; } = false;
 
         public Jogo()
         {
@@ -94,11 +97,14 @@ namespace President_Me
 
         public void votacao(string voto)
         {
-            string senha = Entrar_Partida.JogadorSenha;
-            string votar = MePresidentaServidor.Jogo.Votar(Convert.ToInt32(Entrar_Partida.JogadorId), senha, voto);
-            if (votar.Contains("ERRO"))
+            if(hr_votar == true)
             {
-                MessageBox.Show(votar);
+                string senha = Entrar_Partida.JogadorSenha;
+                string votar = MePresidentaServidor.Jogo.Votar(Convert.ToInt32(Entrar_Partida.JogadorId), senha, voto);
+                if (votar.Contains("ERRO"))
+                {
+                    MessageBox.Show(votar);
+                }
             }
         }
 
@@ -132,7 +138,6 @@ namespace President_Me
             cbSetores.Items.Add("2");
             cbSetores.Items.Add("3");
             cbSetores.Items.Add("4");
-            cbSetores.Items.Add("5");
 
             //DECLARAÇÃO DA MATRIZ
             matriz[0, 0] = Convert.ToString(this.pos00.Location.X) + ',' + Convert.ToString(this.pos00.Location.Y) + ",false";
@@ -159,6 +164,8 @@ namespace President_Me
             matriz[5, 1] = Convert.ToString(this.pos41.Location.X) + ',' + Convert.ToString(this.pos41.Location.Y) + ",false";
             matriz[5, 2] = Convert.ToString(this.pos42.Location.X) + ',' + Convert.ToString(this.pos42.Location.Y) + ",false";
             matriz[5, 3] = Convert.ToString(this.pos43.Location.X) + ',' + Convert.ToString(this.pos43.Location.Y) + ",false";
+
+            presidente = "";
         }
 
         private void btnColocar_Click(object sender, EventArgs e)
@@ -301,6 +308,18 @@ namespace President_Me
             string senha = Entrar_Partida.JogadorSenha;
             string promover = MePresidentaServidor.Jogo.Promover(Convert.ToInt32(Entrar_Partida.JogadorId), senha, personagem);
             txthistorico.Text = promover;
+
+            string[] vot = { };
+            string vota = txthistorico.Text;
+            vot = vota.Split(',');
+            string setor = vot[0];
+
+            if(setor == "10")
+            {
+                lblJogo.Text = "HORA DE VOTAR";
+                hr_votar = true;
+            }
+            
         }
 
         private void timer_Verificavez_Tick(object sender, EventArgs e)
