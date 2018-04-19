@@ -117,6 +117,7 @@ namespace President_Me
             cbPersonagens.Items.Add("O");
             cbPersonagens.Items.Add("P");
 
+
             //SETORES
             cbSetores.Items.Add("1");
             cbSetores.Items.Add("2");
@@ -183,76 +184,89 @@ namespace President_Me
                     if (cbPersonagens.Text == "A")
                     {
                         A.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                        cbPersonagens.Items.Remove("A");
                         entrou = true;
                         break;
                     }
                     else if (cbPersonagens.Text == "B")
                     {
                         B.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                        cbPersonagens.Items.Remove("B");
                         entrou = true;
                         break;
                     }
                     else if (cbPersonagens.Text == "C")
                     {
                         C.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                        cbPersonagens.Items.Remove("C");
                         entrou = true;
                         break;
                     }
                     else if (cbPersonagens.Text == "D")
                     {
                         D.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                        cbPersonagens.Items.Remove("D");
                         entrou = true;
                     }
                     else if (cbPersonagens.Text == "E")
                     {
                         E.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                        cbPersonagens.Items.Remove("E");
                         entrou = true;
                         break;
                     }
                     else if (cbPersonagens.Text == "F")
                     {
                         F.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                        cbPersonagens.Items.Remove("F");
                         entrou = true;
                     }
                     else if (cbPersonagens.Text == "G")
                     {
                         G.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                        cbPersonagens.Items.Remove("G");
                         entrou = true;
                         break;
                     }
                     else if (cbPersonagens.Text == "I")
                     {
                         I.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                        cbPersonagens.Items.Remove("I");
                         entrou = true;
                         break;
                     }
                     else if (cbPersonagens.Text == "L")
                     {
                         L.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                        cbPersonagens.Items.Remove("L");
                         entrou = true;
                         break;
                     }
                     else if (cbPersonagens.Text == "M")
                     {
                         M.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                        cbPersonagens.Items.Remove("M");
                         entrou = true;
                         break;
                     }
                     else if (cbPersonagens.Text == "N")
                     {
                         N.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                        cbPersonagens.Items.Remove("N");
                         entrou = true;
                         break;
                     }
                     else if (cbPersonagens.Text == "O")
                     {
                         O.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                        cbPersonagens.Items.Remove("O");
                         entrou = true;
                         break;
                     }
                     else if (cbPersonagens.Text == "P")
                     {
                         P.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                        cbPersonagens.Items.Remove("P");
                         entrou = true;
                         break;
                     }
