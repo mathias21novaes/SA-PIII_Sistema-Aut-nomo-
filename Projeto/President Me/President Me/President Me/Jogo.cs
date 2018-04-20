@@ -21,7 +21,6 @@ namespace President_Me
         public string jogadorsenha { get; set; }
 
         public string Cartas { get; set; }
-        public int idjog { get; set; }
         public static string[] jog { get; set; }
         public string ListarJogadores { get; set; }
         public string personagens { get; set; }
@@ -36,6 +35,14 @@ namespace President_Me
         public string presidente { get; set; }
         public bool hr_votar { get; set; } = false;
 
+        /*-----------------------------------*/
+
+        public int Jog_Id { get; set; }
+        public string auxJog { get; set; }
+        public string Jog_Senha { get; set; }
+        public string Jog_Nome { get; set; }
+        public int Part_Id { get; set; }
+
         public Jogo()
         {
             InitializeComponent();
@@ -45,30 +52,28 @@ namespace President_Me
 
             timer_Verificavez.Enabled = true;
 
-            lblidj.Text = Entrar_Partida.JogadorId;
-            lblsj.Text = Entrar_Partida.JogadorSenha;
-            lblnj.Text = Entrar_Partida.nome_jogador;
-            if (String.IsNullOrEmpty(Entrar_Partida.JogadorId))
+            this.Part_Id = Entrar_Partida.idpartida;
+            this.Jog_Senha = Entrar_Partida.JogadorSenha;
+            this.Jog_Nome = Entrar_Partida.nome_jogador;
+            this.auxJog = Entrar_Partida.JogadorId;
+
+            if (String.IsNullOrEmpty(auxJog))
             {
                 this.Close();
             }
             else
-                idjog = int.Parse(Entrar_Partida.JogadorId);
+                Jog_Id = int.Parse(auxJog);
 
-            //DEVERÁ SER SER FEITO UM TRATAMENTO DE ERRO NO CÓDIGO DE LISTAR CARTAS
-            Cartas = MePresidentaServidor.Jogo.ListarCartas(idjog, Entrar_Partida.JogadorSenha);
+            //DEVERÁ SER FEITO UM TRATAMENTO DE ERRO NO CÓDIGO DE LISTAR CARTAS
+            Cartas = MePresidentaServidor.Jogo.ListarCartas(Jog_Id, Jog_Senha);
             lblCartas.Text = Cartas;
 
-            ListarJogadores = MePresidentaServidor.Jogo.ListarJogadores(Entrar_Partida.idpartida);
+            ListarJogadores = MePresidentaServidor.Jogo.ListarJogadores(Part_Id);
             lblidjog.Text = ListarJogadores;
 
             this.personagens = MePresidentaServidor.Jogo.ListarPersonagens();
             lblnomejog.Text = personagens;
 
-            /*if (Entrar_Partida.iniciou_partida == true)
-            {
-                timer_Verificavez.Enabled = true;
-            }*/
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -99,8 +104,7 @@ namespace President_Me
         {
             /*if(hr_votar == true)
             {*/
-                string senha = Entrar_Partida.JogadorSenha;
-                string votar = MePresidentaServidor.Jogo.Votar(Convert.ToInt32(Entrar_Partida.JogadorId), senha, voto);
+                string votar = MePresidentaServidor.Jogo.Votar(Jog_Id, Jog_Senha, voto);
                 if (votar.Contains("ERRO"))
                 {
                     MessageBox.Show(votar);
@@ -185,11 +189,10 @@ namespace President_Me
         {
             string[] aux = { };
             bool entrou = true;
-            string senha = Entrar_Partida.JogadorSenha;
 
             if (serv)
             {
-                string ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Convert.ToInt32(Entrar_Partida.JogadorId), senha, setor, personagem);
+                string ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, setor, personagem);
                 txthistorico.Text = ColocarPersonagem;
                 if (ColocarPersonagem.Contains("ERRO"))
                 {
@@ -311,8 +314,7 @@ namespace President_Me
 
         public void promover(string personagem)
         {
-            string senha = Entrar_Partida.JogadorSenha;
-            string promover = MePresidentaServidor.Jogo.Promover(Convert.ToInt32(Entrar_Partida.JogadorId), senha, personagem);
+            string promover = MePresidentaServidor.Jogo.Promover(Jog_Id, Jog_Senha, personagem);
             txthistorico.Text = promover;
 
             string[] vot = { };
@@ -331,7 +333,7 @@ namespace President_Me
 
         private void timer_Verificavez_Tick(object sender, EventArgs e)
         {
-            string verificavez = MePresidentaServidor.Jogo.VerificarVez(idjog);
+            string verificavez = MePresidentaServidor.Jogo.VerificarVez(Jog_Id);
             verificavez = verificavez.Replace("\r", "");
             string[] tabuleiro = verificavez.Split('\n');
             string jogadorDaVez = tabuleiro[0];
@@ -339,7 +341,7 @@ namespace President_Me
             string[] personagem = { };
             atualizacao = true;
 
-            if (jogadorDaVez.Contains(Entrar_Partida.JogadorId))
+            if (jogadorDaVez.Contains(Convert.ToString(Jog_Id)))
             {
                 lblJogo.Text = "SUA VEZ DE JOGAR";
                 this.btnColocar.Enabled = true;
