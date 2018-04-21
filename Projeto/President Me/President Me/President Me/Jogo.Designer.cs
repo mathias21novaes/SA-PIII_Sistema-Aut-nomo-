@@ -30,8 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Jogo));
-            this.btn_fechar = new System.Windows.Forms.PictureBox();
-            this.lblidjog = new System.Windows.Forms.Label();
+            this.lbljogadores = new System.Windows.Forms.Label();
             this.lblidj = new System.Windows.Forms.Label();
             this.lblsj = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -40,7 +39,7 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.lblnomejog = new System.Windows.Forms.Label();
+            this.lblpersonagens = new System.Windows.Forms.Label();
             this.txtidjog = new System.Windows.Forms.TextBox();
             this.txtnomejog = new System.Windows.Forms.TextBox();
             this.txtpontjog = new System.Windows.Forms.TextBox();
@@ -60,7 +59,7 @@
             this.L = new System.Windows.Forms.PictureBox();
             this.O = new System.Windows.Forms.PictureBox();
             this.P = new System.Windows.Forms.PictureBox();
-            this.ptbRei = new System.Windows.Forms.PictureBox();
+            this.posPresidente = new System.Windows.Forms.PictureBox();
             this.pos41 = new System.Windows.Forms.PictureBox();
             this.pos40 = new System.Windows.Forms.PictureBox();
             this.pos31 = new System.Windows.Forms.PictureBox();
@@ -86,7 +85,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.lblnj = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.lblCartas = new System.Windows.Forms.Label();
+            this.lblcartas = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.lblpontjog = new System.Windows.Forms.Label();
@@ -100,9 +99,11 @@
             this.timer_Verificavez = new System.Windows.Forms.Timer(this.components);
             this.lbljogadorvez = new System.Windows.Forms.Label();
             this.txthistorico = new System.Windows.Forms.TextBox();
-            this.lblpromover = new System.Windows.Forms.TextBox();
+            this.txtpromover = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_fechar)).BeginInit();
+            this.label10 = new System.Windows.Forms.Label();
+            this.lblidp = new System.Windows.Forms.Label();
+            this.Fechar = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -123,7 +124,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.L)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.O)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.P)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbRei)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.posPresidente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pos41)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pos40)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pos31)).BeginInit();
@@ -146,28 +147,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.pos21)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbOperario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Fechar)).BeginInit();
             this.SuspendLayout();
             // 
-            // btn_fechar
+            // lbljogadores
             // 
-            this.btn_fechar.Image = ((System.Drawing.Image)(resources.GetObject("btn_fechar.Image")));
-            this.btn_fechar.Location = new System.Drawing.Point(1170, 9);
-            this.btn_fechar.Name = "btn_fechar";
-            this.btn_fechar.Size = new System.Drawing.Size(48, 45);
-            this.btn_fechar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btn_fechar.TabIndex = 0;
-            this.btn_fechar.TabStop = false;
-            this.btn_fechar.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
-            // lblidjog
-            // 
-            this.lblidjog.AutoSize = true;
-            this.lblidjog.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblidjog.Location = new System.Drawing.Point(869, 519);
-            this.lblidjog.Name = "lblidjog";
-            this.lblidjog.Size = new System.Drawing.Size(60, 24);
-            this.lblidjog.TabIndex = 23;
-            this.lblidjog.Text = "label2";
+            this.lbljogadores.AutoSize = true;
+            this.lbljogadores.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbljogadores.Location = new System.Drawing.Point(856, 429);
+            this.lbljogadores.Name = "lbljogadores";
+            this.lbljogadores.Size = new System.Drawing.Size(60, 24);
+            this.lbljogadores.TabIndex = 23;
+            this.lbljogadores.Text = "label2";
             // 
             // lblidj
             // 
@@ -260,17 +251,17 @@
             this.pictureBox5.TabIndex = 31;
             this.pictureBox5.TabStop = false;
             // 
-            // lblnomejog
+            // lblpersonagens
             // 
-            this.lblnomejog.AutoSize = true;
-            this.lblnomejog.BackColor = System.Drawing.Color.Azure;
-            this.lblnomejog.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblnomejog.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.lblnomejog.Location = new System.Drawing.Point(47, 222);
-            this.lblnomejog.Name = "lblnomejog";
-            this.lblnomejog.Size = new System.Drawing.Size(103, 20);
-            this.lblnomejog.TabIndex = 34;
-            this.lblnomejog.Text = "Personagens";
+            this.lblpersonagens.AutoSize = true;
+            this.lblpersonagens.BackColor = System.Drawing.Color.Azure;
+            this.lblpersonagens.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblpersonagens.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.lblpersonagens.Location = new System.Drawing.Point(47, 222);
+            this.lblpersonagens.Name = "lblpersonagens";
+            this.lblpersonagens.Size = new System.Drawing.Size(103, 20);
+            this.lblpersonagens.TabIndex = 34;
+            this.lblpersonagens.Text = "Personagens";
             // 
             // txtidjog
             // 
@@ -300,6 +291,7 @@
             // 
             this.btn_nao.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btn_nao.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_nao.Enabled = false;
             this.btn_nao.Image = ((System.Drawing.Image)(resources.GetObject("btn_nao.Image")));
             this.btn_nao.Location = new System.Drawing.Point(306, 605);
             this.btn_nao.Name = "btn_nao";
@@ -313,6 +305,7 @@
             // 
             this.btn_sim.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btn_sim.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_sim.Enabled = false;
             this.btn_sim.Image = ((System.Drawing.Image)(resources.GetObject("btn_sim.Image")));
             this.btn_sim.Location = new System.Drawing.Point(217, 605);
             this.btn_sim.Name = "btn_sim";
@@ -325,6 +318,7 @@
             // btn_promover
             // 
             this.btn_promover.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btn_promover.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_promover.Image = ((System.Drawing.Image)(resources.GetObject("btn_promover.Image")));
             this.btn_promover.Location = new System.Drawing.Point(215, 664);
             this.btn_promover.Name = "btn_promover";
@@ -483,18 +477,18 @@
             this.P.TabIndex = 57;
             this.P.TabStop = false;
             // 
-            // ptbRei
+            // posPresidente
             // 
-            this.ptbRei.BackColor = System.Drawing.Color.Transparent;
-            this.ptbRei.ErrorImage = null;
-            this.ptbRei.ImageLocation = "5";
-            this.ptbRei.InitialImage = null;
-            this.ptbRei.Location = new System.Drawing.Point(604, 57);
-            this.ptbRei.Name = "ptbRei";
-            this.ptbRei.Size = new System.Drawing.Size(51, 48);
-            this.ptbRei.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.ptbRei.TabIndex = 83;
-            this.ptbRei.TabStop = false;
+            this.posPresidente.BackColor = System.Drawing.Color.Transparent;
+            this.posPresidente.ErrorImage = null;
+            this.posPresidente.ImageLocation = "5";
+            this.posPresidente.InitialImage = null;
+            this.posPresidente.Location = new System.Drawing.Point(604, 57);
+            this.posPresidente.Name = "posPresidente";
+            this.posPresidente.Size = new System.Drawing.Size(51, 48);
+            this.posPresidente.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.posPresidente.TabIndex = 83;
+            this.posPresidente.TabStop = false;
             // 
             // pos41
             // 
@@ -818,17 +812,17 @@
             this.label5.TabIndex = 62;
             this.label5.Text = "ÁREA DO JOGADOR";
             // 
-            // lblCartas
+            // lblcartas
             // 
-            this.lblCartas.AutoSize = true;
-            this.lblCartas.BackColor = System.Drawing.Color.Azure;
-            this.lblCartas.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCartas.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblCartas.Location = new System.Drawing.Point(232, 139);
-            this.lblCartas.Name = "lblCartas";
-            this.lblCartas.Size = new System.Drawing.Size(18, 24);
-            this.lblCartas.TabIndex = 64;
-            this.lblCartas.Text = "*";
+            this.lblcartas.AutoSize = true;
+            this.lblcartas.BackColor = System.Drawing.Color.Azure;
+            this.lblcartas.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblcartas.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblcartas.Location = new System.Drawing.Point(232, 139);
+            this.lblcartas.Name = "lblcartas";
+            this.lblcartas.Size = new System.Drawing.Size(18, 24);
+            this.lblcartas.TabIndex = 64;
+            this.lblcartas.Text = "*";
             // 
             // label6
             // 
@@ -859,7 +853,7 @@
             // 
             this.lblpontjog.AutoSize = true;
             this.lblpontjog.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblpontjog.Location = new System.Drawing.Point(1096, 519);
+            this.lblpontjog.Location = new System.Drawing.Point(1096, 429);
             this.lblpontjog.Name = "lblpontjog";
             this.lblpontjog.Size = new System.Drawing.Size(60, 24);
             this.lblpontjog.TabIndex = 33;
@@ -903,7 +897,7 @@
             // 
             // btnColocar
             // 
-            this.btnColocar.Location = new System.Drawing.Point(988, 695);
+            this.btnColocar.Location = new System.Drawing.Point(910, 647);
             this.btnColocar.Name = "btnColocar";
             this.btnColocar.Size = new System.Drawing.Size(75, 23);
             this.btnColocar.TabIndex = 87;
@@ -914,7 +908,7 @@
             // cbPersonagens
             // 
             this.cbPersonagens.FormattingEnabled = true;
-            this.cbPersonagens.Location = new System.Drawing.Point(860, 636);
+            this.cbPersonagens.Location = new System.Drawing.Point(885, 573);
             this.cbPersonagens.Name = "cbPersonagens";
             this.cbPersonagens.Size = new System.Drawing.Size(121, 21);
             this.cbPersonagens.TabIndex = 88;
@@ -930,7 +924,7 @@
             // cbSetores
             // 
             this.cbSetores.FormattingEnabled = true;
-            this.cbSetores.Location = new System.Drawing.Point(1058, 636);
+            this.cbSetores.Location = new System.Drawing.Point(885, 605);
             this.cbSetores.Name = "cbSetores";
             this.cbSetores.Size = new System.Drawing.Size(121, 21);
             this.cbSetores.TabIndex = 90;
@@ -943,7 +937,8 @@
             // lbljogadorvez
             // 
             this.lbljogadorvez.AutoSize = true;
-            this.lbljogadorvez.Location = new System.Drawing.Point(870, 720);
+            this.lbljogadorvez.BackColor = System.Drawing.Color.Azure;
+            this.lbljogadorvez.Location = new System.Drawing.Point(1157, 120);
             this.lbljogadorvez.Name = "lbljogadorvez";
             this.lbljogadorvez.Size = new System.Drawing.Size(35, 13);
             this.lbljogadorvez.TabIndex = 91;
@@ -951,30 +946,65 @@
             // 
             // txthistorico
             // 
-            this.txthistorico.Location = new System.Drawing.Point(1058, 551);
+            this.txthistorico.Location = new System.Drawing.Point(1039, 527);
             this.txthistorico.Multiline = true;
             this.txthistorico.Name = "txthistorico";
-            this.txthistorico.Size = new System.Drawing.Size(153, 74);
+            this.txthistorico.Size = new System.Drawing.Size(153, 191);
             this.txthistorico.TabIndex = 92;
             // 
-            // lblpromover
+            // txtpromover
             // 
-            this.lblpromover.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.lblpromover.Location = new System.Drawing.Point(339, 566);
-            this.lblpromover.Multiline = true;
-            this.lblpromover.Name = "lblpromover";
-            this.lblpromover.Size = new System.Drawing.Size(49, 28);
-            this.lblpromover.TabIndex = 93;
+            this.txtpromover.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txtpromover.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtpromover.Location = new System.Drawing.Point(350, 566);
+            this.txtpromover.Multiline = true;
+            this.txtpromover.Name = "txtpromover";
+            this.txtpromover.Size = new System.Drawing.Size(38, 28);
+            this.txtpromover.TabIndex = 93;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.label9.Location = new System.Drawing.Point(267, 581);
+            this.label9.Location = new System.Drawing.Point(278, 581);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(66, 13);
             this.label9.TabIndex = 94;
             this.label9.Text = "Personagem";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.Azure;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.label10.Location = new System.Drawing.Point(199, 79);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(86, 20);
+            this.label10.TabIndex = 95;
+            this.label10.Text = "PARTIDA";
+            // 
+            // lblidp
+            // 
+            this.lblidp.AutoSize = true;
+            this.lblidp.BackColor = System.Drawing.Color.Azure;
+            this.lblidp.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblidp.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblidp.Location = new System.Drawing.Point(311, 76);
+            this.lblidp.Name = "lblidp";
+            this.lblidp.Size = new System.Drawing.Size(18, 24);
+            this.lblidp.TabIndex = 96;
+            this.lblidp.Text = "*";
+            // 
+            // Fechar
+            // 
+            this.Fechar.BackColor = System.Drawing.Color.Transparent;
+            this.Fechar.Location = new System.Drawing.Point(1174, 14);
+            this.Fechar.Name = "Fechar";
+            this.Fechar.Size = new System.Drawing.Size(38, 35);
+            this.Fechar.TabIndex = 97;
+            this.Fechar.TabStop = false;
+            this.Fechar.Click += new System.EventHandler(this.Fechar_Click);
             // 
             // Jogo
             // 
@@ -983,8 +1013,11 @@
             this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1223, 755);
+            this.Controls.Add(this.Fechar);
+            this.Controls.Add(this.lblidp);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.lblpromover);
+            this.Controls.Add(this.txtpromover);
             this.Controls.Add(this.txthistorico);
             this.Controls.Add(this.lbljogadorvez);
             this.Controls.Add(this.cbSetores);
@@ -1018,7 +1051,7 @@
             this.Controls.Add(this.pos40);
             this.Controls.Add(this.pos03);
             this.Controls.Add(this.pos41);
-            this.Controls.Add(this.ptbRei);
+            this.Controls.Add(this.posPresidente);
             this.Controls.Add(this.lblpontjog);
             this.Controls.Add(this.pos11);
             this.Controls.Add(this.pos42);
@@ -1028,8 +1061,8 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.pos20);
             this.Controls.Add(this.pos30);
-            this.Controls.Add(this.lblnomejog);
-            this.Controls.Add(this.lblCartas);
+            this.Controls.Add(this.lblpersonagens);
+            this.Controls.Add(this.lblcartas);
             this.Controls.Add(this.pos00);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.pos02);
@@ -1046,12 +1079,11 @@
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.txtidjog);
             this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.lblidjog);
+            this.Controls.Add(this.lbljogadores);
             this.Controls.Add(this.lblidj);
             this.Controls.Add(this.lblsj);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.btn_fechar);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.pictureBox3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -1059,7 +1091,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "tab";
             this.Load += new System.EventHandler(this.Jogo_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.btn_fechar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
@@ -1080,7 +1111,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.L)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.O)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.P)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbRei)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.posPresidente)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pos41)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pos40)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pos31)).EndInit();
@@ -1103,15 +1134,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.pos21)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbOperario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Fechar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox btn_fechar;
-        private System.Windows.Forms.Label lblidjog;
+        private System.Windows.Forms.Label lbljogadores;
         private System.Windows.Forms.Label lblidj;
         private System.Windows.Forms.Label lblsj;
         private System.Windows.Forms.Label label2;
@@ -1120,7 +1150,7 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.Label lblnomejog;
+        private System.Windows.Forms.Label lblpersonagens;
         private System.Windows.Forms.TextBox txtidjog;
         private System.Windows.Forms.TextBox txtnomejog;
         private System.Windows.Forms.TextBox txtpontjog;
@@ -1162,11 +1192,11 @@
         private System.Windows.Forms.PictureBox pos13;
         private System.Windows.Forms.PictureBox pos21;
         private System.Windows.Forms.PictureBox ptbOperario;
-        private System.Windows.Forms.PictureBox ptbRei;
+        private System.Windows.Forms.PictureBox posPresidente;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblnj;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label lblCartas;
+        private System.Windows.Forms.Label lblcartas;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label lblpontjog;
@@ -1180,7 +1210,10 @@
         private System.Windows.Forms.Timer timer_Verificavez;
         private System.Windows.Forms.Label lbljogadorvez;
         private System.Windows.Forms.TextBox txthistorico;
-        private System.Windows.Forms.TextBox lblpromover;
+        private System.Windows.Forms.TextBox txtpromover;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lblidp;
+        private System.Windows.Forms.PictureBox Fechar;
     }
 }
