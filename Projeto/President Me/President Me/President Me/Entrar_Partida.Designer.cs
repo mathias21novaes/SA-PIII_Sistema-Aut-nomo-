@@ -129,6 +129,7 @@
             this.txtSenha_Entrar.Name = "txtSenha_Entrar";
             this.txtSenha_Entrar.Size = new System.Drawing.Size(182, 22);
             this.txtSenha_Entrar.TabIndex = 16;
+            this.txtSenha_Entrar.UseSystemPasswordChar = true;
             // 
             // lblEntrou1
             // 

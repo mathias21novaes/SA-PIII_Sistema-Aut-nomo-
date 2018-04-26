@@ -101,6 +101,7 @@
             this.txtSenha_Partida.Size = new System.Drawing.Size(267, 22);
             this.txtSenha_Partida.TabIndex = 3;
             this.txtSenha_Partida.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtSenha_Partida.UseSystemPasswordChar = true;
             // 
             // label1
             // 

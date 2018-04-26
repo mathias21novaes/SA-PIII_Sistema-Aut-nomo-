@@ -32,7 +32,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MePresidentaServidor">
+    <Reference Include="MePresidentaServidor, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\MePresidentaServidor.dll</HintPath>
     </Reference>
     <Reference Include="System" />
@@ -162,6 +163,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\mapa-do-brasil-cinza.svg.hi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

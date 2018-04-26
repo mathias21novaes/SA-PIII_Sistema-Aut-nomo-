@@ -13,12 +13,31 @@ namespace President_Me
 {
     public partial class Lobby : Form
     {
+        int X = 0;
+        int Y = 0;
 
         public Lobby(string Versao)
         {
             InitializeComponent();
             lblversao.Text = Versao;
             Location = new Point(700, 700);
+
+            this.MouseDown += new MouseEventHandler(Lobby_MouseDown);
+            this.MouseMove += new MouseEventHandler(Lobby_MouseMove);
+        }
+
+        private void Lobby_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button != MouseButtons.Left) return;
+            X = this.Left - MousePosition.X;
+            Y = this.Top - MousePosition.Y;
+        }
+
+        private void Lobby_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button != MouseButtons.Left) return;
+            this.Left = X + MousePosition.X;
+            this.Top = Y + MousePosition.Y;
         }
 
         private void Lobby_Load(object sender, EventArgs e)

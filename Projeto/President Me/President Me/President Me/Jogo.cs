@@ -14,6 +14,9 @@ namespace President_Me
 {
     public partial class Jogo : Form
     {
+        int X = 0;
+        int Y = 0;
+
         public static string[] jog { get; set; }
         public string personagens { get; set; }
         public string voto { get; set; }
@@ -38,7 +41,7 @@ namespace President_Me
         public Jogo()
         {
             InitializeComponent();
-            string versao = "3.0";
+            string versao = "5.0";
             Lobby f = new Lobby(versao);
             f.ShowDialog();
 
@@ -54,6 +57,23 @@ namespace President_Me
             else
                 Jog_Id = int.Parse(auxJog);
 
+            this.MouseDown += new MouseEventHandler(Jogo_MouseDown);
+            this.MouseMove += new MouseEventHandler(Jogo_MouseMove);
+
+        }
+
+        private void Jogo_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button != MouseButtons.Left) return;
+            X = this.Left - MousePosition.X;
+            Y = this.Top - MousePosition.Y;
+        }
+
+        private void Jogo_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button != MouseButtons.Left) return;
+            this.Left = X + MousePosition.X;
+            this.Top = Y + MousePosition.Y;
         }
 
         private void Jogo_Load(object sender, EventArgs e)
@@ -460,7 +480,7 @@ namespace President_Me
         private void btn_nao_Click(object sender, EventArgs e)
         {
             voto = "n";
-            votacao(voto);
+            votacao(voto);  
             lblpontjog.Text = "NÃO";
             /*contvoto++;
             if (contvoto > 3)
