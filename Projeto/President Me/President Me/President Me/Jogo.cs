@@ -199,6 +199,7 @@ namespace President_Me
             /*if(hr_votar == true)
             {*/
             string votar = MePresidentaServidor.Jogo.Votar(Jog_Id, Jog_Senha, voto);
+            txthistorico.Text = votar;
             if (votar.Contains("ERRO"))
             {
                 MessageBox.Show(votar);
@@ -451,13 +452,15 @@ namespace President_Me
 
         private void btn_sim_Click(object sender, EventArgs e)
         {
-            voto = "S";
+            voto = "s";
+            votacao(voto);
             lblpontjog.Text = "SIM";
         }
 
         private void btn_nao_Click(object sender, EventArgs e)
         {
-            voto = "N";
+            voto = "n";
+            votacao(voto);
             lblpontjog.Text = "NÃO";
             /*contvoto++;
             if (contvoto > 3)
