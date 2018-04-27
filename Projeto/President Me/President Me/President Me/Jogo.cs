@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MePresidentaServidor;
 using System.Threading;
+using System.Collections;
 
 namespace President_Me
 {
@@ -36,19 +37,46 @@ namespace President_Me
         public string Jog_Senha { get; set; }
         public string Jog_Nome { get; set; }
         public int Part_Id { get; set; }
-        public int estado_Jogo = 0;
+        public int estado_Jogo { get; set; } = 0;
+        private Personagens a { get; set; }
+        private Personagens b { get; set; }
+        private Personagens c { get; set; }
+        private Personagens d { get; set; }
+        private Personagens e { get; set; }
+        private Personagens f { get; set; }
+        private Personagens g { get; set; }
+        private Personagens i { get; set; }
+        private Personagens l { get; set; }
+        private Personagens m { get; set; }
+        private Personagens n { get; set; }
+        private Personagens o { get; set; }
+        private Personagens p { get; set; }
+        private Setor setor0 { get; set; }
+        private Setor setor1 { get; set; }
+        private Setor setor2 { get; set; }
+        private Setor setor3 { get; set; }
+        private Setor setor4 { get; set; }
+        private Setor setor5 { get; set; }
+        private Setor setor10 { get; set; }
+        public static ArrayList arrayPersonagens { get; set; }  = new ArrayList();
+        public static ArrayList arraySetores { get; set; } = new ArrayList();
+        Random aleatorio = new Random();
 
         public Jogo()
         {
             InitializeComponent();
             string versao = "5.0";
-            Lobby f = new Lobby(versao);
-            f.ShowDialog();
+            Lobby flob = new Lobby(versao);
+            flob.ShowDialog();
 
             this.Part_Id = Entrar_Partida.idpartida;
             this.Jog_Senha = Entrar_Partida.JogadorSenha;
             this.Jog_Nome = Entrar_Partida.nome_jogador;
             this.auxJog = Entrar_Partida.JogadorId;
+
+            //adicionarpersonagens();
+            
+            
 
             if (String.IsNullOrEmpty(auxJog))
             {
@@ -84,6 +112,60 @@ namespace President_Me
             CriarPersonagens();
             CriarSetores();
             CriarMatriz();
+        }
+
+        public void adicionarpersonagens()
+        {
+            // Instancia os Personagens
+            a = new Personagens("A");
+            b = new Personagens("B");
+            c = new Personagens("C");
+            d = new Personagens("D");
+            e = new Personagens("E");
+            f = new Personagens("F");
+            g = new Personagens("G");
+            i = new Personagens("I");
+            l = new Personagens("L");
+            m = new Personagens("M");
+            n = new Personagens("N");
+            o = new Personagens("O");
+            p = new Personagens("P");
+
+            // Adiciona os Personagens
+            arrayPersonagens.Add(a);
+            arrayPersonagens.Add(b);
+            arrayPersonagens.Add(c);
+            arrayPersonagens.Add(d);
+            arrayPersonagens.Add(e);
+            arrayPersonagens.Add(f);
+            arrayPersonagens.Add(g);
+            arrayPersonagens.Add(i);
+            arrayPersonagens.Add(l);
+            arrayPersonagens.Add(m);
+            arrayPersonagens.Add(n);
+            arrayPersonagens.Add(o);
+            arrayPersonagens.Add(p);
+        }
+
+        public void adicionarSetores()
+        {
+            // Instancia os Setores
+            setor0 = new Setor(0, 4);
+            setor1 = new Setor(1, 4);
+            setor2 = new Setor(2, 4);
+            setor3 = new Setor(3, 4);
+            setor4 = new Setor(4, 4);
+            setor5 = new Setor(5, 4);
+            setor10 = new Setor(10, 1);
+
+            // Adiciona os Setores
+            arraySetores.Add(this.setor0);
+            arraySetores.Add(this.setor1);
+            arraySetores.Add(this.setor2);
+            arraySetores.Add(this.setor3);
+            arraySetores.Add(this.setor4);
+            arraySetores.Add(this.setor5);
+            arraySetores.Add(this.setor10);
         }
 
         public void MostrarDados()
@@ -151,6 +233,29 @@ namespace President_Me
 
             presidente = "";
         }
+
+        /*public void jogada()
+        {
+            string status = MePresidentaServidor.Jogo.VerificarStatus(Jog_Id);
+            status = status.Replace("\r", "");
+            string[] tabuleiro = status.Split('\n');
+            string situacaoPartida = tabuleiro[0];
+            string situacaoRodada = tabuleiro[1];
+
+            switch (tabuleiro[1])
+            {
+                case "s":
+                    moverPersonagem();
+                    break;
+                case "j":
+                    promover();
+                    break;
+                case "v":
+                    votacao();
+                default:
+                    
+            }
+        }*/
 
         private void timer_Verificavez_Tick(object sender, EventArgs e)
         {
@@ -231,7 +336,17 @@ namespace President_Me
         {
             string[] aux = { };
             bool entrou = true;
+            int rand;
+            int tamtabuleiro = 0;
 
+            /*for(tamtabuleiro = 0; tamtabuleiro >=4; tamtabuleiro++)
+            {
+                rand = aleatorio.Next(0,13);
+                while (arrayPersonagens. == -1)
+                {
+                    
+                }
+            }*/
             if (serv)
             {
                 string ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, setor, personagem);

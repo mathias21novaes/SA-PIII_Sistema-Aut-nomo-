@@ -49,6 +49,7 @@ namespace President_Me
             InitializeComponent();
             listar = MePresidentaServidor.Jogo.ListarPartidas();
             listP = this.listar.Split('\n');
+            
             for (int i = 0; i < listP.Length; i++)
             {
                 listPartidas.Items.Add(listP[i].ToString());

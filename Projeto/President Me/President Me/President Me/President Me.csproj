@@ -67,6 +67,8 @@
     <Compile Include="Lobby.Designer.cs">
       <DependentUpon>Lobby.cs</DependentUpon>
     </Compile>
+    <Compile Include="Personagens.cs" />
+    <Compile Include="Posicao.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -80,6 +82,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Setor.cs" />
     <EmbeddedResource Include="Criar_Partida.resx">
       <DependentUpon>Criar_Partida.cs</DependentUpon>
     </EmbeddedResource>
