@@ -25,5 +25,10 @@ namespace President_Me
             posicoes.Add(pos3);
             posicoes.Add(pos4);
         }
+
+        public int contmais()
+        {
+            return i += 1;
+        }
     }
 }

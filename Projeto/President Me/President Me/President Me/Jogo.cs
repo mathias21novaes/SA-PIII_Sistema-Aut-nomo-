@@ -275,6 +275,7 @@ namespace President_Me
                 lblJogo.Text = "SUA VEZ DE JOGAR";
                 lblJogo.ForeColor = Color.LimeGreen;
                 this.btnColocar.Enabled = true;
+                moverPersonagem();
             }
             else
             {
@@ -283,7 +284,7 @@ namespace President_Me
                 this.btnColocar.Enabled = false;
             }
 
-            for (int i = 0; i < tabuleiro.Length - 1; i++)
+            /*for (int i = 0; i < tabuleiro.Length - 1; i++)
             {
                 this.personagem = txthistorico.Text;
                 //txthistorico.Text = personagem;
@@ -300,7 +301,7 @@ namespace President_Me
                 {
                     moverPersonagem(letra, Convert.ToInt32(num), false);
                 }
-            }
+            }*/
         }
 
         public void promover(string personagem)
@@ -334,26 +335,24 @@ namespace President_Me
             /*}*/
         }
 
-        public int moverPersonagem(string personagem, int setor, bool serv)
+        public int moverPersonagem()
         {
-            string[] aux = { };
-            bool entrou = true;
             int rand1;
             int rand2;
-            int i = 0;
 
-            for(i = 0; i >= arraySetores.Count; i++)
-           {
-               rand1 = aleatorio.Next(0,13);
-               rand2 = aleatorio.Next(1, 4);
-               if (arrayPersonagens[rand1].setor == -1)
+            rand1 = aleatorio.Next(0,13);
+            rand2 = aleatorio.Next(1, 5);
+            if (arrayPersonagens[rand1].setor == -1)
+            {
+               if(arraySetores[rand2].i <= 4)
                {
-                    string ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[rand2].setor, arrayPersonagens[rand1].nome);
-                    txthistorico.Text = ColocarPersonagem;
-                }
-           }
+                 string ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[rand2].setor, arrayPersonagens[rand1].nome);
+                 txthistorico.Text = ColocarPersonagem;
+               }
+                    
+            }
 
-            for (int i = 0; i < 4; i++)
+            /*for (int i = 0; i < 4; i++)
             {
                 aux = matriz[(Convert.ToInt32(setor) - 1), i].Split(',');
                 if (aux[2] == "false")
@@ -457,98 +456,26 @@ namespace President_Me
                     lblJogo.Text = "NÍVEL CHEIO";
                     matriz[(Convert.ToInt32(cbSetores) - 1), i] = aux[0] + ',' + aux[1] + ',' + true;
                 }
-            }
+            }*/
             return 0;
         }
 
-        public void atualizaPersonagem(string personagem, int setor)
+        void atualizarSetor(int setor)
         {
-            string[] aux = { };
-            bool entrou = true;
-
-            for (int i = 0; i < 4; i++)
-            {
-                aux = matriz[(Convert.ToInt32(setor) - 1), i].Split(',');
-                if (aux[2] == "false")
-                {
-                    if (personagem == "A")
-                    {
-                        A.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
-                        entrou = true;
-                        break;
-                    }
-                    else if (personagem == "B")
-                    {
-                        B.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
-                        entrou = true;
-                        break;
-                    }
-                    else if (personagem == "C")
-                    {
-                        C.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
-                        entrou = true;
-                        break;
-                    }
-                    else if (personagem == "D")
-                    {
-                        D.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
-                        entrou = true;
-                    }
-                    else if (personagem == "E")
-                    {
-                        E.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
-                        entrou = true;
-                        break;
-                    }
-                    else if (personagem == "F")
-                    {
-                        F.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
-                        entrou = true;
-                    }
-                    else if (personagem == "G")
-                    {
-                        G.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
-                        entrou = true;
-                        break;
-                    }
-                    else if (personagem == "I")
-                    {
-                        I.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
-                        entrou = true;
-                        break;
-                    }
-                    else if (personagem == "L")
-                    {
-                        L.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
-                        entrou = true;
-                        break;
-                    }
-                    else if (personagem == "M")
-                    {
-                        M.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
-                        entrou = true;
-                        break;
-                    }
-                    else if (personagem == "N")
-                    {
-                        N.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
-                        entrou = true;
-                        break;
-                    }
-                    else if (personagem == "O")
-                    {
-                        O.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
-                        entrou = true;
-                        break;
-                    }
-                    else if (personagem == "P")
-                    {
-                        P.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
-                        entrou = true;
-                        break;
-                    }
-                }
-            }
+            if(setor == 0)
+                arraySetores[0].contmais();
+            else if(setor == 1)
+                arraySetores[1].contmais();
+            else if(setor == 2)
+                arraySetores[2].contmais();
+            else if (setor == 3)
+                arraySetores[3].contmais();
+            else if (setor == 4)
+                arraySetores[4].contmais();
+            else if (setor == 5)
+                arraySetores[5].contmais();
+            else if (setor == 6)
+                arraySetores[6].contmais();
         }
 
 
@@ -571,7 +498,7 @@ namespace President_Me
                 lblJogo.Text = "ESCOLHA O PERSONAGEM E DESTINO";
                 return;
             }
-            moverPersonagem(cbPersonagens.Text.Substring(0, 1), Convert.ToInt32(cbSetores.Text), true);
+            //moverPersonagem(cbPersonagens.Text.Substring(0, 1), Convert.ToInt32(cbSetores.Text), true);
             lblJogo.Text = "";
         }
 
