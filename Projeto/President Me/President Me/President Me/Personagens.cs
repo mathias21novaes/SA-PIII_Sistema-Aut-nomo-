@@ -2,9 +2,9 @@
 
 public class Personagens
 {
-    private string nome { get; set; }
-    private int setor { get; set; } = -1;
-    private int posicao { get; set; } = -1;
+    public string nome { get; set; }
+    public int setor { get; set; } = -1;
+    public int posicao { get; set; } = -1;
 
     public Personagens(string nome)
 	{

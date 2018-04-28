@@ -38,28 +38,29 @@ namespace President_Me
         public string Jog_Nome { get; set; }
         public int Part_Id { get; set; }
         public int estado_Jogo { get; set; } = 0;
-        private Personagens a { get; set; }
-        private Personagens b { get; set; }
-        private Personagens c { get; set; }
-        private Personagens d { get; set; }
-        private Personagens e { get; set; }
-        private Personagens f { get; set; }
-        private Personagens g { get; set; }
-        private Personagens i { get; set; }
-        private Personagens l { get; set; }
-        private Personagens m { get; set; }
-        private Personagens n { get; set; }
-        private Personagens o { get; set; }
-        private Personagens p { get; set; }
-        private Setor setor0 { get; set; }
-        private Setor setor1 { get; set; }
+
+        public Personagens a { get; set; }
+        public Personagens b { get; set; }
+        public Personagens c { get; set; }
+        public Personagens d { get; set; }
+        public Personagens e { get; set; }
+        public Personagens f { get; set; }
+        public Personagens g { get; set; }
+        public Personagens i { get; set; }
+        public Personagens l { get; set; }
+        public Personagens m { get; set; }
+        public Personagens n { get; set; }
+        public Personagens o { get; set; }
+        public Personagens p { get; set; }
+        public Setor setor0 { get; set; }
+        public Setor setor1 { get; set; }
         private Setor setor2 { get; set; }
         private Setor setor3 { get; set; }
         private Setor setor4 { get; set; }
         private Setor setor5 { get; set; }
         private Setor setor10 { get; set; }
-        public static ArrayList arrayPersonagens { get; set; }  = new ArrayList();
-        public static ArrayList arraySetores { get; set; } = new ArrayList();
+        public static List<Personagens> arrayPersonagens { get; set; }  = new List<Personagens>();
+        public static List<Setor> arraySetores { get; set; } = new List<Setor>();
         Random aleatorio = new Random();
 
         public Jogo()
@@ -75,9 +76,8 @@ namespace President_Me
             this.auxJog = Entrar_Partida.JogadorId;
 
             //adicionarpersonagens();
+            //adicionarSetores();
             
-            
-
             if (String.IsNullOrEmpty(auxJog))
             {
                 this.Close();
@@ -112,6 +112,8 @@ namespace President_Me
             CriarPersonagens();
             CriarSetores();
             CriarMatriz();
+            adicionarpersonagens();
+            adicionarSetores();
         }
 
         public void adicionarpersonagens()
@@ -336,27 +338,20 @@ namespace President_Me
         {
             string[] aux = { };
             bool entrou = true;
-            int rand;
-            int tamtabuleiro = 0;
+            int rand1;
+            int rand2;
+            int i = 0;
 
-            /*for(tamtabuleiro = 0; tamtabuleiro >=4; tamtabuleiro++)
-            {
-                rand = aleatorio.Next(0,13);
-                while (arrayPersonagens. == -1)
-                {
-                    
+            for(i = 0; i >= arraySetores.Count; i++)
+           {
+               rand1 = aleatorio.Next(0,13);
+               rand2 = aleatorio.Next(1, 4);
+               if (arrayPersonagens[rand1].setor == -1)
+               {
+                    string ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[rand2].setor, arrayPersonagens[rand1].nome);
+                    txthistorico.Text = ColocarPersonagem;
                 }
-            }*/
-            if (serv)
-            {
-                string ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, setor, personagem);
-                txthistorico.Text = ColocarPersonagem;
-                if (ColocarPersonagem.Contains("ERRO"))
-                {
-                    MessageBox.Show(ColocarPersonagem);
-                    return -1;
-                }
-            }
+           }
 
             for (int i = 0; i < 4; i++)
             {
@@ -462,11 +457,6 @@ namespace President_Me
                     lblJogo.Text = "NÍVEL CHEIO";
                     matriz[(Convert.ToInt32(cbSetores) - 1), i] = aux[0] + ',' + aux[1] + ',' + true;
                 }
-                /*aux = matriz[6, 0].Split(',');
-                if (aux[2] == "true")
-                {
-                    votacao(voto);
-                }*/
             }
             return 0;
         }
