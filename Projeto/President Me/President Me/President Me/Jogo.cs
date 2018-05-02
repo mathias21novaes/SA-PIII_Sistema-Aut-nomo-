@@ -15,9 +15,6 @@ namespace President_Me
 {
     public partial class Jogo : Form
     {
-        int X = 0;
-        int Y = 0;
-
         public static string[] jog { get; set; }
         public string personagens { get; set; }
         public string voto { get; set; }
@@ -32,6 +29,9 @@ namespace President_Me
 
         /*-----------------------------------*/
 
+        int X = 0;
+        int Y = 0;
+
         public int Jog_Id { get; set; }
         public string auxJog { get; set; }
         public string Jog_Senha { get; set; }
@@ -39,6 +39,7 @@ namespace President_Me
         public int Part_Id { get; set; }
         public int estado_Jogo { get; set; } = 0;
 
+        //CRIAÇÃO DE PERSONAGENS
         public Personagens a { get; set; }
         public Personagens b { get; set; }
         public Personagens c { get; set; }
@@ -52,15 +53,20 @@ namespace President_Me
         public Personagens n { get; set; }
         public Personagens o { get; set; }
         public Personagens p { get; set; }
+
+        //CRIAÇÃO DE SETORES
         public Setor setor0 { get; set; }
         public Setor setor1 { get; set; }
-        private Setor setor2 { get; set; }
-        private Setor setor3 { get; set; }
-        private Setor setor4 { get; set; }
-        private Setor setor5 { get; set; }
-        private Setor setor10 { get; set; }
+        public Setor setor2 { get; set; }
+        public Setor setor3 { get; set; }
+        public Setor setor4 { get; set; }
+        public Setor setor5 { get; set; }
+        public Setor setor10 { get; set; }
+
+        //ARRAY LIST PERSONAGENS E SETORES
         public static List<Personagens> arrayPersonagens { get; set; }  = new List<Personagens>();
         public static List<Setor> arraySetores { get; set; } = new List<Setor>();
+
         Random aleatorio = new Random();
 
         public Jogo()
@@ -308,31 +314,16 @@ namespace President_Me
         {
             string promover = MePresidentaServidor.Jogo.Promover(Jog_Id, Jog_Senha, personagem);
             txthistorico.Text = promover;
-            /*string[] vot = { };
-            string vota = txthistorico.Text;
-            vota = vota.Replace("\r", "");
-            vot = vota.Split(',');
-            string setor = vot[0];
-
-            if (Convert.ToInt32(setor) == 10)
-            {
-                lblJogo.Text = "HORA DE VOTAR";
-                votacao(voto);
-            }*/
         }
-
 
         public void votacao(string voto)
         {
-            /*if(hr_votar == true)
-            {*/
             string votar = MePresidentaServidor.Jogo.Votar(Jog_Id, Jog_Senha, voto);
             txthistorico.Text = votar;
             if (votar.Contains("ERRO"))
             {
                 MessageBox.Show(votar);
             }
-            /*}*/
         }
 
         public int moverPersonagem()
@@ -478,8 +469,6 @@ namespace President_Me
                 arraySetores[6].contmais();
         }
 
-
-
         private void Fechar_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -506,23 +495,15 @@ namespace President_Me
         {
             voto = "s";
             votacao(voto);
-            lblpontjog.Text = "SIM";
+            lbl_Avisos.Text = "SIM";
         }
 
         private void btn_nao_Click(object sender, EventArgs e)
         {
             voto = "n";
             votacao(voto);  
-            lblpontjog.Text = "NÃO";
-            /*contvoto++;
-            if (contvoto > 3)
-            {
-                lblpontjog.Text = "NÃO PODE MAIS VOTAR (NÃO)";
-                btn_nao.Enabled = false;
-            }*/
+            lbl_Avisos.Text = "NÃO";
         }
-
-
 
         /*public void atualizaTabuleiro(string tabuleiro)
         {

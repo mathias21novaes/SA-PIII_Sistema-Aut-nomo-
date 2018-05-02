@@ -9,6 +9,7 @@ namespace President_Me
         public int setor { get; set; }
         public int tamanho { get; set; }
         public int i { get; set; } = 0;
+
         public Posicao pos1 = new Posicao();
         public Posicao pos2 = new Posicao();
         public Posicao pos3 = new Posicao();

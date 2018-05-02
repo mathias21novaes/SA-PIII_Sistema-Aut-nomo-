@@ -40,9 +40,6 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.lblpersonagens = new System.Windows.Forms.Label();
-            this.txtidjog = new System.Windows.Forms.TextBox();
-            this.txtnomejog = new System.Windows.Forms.TextBox();
-            this.txtpontjog = new System.Windows.Forms.TextBox();
             this.btn_nao = new System.Windows.Forms.PictureBox();
             this.btn_sim = new System.Windows.Forms.PictureBox();
             this.btn_promover = new System.Windows.Forms.PictureBox();
@@ -88,7 +85,7 @@
             this.lblcartas = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.lblpontjog = new System.Windows.Forms.Label();
+            this.lbl_Avisos = new System.Windows.Forms.Label();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
             this.lblJogo = new System.Windows.Forms.Label();
@@ -104,6 +101,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.lblidp = new System.Windows.Forms.Label();
             this.Fechar = new System.Windows.Forms.PictureBox();
+            this.label11 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -154,7 +152,7 @@
             // 
             this.lbljogadores.AutoSize = true;
             this.lbljogadores.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbljogadores.Location = new System.Drawing.Point(856, 429);
+            this.lbljogadores.Location = new System.Drawing.Point(856, 169);
             this.lbljogadores.Name = "lbljogadores";
             this.lbljogadores.Size = new System.Drawing.Size(60, 24);
             this.lbljogadores.TabIndex = 23;
@@ -222,9 +220,10 @@
             // pictureBox3
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.Azure;
-            this.pictureBox3.Location = new System.Drawing.Point(859, 264);
+            this.pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox3.Location = new System.Drawing.Point(859, 632);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(342, 143);
+            this.pictureBox3.Size = new System.Drawing.Size(342, 98);
             this.pictureBox3.TabIndex = 29;
             this.pictureBox3.TabStop = false;
             // 
@@ -262,30 +261,6 @@
             this.lblpersonagens.Size = new System.Drawing.Size(103, 20);
             this.lblpersonagens.TabIndex = 34;
             this.lblpersonagens.Text = "Personagens";
-            // 
-            // txtidjog
-            // 
-            this.txtidjog.Location = new System.Drawing.Point(859, 146);
-            this.txtidjog.Multiline = true;
-            this.txtidjog.Name = "txtidjog";
-            this.txtidjog.Size = new System.Drawing.Size(101, 112);
-            this.txtidjog.TabIndex = 35;
-            // 
-            // txtnomejog
-            // 
-            this.txtnomejog.Location = new System.Drawing.Point(966, 146);
-            this.txtnomejog.Multiline = true;
-            this.txtnomejog.Name = "txtnomejog";
-            this.txtnomejog.Size = new System.Drawing.Size(115, 112);
-            this.txtnomejog.TabIndex = 36;
-            // 
-            // txtpontjog
-            // 
-            this.txtpontjog.Location = new System.Drawing.Point(1100, 146);
-            this.txtpontjog.Multiline = true;
-            this.txtpontjog.Name = "txtpontjog";
-            this.txtpontjog.Size = new System.Drawing.Size(101, 112);
-            this.txtpontjog.TabIndex = 37;
             // 
             // btn_nao
             // 
@@ -791,7 +766,7 @@
             this.lblnj.BackColor = System.Drawing.Color.Azure;
             this.lblnj.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblnj.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblnj.Location = new System.Drawing.Point(136, 76);
+            this.lblnj.Location = new System.Drawing.Point(113, 78);
             this.lblnj.Name = "lblnj";
             this.lblnj.Size = new System.Drawing.Size(18, 24);
             this.lblnj.TabIndex = 61;
@@ -847,15 +822,16 @@
             this.label7.TabIndex = 67;
             this.label7.Text = "label7";
             // 
-            // lblpontjog
+            // lbl_Avisos
             // 
-            this.lblpontjog.AutoSize = true;
-            this.lblpontjog.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblpontjog.Location = new System.Drawing.Point(1096, 429);
-            this.lblpontjog.Name = "lblpontjog";
-            this.lblpontjog.Size = new System.Drawing.Size(60, 24);
-            this.lblpontjog.TabIndex = 33;
-            this.lblpontjog.Text = "label2";
+            this.lbl_Avisos.AutoSize = true;
+            this.lbl_Avisos.BackColor = System.Drawing.Color.Azure;
+            this.lbl_Avisos.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Avisos.Location = new System.Drawing.Point(880, 671);
+            this.lbl_Avisos.Name = "lbl_Avisos";
+            this.lbl_Avisos.Size = new System.Drawing.Size(60, 24);
+            this.lbl_Avisos.TabIndex = 33;
+            this.lbl_Avisos.Text = "label2";
             // 
             // pictureBox6
             // 
@@ -887,7 +863,7 @@
             this.lblJogo.BackColor = System.Drawing.Color.Azure;
             this.lblJogo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblJogo.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblJogo.Location = new System.Drawing.Point(868, 108);
+            this.lblJogo.Location = new System.Drawing.Point(879, 106);
             this.lblJogo.Name = "lblJogo";
             this.lblJogo.Size = new System.Drawing.Size(21, 25);
             this.lblJogo.TabIndex = 86;
@@ -895,7 +871,7 @@
             // 
             // btnColocar
             // 
-            this.btnColocar.Location = new System.Drawing.Point(910, 647);
+            this.btnColocar.Location = new System.Drawing.Point(884, 458);
             this.btnColocar.Name = "btnColocar";
             this.btnColocar.Size = new System.Drawing.Size(75, 23);
             this.btnColocar.TabIndex = 87;
@@ -906,7 +882,7 @@
             // cbPersonagens
             // 
             this.cbPersonagens.FormattingEnabled = true;
-            this.cbPersonagens.Location = new System.Drawing.Point(885, 573);
+            this.cbPersonagens.Location = new System.Drawing.Point(859, 384);
             this.cbPersonagens.Name = "cbPersonagens";
             this.cbPersonagens.Size = new System.Drawing.Size(121, 21);
             this.cbPersonagens.TabIndex = 88;
@@ -922,7 +898,7 @@
             // cbSetores
             // 
             this.cbSetores.FormattingEnabled = true;
-            this.cbSetores.Location = new System.Drawing.Point(885, 605);
+            this.cbSetores.Location = new System.Drawing.Point(859, 416);
             this.cbSetores.Name = "cbSetores";
             this.cbSetores.Size = new System.Drawing.Size(121, 21);
             this.cbSetores.TabIndex = 90;
@@ -944,7 +920,7 @@
             // 
             // txthistorico
             // 
-            this.txthistorico.Location = new System.Drawing.Point(1039, 527);
+            this.txthistorico.Location = new System.Drawing.Point(1039, 305);
             this.txthistorico.Multiline = true;
             this.txthistorico.Name = "txthistorico";
             this.txthistorico.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -1005,6 +981,19 @@
             this.Fechar.TabStop = false;
             this.Fechar.Click += new System.EventHandler(this.Fechar_Click);
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.Transparent;
+            this.label11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.DarkBlue;
+            this.label11.Location = new System.Drawing.Point(966, 616);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(123, 33);
+            this.label11.TabIndex = 98;
+            this.label11.Text = "AVISOS";
+            // 
             // Jogo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1012,6 +1001,7 @@
             this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1223, 755);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.Fechar);
             this.Controls.Add(this.lblidp);
             this.Controls.Add(this.label10);
@@ -1051,7 +1041,7 @@
             this.Controls.Add(this.pos03);
             this.Controls.Add(this.pos41);
             this.Controls.Add(this.posPresidente);
-            this.Controls.Add(this.lblpontjog);
+            this.Controls.Add(this.lbl_Avisos);
             this.Controls.Add(this.pos11);
             this.Controls.Add(this.pos42);
             this.Controls.Add(this.pos23);
@@ -1073,10 +1063,7 @@
             this.Controls.Add(this.btn_promover);
             this.Controls.Add(this.btn_sim);
             this.Controls.Add(this.btn_nao);
-            this.Controls.Add(this.txtpontjog);
-            this.Controls.Add(this.txtnomejog);
             this.Controls.Add(this.pictureBox4);
-            this.Controls.Add(this.txtidjog);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.lbljogadores);
             this.Controls.Add(this.lblidj);
@@ -1150,9 +1137,6 @@
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Label lblpersonagens;
-        private System.Windows.Forms.TextBox txtidjog;
-        private System.Windows.Forms.TextBox txtnomejog;
-        private System.Windows.Forms.TextBox txtpontjog;
         private System.Windows.Forms.PictureBox btn_nao;
         private System.Windows.Forms.PictureBox btn_sim;
         private System.Windows.Forms.PictureBox btn_promover;
@@ -1198,7 +1182,7 @@
         private System.Windows.Forms.Label lblcartas;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label lblpontjog;
+        private System.Windows.Forms.Label lbl_Avisos;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label lblJogo;
@@ -1214,5 +1198,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label lblidp;
         private System.Windows.Forms.PictureBox Fechar;
+        private System.Windows.Forms.Label label11;
     }
 }
