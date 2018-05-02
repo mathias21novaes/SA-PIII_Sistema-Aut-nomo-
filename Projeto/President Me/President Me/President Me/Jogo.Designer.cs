@@ -266,6 +266,7 @@
             // 
             this.btn_nao.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btn_nao.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_nao.Enabled = false;
             this.btn_nao.Image = ((System.Drawing.Image)(resources.GetObject("btn_nao.Image")));
             this.btn_nao.Location = new System.Drawing.Point(306, 605);
             this.btn_nao.Name = "btn_nao";
@@ -279,6 +280,7 @@
             // 
             this.btn_sim.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btn_sim.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_sim.Enabled = false;
             this.btn_sim.Image = ((System.Drawing.Image)(resources.GetObject("btn_sim.Image")));
             this.btn_sim.Location = new System.Drawing.Point(217, 605);
             this.btn_sim.Name = "btn_sim";
@@ -292,6 +294,7 @@
             // 
             this.btn_promover.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btn_promover.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_promover.Enabled = false;
             this.btn_promover.Image = ((System.Drawing.Image)(resources.GetObject("btn_promover.Image")));
             this.btn_promover.Location = new System.Drawing.Point(215, 664);
             this.btn_promover.Name = "btn_promover";

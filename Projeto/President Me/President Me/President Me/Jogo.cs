@@ -38,6 +38,7 @@ namespace President_Me
         public string Jog_Nome { get; set; }
         public int Part_Id { get; set; }
         public int estado_Jogo { get; set; } = 0;
+        public string status { get; set; }
 
         //CRIAÇÃO DE PERSONAGENS
         public Personagens a { get; set; }
@@ -64,7 +65,7 @@ namespace President_Me
         public Setor setor10 { get; set; }
 
         //ARRAY LIST PERSONAGENS E SETORES
-        public static List<Personagens> arrayPersonagens { get; set; }  = new List<Personagens>();
+        public static List<Personagens> arrayPersonagens { get; set; } = new List<Personagens>();
         public static List<Setor> arraySetores { get; set; } = new List<Setor>();
 
         Random aleatorio = new Random();
@@ -80,7 +81,7 @@ namespace President_Me
             this.Jog_Senha = Entrar_Partida.JogadorSenha;
             this.Jog_Nome = Entrar_Partida.nome_jogador;
             this.auxJog = Entrar_Partida.JogadorId;
-            
+
             if (String.IsNullOrEmpty(auxJog))
             {
                 this.Close();
@@ -239,27 +240,41 @@ namespace President_Me
             presidente = "";
         }
 
-        /*public void jogada()
-        {
-            string status = MePresidentaServidor.Jogo.VerificarStatus(Jog_Id);
-            status = status.Replace("\r", "");
-            string[] tabuleiro = status.Split('\n');
-            string situacaoPartida = tabuleiro[0];
-            string situacaoRodada = tabuleiro[1];
+        public void jogada() {
+                status = MePresidentaServidor.Jogo.VerificarStatus(Jog_Id);
+                string sta = status.Replace("\r", "");
+                string[] tabuleiro = new string[2];
+                tabuleiro = sta.Split(',');
+                string situacaoPartida = tabuleiro[0];
+                string situacaoRodada = tabuleiro[1];
 
-            switch (tabuleiro[1])
-            {
-                case "s":
-                    moverPersonagem();
-                    break;
-                case "j":
-                    promover();
-                    break;
-                case "v":
-                    votacao();
-                default:
-                    
-            }
+                switch (situacaoRodada)
+                {
+                    case "S":
+                        lbl_Aviso.Text = "Hora de Colocar Personagem";
+                        lbl_Aviso.ForeColor = Color.LimeGreen;
+                        MoverPersonagem();
+                        break;
+                    case "J":
+                        lbl_Aviso.Text = "Hora de Promover Personagem";
+                        btn_promover.Enabled = true;
+                        break;
+                    case "V":
+                        lbl_Aviso.Text = "Hora de Votação";
+                        btn_promover.Enabled = false;
+                        btn_sim.Enabled = true;
+                        btn_nao.Enabled = true;
+                        break;
+                }
+        }
+
+        /*public void resetTabuleiro()
+        {
+            btn_sim.Enabled = false;
+            btn_nao.Enabled = false;
+            arrayPersonagens[].posicao = -1;
+            arrayPersonagens[].setor = -1;
+
         }*/
 
         private void timer_Verificavez_Tick(object sender, EventArgs e)
@@ -278,7 +293,7 @@ namespace President_Me
                 lblJogo.Text = "SUA VEZ DE JOGAR";
                 lblJogo.ForeColor = Color.LimeGreen;
                 this.btnColocar.Enabled = true;
-                MoverPersonagem();
+                jogada();
             }
             else
             {
@@ -340,6 +355,8 @@ namespace President_Me
                 {
                     string ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[rand2].setor, arrayPersonagens[rand1].nome);
                     txthistorico.Text = ColocarPersonagem;
+                    arrayPersonagens[rand1].setor = arraySetores[rand2].setor;
+                    arraySetores[rand2].i += 1;
                     if (ColocarPersonagem.Contains("ERRO"))
                     {
                         lbl_Aviso.Text = ColocarPersonagem;
