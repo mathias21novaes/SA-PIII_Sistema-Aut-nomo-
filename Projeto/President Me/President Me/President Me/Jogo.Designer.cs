@@ -102,6 +102,7 @@
             this.Fechar = new System.Windows.Forms.PictureBox();
             this.label11 = new System.Windows.Forms.Label();
             this.lbl_Aviso = new System.Windows.Forms.Label();
+            this.txt_verifica = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -1001,6 +1002,14 @@
             this.lbl_Aviso.Text = "*";
             this.lbl_Aviso.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // txt_verifica
+            // 
+            this.txt_verifica.Location = new System.Drawing.Point(932, 250);
+            this.txt_verifica.Multiline = true;
+            this.txt_verifica.Name = "txt_verifica";
+            this.txt_verifica.Size = new System.Drawing.Size(74, 42);
+            this.txt_verifica.TabIndex = 100;
+            // 
             // Jogo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1008,6 +1017,7 @@
             this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1223, 755);
+            this.Controls.Add(this.txt_verifica);
             this.Controls.Add(this.lbl_Aviso);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.Fechar);
@@ -1206,5 +1216,6 @@
         private System.Windows.Forms.PictureBox Fechar;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label lbl_Aviso;
+        private System.Windows.Forms.TextBox txt_verifica;
     }
 }

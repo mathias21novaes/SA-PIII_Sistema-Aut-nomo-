@@ -242,17 +242,23 @@ namespace President_Me
 
         public void jogada() {
                 status = MePresidentaServidor.Jogo.VerificarStatus(Jog_Id);
+                txt_verifica.Text = status;
                 string sta = status.Replace("\r", "");
                 string[] tabuleiro = new string[2];
                 tabuleiro = sta.Split(',');
                 string situacaoPartida = tabuleiro[0];
                 string situacaoRodada = tabuleiro[1];
 
-                switch (situacaoRodada)
+            switch (situacaoPartida)
+            {
+                case "J":
+                    switch (situacaoRodada)
                 {
                     case "S":
                         lbl_Aviso.Text = "Hora de Colocar Personagem";
                         lbl_Aviso.ForeColor = Color.LimeGreen;
+                        btn_sim.Enabled = false;
+                        btn_nao.Enabled = false;
                         MoverPersonagem();
                         break;
                     case "J":
@@ -266,16 +272,14 @@ namespace President_Me
                         btn_nao.Enabled = true;
                         break;
                 }
+                    break;
+                case "A":
+                    lbl_Aviso.Text = " Partida ainda está aberta.";
+                    break;
+            }
+                
         }
 
-        /*public void resetTabuleiro()
-        {
-            btn_sim.Enabled = false;
-            btn_nao.Enabled = false;
-            arrayPersonagens[].posicao = -1;
-            arrayPersonagens[].setor = -1;
-
-        }*/
 
         private void timer_Verificavez_Tick(object sender, EventArgs e)
         {
@@ -301,25 +305,6 @@ namespace President_Me
                 lblJogo.ForeColor = Color.Red;
                 this.btnColocar.Enabled = false;
             }
-
-            /*for (int i = 0; i < tabuleiro.Length - 1; i++)
-            {
-                this.personagem = txthistorico.Text;
-                //txthistorico.Text = personagem;
-                personagem = tabuleiro[i].Split(',');
-                string num = tabuleiro[0];
-                string letra = tabuleiro[1];
-
-                // VER ESSA PARTE DO CÓGIDO, PROVAVELMENTE LOCAL DO ERRO QUE NÃO ESTA ATUALIZANDO O TABULEIRO
-                if (cbPersonagens.Items.Contains(letra) && atualizacao == true)
-                {
-                    atualizaPersonagem(letra, Convert.ToInt32(num));
-                }
-                else if (cbPersonagens.Items.Contains(letra))
-                {
-                    moverPersonagem(letra, Convert.ToInt32(num), false);
-                }
-            }*/
         }
 
         public void Promover(string personagem)
@@ -335,7 +320,7 @@ namespace President_Me
         public void Votacao(string voto)
         {
             string votar = MePresidentaServidor.Jogo.Votar(Jog_Id, Jog_Senha, voto);
-            txthistorico.Text = votar;
+            txt_verifica.Text = votar;
             if (votar.Contains("ERRO"))
             {
                 lbl_Aviso.Text = votar;
