@@ -80,9 +80,6 @@ namespace President_Me
             this.Jog_Senha = Entrar_Partida.JogadorSenha;
             this.Jog_Nome = Entrar_Partida.nome_jogador;
             this.auxJog = Entrar_Partida.JogadorId;
-
-            //adicionarpersonagens();
-            //adicionarSetores();
             
             if (String.IsNullOrEmpty(auxJog))
             {
@@ -118,13 +115,13 @@ namespace President_Me
             CriarPersonagens();
             CriarSetores();
             CriarMatriz();
-            adicionarpersonagens();
-            adicionarSetores();
+            Adicionarpersonagens();
+            AdicionarSetores();
         }
 
-        public void adicionarpersonagens()
+        public void Adicionarpersonagens()
         {
-            // Instancia os Personagens
+            // INSTANCIAMENTO DE PERSONAGENS
             a = new Personagens("A");
             b = new Personagens("B");
             c = new Personagens("C");
@@ -139,7 +136,7 @@ namespace President_Me
             o = new Personagens("O");
             p = new Personagens("P");
 
-            // Adiciona os Personagens
+            // ADICIONA PERSONAGENS
             arrayPersonagens.Add(a);
             arrayPersonagens.Add(b);
             arrayPersonagens.Add(c);
@@ -155,9 +152,9 @@ namespace President_Me
             arrayPersonagens.Add(p);
         }
 
-        public void adicionarSetores()
+        public void AdicionarSetores()
         {
-            // Instancia os Setores
+            // INSTANCIAMENTO DE SETORES
             setor0 = new Setor(0, 4);
             setor1 = new Setor(1, 4);
             setor2 = new Setor(2, 4);
@@ -166,7 +163,7 @@ namespace President_Me
             setor5 = new Setor(5, 4);
             setor10 = new Setor(10, 1);
 
-            // Adiciona os Setores
+            // ADICIONAR SETORES
             arraySetores.Add(this.setor0);
             arraySetores.Add(this.setor1);
             arraySetores.Add(this.setor2);
@@ -281,7 +278,7 @@ namespace President_Me
                 lblJogo.Text = "SUA VEZ DE JOGAR";
                 lblJogo.ForeColor = Color.LimeGreen;
                 this.btnColocar.Enabled = true;
-                moverPersonagem();
+                MoverPersonagem();
             }
             else
             {
@@ -310,23 +307,27 @@ namespace President_Me
             }*/
         }
 
-        public void promover(string personagem)
+        public void Promover(string personagem)
         {
             string promover = MePresidentaServidor.Jogo.Promover(Jog_Id, Jog_Senha, personagem);
             txthistorico.Text = promover;
+            if (promover.Contains("ERRO"))
+            {
+                lbl_Aviso.Text = promover;
+            }
         }
 
-        public void votacao(string voto)
+        public void Votacao(string voto)
         {
             string votar = MePresidentaServidor.Jogo.Votar(Jog_Id, Jog_Senha, voto);
             txthistorico.Text = votar;
             if (votar.Contains("ERRO"))
             {
-                MessageBox.Show(votar);
+                lbl_Aviso.Text = votar;
             }
         }
 
-        public int moverPersonagem()
+        public int MoverPersonagem()
         {
             int rand1;
             int rand2;
@@ -335,11 +336,15 @@ namespace President_Me
             rand2 = aleatorio.Next(1, 5);
             if (arrayPersonagens[rand1].setor == -1)
             {
-               if(arraySetores[rand2].i <= 4)
-               {
-                 string ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[rand2].setor, arrayPersonagens[rand1].nome);
-                 txthistorico.Text = ColocarPersonagem;
-               }
+                if (arraySetores[rand2].i <= 4)
+                {
+                    string ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[rand2].setor, arrayPersonagens[rand1].nome);
+                    txthistorico.Text = ColocarPersonagem;
+                    if (ColocarPersonagem.Contains("ERRO"))
+                    {
+                        lbl_Aviso.Text = ColocarPersonagem;
+                    }
+                }
                     
             }
 
@@ -451,7 +456,7 @@ namespace President_Me
             return 0;
         }
 
-        void atualizarSetor(int setor)
+        void AtualizarSetor(int setor)
         {
             if(setor == 0)
                 arraySetores[0].contmais();
@@ -477,7 +482,7 @@ namespace President_Me
         private void btn_promover_Click(object sender, EventArgs e)
         {
             string personagem = txtpromover.Text;
-            promover(personagem);
+            Promover(personagem);
         }
 
         private void btnColocar_Click(object sender, EventArgs e)
@@ -494,15 +499,15 @@ namespace President_Me
         private void btn_sim_Click(object sender, EventArgs e)
         {
             voto = "s";
-            votacao(voto);
-            lbl_Avisos.Text = "SIM";
+            Votacao(voto);
+            lbl_Voto.Text = "VOTOU SIM";
         }
 
         private void btn_nao_Click(object sender, EventArgs e)
         {
             voto = "n";
-            votacao(voto);  
-            lbl_Avisos.Text = "NÃO";
+            Votacao(voto);  
+            lbl_Voto.Text = "VOTOU NÃO";
         }
 
         /*public void atualizaTabuleiro(string tabuleiro)
