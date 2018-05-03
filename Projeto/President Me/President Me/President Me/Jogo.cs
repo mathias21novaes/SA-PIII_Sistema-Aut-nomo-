@@ -340,7 +340,7 @@ namespace President_Me
         public void ultimaVotacao()
         {
             string exibir = MePresidentaServidor.Jogo.ExibirUltimaVotacao(Jog_Id, Jog_Senha);
-            txt_verifica.Text = exibir;
+            txtVotacao.Text = exibir;
         }
 
         public int MoverPersonagem()
