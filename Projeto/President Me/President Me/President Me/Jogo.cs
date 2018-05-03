@@ -341,11 +341,23 @@ namespace President_Me
         {
             string exibir = MePresidentaServidor.Jogo.ExibirUltimaVotacao(Jog_Id, Jog_Senha);
             txtVotacao.Text = exibir;
-            if (exibir.Length == MePresidentaServidor.Jogo.ListarJogadores)
+            /*string listar = MePresidentaServidor.Jogo.ListarJogadores(Part_Id);
+            exibir = exibir.Replace("\r", "");
+            listar = exibir.Replace("\r", "");
+            
+            if (exibir.Length == listar.Length)
             {
-
-            }
+                Jogada();
+            }*/
         }
+
+        /* public void pontos()
+        {
+            string UltimaVotacao = MePresidentaServidor.Jogo.ExibirUltimaVotacao(Jog_Id, Jog_Senha);
+            UltimaVotacao = UltimaVotacao.Replace("\r", "");
+            string
+        }*/
+
 
         public int MoverPersonagem()
         {

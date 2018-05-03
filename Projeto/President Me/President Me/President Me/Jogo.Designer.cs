@@ -154,7 +154,7 @@
             // 
             this.lbljogadores.AutoSize = true;
             this.lbljogadores.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbljogadores.Location = new System.Drawing.Point(986, 164);
+            this.lbljogadores.Location = new System.Drawing.Point(986, 154);
             this.lbljogadores.Name = "lbljogadores";
             this.lbljogadores.Size = new System.Drawing.Size(60, 24);
             this.lbljogadores.TabIndex = 23;
@@ -866,7 +866,7 @@
             // 
             // btnColocar
             // 
-            this.btnColocar.Location = new System.Drawing.Point(1105, 295);
+            this.btnColocar.Location = new System.Drawing.Point(1105, 364);
             this.btnColocar.Name = "btnColocar";
             this.btnColocar.Size = new System.Drawing.Size(75, 23);
             this.btnColocar.TabIndex = 87;
@@ -877,7 +877,7 @@
             // cbPersonagens
             // 
             this.cbPersonagens.FormattingEnabled = true;
-            this.cbPersonagens.Location = new System.Drawing.Point(1080, 221);
+            this.cbPersonagens.Location = new System.Drawing.Point(1080, 285);
             this.cbPersonagens.Name = "cbPersonagens";
             this.cbPersonagens.Size = new System.Drawing.Size(121, 21);
             this.cbPersonagens.TabIndex = 88;
@@ -893,7 +893,7 @@
             // cbSetores
             // 
             this.cbSetores.FormattingEnabled = true;
-            this.cbSetores.Location = new System.Drawing.Point(1080, 253);
+            this.cbSetores.Location = new System.Drawing.Point(1080, 328);
             this.cbSetores.Name = "cbSetores";
             this.cbSetores.Size = new System.Drawing.Size(121, 21);
             this.cbSetores.TabIndex = 90;
@@ -916,7 +916,7 @@
             // txthistorico
             // 
             this.txthistorico.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txthistorico.Location = new System.Drawing.Point(860, 250);
+            this.txthistorico.Location = new System.Drawing.Point(860, 285);
             this.txthistorico.Multiline = true;
             this.txthistorico.Name = "txthistorico";
             this.txthistorico.Size = new System.Drawing.Size(57, 294);
@@ -1005,7 +1005,7 @@
             // 
             // txt_verifica
             // 
-            this.txt_verifica.Location = new System.Drawing.Point(972, 250);
+            this.txt_verifica.Location = new System.Drawing.Point(972, 285);
             this.txt_verifica.Multiline = true;
             this.txt_verifica.Name = "txt_verifica";
             this.txt_verifica.Size = new System.Drawing.Size(74, 24);
@@ -1013,7 +1013,7 @@
             // 
             // txtVotacao
             // 
-            this.txtVotacao.Location = new System.Drawing.Point(972, 304);
+            this.txtVotacao.Location = new System.Drawing.Point(972, 332);
             this.txtVotacao.Multiline = true;
             this.txtVotacao.Name = "txtVotacao";
             this.txtVotacao.Size = new System.Drawing.Size(74, 74);
