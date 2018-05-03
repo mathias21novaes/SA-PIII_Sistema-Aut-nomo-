@@ -304,7 +304,6 @@ namespace President_Me
             {
                 lblJogo.Text = "SUA VEZ DE JOGAR";
                 lblJogo.ForeColor = Color.LimeGreen;
-                txthistorico.Text = personagem;
                 this.btnColocar.Enabled = true;
                 Jogada();
             }
@@ -359,7 +358,6 @@ namespace President_Me
                     txthistorico.Text = ColocarPersonagem;
                     arrayPersonagens[rand1].setor = arraySetores[rand2].setor;
                     arraySetores[rand2].i += 1;
-                    txthistorico.Text = personagem;
                     if (ColocarPersonagem.Contains("ERRO"))
                     {
                         lbl_Aviso.Text = ColocarPersonagem;
