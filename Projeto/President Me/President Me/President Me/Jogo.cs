@@ -266,7 +266,8 @@ namespace President_Me
 
                     case "J":
                         lbl_Aviso.Text = "HORA DE PROMOVER PERSONAGENS";
-                        btn_promover.Enabled = true;
+                        Promover();
+                        //btn_promover.Enabled = true;
                         break;
 
                     case "V":
@@ -312,12 +313,15 @@ namespace President_Me
                 lblJogo.Text = "AGUARDE SUA VEZ";
                 lblJogo.ForeColor = Color.Red;
                 this.btnColocar.Enabled = false;
+                ultimaVotacao();
             }
         }
 
-        public void Promover(string personagem)
+        public void Promover()
         {
-            string promover = MePresidentaServidor.Jogo.Promover(Jog_Id, Jog_Senha, personagem);
+            int rand;
+            rand = aleatorio.Next(0, 13);
+            string promover = MePresidentaServidor.Jogo.Promover(Jog_Id, Jog_Senha, arrayPersonagens[rand].nome);
             txthistorico.Text = promover;
             if (promover.Contains("ERRO"))
             {
@@ -328,11 +332,16 @@ namespace President_Me
         public void Votacao(string voto)
         {
             string votar = MePresidentaServidor.Jogo.Votar(Jog_Id, Jog_Senha, voto);
-            txt_verifica.Text = votar;
             if (votar.Contains("ERRO"))
             {
                 lbl_Aviso.Text = votar;
             }
+        }
+
+        public void ultimaVotacao()
+        {
+            string exibir = MePresidentaServidor.Jogo.ExibirUltimaVotacao(Jog_Id, Jog_Senha);
+            txt_verifica.Text = exibir;
         }
 
         public int MoverPersonagem()
@@ -492,8 +501,8 @@ namespace President_Me
 
         private void btn_promover_Click(object sender, EventArgs e)
         {
-            string personagem = txtpromover.Text;
-            Promover(personagem);
+            //string personagem = txtpromover.Text;
+            Promover();
         }
 
         private void btnColocar_Click(object sender, EventArgs e)
