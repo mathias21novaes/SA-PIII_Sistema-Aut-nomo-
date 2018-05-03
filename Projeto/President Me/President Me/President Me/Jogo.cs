@@ -341,6 +341,10 @@ namespace President_Me
         {
             string exibir = MePresidentaServidor.Jogo.ExibirUltimaVotacao(Jog_Id, Jog_Senha);
             txtVotacao.Text = exibir;
+            if (exibir.Length == MePresidentaServidor.Jogo.ListarJogadores)
+            {
+
+            }
         }
 
         public int MoverPersonagem()
