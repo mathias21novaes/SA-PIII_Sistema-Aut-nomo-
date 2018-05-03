@@ -865,7 +865,7 @@
             // 
             // btnColocar
             // 
-            this.btnColocar.Location = new System.Drawing.Point(1046, 323);
+            this.btnColocar.Location = new System.Drawing.Point(1105, 295);
             this.btnColocar.Name = "btnColocar";
             this.btnColocar.Size = new System.Drawing.Size(75, 23);
             this.btnColocar.TabIndex = 87;
@@ -876,7 +876,7 @@
             // cbPersonagens
             // 
             this.cbPersonagens.FormattingEnabled = true;
-            this.cbPersonagens.Location = new System.Drawing.Point(1021, 249);
+            this.cbPersonagens.Location = new System.Drawing.Point(1080, 221);
             this.cbPersonagens.Name = "cbPersonagens";
             this.cbPersonagens.Size = new System.Drawing.Size(121, 21);
             this.cbPersonagens.TabIndex = 88;
@@ -892,7 +892,7 @@
             // cbSetores
             // 
             this.cbSetores.FormattingEnabled = true;
-            this.cbSetores.Location = new System.Drawing.Point(1021, 281);
+            this.cbSetores.Location = new System.Drawing.Point(1080, 253);
             this.cbSetores.Name = "cbSetores";
             this.cbSetores.Size = new System.Drawing.Size(121, 21);
             this.cbSetores.TabIndex = 90;
@@ -1004,7 +1004,7 @@
             // 
             // txt_verifica
             // 
-            this.txt_verifica.Location = new System.Drawing.Point(932, 250);
+            this.txt_verifica.Location = new System.Drawing.Point(990, 228);
             this.txt_verifica.Multiline = true;
             this.txt_verifica.Name = "txt_verifica";
             this.txt_verifica.Size = new System.Drawing.Size(74, 42);

@@ -175,6 +175,10 @@ namespace President_Me
         {
             string minhasCartas = MePresidentaServidor.Jogo.ListarCartas(Jog_Id, Jog_Senha);
             string jogadores = MePresidentaServidor.Jogo.ListarJogadores(Part_Id);
+            if (minhasCartas.Contains("ERRO"))
+            {
+                lbl_Aviso.Text = minhasCartas;
+            }
 
             lblidj.Text = auxJog;
             lblnj.Text = Jog_Nome;
@@ -242,7 +246,7 @@ namespace President_Me
             status = MePresidentaServidor.Jogo.VerificarStatus(Jog_Id);
             txt_verifica.Text = status;
             string sta = status.Replace("\r", "");
-            string[] tabuleiro = new string[2];
+            string [] tabuleiro = new string[2];
             tabuleiro = sta.Split(',');
             string SituacaoPartida = tabuleiro[0];
             string SituacaoRodada = tabuleiro[1];
@@ -253,7 +257,7 @@ namespace President_Me
                     switch (SituacaoRodada)
                 {
                     case "S":
-                        lbl_Aviso.Text = "Hora de Colocar Personagem";
+                        lbl_Aviso.Text = "HORA DE COLOCAR PERSONAGENS";
                         lbl_Aviso.ForeColor = Color.LimeGreen;
                         btn_sim.Enabled = false;
                         btn_nao.Enabled = false;
@@ -261,12 +265,12 @@ namespace President_Me
                         break;
 
                     case "J":
-                        lbl_Aviso.Text = "Hora de Promover Personagem";
+                        lbl_Aviso.Text = "HORA DE PROMOVER PERSONAGENS";
                         btn_promover.Enabled = true;
                         break;
 
                     case "V":
-                        lbl_Aviso.Text = "Hora de Votação";
+                        lbl_Aviso.Text = "HORA DA VOTAÇÃO";
                         btn_promover.Enabled = false;
                         btn_sim.Enabled = true;
                         btn_nao.Enabled = true;
@@ -275,7 +279,7 @@ namespace President_Me
                     break;
 
                 case "A":
-                    lbl_Aviso.Text = " Partida ainda está aberta.";
+                    lbl_Aviso.Text = "A PARTIDA ESTA ABERTA";
                     break;
             }
                 
@@ -287,9 +291,11 @@ namespace President_Me
             string VerificarVez = MePresidentaServidor.Jogo.VerificarVez(Jog_Id);
             VerificarVez = VerificarVez.Replace("\r", "");
             string[] tabuleiro = VerificarVez.Split('\n');
-            string[] personagem = { };
             string Vez = tabuleiro[0];
+            personagem = tabuleiro[tabuleiro.Length - 1];
+            //string[] personagem = { };
             lbljogadorvez.Text = Vez;
+            //txthistorico.Text = personagem;
 
             Atualizacao = true;
 
@@ -297,6 +303,7 @@ namespace President_Me
             {
                 lblJogo.Text = "SUA VEZ DE JOGAR";
                 lblJogo.ForeColor = Color.LimeGreen;
+                txthistorico.Text = personagem;
                 this.btnColocar.Enabled = true;
                 Jogada();
             }
@@ -343,6 +350,7 @@ namespace President_Me
                     txthistorico.Text = ColocarPersonagem;
                     arrayPersonagens[rand1].setor = arraySetores[rand2].setor;
                     arraySetores[rand2].i += 1;
+                    txthistorico.Text = personagem;
                     if (ColocarPersonagem.Contains("ERRO"))
                     {
                         lbl_Aviso.Text = ColocarPersonagem;
