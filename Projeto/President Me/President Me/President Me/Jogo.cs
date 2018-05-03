@@ -18,14 +18,11 @@ namespace President_Me
         public static string[] jog { get; set; }
         public string personagens { get; set; }
         public string voto { get; set; }
-        public int contvoto { get; set; }
         public string personagem { get; set; }
         public int setor { get; set; }
         public string[,] matriz { get; set; } = new string[30, 30];
-        public bool atualizacao { get; set; } = false;
-        public string[] vot { get; set; } = { };
+        public bool Atualizacao { get; set; } = false;
         public string presidente { get; set; }
-        public bool hr_votar { get; set; } = false;
 
         /*-----------------------------------*/
 
@@ -77,9 +74,9 @@ namespace President_Me
             Lobby flob = new Lobby(versao);
             flob.ShowDialog();
 
-            this.Part_Id = Entrar_Partida.idpartida;
+            this.Part_Id = Entrar_Partida.IdPartida;
             this.Jog_Senha = Entrar_Partida.JogadorSenha;
-            this.Jog_Nome = Entrar_Partida.nome_jogador;
+            this.Jog_Nome = Entrar_Partida.NomeJogador;
             this.auxJog = Entrar_Partida.JogadorId;
 
             if (String.IsNullOrEmpty(auxJog))
@@ -240,19 +237,20 @@ namespace President_Me
             presidente = "";
         }
 
-        public void jogada() {
-                status = MePresidentaServidor.Jogo.VerificarStatus(Jog_Id);
-                txt_verifica.Text = status;
-                string sta = status.Replace("\r", "");
-                string[] tabuleiro = new string[2];
-                tabuleiro = sta.Split(',');
-                string situacaoPartida = tabuleiro[0];
-                string situacaoRodada = tabuleiro[1];
+        public void Jogada()
+        {
+            status = MePresidentaServidor.Jogo.VerificarStatus(Jog_Id);
+            txt_verifica.Text = status;
+            string sta = status.Replace("\r", "");
+            string[] tabuleiro = new string[2];
+            tabuleiro = sta.Split(',');
+            string SituacaoPartida = tabuleiro[0];
+            string SituacaoRodada = tabuleiro[1];
 
-            switch (situacaoPartida)
+            switch (SituacaoPartida)
             {
                 case "J":
-                    switch (situacaoRodada)
+                    switch (SituacaoRodada)
                 {
                     case "S":
                         lbl_Aviso.Text = "Hora de Colocar Personagem";
@@ -261,10 +259,12 @@ namespace President_Me
                         btn_nao.Enabled = false;
                         MoverPersonagem();
                         break;
+
                     case "J":
                         lbl_Aviso.Text = "Hora de Promover Personagem";
                         btn_promover.Enabled = true;
                         break;
+
                     case "V":
                         lbl_Aviso.Text = "Hora de Votação";
                         btn_promover.Enabled = false;
@@ -273,6 +273,7 @@ namespace President_Me
                         break;
                 }
                     break;
+
                 case "A":
                     lbl_Aviso.Text = " Partida ainda está aberta.";
                     break;
@@ -290,14 +291,14 @@ namespace President_Me
             string Vez = tabuleiro[0];
             lbljogadorvez.Text = Vez;
 
-            atualizacao = true;
+            Atualizacao = true;
 
             if (Vez == auxJog)
             {
                 lblJogo.Text = "SUA VEZ DE JOGAR";
                 lblJogo.ForeColor = Color.LimeGreen;
                 this.btnColocar.Enabled = true;
-                jogada();
+                Jogada();
             }
             else
             {
@@ -494,7 +495,6 @@ namespace President_Me
                 lblJogo.Text = "ESCOLHA O PERSONAGEM E DESTINO";
                 return;
             }
-            //moverPersonagem(cbPersonagens.Text.Substring(0, 1), Convert.ToInt32(cbSetores.Text), true);
             lblJogo.Text = "";
         }
 

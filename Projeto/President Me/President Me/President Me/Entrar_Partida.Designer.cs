@@ -30,10 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Entrar_Partida));
             this.txtJogador = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lblDadosJogadorSenha = new System.Windows.Forms.Label();
-            this.lblDadosJogadorId = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtSenha_Entrar = new System.Windows.Forms.TextBox();
@@ -62,44 +58,6 @@
             this.txtJogador.Name = "txtJogador";
             this.txtJogador.Size = new System.Drawing.Size(182, 22);
             this.txtJogador.TabIndex = 6;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(147, 73);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 13);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "ID DO JOGADOR";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(336, 73);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(118, 13);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "SENHA DO JOGADOR";
-            // 
-            // lblDadosJogadorSenha
-            // 
-            this.lblDadosJogadorSenha.AutoSize = true;
-            this.lblDadosJogadorSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDadosJogadorSenha.Location = new System.Drawing.Point(460, 72);
-            this.lblDadosJogadorSenha.Name = "lblDadosJogadorSenha";
-            this.lblDadosJogadorSenha.Size = new System.Drawing.Size(15, 18);
-            this.lblDadosJogadorSenha.TabIndex = 9;
-            this.lblDadosJogadorSenha.Text = "*";
-            // 
-            // lblDadosJogadorId
-            // 
-            this.lblDadosJogadorId.AutoSize = true;
-            this.lblDadosJogadorId.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDadosJogadorId.Location = new System.Drawing.Point(245, 69);
-            this.lblDadosJogadorId.Name = "lblDadosJogadorId";
-            this.lblDadosJogadorId.Size = new System.Drawing.Size(15, 18);
-            this.lblDadosJogadorId.TabIndex = 10;
-            this.lblDadosJogadorId.Text = "*";
             // 
             // label3
             // 
@@ -259,10 +217,6 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btn_iniciar);
             this.Controls.Add(this.btn_voltar);
-            this.Controls.Add(this.lblDadosJogadorId);
-            this.Controls.Add(this.lblDadosJogadorSenha);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Entrar_Partida";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -280,10 +234,6 @@
 
         #endregion
         private System.Windows.Forms.TextBox txtJogador;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label lblDadosJogadorSenha;
-        private System.Windows.Forms.Label lblDadosJogadorId;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtSenha_Entrar;
