@@ -104,6 +104,8 @@
             this.lbl_Aviso = new System.Windows.Forms.Label();
             this.txt_verifica = new System.Windows.Forms.TextBox();
             this.txtVotacao = new System.Windows.Forms.TextBox();
+            this.votId = new System.Windows.Forms.TextBox();
+            this.votVotos = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -1016,8 +1018,24 @@
             this.txtVotacao.Location = new System.Drawing.Point(972, 332);
             this.txtVotacao.Multiline = true;
             this.txtVotacao.Name = "txtVotacao";
-            this.txtVotacao.Size = new System.Drawing.Size(74, 74);
+            this.txtVotacao.Size = new System.Drawing.Size(74, 123);
             this.txtVotacao.TabIndex = 101;
+            // 
+            // votId
+            // 
+            this.votId.Location = new System.Drawing.Point(972, 482);
+            this.votId.Multiline = true;
+            this.votId.Name = "votId";
+            this.votId.Size = new System.Drawing.Size(74, 97);
+            this.votId.TabIndex = 102;
+            // 
+            // votVotos
+            // 
+            this.votVotos.Location = new System.Drawing.Point(1052, 482);
+            this.votVotos.Multiline = true;
+            this.votVotos.Name = "votVotos";
+            this.votVotos.Size = new System.Drawing.Size(74, 97);
+            this.votVotos.TabIndex = 103;
             // 
             // Jogo
             // 
@@ -1026,6 +1044,8 @@
             this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1223, 755);
+            this.Controls.Add(this.votVotos);
+            this.Controls.Add(this.votId);
             this.Controls.Add(this.txtVotacao);
             this.Controls.Add(this.txt_verifica);
             this.Controls.Add(this.lbl_Aviso);
@@ -1228,5 +1248,7 @@
         private System.Windows.Forms.Label lbl_Aviso;
         private System.Windows.Forms.TextBox txt_verifica;
         private System.Windows.Forms.TextBox txtVotacao;
+        private System.Windows.Forms.TextBox votId;
+        private System.Windows.Forms.TextBox votVotos;
     }
 }

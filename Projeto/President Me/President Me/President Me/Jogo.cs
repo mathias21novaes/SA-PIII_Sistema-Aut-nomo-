@@ -255,28 +255,28 @@ namespace President_Me
             {
                 case "J":
                     switch (SituacaoRodada)
-                {
-                    case "S":
-                        lbl_Aviso.Text = "HORA DE COLOCAR PERSONAGENS";
-                        lbl_Aviso.ForeColor = Color.LimeGreen;
-                        btn_sim.Enabled = false;
-                        btn_nao.Enabled = false;
-                        MoverPersonagem();
-                        break;
+                    {
+                        case "S":
+                            lbl_Aviso.Text = "COLOQUE UM PERSONAGEM";
+                            lbl_Aviso.ForeColor = Color.LimeGreen;
+                            btn_sim.Enabled = false;
+                            btn_nao.Enabled = false;
+                            MoverPersonagem();
+                            break;
 
-                    case "J":
-                        lbl_Aviso.Text = "HORA DE PROMOVER PERSONAGENS";
-                        Promover();
-                        //btn_promover.Enabled = true;
-                        break;
+                        case "J":
+                            lbl_Aviso.Text = "PROMOVA UM PERSONAGEM";
+                            Promover();
+                            //btn_promover.Enabled = true;
+                            break;
 
-                    case "V":
-                        lbl_Aviso.Text = "HORA DA VOTAÇÃO";
-                        btn_promover.Enabled = false;
-                        btn_sim.Enabled = true;
-                        btn_nao.Enabled = true;
-                        break;
-                }
+                        case "V":
+                            lbl_Aviso.Text = "VOTE NO PERSONAGEM";
+                            btn_promover.Enabled = false;
+                            btn_sim.Enabled = true;
+                            btn_nao.Enabled = true;
+                            break;
+                    }
                     break;
 
                 case "A":
@@ -312,7 +312,7 @@ namespace President_Me
                 lblJogo.Text = "AGUARDE SUA VEZ";
                 lblJogo.ForeColor = Color.Red;
                 this.btnColocar.Enabled = false;
-                ultimaVotacao();
+                //ultimaVotacao();
             }
         }
 
@@ -337,25 +337,27 @@ namespace President_Me
             }
         }
 
-        public void ultimaVotacao()
+        /*public void ultimaVotacao()
         {
             string exibir = MePresidentaServidor.Jogo.ExibirUltimaVotacao(Jog_Id, Jog_Senha);
             txtVotacao.Text = exibir;
-            /*string listar = MePresidentaServidor.Jogo.ListarJogadores(Part_Id);
-            exibir = exibir.Replace("\r", "");
-            listar = exibir.Replace("\r", "");
-            
-            if (exibir.Length == listar.Length)
-            {
-                Jogada();
-            }*/
-        }
+        }*/
 
-        /* public void pontos()
+        /*public void Pontos()
         {
             string UltimaVotacao = MePresidentaServidor.Jogo.ExibirUltimaVotacao(Jog_Id, Jog_Senha);
             UltimaVotacao = UltimaVotacao.Replace("\r", "");
-            string
+            string[] votos = UltimaVotacao.Split(',');
+            string IdJogador = votos[0];
+            string Voto = votos[1];
+            votId.Text = IdJogador;
+            votVotos.Text = Voto;
+
+            if ()
+            {
+                string jogadores = MePresidentaServidor.Jogo.ListarJogadores(Part_Id);
+                lbljogadores.Text = jogadores;
+            }
         }*/
 
 
