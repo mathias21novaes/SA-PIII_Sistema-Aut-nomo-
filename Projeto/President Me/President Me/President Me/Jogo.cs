@@ -286,6 +286,15 @@ namespace President_Me
                 
         }
 
+        /*public void TabuleiroAtual()
+        {
+            string TabuleiroAtual = MePresidentaServidor.Jogo.VerificarVez(Jog_Id);
+            TabuleiroAtual = TabuleiroAtual.Replace("\r", "");
+            string[] Tab_Atual = TabuleiroAtual.Split('\n');
+            string Aux1 = Tab_Atual[0];
+            string Aux2 = Tab_Atual[Tab_Atual.Length - 1];
+            txthistorico.Text = Aux2;
+        }*/
 
         private void timer_Verificavez_Tick(object sender, EventArgs e)
         {
@@ -304,6 +313,7 @@ namespace President_Me
             {
                 lblJogo.Text = "SUA VEZ DE JOGAR";
                 lblJogo.ForeColor = Color.LimeGreen;
+                txthistorico.Text = personagem;
                 this.btnColocar.Enabled = true;
                 Jogada();
             }
@@ -311,6 +321,7 @@ namespace President_Me
             {
                 lblJogo.Text = "AGUARDE SUA VEZ";
                 lblJogo.ForeColor = Color.Red;
+                lbl_Aviso.Text = " ";
                 this.btnColocar.Enabled = false;
                 //ultimaVotacao();
             }
@@ -321,7 +332,7 @@ namespace President_Me
             int rand;
             rand = aleatorio.Next(0, 13);
             string promover = MePresidentaServidor.Jogo.Promover(Jog_Id, Jog_Senha, arrayPersonagens[rand].nome);
-            txthistorico.Text = promover;
+            //txthistorico.Text = promover;
             if (promover.Contains("ERRO"))
             {
                 lbl_Aviso.Text = promover;
