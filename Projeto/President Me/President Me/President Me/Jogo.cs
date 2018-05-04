@@ -261,13 +261,14 @@ namespace President_Me
                             lbl_Aviso.ForeColor = Color.LimeGreen;
                             btn_sim.Enabled = false;
                             btn_nao.Enabled = false;
-                            MoverPersonagem();
+                            btnColocar.Enabled = true;
+                            //MoverPersonagem();
                             break;
 
                         case "J":
                             lbl_Aviso.Text = "PROMOVA UM PERSONAGEM";
-                            Promover();
-                            //btn_promover.Enabled = true;
+                            //Promover();
+                            btn_promover.Enabled = true;
                             break;
 
                         case "V":
@@ -327,11 +328,12 @@ namespace President_Me
             }
         }
 
-        public void Promover()
+        public void Promover(string personagem)
         {
-            int rand;
+            /*int rand;
             rand = aleatorio.Next(0, 13);
-            string promover = MePresidentaServidor.Jogo.Promover(Jog_Id, Jog_Senha, arrayPersonagens[rand].nome);
+            string promover = MePresidentaServidor.Jogo.Promover(Jog_Id, Jog_Senha, arrayPersonagens[rand].nome);*/
+            string promover = MePresidentaServidor.Jogo.Promover(Jog_Id, Jog_Senha, personagem);
             //txthistorico.Text = promover;
             if (promover.Contains("ERRO"))
             {
@@ -372,9 +374,9 @@ namespace President_Me
         }*/
 
 
-        public int MoverPersonagem()
+        public int MoverPersonagem(int setor, string personagem, bool serv)
         {
-            int rand1;
+            /*int rand1;
             int rand2;
 
             rand1 = aleatorio.Next(0,13);
@@ -391,9 +393,20 @@ namespace President_Me
                     {
                         lbl_Aviso.Text = ColocarPersonagem;
                     }
+                }*/
+            if (serv)
+            {
+                string ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, setor, personagem);
+                txthistorico.Text = ColocarPersonagem;
+                if (ColocarPersonagem.Contains("ERRO"))
+                {
+                    MessageBox.Show(ColocarPersonagem);
+                    return -1;
                 }
-                    
             }
+            return 0;
+
+        }
 
             /*for (int i = 0; i < 4; i++)
             {
@@ -528,8 +541,8 @@ namespace President_Me
 
         private void btn_promover_Click(object sender, EventArgs e)
         {
-            //string personagem = txtpromover.Text;
-            Promover();
+            string personagem = txtpromover.Text;
+            Promover(personagem);
         }
 
         private void btnColocar_Click(object sender, EventArgs e)
@@ -539,6 +552,7 @@ namespace President_Me
                 lblJogo.Text = "ESCOLHA O PERSONAGEM E DESTINO";
                 return;
             }
+            moverPersonagem(cbPersonagens.Text.Substring(0, 1), Convert.ToInt32(cbSetores.Text), true);
             lblJogo.Text = "";
         }
 
@@ -629,4 +643,3 @@ namespace President_Me
             }
         }*/
     }
-}
