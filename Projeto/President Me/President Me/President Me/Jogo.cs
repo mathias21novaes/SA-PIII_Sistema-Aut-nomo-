@@ -15,11 +15,11 @@ namespace President_Me
 {
     public partial class Jogo : Form
     {
-        public static string[] jog { get; set; }
+        //TO MEXENDO NESSE CARALHO
+        //public static string[] jog { get; set; }
         public string personagens { get; set; }
-        public string voto { get; set; }
         public string personagem { get; set; }
-        public int setor { get; set; }
+        //public int setor { get; set; }
         public string[,] matriz { get; set; } = new string[30, 30];
         public bool Atualizacao { get; set; } = false;
         public string presidente { get; set; }
@@ -34,8 +34,8 @@ namespace President_Me
         public string Jog_Senha { get; set; }
         public string Jog_Nome { get; set; }
         public int Part_Id { get; set; }
-        public int estado_Jogo { get; set; } = 0;
-        public string status { get; set; }
+        //public int estado_Jogo { get; set; } = 0;
+        public string Status { get; set; }
 
         //CRIAÇÃO DE PERSONAGENS
         public Personagens a { get; set; }
@@ -53,17 +53,17 @@ namespace President_Me
         public Personagens p { get; set; }
 
         //CRIAÇÃO DE SETORES
-        public Setor setor0 { get; set; }
-        public Setor setor1 { get; set; }
-        public Setor setor2 { get; set; }
-        public Setor setor3 { get; set; }
-        public Setor setor4 { get; set; }
-        public Setor setor5 { get; set; }
-        public Setor setor10 { get; set; }
+        public Cl_Setor setor0 { get; set; }
+        public Cl_Setor setor1 { get; set; }
+        public Cl_Setor setor2 { get; set; }
+        public Cl_Setor setor3 { get; set; }
+        public Cl_Setor setor4 { get; set; }
+        public Cl_Setor setor5 { get; set; }
+        public Cl_Setor setor10 { get; set; }
 
         //ARRAY LIST PERSONAGENS E SETORES
         public static List<Personagens> arrayPersonagens { get; set; } = new List<Personagens>();
-        public static List<Setor> arraySetores { get; set; } = new List<Setor>();
+        public static List<Cl_Setor> arraySetores { get; set; } = new List<Cl_Setor>();
 
         Random aleatorio = new Random();
 
@@ -91,32 +91,36 @@ namespace President_Me
 
         }
 
-        private void Jogo_MouseDown(object sender, MouseEventArgs e)
+        private void Timer_Verificavez_Tick(object sender, EventArgs e)
         {
-            if (e.Button != MouseButtons.Left) return;
-            X = this.Left - MousePosition.X;
-            Y = this.Top - MousePosition.Y;
+            string VerificarVez = MePresidentaServidor.Jogo.VerificarVez(Jog_Id);
+            VerificarVez = VerificarVez.Replace("\r", "");
+            string[] tabuleiro = VerificarVez.Split('\n');
+            string Vez = tabuleiro[0];
+            personagem = tabuleiro[tabuleiro.Length - 1];
+            lbljogadorvez.Text = Vez;
+
+            Atualizacao = true;
+
+            if (Vez == auxJog)
+            {
+                lblJogo.Text = "SUA VEZ DE JOGAR";
+                lblJogo.ForeColor = Color.LimeGreen;
+                txthistorico.Text = personagem;
+                this.btnColocar.Enabled = true;
+                Jogada();
+            }
+            else
+            {
+                lblJogo.Text = "AGUARDE SUA VEZ";
+                lbl_Aviso.Text = " ";
+                lbl_Voto.Text = " ";
+                lblJogo.ForeColor = Color.Red;
+                this.btnColocar.Enabled = false;
+            }
         }
 
-        private void Jogo_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (e.Button != MouseButtons.Left) return;
-            this.Left = X + MousePosition.X;
-            this.Top = Y + MousePosition.Y;
-        }
-
-        private void Jogo_Load(object sender, EventArgs e)
-        {
-            timer_Verificavez.Enabled = true;
-
-            MostrarDados();
-            CriarPersonagens();
-            CriarSetores();
-            CriarMatriz();
-            Adicionarpersonagens();
-            AdicionarSetores();
-        }
-
+        //FUNÇÕES DO JOGO ----------------------------------------------------------
         public void Adicionarpersonagens()
         {
             // INSTANCIAMENTO DE PERSONAGENS
@@ -153,13 +157,13 @@ namespace President_Me
         public void AdicionarSetores()
         {
             // INSTANCIAMENTO DE SETORES
-            setor0 = new Setor(0, 4);
-            setor1 = new Setor(1, 4);
-            setor2 = new Setor(2, 4);
-            setor3 = new Setor(3, 4);
-            setor4 = new Setor(4, 4);
-            setor5 = new Setor(5, 4);
-            setor10 = new Setor(10, 1);
+            setor0 = new Cl_Setor(0, 4);
+            setor1 = new Cl_Setor(1, 4);
+            setor2 = new Cl_Setor(2, 4);
+            setor3 = new Cl_Setor(3, 4);
+            setor4 = new Cl_Setor(4, 4);
+            setor5 = new Cl_Setor(5, 4);
+            setor10 = new Cl_Setor(10, 1);
 
             // ADICIONAR SETORES
             arraySetores.Add(this.setor0);
@@ -243,9 +247,10 @@ namespace President_Me
 
         public void Jogada()
         {
-            status = MePresidentaServidor.Jogo.VerificarStatus(Jog_Id);
-            txt_verifica.Text = status;
-            string sta = status.Replace("\r", "");
+            Pontuacao();
+            Status = MePresidentaServidor.Jogo.VerificarStatus(Jog_Id);
+            txt_verifica.Text = Status;
+            string sta = Status.Replace("\r", "");
             string[] tabuleiro = new string[2];
             tabuleiro = sta.Split(',');
             string SituacaoPartida = tabuleiro[0];
@@ -257,7 +262,8 @@ namespace President_Me
                     switch (SituacaoRodada)
                     {
                         case "S":
-                            lbl_Aviso.Text = "HORA DE COLOCAR PERSONAGENS";
+                            Pontuacao();
+                            lbl_Aviso.Text = "COLOQUE UM PERSONAGEM";
                             lbl_Aviso.ForeColor = Color.LimeGreen;
                             btn_sim.Enabled = false;
                             btn_nao.Enabled = false;
@@ -265,13 +271,13 @@ namespace President_Me
                             break;
 
                         case "J":
-                            lbl_Aviso.Text = "HORA DE PROMOVER PERSONAGENS";
+                            lbl_Aviso.Text = "PROMOVA UM PERSONAGEM";
                             Promover();
                             //btn_promover.Enabled = true;
                             break;
 
                         case "V":
-                            lbl_Aviso.Text = "HORA DA VOTAÇÃO";
+                            lbl_Aviso.Text = "VOTE NO PERSONAGEM";
                             btn_promover.Enabled = false;
                             btn_sim.Enabled = true;
                             btn_nao.Enabled = true;
@@ -283,93 +289,55 @@ namespace President_Me
                     lbl_Aviso.Text = "A PARTIDA ESTA ABERTA";
                     break;
             }
-
         }
 
-
-        private void timer_Verificavez_Tick(object sender, EventArgs e)
+        private void Jogo_Load(object sender, EventArgs e)
         {
-            string VerificarVez = MePresidentaServidor.Jogo.VerificarVez(Jog_Id);
-            VerificarVez = VerificarVez.Replace("\r", "");
-            string[] tabuleiro = VerificarVez.Split('\n');
-            string Vez = tabuleiro[0];
-            personagem = tabuleiro[tabuleiro.Length - 1];
-            //string[] personagem = { };
-            lbljogadorvez.Text = Vez;
-            //txthistorico.Text = personagem;
+            Timer_Verificavez.Enabled = true;
 
-            Atualizacao = true;
-
-            if (Vez == auxJog)
-            {
-                lblJogo.Text = "SUA VEZ DE JOGAR";
-                lblJogo.ForeColor = Color.LimeGreen;
-                this.btnColocar.Enabled = true;
-                Jogada();
-            }
-            else
-            {
-                lblJogo.Text = "AGUARDE SUA VEZ";
-                lblJogo.ForeColor = Color.Red;
-                txthistorico.Text = personagem;
-                this.btnColocar.Enabled = false;
-                ultimaVotacao();
-            }
+            MostrarDados();
+            CriarPersonagens();
+            CriarSetores();
+            CriarMatriz();
+            Adicionarpersonagens();
+            AdicionarSetores();
         }
 
-        public void Promover()
-        {
-            int rand;
-            rand = aleatorio.Next(0, 13);
-            string promover = MePresidentaServidor.Jogo.Promover(Jog_Id, Jog_Senha, arrayPersonagens[rand].nome);
-            txthistorico.Text = promover;
-            if (promover.Contains("ERRO"))
-            {
-                //lbl_Aviso.Text = ColocarPersonagem;
-                Promover();
-            }
-            else
-            {
-                txthistorico.Text = promover;
-            }
-        }
-
-        public void Votacao(string voto)
-        {
-            string votar = MePresidentaServidor.Jogo.Votar(Jog_Id, Jog_Senha, voto);
-            if (votar.Contains("ERRO"))
-            {
-                lbl_Aviso.Text = votar;
-            }
-        }
-
-        public void ultimaVotacao()
+        /*public void UltimaVotacao()
         {
             string exibir = MePresidentaServidor.Jogo.ExibirUltimaVotacao(Jog_Id, Jog_Senha);
             txtVotacao.Text = exibir;
             if (exibir.Contains("ERRO"))
             {
                 txtVotacao.Text = exibir;
-                //ultimaVotacao();
             }
-            /*string listar = MePresidentaServidor.Jogo.ListarJogadores(Part_Id);
-            exibir = exibir.Replace("\r", "");
-            listar = exibir.Replace("\r", "");
-            
-            if (exibir.Length == listar.Length)
-            {
-                Jogada();
-            }*/
-        }
-
-        /* public void pontos()
-        {
-            string UltimaVotacao = MePresidentaServidor.Jogo.ExibirUltimaVotacao(Jog_Id, Jog_Senha);
-            UltimaVotacao = UltimaVotacao.Replace("\r", "");
-            string
         }*/
 
+        public void Pontuacao()
+        {
+            string Aux = MePresidentaServidor.Jogo.ListarJogadores(Part_Id);
+            lbljogadores.Text = Aux;
+        }
 
+        void AtualizarSetor(int setor)
+        {
+            if (setor == 0)
+                arraySetores[0].contmais();
+            else if (setor == 1)
+                arraySetores[1].contmais();
+            else if (setor == 2)
+                arraySetores[2].contmais();
+            else if (setor == 3)
+                arraySetores[3].contmais();
+            else if (setor == 4)
+                arraySetores[4].contmais();
+            else if (setor == 5)
+                arraySetores[5].contmais();
+            else if (setor == 6)
+                arraySetores[6].contmais();
+        }
+
+        //FUNÇÕES: COLOCAR, PROMOVER E VOTAR PERSONAGEM ------------------------------------------
         public int MoverPersonagem()
         {
             int rand1;
@@ -401,12 +369,10 @@ namespace President_Me
                     if (ColocarPersonagem.Contains("ERRO: Quantidade"))
                     {
                         MoverPersonagem();
-                    }*/
-                    
+                    }*/ 
                 }
-
             }
-
+            return 0;
             /*for (int i = 0; i < 4; i++)
             {
                 aux = matriz[(Convert.ToInt32(setor) - 1), i].Split(',');
@@ -512,27 +478,35 @@ namespace President_Me
                     matriz[(Convert.ToInt32(cbSetores) - 1), i] = aux[0] + ',' + aux[1] + ',' + true;
                 }
             }*/
-            return 0;
         }
 
-        void AtualizarSetor(int setor)
+        public void Promover()
         {
-            if (setor == 0)
-                arraySetores[0].contmais();
-            else if (setor == 1)
-                arraySetores[1].contmais();
-            else if (setor == 2)
-                arraySetores[2].contmais();
-            else if (setor == 3)
-                arraySetores[3].contmais();
-            else if (setor == 4)
-                arraySetores[4].contmais();
-            else if (setor == 5)
-                arraySetores[5].contmais();
-            else if (setor == 6)
-                arraySetores[6].contmais();
+            int rand;
+            rand = aleatorio.Next(0, 13);
+            string promover = MePresidentaServidor.Jogo.Promover(Jog_Id, Jog_Senha, arrayPersonagens[rand].nome);
+            txthistorico.Text = promover;
+            if (promover.Contains("ERRO"))
+            {
+                //lbl_Aviso.Text = ColocarPersonagem;
+                Promover();
+            }
+            else
+            {
+                txthistorico.Text = promover;
+            }
         }
 
+        public void Votacao(string Voto)
+        {
+            string votar = MePresidentaServidor.Jogo.Votar(Jog_Id, Jog_Senha, Voto);
+            if (votar.Contains("ERRO"))
+            {
+                lbl_Aviso.Text = votar;
+            }
+        }
+
+        //FUNÇÃO DOS BOTÕES E SUAS INTERAÇÕES --------------------------------------------------
         private void Fechar_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -556,19 +530,36 @@ namespace President_Me
 
         private void btn_sim_Click(object sender, EventArgs e)
         {
-            voto = "s";
-            Votacao(voto);
+            string Voto = "s";
+            Votacao(Voto);
             lbl_Voto.Text = "VOTOU SIM";
         }
 
         private void btn_nao_Click(object sender, EventArgs e)
         {
-            voto = "n";
-            Votacao(voto);
+            string Voto = "n";
+            Votacao(Voto);
             lbl_Voto.Text = "VOTOU NÃO";
         }
 
-        /*public void atualizaTabuleiro(string tabuleiro)
+        //MOVER JOGO NA TELA -------------------------------------------------------------------
+        private void Jogo_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button != MouseButtons.Left) return;
+            X = this.Left - MousePosition.X;
+            Y = this.Top - MousePosition.Y;
+        }
+
+        private void Jogo_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button != MouseButtons.Left) return;
+            this.Left = X + MousePosition.X;
+            this.Top = Y + MousePosition.Y;
+        }
+    }
+}
+
+/*public void atualizaTabuleiro(string tabuleiro)
         {
            string[] personagem;
            tabuleiro = verificavez.Split('\n');
@@ -589,53 +580,51 @@ namespace President_Me
            }
         }*/
 
-        /*public void setaTabuleiro()
+/*public void setaTabuleiro()
+{
+    string tabuleiro = MePresidentaServidor.Jogo.VerificarVez(Jog_Id);
+    tabuleiro = tabuleiro.Replace("\r", "");
+    string[] posicoes = tabuleiro.Split('\n');
+    string[] personagem;
+    string[] aux = { };
+    Control persona = null;
+    if (posicoes.Length > 1)
+    {
+        for (int i = 1; i < posicoes.Length - 1; i++)
         {
-            string tabuleiro = MePresidentaServidor.Jogo.VerificarVez(Jog_Id);
-            tabuleiro = tabuleiro.Replace("\r", "");
-            string[] posicoes = tabuleiro.Split('\n');
-            string[] personagem;
-            string[] aux = { };
-            Control persona = null;
-            if (posicoes.Length > 1)
+            personagem = posicoes[i].Split(',');
+            foreach (Control con in this.Controls)
             {
-                for (int i = 1; i < posicoes.Length - 1; i++)
+                if (con is PictureBox)
                 {
-                    personagem = posicoes[i].Split(',');
-                    foreach (Control con in this.Controls)
+                    if (Convert.ToString(con.Tag) == personagem[1])
                     {
-                        if (con is PictureBox)
-                        {
-                            if (Convert.ToString(con.Tag) == personagem[1])
-                            {
-                                persona = con;
-                                break;
-                            }
-                        }
-                    }
-                    if (Convert.ToInt32(personagem[0]) == 10)
-                    {
-                        presidente = personagem[1];
-                        persona.Location = posPresidente.Location;
-                        //inGame = 3;
-                        return;
-                    }
-                    else
-                    {
-                        for (int j = 0; j < 4; j++)
-                        {
-                            aux = this.matriz[Convert.ToInt32(Convert.ToInt32(personagem[0])), j].Split(',');
-                            if (aux[2] == "false")
-                            {
-                                persona.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
-                                this.matriz[Convert.ToInt32(Convert.ToInt32(personagem[0])), j] = aux[0] + ',' + aux[1] + ',' + personagem[1];
-                                this.cbPersonagens.Items.Remove(personagem[1]);
-                                break;
-                            }
-                        }
+                        persona = con;
+                        break;
                     }
                 }
             }
-        }*/
+            if (Convert.ToInt32(personagem[0]) == 10)
+            {
+                presidente = personagem[1];
+                persona.Location = posPresidente.Location;
+                //inGame = 3;
+                return;
+            }
+            else
+            {
+                for (int j = 0; j < 4; j++)
+                {
+                    aux = this.matriz[Convert.ToInt32(Convert.ToInt32(personagem[0])), j].Split(',');
+                    if (aux[2] == "false")
+                    {
+                        persona.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                        this.matriz[Convert.ToInt32(Convert.ToInt32(personagem[0])), j] = aux[0] + ',' + aux[1] + ',' + personagem[1];
+                        this.cbPersonagens.Items.Remove(personagem[1]);
+                        break;
+                    }
+                }
+            }
+        }
     }
-}
+}*/

@@ -92,7 +92,7 @@
             this.cbPersonagens = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.cbSetores = new System.Windows.Forms.ComboBox();
-            this.timer_Verificavez = new System.Windows.Forms.Timer(this.components);
+            this.Timer_Verificavez = new System.Windows.Forms.Timer(this.components);
             this.lbljogadorvez = new System.Windows.Forms.Label();
             this.txthistorico = new System.Windows.Forms.TextBox();
             this.txtpromover = new System.Windows.Forms.TextBox();
@@ -104,8 +104,8 @@
             this.lbl_Aviso = new System.Windows.Forms.Label();
             this.txt_verifica = new System.Windows.Forms.TextBox();
             this.txtVotacao = new System.Windows.Forms.TextBox();
-            this.votId = new System.Windows.Forms.TextBox();
-            this.votVotos = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -156,7 +156,7 @@
             // 
             this.lbljogadores.AutoSize = true;
             this.lbljogadores.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbljogadores.Location = new System.Drawing.Point(986, 154);
+            this.lbljogadores.Location = new System.Drawing.Point(893, 165);
             this.lbljogadores.Name = "lbljogadores";
             this.lbljogadores.Size = new System.Drawing.Size(60, 24);
             this.lbljogadores.TabIndex = 23;
@@ -225,7 +225,7 @@
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.Azure;
             this.pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox3.Location = new System.Drawing.Point(859, 632);
+            this.pictureBox3.Location = new System.Drawing.Point(861, 597);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(342, 98);
             this.pictureBox3.TabIndex = 29;
@@ -868,7 +868,7 @@
             // 
             // btnColocar
             // 
-            this.btnColocar.Location = new System.Drawing.Point(1105, 364);
+            this.btnColocar.Location = new System.Drawing.Point(909, 518);
             this.btnColocar.Name = "btnColocar";
             this.btnColocar.Size = new System.Drawing.Size(75, 23);
             this.btnColocar.TabIndex = 87;
@@ -879,7 +879,7 @@
             // cbPersonagens
             // 
             this.cbPersonagens.FormattingEnabled = true;
-            this.cbPersonagens.Location = new System.Drawing.Point(1080, 285);
+            this.cbPersonagens.Location = new System.Drawing.Point(884, 439);
             this.cbPersonagens.Name = "cbPersonagens";
             this.cbPersonagens.Size = new System.Drawing.Size(121, 21);
             this.cbPersonagens.TabIndex = 88;
@@ -895,15 +895,15 @@
             // cbSetores
             // 
             this.cbSetores.FormattingEnabled = true;
-            this.cbSetores.Location = new System.Drawing.Point(1080, 328);
+            this.cbSetores.Location = new System.Drawing.Point(884, 482);
             this.cbSetores.Name = "cbSetores";
             this.cbSetores.Size = new System.Drawing.Size(121, 21);
             this.cbSetores.TabIndex = 90;
             // 
-            // timer_Verificavez
+            // Timer_Verificavez
             // 
-            this.timer_Verificavez.Interval = 3000;
-            this.timer_Verificavez.Tick += new System.EventHandler(this.timer_Verificavez_Tick);
+            this.Timer_Verificavez.Interval = 3000;
+            this.Timer_Verificavez.Tick += new System.EventHandler(this.Timer_Verificavez_Tick);
             // 
             // lbljogadorvez
             // 
@@ -918,10 +918,10 @@
             // txthistorico
             // 
             this.txthistorico.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txthistorico.Location = new System.Drawing.Point(860, 285);
+            this.txthistorico.Location = new System.Drawing.Point(1154, 192);
             this.txthistorico.Multiline = true;
             this.txthistorico.Name = "txthistorico";
-            this.txthistorico.Size = new System.Drawing.Size(57, 294);
+            this.txthistorico.Size = new System.Drawing.Size(47, 294);
             this.txthistorico.TabIndex = 92;
             // 
             // txtpromover
@@ -987,7 +987,7 @@
             this.label11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.DarkBlue;
-            this.label11.Location = new System.Drawing.Point(966, 616);
+            this.label11.Location = new System.Drawing.Point(968, 581);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(123, 33);
             this.label11.TabIndex = 98;
@@ -998,7 +998,7 @@
             this.lbl_Aviso.AutoSize = true;
             this.lbl_Aviso.BackColor = System.Drawing.Color.Azure;
             this.lbl_Aviso.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Aviso.Location = new System.Drawing.Point(868, 655);
+            this.lbl_Aviso.Location = new System.Drawing.Point(880, 633);
             this.lbl_Aviso.Name = "lbl_Aviso";
             this.lbl_Aviso.Size = new System.Drawing.Size(17, 24);
             this.lbl_Aviso.TabIndex = 99;
@@ -1007,35 +1007,39 @@
             // 
             // txt_verifica
             // 
-            this.txt_verifica.Location = new System.Drawing.Point(972, 285);
+            this.txt_verifica.Location = new System.Drawing.Point(1154, 514);
             this.txt_verifica.Multiline = true;
             this.txt_verifica.Name = "txt_verifica";
-            this.txt_verifica.Size = new System.Drawing.Size(74, 24);
+            this.txt_verifica.Size = new System.Drawing.Size(49, 24);
             this.txt_verifica.TabIndex = 100;
             // 
             // txtVotacao
             // 
-            this.txtVotacao.Location = new System.Drawing.Point(972, 332);
+            this.txtVotacao.Location = new System.Drawing.Point(1042, 437);
             this.txtVotacao.Multiline = true;
             this.txtVotacao.Name = "txtVotacao";
-            this.txtVotacao.Size = new System.Drawing.Size(74, 123);
+            this.txtVotacao.Size = new System.Drawing.Size(74, 49);
             this.txtVotacao.TabIndex = 101;
             // 
-            // votId
+            // label7
             // 
-            this.votId.Location = new System.Drawing.Point(972, 482);
-            this.votId.Multiline = true;
-            this.votId.Name = "votId";
-            this.votId.Size = new System.Drawing.Size(74, 97);
-            this.votId.TabIndex = 102;
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(867, 711);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(263, 18);
+            this.label7.TabIndex = 102;
+            this.label7.Text = "INTERVALO DE TEMPO - SERVIDOR";
             // 
-            // votVotos
+            // textBox1
             // 
-            this.votVotos.Location = new System.Drawing.Point(1052, 482);
-            this.votVotos.Multiline = true;
-            this.votVotos.Name = "votVotos";
-            this.votVotos.Size = new System.Drawing.Size(74, 97);
-            this.votVotos.TabIndex = 103;
+            this.textBox1.BackColor = System.Drawing.Color.Azure;
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.Location = new System.Drawing.Point(1141, 704);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(61, 26);
+            this.textBox1.TabIndex = 103;
             // 
             // Jogo
             // 
@@ -1044,8 +1048,8 @@
             this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1223, 755);
-            this.Controls.Add(this.votVotos);
-            this.Controls.Add(this.votId);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.txtVotacao);
             this.Controls.Add(this.txt_verifica);
             this.Controls.Add(this.lbl_Aviso);
@@ -1236,7 +1240,7 @@
         private System.Windows.Forms.ComboBox cbPersonagens;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.ComboBox cbSetores;
-        private System.Windows.Forms.Timer timer_Verificavez;
+        private System.Windows.Forms.Timer Timer_Verificavez;
         private System.Windows.Forms.Label lbljogadorvez;
         private System.Windows.Forms.TextBox txthistorico;
         private System.Windows.Forms.TextBox txtpromover;
@@ -1248,7 +1252,7 @@
         private System.Windows.Forms.Label lbl_Aviso;
         private System.Windows.Forms.TextBox txt_verifica;
         private System.Windows.Forms.TextBox txtVotacao;
-        private System.Windows.Forms.TextBox votId;
-        private System.Windows.Forms.TextBox votVotos;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

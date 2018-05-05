@@ -43,6 +43,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.lblnumJog = new System.Windows.Forms.Label();
+            this.ModoAuto = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.btn_voltar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_iniciar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_entrar)).BeginInit();
@@ -54,7 +55,7 @@
             // 
             this.txtJogador.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtJogador.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtJogador.Location = new System.Drawing.Point(26, 249);
+            this.txtJogador.Location = new System.Drawing.Point(26, 226);
             this.txtJogador.Name = "txtJogador";
             this.txtJogador.Size = new System.Drawing.Size(182, 22);
             this.txtJogador.TabIndex = 6;
@@ -63,7 +64,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(35, 228);
+            this.label3.Location = new System.Drawing.Point(35, 205);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(63, 18);
             this.label3.TabIndex = 11;
@@ -73,7 +74,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(230, 228);
+            this.label4.Location = new System.Drawing.Point(230, 205);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(120, 18);
             this.label4.TabIndex = 12;
@@ -83,7 +84,7 @@
             // 
             this.txtSenha_Entrar.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtSenha_Entrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSenha_Entrar.Location = new System.Drawing.Point(220, 249);
+            this.txtSenha_Entrar.Location = new System.Drawing.Point(220, 226);
             this.txtSenha_Entrar.Name = "txtSenha_Entrar";
             this.txtSenha_Entrar.Size = new System.Drawing.Size(182, 22);
             this.txtSenha_Entrar.TabIndex = 16;
@@ -106,7 +107,7 @@
             this.listPartidas.ItemHeight = 20;
             this.listPartidas.Location = new System.Drawing.Point(26, 32);
             this.listPartidas.Name = "listPartidas";
-            this.listPartidas.Size = new System.Drawing.Size(376, 180);
+            this.listPartidas.Size = new System.Drawing.Size(376, 160);
             this.listPartidas.TabIndex = 21;
             this.listPartidas.SelectedIndexChanged += new System.EventHandler(this.listPartidas_SelectedIndexChanged);
             // 
@@ -152,6 +153,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.SteelBlue;
+            this.panel1.Controls.Add(this.ModoAuto);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.btn_entrar);
             this.panel1.Controls.Add(this.listPartidas);
@@ -205,6 +207,19 @@
             this.lblnumJog.Size = new System.Drawing.Size(0, 20);
             this.lblnumJog.TabIndex = 34;
             // 
+            // ModoAuto
+            // 
+            this.ModoAuto.AutoSize = true;
+            this.ModoAuto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ModoAuto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ModoAuto.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ModoAuto.Location = new System.Drawing.Point(121, 259);
+            this.ModoAuto.Name = "ModoAuto";
+            this.ModoAuto.Size = new System.Drawing.Size(191, 22);
+            this.ModoAuto.TabIndex = 32;
+            this.ModoAuto.Text = "Ativar Partida Automática";
+            this.ModoAuto.UseVisualStyleBackColor = true;
+            // 
             // Entrar_Partida
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -247,5 +262,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lblnumJog;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.CheckBox ModoAuto;
     }
 }

@@ -4,7 +4,7 @@ using System.Collections;
 
 namespace President_Me
 {
-    public partial class Setor
+    public partial class Cl_Setor
     {
         public int setor { get; set; }
         public int tamanho { get; set; }
@@ -16,7 +16,7 @@ namespace President_Me
         public Posicao pos4 = new Posicao();
         public ArrayList posicoes = new ArrayList();
 
-        public Setor(int setor, int tamanho)
+        public Cl_Setor(int setor, int tamanho)
         {
             this.setor = setor;
             this.tamanho = tamanho;
