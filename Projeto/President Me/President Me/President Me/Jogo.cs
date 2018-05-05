@@ -178,18 +178,16 @@ namespace President_Me
         public void MostrarDados()
         {
             string minhasCartas = MePresidentaServidor.Jogo.ListarCartas(Jog_Id, Jog_Senha);
-            string jogadores = MePresidentaServidor.Jogo.ListarJogadores(Part_Id);
             if (minhasCartas.Contains("ERRO"))
             {
                 lbl_Aviso.Text = minhasCartas;
             }
-
+            Pontuacao();
             lblidj.Text = auxJog;
             lblnj.Text = Jog_Nome;
             lblsj.Text = Jog_Senha;
             lblidp.Text = Convert.ToString(Part_Id);
             lblcartas.Text = minhasCartas;
-            lbljogadores.Text = jogadores;
         }
 
         public void CriarPersonagens()
@@ -249,7 +247,6 @@ namespace President_Me
         {
             Pontuacao();
             Status = MePresidentaServidor.Jogo.VerificarStatus(Jog_Id);
-            txt_verifica.Text = Status;
             string sta = Status.Replace("\r", "");
             string[] tabuleiro = new string[2];
             tabuleiro = sta.Split(',');
@@ -317,6 +314,11 @@ namespace President_Me
         {
             string Aux = MePresidentaServidor.Jogo.ListarJogadores(Part_Id);
             lbljogadores.Text = Aux;
+            /*Aux = Aux.Replace("\r"," ");
+            string[] dados = new string[3];
+            dados = Aux.Split('\n');
+            string pontuacao = dados[dados.Length - 1];
+            lbljogadores.Text = pontuacao;*/
         }
 
         void AtualizarSetor(int setor)

@@ -102,10 +102,16 @@
             this.Fechar = new System.Windows.Forms.PictureBox();
             this.label11 = new System.Windows.Forms.Label();
             this.lbl_Aviso = new System.Windows.Forms.Label();
-            this.txt_verifica = new System.Windows.Forms.TextBox();
             this.txtVotacao = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.Pont_Id = new System.Windows.Forms.Label();
+            this.Pont_Nome = new System.Windows.Forms.Label();
+            this.Pont_Pontuacao = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.JOGADOR = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PONTUAÇÃO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -150,13 +156,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.ptbOperario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Fechar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // lbljogadores
             // 
             this.lbljogadores.AutoSize = true;
             this.lbljogadores.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbljogadores.Location = new System.Drawing.Point(893, 165);
+            this.lbljogadores.Location = new System.Drawing.Point(857, 219);
             this.lbljogadores.Name = "lbljogadores";
             this.lbljogadores.Size = new System.Drawing.Size(60, 24);
             this.lbljogadores.TabIndex = 23;
@@ -860,7 +867,7 @@
             this.lblJogo.BackColor = System.Drawing.Color.Azure;
             this.lblJogo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblJogo.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblJogo.Location = new System.Drawing.Point(879, 106);
+            this.lblJogo.Location = new System.Drawing.Point(892, 106);
             this.lblJogo.Name = "lblJogo";
             this.lblJogo.Size = new System.Drawing.Size(21, 25);
             this.lblJogo.TabIndex = 86;
@@ -918,7 +925,7 @@
             // txthistorico
             // 
             this.txthistorico.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txthistorico.Location = new System.Drawing.Point(1154, 192);
+            this.txthistorico.Location = new System.Drawing.Point(1141, 220);
             this.txthistorico.Multiline = true;
             this.txthistorico.Name = "txthistorico";
             this.txthistorico.Size = new System.Drawing.Size(47, 294);
@@ -1005,17 +1012,9 @@
             this.lbl_Aviso.Text = "*";
             this.lbl_Aviso.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // txt_verifica
-            // 
-            this.txt_verifica.Location = new System.Drawing.Point(1154, 514);
-            this.txt_verifica.Multiline = true;
-            this.txt_verifica.Name = "txt_verifica";
-            this.txt_verifica.Size = new System.Drawing.Size(49, 24);
-            this.txt_verifica.TabIndex = 100;
-            // 
             // txtVotacao
             // 
-            this.txtVotacao.Location = new System.Drawing.Point(1042, 437);
+            this.txtVotacao.Location = new System.Drawing.Point(1118, 518);
             this.txtVotacao.Multiline = true;
             this.txtVotacao.Name = "txtVotacao";
             this.txtVotacao.Size = new System.Drawing.Size(74, 49);
@@ -1041,6 +1040,60 @@
             this.textBox1.Size = new System.Drawing.Size(61, 26);
             this.textBox1.TabIndex = 103;
             // 
+            // Pont_Id
+            // 
+            this.Pont_Id.AutoSize = true;
+            this.Pont_Id.Location = new System.Drawing.Point(1050, 355);
+            this.Pont_Id.Name = "Pont_Id";
+            this.Pont_Id.Size = new System.Drawing.Size(41, 13);
+            this.Pont_Id.TabIndex = 104;
+            this.Pont_Id.Text = "label12";
+            // 
+            // Pont_Nome
+            // 
+            this.Pont_Nome.AutoSize = true;
+            this.Pont_Nome.Location = new System.Drawing.Point(1050, 384);
+            this.Pont_Nome.Name = "Pont_Nome";
+            this.Pont_Nome.Size = new System.Drawing.Size(41, 13);
+            this.Pont_Nome.TabIndex = 105;
+            this.Pont_Nome.Text = "label13";
+            // 
+            // Pont_Pontuacao
+            // 
+            this.Pont_Pontuacao.AutoSize = true;
+            this.Pont_Pontuacao.Location = new System.Drawing.Point(1050, 409);
+            this.Pont_Pontuacao.Name = "Pont_Pontuacao";
+            this.Pont_Pontuacao.Size = new System.Drawing.Size(41, 13);
+            this.Pont_Pontuacao.TabIndex = 106;
+            this.Pont_Pontuacao.Text = "label14";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID,
+            this.JOGADOR,
+            this.PONTUAÇÃO});
+            this.dataGridView1.Location = new System.Drawing.Point(858, 158);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(343, 44);
+            this.dataGridView1.TabIndex = 107;
+            // 
+            // ID
+            // 
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            // 
+            // JOGADOR
+            // 
+            this.JOGADOR.HeaderText = "JOGADOR";
+            this.JOGADOR.Name = "JOGADOR";
+            // 
+            // PONTUAÇÃO
+            // 
+            this.PONTUAÇÃO.HeaderText = "PONTUAÇÃO";
+            this.PONTUAÇÃO.Name = "PONTUAÇÃO";
+            // 
             // Jogo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1048,10 +1101,13 @@
             this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1223, 755);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.Pont_Pontuacao);
+            this.Controls.Add(this.Pont_Nome);
+            this.Controls.Add(this.Pont_Id);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtVotacao);
-            this.Controls.Add(this.txt_verifica);
             this.Controls.Add(this.lbl_Aviso);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.Fechar);
@@ -1172,6 +1228,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ptbOperario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Fechar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1250,9 +1307,15 @@
         private System.Windows.Forms.PictureBox Fechar;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label lbl_Aviso;
-        private System.Windows.Forms.TextBox txt_verifica;
         private System.Windows.Forms.TextBox txtVotacao;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label Pont_Id;
+        private System.Windows.Forms.Label Pont_Nome;
+        private System.Windows.Forms.Label Pont_Pontuacao;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn JOGADOR;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PONTUAÇÃO;
     }
 }
