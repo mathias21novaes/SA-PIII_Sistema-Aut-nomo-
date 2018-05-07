@@ -61,7 +61,7 @@ namespace President_Me
         public Cl_Setor setor5 { get; set; }
         public Cl_Setor setor10 { get; set; }
 
-        //ARRAY LIST PERSONAGENS E SETORES
+        //ARRAY LIST PERSONAGENS, SETORES E VOTOS
         public static List<Personagens> arrayPersonagens { get; set; } = new List<Personagens>();
         public static List<Cl_Setor> arraySetores { get; set; } = new List<Cl_Setor>();
 
@@ -121,6 +121,7 @@ namespace President_Me
         }
 
         //FUNÇÕES DO JOGO ----------------------------------------------------------
+
         public void Adicionarpersonagens()
         {
             // INSTANCIAMENTO DE PERSONAGENS
@@ -278,6 +279,7 @@ namespace President_Me
                             btn_promover.Enabled = false;
                             btn_sim.Enabled = true;
                             btn_nao.Enabled = true;
+                            Votacao();
                             break;
                     }
                     break;
@@ -499,13 +501,31 @@ namespace President_Me
             }
         }
 
-        public void Votacao(string Voto)
+        public void Votacao()
         {
-            string votar = MePresidentaServidor.Jogo.Votar(Jog_Id, Jog_Senha, Voto);
-            if (votar.Contains("ERRO"))
+            int rand3;
+            string Voto;
+            rand3 = aleatorio.Next(0, 1);
+            if (rand3 == 0)
             {
-                lbl_Aviso.Text = votar;
+                Voto = "s";
+                string votar = MePresidentaServidor.Jogo.Votar(Jog_Id, Jog_Senha, Voto);
+                lbl_Voto.Text = "VOTOU SIM";
             }
+            else
+            {
+                Voto = "n";
+                string votar = MePresidentaServidor.Jogo.Votar(Jog_Id, Jog_Senha, Voto);
+                lbl_Voto.Text = "VOTOU NÃO";
+            }
+            //if (votar.Contains("ERRO"))
+            //{
+            //Votacao(Voto);
+            //}
+            //else
+            //{ 
+            //    lbl_Aviso.Text = votar;
+            //}
         }
 
         //FUNÇÃO DOS BOTÕES E SUAS INTERAÇÕES --------------------------------------------------
@@ -532,15 +552,15 @@ namespace President_Me
 
         private void btn_sim_Click(object sender, EventArgs e)
         {
-            string Voto = "s";
-            Votacao(Voto);
+            //string Voto = "s";
+            //Votacao(Voto);
             lbl_Voto.Text = "VOTOU SIM";
         }
 
         private void btn_nao_Click(object sender, EventArgs e)
         {
-            string Voto = "n";
-            Votacao(Voto);
+            //string Voto = "n";
+            //Votacao(Voto);
             lbl_Voto.Text = "VOTOU NÃO";
         }
 
