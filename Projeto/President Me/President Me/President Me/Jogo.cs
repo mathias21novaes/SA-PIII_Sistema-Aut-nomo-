@@ -563,26 +563,27 @@ namespace President_Me
             int rand3;
             string Voto;
             rand3 = aleatorio.Next(0, 1);
+            string votar;
             if (rand3 == 0)
             {
                 Voto = "s";
-                string votar = MePresidentaServidor.Jogo.Votar(Jog_Id, Jog_Senha, Voto);
+                votar = MePresidentaServidor.Jogo.Votar(Jog_Id, Jog_Senha, Voto);
                 lbl_Voto.Text = "VOTOU SIM";
             }
             else
             {
                 Voto = "n";
-                string votar = MePresidentaServidor.Jogo.Votar(Jog_Id, Jog_Senha, Voto);
+                votar = MePresidentaServidor.Jogo.Votar(Jog_Id, Jog_Senha, Voto);
                 lbl_Voto.Text = "VOTOU NÃO";
             }
-            //if (votar.Contains("ERRO"))
-            //{
-            //Votacao(Voto);
-            //}
-            //else
-            //{ 
-            //    lbl_Aviso.Text = votar;
-            //}
+            if (votar.Contains("ERRO"))
+            {
+                Votacao();
+            }
+            else
+            {
+                lbl_Aviso.Text = votar;
+            }
         }
 
         //FUNÇÃO DOS BOTÕES E SUAS INTERAÇÕES --------------------------------------------------
