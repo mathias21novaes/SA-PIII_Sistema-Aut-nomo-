@@ -34,6 +34,8 @@ namespace President_Me
         public string Jog_Senha { get; set; }
         public string Jog_Nome { get; set; }
         public int Part_Id { get; set; }
+
+        public string SituacaoPartida { get; set; }
         //public int estado_Jogo { get; set; } = 0;
         public string Status { get; set; }
 
@@ -117,6 +119,11 @@ namespace President_Me
                 lbl_Voto.Text = " ";
                 lblJogo.ForeColor = Color.Red;
                 this.btnColocar.Enabled = false;
+                if(SituacaoPartida == "E")
+                {
+                    lbl_Aviso.ForeColor = Color.Red;
+                    lbl_Aviso.Text = "PARTIDA ENCERRADA";
+                }
                 UltimaVotacao();
             }
         }
@@ -252,7 +259,7 @@ namespace President_Me
             string sta = Status.Replace("\r", "");
             string[] tabuleiro = new string[2];
             tabuleiro = sta.Split(',');
-            string SituacaoPartida = tabuleiro[0];
+            SituacaoPartida = tabuleiro[0];
             string SituacaoRodada = tabuleiro[1];
 
             switch (SituacaoPartida)
