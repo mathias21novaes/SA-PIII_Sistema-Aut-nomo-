@@ -117,6 +117,7 @@ namespace President_Me
                 lbl_Voto.Text = " ";
                 lblJogo.ForeColor = Color.Red;
                 this.btnColocar.Enabled = false;
+                UltimaVotacao();
             }
         }
 
@@ -287,6 +288,11 @@ namespace President_Me
                 case "A":
                     lbl_Aviso.Text = "A PARTIDA ESTA ABERTA";
                     break;
+
+                case "E":
+                    lbl_Aviso.ForeColor = Color.Red;
+                    lbl_Aviso.Text = "PARTIDA ENCERRADA";
+                    break;
             }
         }
 
@@ -302,7 +308,7 @@ namespace President_Me
             AdicionarSetores();
         }
 
-        /*public void UltimaVotacao()
+        public void UltimaVotacao()
         {
             string exibir = MePresidentaServidor.Jogo.ExibirUltimaVotacao(Jog_Id, Jog_Senha);
             txtVotacao.Text = exibir;
@@ -310,7 +316,7 @@ namespace President_Me
             {
                 txtVotacao.Text = exibir;
             }
-        }*/
+        }
 
         public void Pontuacao()
         {
@@ -349,6 +355,7 @@ namespace President_Me
             int rand3;
             bool entrou = true;
             string[] aux = { };
+            int lugar = 0;
 
             rand1 = aleatorio.Next(0, 13);
             rand2 = aleatorio.Next(1, 5);
@@ -369,7 +376,7 @@ namespace President_Me
                     }
                     if (entrou == true)
                     {
-                        aux = matriz[(Convert.ToInt32(rand2) - 1), 0].Split(',');
+                        aux = matriz[(Convert.ToInt32(rand2) - 1), lugar].Split(',');
                         if (aux[2] == "false")
                         {
                             if (arrayPersonagens[rand1].nome == "A")
@@ -450,6 +457,7 @@ namespace President_Me
                                 cbPersonagens.Items.Remove("P");
                                 entrou = true;
                             }
+                            lugar++;
                             return 1;
                         }
                         else if (aux[2] == "true")
@@ -562,7 +570,7 @@ namespace President_Me
         {
             int rand3;
             string Voto;
-            rand3 = aleatorio.Next(0, 1);
+            rand3 = aleatorio.Next(0, 2);
             string votar;
             if (rand3 == 0)
             {

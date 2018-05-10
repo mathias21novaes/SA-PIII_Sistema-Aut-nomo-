@@ -1248,7 +1248,6 @@
         private System.Windows.Forms.PictureBox btn_nao;
         private System.Windows.Forms.PictureBox btn_sim;
         private System.Windows.Forms.PictureBox btn_promover;
-        private System.Windows.Forms.PictureBox A;
         private System.Windows.Forms.PictureBox B;
         private System.Windows.Forms.PictureBox C;
         private System.Windows.Forms.PictureBox D;
@@ -1317,5 +1316,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn JOGADOR;
         private System.Windows.Forms.DataGridViewTextBoxColumn PONTUAÇÃO;
+        public System.Windows.Forms.PictureBox A;
     }
 }
