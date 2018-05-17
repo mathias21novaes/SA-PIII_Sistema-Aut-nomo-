@@ -186,19 +186,27 @@ namespace President_Me
 
         public void MostrarDados()
         {
-            string minhasCartas = MePresidentaServidor.Jogo.ListarCartas(Jog_Id, Jog_Senha);
-            if (minhasCartas.Contains("ERRO"))
-            {
-                lbl_Aviso.Text = minhasCartas;
-            }
+            //string minhasCartas = MePresidentaServidor.Jogo.ListarCartas(Jog_Id, Jog_Senha);
+            MinhasCartas();
+            
             Pontuacao();
             lblidj.Text = auxJog;
             lblnj.Text = Jog_Nome;
             lblsj.Text = Jog_Senha;
             lblidp.Text = Convert.ToString(Part_Id);
-            lblcartas.Text = minhasCartas;
+            //lblcartas.Text = minhasCartas;
         }
+        public string MinhasCartas()
+        {
+            string minhasCartas = MePresidentaServidor.Jogo.ListarCartas(Jog_Id, Jog_Senha);
 
+            if (minhasCartas.Contains("ERRO"))
+            {
+                lbl_Aviso.Text = minhasCartas;
+            }
+            lblcartas.Text = minhasCartas;
+            return minhasCartas;
+        }
         public void CriarPersonagens()
         {
             cbPersonagens.Items.Clear();
@@ -251,7 +259,7 @@ namespace President_Me
 
             presidente = "";
         }
-        public bool buscarCarta(string[] vetor, string letra)
+        public bool BuscarCarta(string[] vetor, string letra)
         {
             foreach (string p in vetor)
             {
@@ -570,6 +578,13 @@ namespace President_Me
         public void Promover()
         {
             int rand;
+            string cartas = MinhasCartas();
+            //string[] carta = cartas1.Replace("");
+            string[] vetor = new string[5];
+            for (int i = 0; i <= cartas.Length; i++)
+            {
+                vetor[i] = cartas.Substring(i, cartas.Length-1);
+            }
             rand = aleatorio.Next(0, 13);
             string promover = MePresidentaServidor.Jogo.Promover(Jog_Id, Jog_Senha, arrayPersonagens[rand].nome);
             txthistorico.Text = promover;
@@ -582,6 +597,7 @@ namespace President_Me
             {
                 txthistorico.Text = promover;
             }
+            //if(BuscarCarta())
         }
 
         public void Votacao()
