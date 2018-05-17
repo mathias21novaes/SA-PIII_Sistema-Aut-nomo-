@@ -251,6 +251,16 @@ namespace President_Me
 
             presidente = "";
         }
+        public bool buscarCarta(string[] vetor, string letra)
+        {
+            foreach (string p in vetor)
+            {
+                if (p.Contains(letra))
+                    return true;
+            }
+
+            return false;
+        }
 
         public void Jogada()
         {
@@ -381,6 +391,7 @@ namespace President_Me
                     {
                         txthistorico.Text = ColocarPersonagem;
                     }
+                    
                     if (entrou == true)
                     {
                         aux = matriz[(Convert.ToInt32(rand2) - 1), lugar].Split(',');
