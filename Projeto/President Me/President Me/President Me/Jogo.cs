@@ -579,12 +579,16 @@ namespace President_Me
         {
             int rand;
             string cartas = MinhasCartas();
-            //string[] carta = cartas1.Replace("");
-            string[] vetor = new string[5];
-            for (int i = 0; i <= cartas.Length; i++)
+            cartas = cartas.Replace("\r","");
+            cartas = cartas.Replace("\n", "");
+            char[] matrizcartas = new char[cartas.Length];
+
+            for (int i = 0; i < cartas.Length; i++)
             {
-                vetor[i] = cartas.Substring(i, cartas.Length-1);
+                matrizcartas[i] = cartas[i];
             }
+
+            //lbl_Aviso.Text = vetor[i];
             rand = aleatorio.Next(0, 13);
             string promover = MePresidentaServidor.Jogo.Promover(Jog_Id, Jog_Senha, arrayPersonagens[rand].nome);
             txthistorico.Text = promover;
@@ -621,10 +625,6 @@ namespace President_Me
             if (votar.Contains("ERRO"))
             {
                 Votacao();
-            }
-            else
-            {
-                lbl_Aviso.Text = votar;
             }
         }
 
