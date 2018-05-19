@@ -259,11 +259,11 @@ namespace President_Me
 
             presidente = "";
         }
-        public bool BuscarCarta(string[] vetor, string letra)
+        public bool BuscarCarta(char[] vetor, char letra)
         {
-            foreach (string p in vetor)
+            for(int i = 0; i<= vetor.Length-1;i++)
             {
-                if (p.Contains(letra))
+                if (vetor[i] == letra)
                     return true;
             }
 
@@ -587,11 +587,50 @@ namespace President_Me
             {
                 matrizcartas[i] = cartas[i];
             }
-
             //lbl_Aviso.Text = vetor[i];
             rand = aleatorio.Next(0, 13);
-            string promover = MePresidentaServidor.Jogo.Promover(Jog_Id, Jog_Senha, arrayPersonagens[rand].nome);
-            txthistorico.Text = promover;
+            string promover;
+            //string promover = MePresidentaServidor.Jogo.Promover(Jog_Id, Jog_Senha, arrayPersonagens[rand].nome);
+            if (BuscarCarta(matrizcartas, 'A') == true && BuscarCarta(matrizcartas, 'B') == true)
+            {
+                promover = MePresidentaServidor.Jogo.Promover(Jog_Id, Jog_Senha, arrayPersonagens[0].nome);
+                txthistorico.Text = promover;
+                if (promover.Contains("ERRO"))
+                {
+                    //lbl_Aviso.Text = ColocarPersonagem;
+                    Promover();
+                }
+                Pont_Id.Text = "Promovi a carta A";
+            }
+            else if (BuscarCarta(matrizcartas, 'A'))
+            {
+               promover = MePresidentaServidor.Jogo.Promover(Jog_Id, Jog_Senha, arrayPersonagens[0].nome);
+                if (promover.Contains("ERRO"))
+                {
+                    //lbl_Aviso.Text = ColocarPersonagem;
+                    Promover();
+                }
+                else
+                {
+                    txthistorico.Text = promover;
+                }
+                Pont_Id.Text = "Promovi a carta A";
+            }
+            else if (BuscarCarta(matrizcartas, 'B'))
+            {
+                promover = MePresidentaServidor.Jogo.Promover(Jog_Id, Jog_Senha, arrayPersonagens[1].nome);
+                if (promover.Contains("ERRO"))
+                {
+                    //lbl_Aviso.Text = ColocarPersonagem;
+                    Promover();
+                }
+                else
+                {
+                    txthistorico.Text = promover;
+                }
+                Pont_Id.Text = "Promovi a carta B";
+            }
+            /*txthistorico.Text = promover;
             if (promover.Contains("ERRO"))
             {
                 //lbl_Aviso.Text = ColocarPersonagem;
@@ -600,29 +639,56 @@ namespace President_Me
             else
             {
                 txthistorico.Text = promover;
-            }
-            //if(BuscarCarta())
+            }*/
+            
         }
 
         public void Votacao()
         {
             int rand3;
+            string cartas = MinhasCartas();
+            cartas = cartas.Replace("\r", "");
+            cartas = cartas.Replace("\n", "");
+            char[] matrizcartas = new char[cartas.Length];
+
+            for (int i = 0; i < cartas.Length; i++)
+            {
+                matrizcartas[i] = cartas[i];
+            }
             string Voto;
             rand3 = aleatorio.Next(0, 2);
             string votar;
-            if (rand3 == 0)
+            /*if (BuscarCarta(matrizcartas, 'A') == true && )
             {
                 Voto = "s";
                 votar = MePresidentaServidor.Jogo.Votar(Jog_Id, Jog_Senha, Voto);
                 lbl_Voto.Text = "VOTOU SIM";
             }
-            else
+            if (BuscarCarta(matrizcartas,'A') == true)
             {
-                Voto = "n";
+                Voto = "s";
                 votar = MePresidentaServidor.Jogo.Votar(Jog_Id, Jog_Senha, Voto);
-                lbl_Voto.Text = "VOTOU NÃO";
+                lbl_Voto.Text = "VOTOU SIM";
             }
-            if (votar.Contains("ERRO"))
+            if (BuscarCarta(matrizcartas, 'B') == true)
+            {
+                Voto = "s";
+                votar = MePresidentaServidor.Jogo.Votar(Jog_Id, Jog_Senha, Voto);
+                lbl_Voto.Text = "VOTOU SIM";
+            }*/
+                if (rand3 == 0)
+                {
+                    Voto = "s";
+                    votar = MePresidentaServidor.Jogo.Votar(Jog_Id, Jog_Senha, Voto);
+                    lbl_Voto.Text = "VOTOU SIM";
+                }
+                else
+                {
+                    Voto = "n";
+                    votar = MePresidentaServidor.Jogo.Votar(Jog_Id, Jog_Senha, Voto);
+                    lbl_Voto.Text = "VOTOU NÃO";
+                }
+                if (votar.Contains("ERRO"))
             {
                 Votacao();
             }
