@@ -394,7 +394,20 @@ namespace President_Me
                 if (ColocarPersonagem.Contains("ERRO"))
                 {
                     //lbl_Aviso.Text = ColocarPersonagem;
-                    ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[1].setor, arrayPersonagens[1].nome);
+                    if(BuscarCarta(matrizcartas, 'B'))
+                    {
+                        ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[1].setor, arrayPersonagens[1].nome);
+                        if (ColocarPersonagem.Contains("ERRO"))
+                        {
+                            //lbl_Aviso.Text = ColocarPersonagem;
+                            if (BuscarCarta(matrizcartas, 'C'))
+                            {
+                                ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[1].setor, arrayPersonagens[1].nome);
+                            }
+                        }
+                    }
+                    
+                    
                 }
             }
 
