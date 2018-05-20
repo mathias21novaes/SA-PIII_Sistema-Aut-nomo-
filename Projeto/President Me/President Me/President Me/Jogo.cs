@@ -388,13 +388,130 @@ namespace President_Me
             {
                 matrizcartas[i] = cartas[i];
             }
-            if(BuscarCarta(matrizcartas, 'A'))
+            if (BuscarCarta(matrizcartas, 'A'))
             {
-                ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[1].setor, arrayPersonagens[0].nome);
+                ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[4].setor, arrayPersonagens[0].nome);
+                if (ColocarPersonagem.Contains("ERRO: Personagem já está no tabuleiro"))
+                {
+                    //lbl_Aviso.Text = ColocarPersonagem;
+                    if (BuscarCarta(matrizcartas, 'B'))
+                    {
+                        ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[4].setor, arrayPersonagens[1].nome);
+                        if (ColocarPersonagem.Contains("ERRO: Personagem já está no tabuleiro"))
+                        {
+                            //lbl_Aviso.Text = ColocarPersonagem;
+                            if (BuscarCarta(matrizcartas, 'C'))
+                            {
+                                ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[4].setor, arrayPersonagens[2].nome);
+                                if (ColocarPersonagem.Contains("ERRO: Personagem já está no tabuleiro"))
+                                {
+                                    //lbl_Aviso.Text = ColocarPersonagem;
+                                    if (BuscarCarta(matrizcartas, 'D'))
+                                    {
+                                        ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[4].setor, arrayPersonagens[3].nome);
+                                        if (ColocarPersonagem.Contains("ERRO: Personagem já está no tabuleiro"))
+                                        {
+                                            //lbl_Aviso.Text = ColocarPersonagem;
+                                            if (BuscarCarta(matrizcartas, 'E'))
+                                            {
+                                                ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[4].setor, arrayPersonagens[4].nome);
+                                            }
+                                        }
+                                        txthistorico.Text = ColocarPersonagem;
+                                    }
+                                }
+                                txthistorico.Text = ColocarPersonagem;
+                            }
+                        }
+                        txthistorico.Text = ColocarPersonagem;
+                    }
+                }
+                txthistorico.Text = ColocarPersonagem;
+                //else if(ColocarPersonagem.Contains("ERRO: Personagem"))
+            }
+            else if (BuscarCarta(matrizcartas, 'B'))
+            {
+                ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[4].setor, arrayPersonagens[1].nome);
+                if (ColocarPersonagem.Contains("ERRO: Personagem já está no tabuleiro"))
+                {
+                    //lbl_Aviso.Text = ColocarPersonagem;
+                    if (BuscarCarta(matrizcartas, 'C'))
+                    {
+                        ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[4].setor, arrayPersonagens[2].nome);
+                        if (ColocarPersonagem.Contains("ERRO: Personagem já está no tabuleiro"))
+                        {
+                            //lbl_Aviso.Text = ColocarPersonagem;
+                            if (BuscarCarta(matrizcartas, 'D'))
+                            {
+                                ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[4].setor, arrayPersonagens[3].nome);
+                                if (ColocarPersonagem.Contains("ERRO: Personagem já está no tabuleiro"))
+                                {
+                                    //lbl_Aviso.Text = ColocarPersonagem;
+                                    if (BuscarCarta(matrizcartas, 'E'))
+                                    {
+                                        ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[4].setor, arrayPersonagens[4].nome);
+                                        if (ColocarPersonagem.Contains("ERRO: Personagem já está no tabuleiro"))
+                                        {
+                                            //lbl_Aviso.Text = ColocarPersonagem;
+                                            if (BuscarCarta(matrizcartas, 'F'))
+                                            {
+                                                ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[4].setor, arrayPersonagens[5].nome);
+                                            }
+                                        }
+                                        txthistorico.Text = ColocarPersonagem;
+                                    }
+                                }
+                                txthistorico.Text = ColocarPersonagem;
+                            }
+                        }
+                        txthistorico.Text = ColocarPersonagem;
+                    }
+                }
+                txthistorico.Text = ColocarPersonagem;
+            }
+            else if (BuscarCarta(matrizcartas, 'C'))
+            {
+                ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[4].setor, arrayPersonagens[2].nome);
+                if (ColocarPersonagem.Contains("ERRO: Personagem já está no tabuleiro"))
+                {
+                    //lbl_Aviso.Text = ColocarPersonagem;
+                    if (BuscarCarta(matrizcartas, 'D'))
+                    {
+                        ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[4].setor, arrayPersonagens[3].nome);
+                        if (ColocarPersonagem.Contains("ERRO: Personagem já está no tabuleiro"))
+                        {
+                            //lbl_Aviso.Text = ColocarPersonagem;
+                            if (BuscarCarta(matrizcartas, 'E'))
+                            {
+                                ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[4].setor, arrayPersonagens[4].nome);
+                                if (ColocarPersonagem.Contains("ERRO: Personagem já está no tabuleiro"))
+                                {
+                                    //lbl_Aviso.Text = ColocarPersonagem;
+                                    if (BuscarCarta(matrizcartas, 'F'))
+                                    {
+                                        ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[4].setor, arrayPersonagens[5].nome);
+                                        if (ColocarPersonagem.Contains("ERRO: Personagem já está no tabuleiro"))
+                                        {
+                                            //lbl_Aviso.Text = ColocarPersonagem;
+                                            if (BuscarCarta(matrizcartas, 'G'))
+                                            {
+                                                ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[4].setor, arrayPersonagens[6].nome);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            else if (BuscarCarta(matrizcartas, 'D'))
+            {
+                ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[1].setor, arrayPersonagens[1].nome);
                 if (ColocarPersonagem.Contains("ERRO"))
                 {
                     //lbl_Aviso.Text = ColocarPersonagem;
-                    if(BuscarCarta(matrizcartas, 'B'))
+                    if (BuscarCarta(matrizcartas, 'B'))
                     {
                         ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[1].setor, arrayPersonagens[1].nome);
                         if (ColocarPersonagem.Contains("ERRO"))
@@ -402,12 +519,134 @@ namespace President_Me
                             //lbl_Aviso.Text = ColocarPersonagem;
                             if (BuscarCarta(matrizcartas, 'C'))
                             {
-                                ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[1].setor, arrayPersonagens[1].nome);
+                                ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[1].setor, arrayPersonagens[2].nome);
+                                if (ColocarPersonagem.Contains("ERRO"))
+                                {
+                                    //lbl_Aviso.Text = ColocarPersonagem;
+                                    if (BuscarCarta(matrizcartas, 'D'))
+                                    {
+                                        ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[1].setor, arrayPersonagens[3].nome);
+                                        if (ColocarPersonagem.Contains("ERRO"))
+                                        {
+                                            //lbl_Aviso.Text = ColocarPersonagem;
+                                            if (BuscarCarta(matrizcartas, 'E'))
+                                            {
+                                                ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[1].setor, arrayPersonagens[4].nome);
+                                            }
+                                        }
+                                    }
+                                }
                             }
                         }
                     }
-                    
-                    
+                }
+            }
+            else if (BuscarCarta(matrizcartas, 'E'))
+            {
+                ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[1].setor, arrayPersonagens[1].nome);
+                if (ColocarPersonagem.Contains("ERRO"))
+                {
+                    //lbl_Aviso.Text = ColocarPersonagem;
+                    if (BuscarCarta(matrizcartas, 'B'))
+                    {
+                        ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[1].setor, arrayPersonagens[1].nome);
+                        if (ColocarPersonagem.Contains("ERRO"))
+                        {
+                            //lbl_Aviso.Text = ColocarPersonagem;
+                            if (BuscarCarta(matrizcartas, 'C'))
+                            {
+                                ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[1].setor, arrayPersonagens[2].nome);
+                                if (ColocarPersonagem.Contains("ERRO"))
+                                {
+                                    //lbl_Aviso.Text = ColocarPersonagem;
+                                    if (BuscarCarta(matrizcartas, 'D'))
+                                    {
+                                        ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[1].setor, arrayPersonagens[3].nome);
+                                        if (ColocarPersonagem.Contains("ERRO"))
+                                        {
+                                            //lbl_Aviso.Text = ColocarPersonagem;
+                                            if (BuscarCarta(matrizcartas, 'E'))
+                                            {
+                                                ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[1].setor, arrayPersonagens[4].nome);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            else if (BuscarCarta(matrizcartas, 'F'))
+            {
+                ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[1].setor, arrayPersonagens[1].nome);
+                if (ColocarPersonagem.Contains("ERRO"))
+                {
+                    //lbl_Aviso.Text = ColocarPersonagem;
+                    if (BuscarCarta(matrizcartas, 'B'))
+                    {
+                        ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[1].setor, arrayPersonagens[1].nome);
+                        if (ColocarPersonagem.Contains("ERRO"))
+                        {
+                            //lbl_Aviso.Text = ColocarPersonagem;
+                            if (BuscarCarta(matrizcartas, 'C'))
+                            {
+                                ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[1].setor, arrayPersonagens[2].nome);
+                                if (ColocarPersonagem.Contains("ERRO"))
+                                {
+                                    //lbl_Aviso.Text = ColocarPersonagem;
+                                    if (BuscarCarta(matrizcartas, 'D'))
+                                    {
+                                        ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[1].setor, arrayPersonagens[3].nome);
+                                        if (ColocarPersonagem.Contains("ERRO"))
+                                        {
+                                            //lbl_Aviso.Text = ColocarPersonagem;
+                                            if (BuscarCarta(matrizcartas, 'E'))
+                                            {
+                                                ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[1].setor, arrayPersonagens[4].nome);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            else if (BuscarCarta(matrizcartas, 'G'))
+            {
+                ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[1].setor, arrayPersonagens[1].nome);
+                if (ColocarPersonagem.Contains("ERRO"))
+                {
+                    //lbl_Aviso.Text = ColocarPersonagem;
+                    if (BuscarCarta(matrizcartas, 'B'))
+                    {
+                        ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[1].setor, arrayPersonagens[1].nome);
+                        if (ColocarPersonagem.Contains("ERRO"))
+                        {
+                            //lbl_Aviso.Text = ColocarPersonagem;
+                            if (BuscarCarta(matrizcartas, 'C'))
+                            {
+                                ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[1].setor, arrayPersonagens[2].nome);
+                                if (ColocarPersonagem.Contains("ERRO"))
+                                {
+                                    //lbl_Aviso.Text = ColocarPersonagem;
+                                    if (BuscarCarta(matrizcartas, 'D'))
+                                    {
+                                        ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[1].setor, arrayPersonagens[3].nome);
+                                        if (ColocarPersonagem.Contains("ERRO"))
+                                        {
+                                            //lbl_Aviso.Text = ColocarPersonagem;
+                                            if (BuscarCarta(matrizcartas, 'E'))
+                                            {
+                                                ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[1].setor, arrayPersonagens[4].nome);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
             }
 
@@ -423,7 +662,7 @@ namespace President_Me
                     {
                         txthistorico.Text = ColocarPersonagem;
                     }
-                    
+
                     if (entrou == true)
                     {
                         aux = matriz[(Convert.ToInt32(rand2) - 1), lugar].Split(',');
@@ -513,7 +752,7 @@ namespace President_Me
                     }
             }*/
             return 0;
-            
+
         }
 
         public void Promover()
