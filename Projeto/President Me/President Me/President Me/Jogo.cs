@@ -375,20 +375,506 @@ namespace President_Me
         //FUNÇÕES: COLOCAR, PROMOVER E VOTAR PERSONAGEM ------------------------------------------
         public int MoverPersonagem()
         {
-            int rand1;
-            int rand2;
-            int rand3;
             bool entrou = true;
             string[] aux = { };
             int lugar = 0;
+            string cartas = MinhasCartas();
+            cartas = cartas.Replace("\r", "");
+            cartas = cartas.Replace("\n", "");
+            char[] matrizcartas = new char[cartas.Length];
+            string ColocarPersonagem;
 
-            rand1 = aleatorio.Next(0, 13);
-            rand2 = aleatorio.Next(1, 5);
-            rand3 = aleatorio.Next(0, 4);
-            if (arrayPersonagens[rand1].setor == -1)
+            for (int i = 0; i < cartas.Length; i++)
             {
-                if (arraySetores[rand2].i <= 3)
+                matrizcartas[i] = cartas[i];
+            }
+            if (BuscarCarta(matrizcartas, 'A') == true && BuscarCarta(matrizcartas, 'B') == true && BuscarCarta(matrizcartas, 'C') && BuscarCarta(matrizcartas, 'D') && BuscarCarta(matrizcartas, 'E') && BuscarCarta(matrizcartas, 'I'))
+            {
+                ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[3].setor, arrayPersonagens[0].nome);
+                txthistorico.Text = ColocarPersonagem;
+                if (ColocarPersonagem.Contains("ERRO"))
                 {
+                    //lbl_Aviso.Text = ColocarPersonagem;
+                    MoverPersonagem();
+                }
+                Pont_Id.Text = "Movi a carta A";
+            }
+            else if (BuscarCarta(matrizcartas, 'A') == true && BuscarCarta(matrizcartas, 'B') == true && BuscarCarta(matrizcartas, 'C') && BuscarCarta(matrizcartas, 'D') && BuscarCarta(matrizcartas, 'E') && BuscarCarta(matrizcartas, 'L'))
+            {
+                ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[3].setor, arrayPersonagens[0].nome);
+                txthistorico.Text = ColocarPersonagem;
+                if (ColocarPersonagem.Contains("ERRO"))
+                {
+                    //lbl_Aviso.Text = ColocarPersonagem;
+                    MoverPersonagem();
+                }
+                Pont_Id.Text = "Movi a carta A";
+            }
+            else if (BuscarCarta(matrizcartas, 'A') == true && BuscarCarta(matrizcartas, 'B') == true && BuscarCarta(matrizcartas, 'C') && BuscarCarta(matrizcartas, 'D') && BuscarCarta(matrizcartas, 'E') && BuscarCarta(matrizcartas, 'M'))
+            {
+                ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[3].setor, arrayPersonagens[0].nome);
+                txthistorico.Text = ColocarPersonagem;
+                if (ColocarPersonagem.Contains("ERRO"))
+                {
+                    //lbl_Aviso.Text = ColocarPersonagem;
+                    MoverPersonagem();
+                }
+                Pont_Id.Text = "Movi a carta A";
+            }
+            else if (BuscarCarta(matrizcartas, 'A') == true && BuscarCarta(matrizcartas, 'B') == true && BuscarCarta(matrizcartas, 'C') && BuscarCarta(matrizcartas, 'D') && BuscarCarta(matrizcartas, 'E') && BuscarCarta(matrizcartas, 'N'))
+            {
+                ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[3].setor, arrayPersonagens[0].nome);
+                txthistorico.Text = ColocarPersonagem;
+                if (ColocarPersonagem.Contains("ERRO"))
+                {
+                    //lbl_Aviso.Text = ColocarPersonagem;
+                    MoverPersonagem();
+                }
+                Pont_Id.Text = "Movi a carta A";
+            }
+            else if (BuscarCarta(matrizcartas, 'A') == true && BuscarCarta(matrizcartas, 'B') == true && BuscarCarta(matrizcartas, 'C') && BuscarCarta(matrizcartas, 'D') && BuscarCarta(matrizcartas, 'E') && BuscarCarta(matrizcartas, 'O'))
+            {
+                ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[3].setor, arrayPersonagens[0].nome);
+                txthistorico.Text = ColocarPersonagem;
+                if (ColocarPersonagem.Contains("ERRO"))
+                {
+                    //lbl_Aviso.Text = ColocarPersonagem;
+                    MoverPersonagem();
+                }
+                Pont_Id.Text = "Movi a carta A";
+            }
+            else if (BuscarCarta(matrizcartas, 'A') == true && BuscarCarta(matrizcartas, 'B') == true && BuscarCarta(matrizcartas, 'C') && BuscarCarta(matrizcartas, 'D') && BuscarCarta(matrizcartas, 'E') && BuscarCarta(matrizcartas, 'P'))
+            {
+                ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[3].setor, arrayPersonagens[0].nome);
+                txthistorico.Text = ColocarPersonagem;
+                if (ColocarPersonagem.Contains("ERRO"))
+                {
+                    //lbl_Aviso.Text = ColocarPersonagem;
+                    MoverPersonagem();
+                }
+                Pont_Id.Text = "Movi a carta A";
+            }
+            else if (BuscarCarta(matrizcartas, 'A') == true && BuscarCarta(matrizcartas, 'B') == true && BuscarCarta(matrizcartas, 'C') && BuscarCarta(matrizcartas, 'D') && BuscarCarta(matrizcartas, 'F') && BuscarCarta(matrizcartas, 'E'))
+            {
+                ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[3].setor, arrayPersonagens[0].nome);
+                txthistorico.Text = ColocarPersonagem;
+                if (ColocarPersonagem.Contains("ERRO"))
+                {
+                    //lbl_Aviso.Text = ColocarPersonagem;
+                    MoverPersonagem();
+                }
+                Pont_Id.Text = "Movi a carta A";
+            }
+            else if (BuscarCarta(matrizcartas, 'A') == true && BuscarCarta(matrizcartas, 'B') == true && BuscarCarta(matrizcartas, 'C') && BuscarCarta(matrizcartas, 'D') && BuscarCarta(matrizcartas, 'F') && BuscarCarta(matrizcartas, 'G'))
+            {
+                ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[3].setor, arrayPersonagens[0].nome);
+                txthistorico.Text = ColocarPersonagem;
+                if (ColocarPersonagem.Contains("ERRO"))
+                {
+                    //lbl_Aviso.Text = ColocarPersonagem;
+                    MoverPersonagem();
+                }
+                Pont_Id.Text = "Movi a carta A";
+            }
+            else if (BuscarCarta(matrizcartas, 'A') == true && BuscarCarta(matrizcartas, 'B') == true && BuscarCarta(matrizcartas, 'C') && BuscarCarta(matrizcartas, 'D') && BuscarCarta(matrizcartas, 'F') && BuscarCarta(matrizcartas, 'I'))
+            {
+                ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[3].setor, arrayPersonagens[0].nome);
+                txthistorico.Text = ColocarPersonagem;
+                if (ColocarPersonagem.Contains("ERRO"))
+                {
+                    //lbl_Aviso.Text = ColocarPersonagem;
+                    MoverPersonagem();
+                }
+                Pont_Id.Text = "Movi a carta A";
+            }
+            else if (BuscarCarta(matrizcartas, 'A') == true && BuscarCarta(matrizcartas, 'B') == true && BuscarCarta(matrizcartas, 'C') && BuscarCarta(matrizcartas, 'D') && BuscarCarta(matrizcartas, 'F') && BuscarCarta(matrizcartas, 'L'))
+            {
+                ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[3].setor, arrayPersonagens[0].nome);
+                txthistorico.Text = ColocarPersonagem;
+                if (ColocarPersonagem.Contains("ERRO"))
+                {
+                    //lbl_Aviso.Text = ColocarPersonagem;
+                    MoverPersonagem();
+                }
+                Pont_Id.Text = "Movi a carta A";
+            }
+            else if (BuscarCarta(matrizcartas, 'A') == true && BuscarCarta(matrizcartas, 'B') == true && BuscarCarta(matrizcartas, 'C') && BuscarCarta(matrizcartas, 'D') && BuscarCarta(matrizcartas, 'F') && BuscarCarta(matrizcartas, 'M'))
+            {
+                ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[3].setor, arrayPersonagens[0].nome);
+                txthistorico.Text = ColocarPersonagem;
+                if (ColocarPersonagem.Contains("ERRO"))
+                {
+                    //lbl_Aviso.Text = ColocarPersonagem;
+                    MoverPersonagem();
+                }
+                Pont_Id.Text = "Movi a carta A";
+            }
+            else if (BuscarCarta(matrizcartas, 'A') == true && BuscarCarta(matrizcartas, 'B') == true && BuscarCarta(matrizcartas, 'C') && BuscarCarta(matrizcartas, 'D') && BuscarCarta(matrizcartas, 'F') && BuscarCarta(matrizcartas, 'N'))
+            {
+                ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[3].setor, arrayPersonagens[0].nome);
+                txthistorico.Text = ColocarPersonagem;
+                if (ColocarPersonagem.Contains("ERRO"))
+                {
+                    //lbl_Aviso.Text = ColocarPersonagem;
+                    MoverPersonagem();
+                }
+                Pont_Id.Text = "Movi a carta A";
+            }
+            else if (BuscarCarta(matrizcartas, 'A') == true && BuscarCarta(matrizcartas, 'B') == true && BuscarCarta(matrizcartas, 'C') && BuscarCarta(matrizcartas, 'D') && BuscarCarta(matrizcartas, 'F') && BuscarCarta(matrizcartas, 'O'))
+            {
+                ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[3].setor, arrayPersonagens[0].nome);
+                txthistorico.Text = ColocarPersonagem;
+                if (ColocarPersonagem.Contains("ERRO"))
+                {
+                    //lbl_Aviso.Text = ColocarPersonagem;
+                    MoverPersonagem();
+                }
+                Pont_Id.Text = "Movi a carta A";
+            }
+            else if (BuscarCarta(matrizcartas, 'A') == true && BuscarCarta(matrizcartas, 'B') == true && BuscarCarta(matrizcartas, 'C') && BuscarCarta(matrizcartas, 'D') && BuscarCarta(matrizcartas, 'F') && BuscarCarta(matrizcartas, 'P'))
+            {
+                ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[3].setor, arrayPersonagens[0].nome);
+                txthistorico.Text = ColocarPersonagem;
+                if (ColocarPersonagem.Contains("ERRO"))
+                {
+                    //lbl_Aviso.Text = ColocarPersonagem;
+                    MoverPersonagem();
+                }
+                Pont_Id.Text = "Movi a carta A";
+            }
+            else if (BuscarCarta(matrizcartas, 'A') == true && BuscarCarta(matrizcartas, 'B') == true && BuscarCarta(matrizcartas, 'C') && BuscarCarta(matrizcartas, 'D') && BuscarCarta(matrizcartas, 'G') && BuscarCarta(matrizcartas, 'E'))
+            {
+                ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[3].setor, arrayPersonagens[0].nome);
+                txthistorico.Text = ColocarPersonagem;
+                if (ColocarPersonagem.Contains("ERRO"))
+                {
+                    //lbl_Aviso.Text = ColocarPersonagem;
+                    MoverPersonagem();
+                }
+                Pont_Id.Text = "Movi a carta A";
+            }
+            else if (BuscarCarta(matrizcartas, 'A') == true && BuscarCarta(matrizcartas, 'B') == true && BuscarCarta(matrizcartas, 'C') && BuscarCarta(matrizcartas, 'D') && BuscarCarta(matrizcartas, 'G') && BuscarCarta(matrizcartas, 'I'))
+            {
+                ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[3].setor, arrayPersonagens[0].nome);
+                txthistorico.Text = ColocarPersonagem;
+                if (ColocarPersonagem.Contains("ERRO"))
+                {
+                    //lbl_Aviso.Text = ColocarPersonagem;
+                    MoverPersonagem();
+                }
+                Pont_Id.Text = "Movi a carta A";
+            }
+            else if (BuscarCarta(matrizcartas, 'A') == true && BuscarCarta(matrizcartas, 'B') == true && BuscarCarta(matrizcartas, 'C') && BuscarCarta(matrizcartas, 'D') && BuscarCarta(matrizcartas, 'G') && BuscarCarta(matrizcartas, 'L'))
+            {
+                ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[3].setor, arrayPersonagens[0].nome);
+                txthistorico.Text = ColocarPersonagem;
+                if (ColocarPersonagem.Contains("ERRO"))
+                {
+                    //lbl_Aviso.Text = ColocarPersonagem;
+                    MoverPersonagem();
+                }
+                Pont_Id.Text = "Movi a carta A";
+            }
+            else if (BuscarCarta(matrizcartas, 'A') == true && BuscarCarta(matrizcartas, 'B') == true && BuscarCarta(matrizcartas, 'C') && BuscarCarta(matrizcartas, 'D') && BuscarCarta(matrizcartas, 'G') && BuscarCarta(matrizcartas, 'M'))
+            {
+                ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[3].setor, arrayPersonagens[0].nome);
+                txthistorico.Text = ColocarPersonagem;
+                if (ColocarPersonagem.Contains("ERRO"))
+                {
+                    //lbl_Aviso.Text = ColocarPersonagem;
+                    MoverPersonagem();
+                }
+                Pont_Id.Text = "Movi a carta A";
+            }
+            else if (BuscarCarta(matrizcartas, 'A') == true && BuscarCarta(matrizcartas, 'B') == true && BuscarCarta(matrizcartas, 'C') && BuscarCarta(matrizcartas, 'D') && BuscarCarta(matrizcartas, 'G') && BuscarCarta(matrizcartas, 'N'))
+            {
+                ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[3].setor, arrayPersonagens[0].nome);
+                txthistorico.Text = ColocarPersonagem;
+                if (ColocarPersonagem.Contains("ERRO"))
+                {
+                    //lbl_Aviso.Text = ColocarPersonagem;
+                    MoverPersonagem();
+                }
+                Pont_Id.Text = "Movi a carta A";
+            }
+            else if (BuscarCarta(matrizcartas, 'A') == true && BuscarCarta(matrizcartas, 'B') == true && BuscarCarta(matrizcartas, 'C') && BuscarCarta(matrizcartas, 'D') && BuscarCarta(matrizcartas, 'G') && BuscarCarta(matrizcartas, 'O'))
+            {
+                ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[3].setor, arrayPersonagens[0].nome);
+                txthistorico.Text = ColocarPersonagem;
+                if (ColocarPersonagem.Contains("ERRO"))
+                {
+                    //lbl_Aviso.Text = ColocarPersonagem;
+                    MoverPersonagem();
+                }
+                Pont_Id.Text = "Movi a carta A";
+            }
+            else if (BuscarCarta(matrizcartas, 'A') == true && BuscarCarta(matrizcartas, 'B') == true && BuscarCarta(matrizcartas, 'C') && BuscarCarta(matrizcartas, 'D') && BuscarCarta(matrizcartas, 'G') && BuscarCarta(matrizcartas, 'P'))
+            {
+                ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[3].setor, arrayPersonagens[0].nome);
+                txthistorico.Text = ColocarPersonagem;
+                if (ColocarPersonagem.Contains("ERRO"))
+                {
+                    //lbl_Aviso.Text = ColocarPersonagem;
+                    MoverPersonagem();
+                }
+                Pont_Id.Text = "Movi a carta A";
+            }
+            else if (BuscarCarta(matrizcartas, 'A') == true && BuscarCarta(matrizcartas, 'B') == true && BuscarCarta(matrizcartas, 'C') && BuscarCarta(matrizcartas, 'D') && BuscarCarta(matrizcartas, 'G') && BuscarCarta(matrizcartas, 'P'))
+            {
+                ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[3].setor, arrayPersonagens[0].nome);
+                txthistorico.Text = ColocarPersonagem;
+                if (ColocarPersonagem.Contains("ERRO"))
+                {
+                    //lbl_Aviso.Text = ColocarPersonagem;
+                    MoverPersonagem();
+                }
+                Pont_Id.Text = "Movi a carta A";
+            }
+            else if (BuscarCarta(matrizcartas, 'A') == true && BuscarCarta(matrizcartas, 'B') == true && BuscarCarta(matrizcartas, 'C') && BuscarCarta(matrizcartas, 'D') && BuscarCarta(matrizcartas, 'I') && BuscarCarta(matrizcartas, 'L'))
+            {
+                ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[3].setor, arrayPersonagens[0].nome);
+                txthistorico.Text = ColocarPersonagem;
+                if (ColocarPersonagem.Contains("ERRO"))
+                {
+                    //lbl_Aviso.Text = ColocarPersonagem;
+                    MoverPersonagem();
+                }
+                Pont_Id.Text = "Movi a carta A";
+            }
+            else if (BuscarCarta(matrizcartas, 'A') == true && BuscarCarta(matrizcartas, 'B') == true && BuscarCarta(matrizcartas, 'C') && BuscarCarta(matrizcartas, 'D') && BuscarCarta(matrizcartas, 'I') && BuscarCarta(matrizcartas, 'M'))
+            {
+                ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[3].setor, arrayPersonagens[0].nome);
+                txthistorico.Text = ColocarPersonagem;
+                if (ColocarPersonagem.Contains("ERRO"))
+                {
+                    //lbl_Aviso.Text = ColocarPersonagem;
+                    MoverPersonagem();
+                }
+                Pont_Id.Text = "Movi a carta A";
+            }
+            else if (BuscarCarta(matrizcartas, 'A') == true && BuscarCarta(matrizcartas, 'B') == true && BuscarCarta(matrizcartas, 'C') && BuscarCarta(matrizcartas, 'D') && BuscarCarta(matrizcartas, 'I') && BuscarCarta(matrizcartas, 'N'))
+            {
+                ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[3].setor, arrayPersonagens[0].nome);
+                txthistorico.Text = ColocarPersonagem;
+                if (ColocarPersonagem.Contains("ERRO"))
+                {
+                    //lbl_Aviso.Text = ColocarPersonagem;
+                    MoverPersonagem();
+                }
+                Pont_Id.Text = "Movi a carta A";
+            }
+            else if (BuscarCarta(matrizcartas, 'A') == true && BuscarCarta(matrizcartas, 'B') == true && BuscarCarta(matrizcartas, 'C') && BuscarCarta(matrizcartas, 'D') && BuscarCarta(matrizcartas, 'I') && BuscarCarta(matrizcartas, 'O'))
+            {
+                ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[3].setor, arrayPersonagens[0].nome);
+                txthistorico.Text = ColocarPersonagem;
+                if (ColocarPersonagem.Contains("ERRO"))
+                {
+                    //lbl_Aviso.Text = ColocarPersonagem;
+                    MoverPersonagem();
+                }
+                Pont_Id.Text = "Movi a carta A";
+            }
+            else if (BuscarCarta(matrizcartas, 'A') == true && BuscarCarta(matrizcartas, 'B') == true && BuscarCarta(matrizcartas, 'C') && BuscarCarta(matrizcartas, 'D') && BuscarCarta(matrizcartas, 'I') && BuscarCarta(matrizcartas, 'P'))
+            {
+                ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[3].setor, arrayPersonagens[0].nome);
+                txthistorico.Text = ColocarPersonagem;
+                if (ColocarPersonagem.Contains("ERRO"))
+                {
+                    //lbl_Aviso.Text = ColocarPersonagem;
+                    MoverPersonagem();
+                }
+                Pont_Id.Text = "Movi a carta A";
+            }
+            else if (BuscarCarta(matrizcartas, 'A') == true && BuscarCarta(matrizcartas, 'B') == true && BuscarCarta(matrizcartas, 'C') && BuscarCarta(matrizcartas, 'D') && BuscarCarta(matrizcartas, 'L') && BuscarCarta(matrizcartas, 'M'))
+            {
+                ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[3].setor, arrayPersonagens[0].nome);
+                txthistorico.Text = ColocarPersonagem;
+                if (ColocarPersonagem.Contains("ERRO"))
+                {
+                    //lbl_Aviso.Text = ColocarPersonagem;
+                    MoverPersonagem();
+                }
+                Pont_Id.Text = "Movi a carta A";
+            }
+            else if (BuscarCarta(matrizcartas, 'A') == true && BuscarCarta(matrizcartas, 'B') == true && BuscarCarta(matrizcartas, 'C') && BuscarCarta(matrizcartas, 'D') && BuscarCarta(matrizcartas, 'L') && BuscarCarta(matrizcartas, 'N'))
+            {
+                ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[3].setor, arrayPersonagens[0].nome);
+                txthistorico.Text = ColocarPersonagem;
+                if (ColocarPersonagem.Contains("ERRO"))
+                {
+                    //lbl_Aviso.Text = ColocarPersonagem;
+                    MoverPersonagem();
+                }
+                Pont_Id.Text = "Movi a carta A";
+            }
+            else if (BuscarCarta(matrizcartas, 'A') == true && BuscarCarta(matrizcartas, 'B') == true && BuscarCarta(matrizcartas, 'C') && BuscarCarta(matrizcartas, 'D') && BuscarCarta(matrizcartas, 'L') && BuscarCarta(matrizcartas, 'O'))
+            {
+                ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[3].setor, arrayPersonagens[0].nome);
+                txthistorico.Text = ColocarPersonagem;
+                if (ColocarPersonagem.Contains("ERRO"))
+                {
+                    //lbl_Aviso.Text = ColocarPersonagem;
+                    MoverPersonagem();
+                }
+                Pont_Id.Text = "Movi a carta A";
+            }
+            else if (BuscarCarta(matrizcartas, 'A') == true && BuscarCarta(matrizcartas, 'B') == true && BuscarCarta(matrizcartas, 'C') && BuscarCarta(matrizcartas, 'D') && BuscarCarta(matrizcartas, 'L') && BuscarCarta(matrizcartas, 'P'))
+            {
+                ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[3].setor, arrayPersonagens[0].nome);
+                txthistorico.Text = ColocarPersonagem;
+                if (ColocarPersonagem.Contains("ERRO"))
+                {
+                    //lbl_Aviso.Text = ColocarPersonagem;
+                    MoverPersonagem();
+                }
+                Pont_Id.Text = "Movi a carta A";
+            }
+            else if (BuscarCarta(matrizcartas, 'A') == true && BuscarCarta(matrizcartas, 'B') == true && BuscarCarta(matrizcartas, 'C') && BuscarCarta(matrizcartas, 'D') && BuscarCarta(matrizcartas, 'M') && BuscarCarta(matrizcartas, 'N'))
+            {
+                ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[3].setor, arrayPersonagens[0].nome);
+                txthistorico.Text = ColocarPersonagem;
+                if (ColocarPersonagem.Contains("ERRO"))
+                {
+                    //lbl_Aviso.Text = ColocarPersonagem;
+                    MoverPersonagem();
+                }
+                Pont_Id.Text = "Movi a carta A";
+            }
+            else if (BuscarCarta(matrizcartas, 'A') == true && BuscarCarta(matrizcartas, 'B') == true && BuscarCarta(matrizcartas, 'C') && BuscarCarta(matrizcartas, 'D') && BuscarCarta(matrizcartas, 'M') && BuscarCarta(matrizcartas, 'O'))
+            {
+                ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[3].setor, arrayPersonagens[0].nome);
+                txthistorico.Text = ColocarPersonagem;
+                if (ColocarPersonagem.Contains("ERRO"))
+                {
+                    //lbl_Aviso.Text = ColocarPersonagem;
+                    MoverPersonagem();
+                }
+                Pont_Id.Text = "Movi a carta A";
+            }
+            else if (BuscarCarta(matrizcartas, 'A') == true && BuscarCarta(matrizcartas, 'B') == true && BuscarCarta(matrizcartas, 'C') && BuscarCarta(matrizcartas, 'D') && BuscarCarta(matrizcartas, 'M') && BuscarCarta(matrizcartas, 'P'))
+            {
+                ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[3].setor, arrayPersonagens[0].nome);
+                txthistorico.Text = ColocarPersonagem;
+                if (ColocarPersonagem.Contains("ERRO"))
+                {
+                    //lbl_Aviso.Text = ColocarPersonagem;
+                    MoverPersonagem();
+                }
+                Pont_Id.Text = "Movi a carta A";
+            }
+            else if (BuscarCarta(matrizcartas, 'A') == true && BuscarCarta(matrizcartas, 'B') == true && BuscarCarta(matrizcartas, 'C') && BuscarCarta(matrizcartas, 'D') && BuscarCarta(matrizcartas, 'N') && BuscarCarta(matrizcartas, 'O'))
+            {
+                ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[3].setor, arrayPersonagens[0].nome);
+                txthistorico.Text = ColocarPersonagem;
+                if (ColocarPersonagem.Contains("ERRO"))
+                {
+                    //lbl_Aviso.Text = ColocarPersonagem;
+                    MoverPersonagem();
+                }
+                Pont_Id.Text = "Movi a carta A";
+            }
+            else if (BuscarCarta(matrizcartas, 'A') == true && BuscarCarta(matrizcartas, 'B') == true && BuscarCarta(matrizcartas, 'C') && BuscarCarta(matrizcartas, 'D') && BuscarCarta(matrizcartas, 'N') && BuscarCarta(matrizcartas, 'P'))
+            {
+                ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[3].setor, arrayPersonagens[0].nome);
+                txthistorico.Text = ColocarPersonagem;
+                if (ColocarPersonagem.Contains("ERRO"))
+                {
+                    //lbl_Aviso.Text = ColocarPersonagem;
+                    MoverPersonagem();
+                }
+                Pont_Id.Text = "Movi a carta A";
+            }
+            else if (BuscarCarta(matrizcartas, 'A') == true && BuscarCarta(matrizcartas, 'B') == true && BuscarCarta(matrizcartas, 'C') && BuscarCarta(matrizcartas, 'D') && BuscarCarta(matrizcartas, 'P') && BuscarCarta(matrizcartas, 'O'))
+            {
+                ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[3].setor, arrayPersonagens[0].nome);
+                txthistorico.Text = ColocarPersonagem;
+                if (ColocarPersonagem.Contains("ERRO"))
+                {
+                    //lbl_Aviso.Text = ColocarPersonagem;
+                    MoverPersonagem();
+                }
+                Pont_Id.Text = "Movi a carta A";
+            }
+            else if (BuscarCarta(matrizcartas, 'A') == true && BuscarCarta(matrizcartas, 'B') == true && BuscarCarta(matrizcartas, 'C') && BuscarCarta(matrizcartas, 'E') && BuscarCarta(matrizcartas, 'F') && BuscarCarta(matrizcartas, 'G'))
+            {
+                ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[3].setor, arrayPersonagens[0].nome);
+                txthistorico.Text = ColocarPersonagem;
+                if (ColocarPersonagem.Contains("ERRO"))
+                {
+                    //lbl_Aviso.Text = ColocarPersonagem;
+                    MoverPersonagem();
+                }
+                Pont_Id.Text = "Movi a carta A";
+            }
+            else if (BuscarCarta(matrizcartas, 'A') == true && BuscarCarta(matrizcartas, 'B') == true && BuscarCarta(matrizcartas, 'C') && BuscarCarta(matrizcartas, 'E') && BuscarCarta(matrizcartas, 'F') && BuscarCarta(matrizcartas, 'I'))
+            {
+                ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[3].setor, arrayPersonagens[0].nome);
+                txthistorico.Text = ColocarPersonagem;
+                if (ColocarPersonagem.Contains("ERRO"))
+                {
+                    //lbl_Aviso.Text = ColocarPersonagem;
+                    MoverPersonagem();
+                }
+                Pont_Id.Text = "Movi a carta A";
+            }
+            else if (BuscarCarta(matrizcartas, 'A') == true && BuscarCarta(matrizcartas, 'B') == true && BuscarCarta(matrizcartas, 'C') && BuscarCarta(matrizcartas, 'E') && BuscarCarta(matrizcartas, 'F') && BuscarCarta(matrizcartas, 'L'))
+            {
+                ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[3].setor, arrayPersonagens[0].nome);
+                txthistorico.Text = ColocarPersonagem;
+                if (ColocarPersonagem.Contains("ERRO"))
+                {
+                    //lbl_Aviso.Text = ColocarPersonagem;
+                    MoverPersonagem();
+                }
+                Pont_Id.Text = "Movi a carta A";
+            }
+            else if (BuscarCarta(matrizcartas, 'A') == true && BuscarCarta(matrizcartas, 'B') == true && BuscarCarta(matrizcartas, 'C') && BuscarCarta(matrizcartas, 'E') && BuscarCarta(matrizcartas, 'F') && BuscarCarta(matrizcartas, 'M'))
+            {
+                ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[3].setor, arrayPersonagens[0].nome);
+                txthistorico.Text = ColocarPersonagem;
+                if (ColocarPersonagem.Contains("ERRO"))
+                {
+                    //lbl_Aviso.Text = ColocarPersonagem;
+                    MoverPersonagem();
+                }
+                Pont_Id.Text = "Movi a carta A";
+            }
+            else if (BuscarCarta(matrizcartas, 'A') == true && BuscarCarta(matrizcartas, 'B') == true && BuscarCarta(matrizcartas, 'C') && BuscarCarta(matrizcartas, 'E') && BuscarCarta(matrizcartas, 'F') && BuscarCarta(matrizcartas, 'N'))
+            {
+                ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[3].setor, arrayPersonagens[0].nome);
+                txthistorico.Text = ColocarPersonagem;
+                if (ColocarPersonagem.Contains("ERRO"))
+                {
+                    //lbl_Aviso.Text = ColocarPersonagem;
+                    MoverPersonagem();
+                }
+                Pont_Id.Text = "Movi a carta A";
+            }
+            else if (BuscarCarta(matrizcartas, 'A') == true && BuscarCarta(matrizcartas, 'B') == true && BuscarCarta(matrizcartas, 'C') && BuscarCarta(matrizcartas, 'E') && BuscarCarta(matrizcartas, 'F') && BuscarCarta(matrizcartas, 'O'))
+            {
+                ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[3].setor, arrayPersonagens[0].nome);
+                txthistorico.Text = ColocarPersonagem;
+                if (ColocarPersonagem.Contains("ERRO"))
+                {
+                    //lbl_Aviso.Text = ColocarPersonagem;
+                    MoverPersonagem();
+                }
+                Pont_Id.Text = "Movi a carta A";
+            }
+            else if (BuscarCarta(matrizcartas, 'A') == true && BuscarCarta(matrizcartas, 'B') == true && BuscarCarta(matrizcartas, 'C') && BuscarCarta(matrizcartas, 'E') && BuscarCarta(matrizcartas, 'F') && BuscarCarta(matrizcartas, 'P'))
+            {
+                ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[3].setor, arrayPersonagens[0].nome);
+                txthistorico.Text = ColocarPersonagem;
+                if (ColocarPersonagem.Contains("ERRO"))
+                {
+                    //lbl_Aviso.Text = ColocarPersonagem;
+                    MoverPersonagem();
+                }
+                Pont_Id.Text = "Movi a carta A";
+            }
+
+            /*if (arrayPersonagens[rand1].setor == -1)
+            {
                     string ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[rand2].setor, arrayPersonagens[rand1].nome);
                     if (ColocarPersonagem.Contains("ERRO"))
                     {
@@ -486,98 +972,14 @@ namespace President_Me
                             lugar++;
                             return 1;
                         }
-                        else if (aux[2] == "true")
-                        {
-                            aux = matriz[(Convert.ToInt32(rand2) - 1), 1].Split(',');
-                            if (arrayPersonagens[rand1].nome == "A")
-                            {
-                                A.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
-                                aux[2] = "true";
-                                entrou = true;
-                            }
-                            else if (arrayPersonagens[rand1].nome == "B")
-                            {
-                                B.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
-                                aux[2] = "true";
-                                entrou = true;
-                            }
-                            else if (arrayPersonagens[rand1].nome == "C")
-                            {
-                                C.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
-                                aux[2] = "true";
-                                entrou = true;
-                            }
-                            else if (arrayPersonagens[rand1].nome == "D")
-                            {
-                                D.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
-                                aux[2] = "true";
-                                entrou = true;
-                            }
-                            else if (arrayPersonagens[rand1].nome == "E")
-                            {
-                                E.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
-                                aux[2] = "true";
-                                entrou = true;
-                            }
-                            else if (arrayPersonagens[rand1].nome == "F")
-                            {
-                                F.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
-                                aux[2] = "true";
-                                entrou = true;
-                            }
-                            else if (arrayPersonagens[rand1].nome == "G")
-                            {
-                                G.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
-                                aux[2] = "true";
-                                entrou = true;
-                            }
-                            else if (arrayPersonagens[rand1].nome == "I")
-                            {
-                                I.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
-                                cbPersonagens.Items.Remove("I");
-                                entrou = true;
-                            }
-                            else if (arrayPersonagens[rand1].nome == "L")
-                            {
-                                L.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
-                                cbPersonagens.Items.Remove("L");
-                                entrou = true;
-                            }
-                            else if (arrayPersonagens[rand1].nome == "M")
-                            {
-                                M.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
-                                cbPersonagens.Items.Remove("M");
-                                entrou = true;
-                            }
-                            else if (arrayPersonagens[rand1].nome == "N")
-                            {
-                                N.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
-                                cbPersonagens.Items.Remove("N");
-                                entrou = true;
-                            }
-                            else if (arrayPersonagens[rand1].nome == "O")
-                            {
-                                O.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
-                                cbPersonagens.Items.Remove("O");
-                                entrou = true;
-                            }
-                            else if (arrayPersonagens[rand1].nome == "P")
-                            {
-                                P.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
-                                cbPersonagens.Items.Remove("P");
-                                entrou = true;
-                            }
-                        }
                     }
-                }
-            }
+            }*/
             return 0;
             
         }
 
         public void Promover()
         {
-            int rand;
             string cartas = MinhasCartas();
             cartas = cartas.Replace("\r","");
             cartas = cartas.Replace("\n", "");
@@ -588,10 +990,42 @@ namespace President_Me
                 matrizcartas[i] = cartas[i];
             }
             //lbl_Aviso.Text = vetor[i];
-            rand = aleatorio.Next(0, 13);
             string promover;
             //string promover = MePresidentaServidor.Jogo.Promover(Jog_Id, Jog_Senha, arrayPersonagens[rand].nome);
-            if (BuscarCarta(matrizcartas, 'A') == true && BuscarCarta(matrizcartas, 'B') == true)
+            if (BuscarCarta(matrizcartas, 'A') == true && BuscarCarta(matrizcartas, 'B') == true && BuscarCarta(matrizcartas, 'C'))
+            {
+                promover = MePresidentaServidor.Jogo.Promover(Jog_Id, Jog_Senha, arrayPersonagens[0].nome);
+                txthistorico.Text = promover;
+                if (promover.Contains("ERRO"))
+                {
+                    //lbl_Aviso.Text = ColocarPersonagem;
+                    Promover();
+                }
+                Pont_Id.Text = "Promovi a carta A";
+            }
+            else if (BuscarCarta(matrizcartas, 'A') == true && BuscarCarta(matrizcartas, 'B') == true)
+            {
+                promover = MePresidentaServidor.Jogo.Promover(Jog_Id, Jog_Senha, arrayPersonagens[0].nome);
+                txthistorico.Text = promover;
+                if (promover.Contains("ERRO"))
+                {
+                    //lbl_Aviso.Text = ColocarPersonagem;
+                    Promover();
+                }
+                Pont_Id.Text = "Promovi a carta A";
+            }
+            else if (BuscarCarta(matrizcartas, 'A') == true && BuscarCarta(matrizcartas, 'C') == true)
+            {
+                promover = MePresidentaServidor.Jogo.Promover(Jog_Id, Jog_Senha, arrayPersonagens[0].nome);
+                txthistorico.Text = promover;
+                if (promover.Contains("ERRO"))
+                {
+                    //lbl_Aviso.Text = ColocarPersonagem;
+                    Promover();
+                }
+                Pont_Id.Text = "Promovi a carta A";
+            }
+            else if (BuscarCarta(matrizcartas, 'C') == true && BuscarCarta(matrizcartas, 'B') == true)
             {
                 promover = MePresidentaServidor.Jogo.Promover(Jog_Id, Jog_Senha, arrayPersonagens[0].nome);
                 txthistorico.Text = promover;
@@ -630,6 +1064,20 @@ namespace President_Me
                 }
                 Pont_Id.Text = "Promovi a carta B";
             }
+            else if (BuscarCarta(matrizcartas, 'C'))
+            {
+                promover = MePresidentaServidor.Jogo.Promover(Jog_Id, Jog_Senha, arrayPersonagens[2].nome);
+                if (promover.Contains("ERRO"))
+                {
+                    //lbl_Aviso.Text = ColocarPersonagem;
+                    Promover();
+                }
+                else
+                {
+                    txthistorico.Text = promover;
+                }
+                Pont_Id.Text = "Promovi a carta C";
+            }
             /*txthistorico.Text = promover;
             if (promover.Contains("ERRO"))
             {
@@ -640,7 +1088,7 @@ namespace President_Me
             {
                 txthistorico.Text = promover;
             }*/
-            
+
         }
 
         public void Votacao()
