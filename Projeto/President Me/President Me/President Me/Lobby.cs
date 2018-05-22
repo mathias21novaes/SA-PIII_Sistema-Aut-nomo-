@@ -55,7 +55,7 @@ namespace President_Me
             Entrar_Partida p = new Entrar_Partida();
             p.ShowDialog();
 
-            if (Entrar_Partida.iniciou_partida == true)
+            if (Entrar_Partida.entrou_partida == true)
             {
                 this.Close();
             }

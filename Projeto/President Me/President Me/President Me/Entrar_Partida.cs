@@ -18,13 +18,14 @@ namespace President_Me
         public string Versao { get; set; }
         public int numJogadores { get; set; }
         public static int IdPartida { get; set; }
-        public static bool iniciou_partida { get; set; }
+        public static bool entrou_partida { get; set; }
         public static string JogadorId { get; set; }
         public static string JogadorSenha { get; set; }
         public static string SenhaPartida { get; set; }
         public static string NomeJogador { get; set; }
         public static string[] colunas { get; set; }
         public static string[] id { get; set; } = new string[2];
+        public static int Automatico { get; set; } = 0;
 
         public Entrar_Partida()
         {
@@ -41,7 +42,7 @@ namespace President_Me
         private void btn_voltar_Click(object sender, EventArgs e)
         {
             Lobby f = new Lobby(Versao);
-            iniciou_partida = false;
+            entrou_partida = false;
             this.Close();
         }
 
@@ -50,28 +51,18 @@ namespace President_Me
             IdPartida = Convert.ToInt32(id[1]);
             NomeJogador = txtJogador.Text;
             SenhaPartida = txtSenha_Entrar.Text;
+            if (ModoAuto.Checked == true)
+            {
+                Automatico = 1;
+            }
             string idesenha_jogador = MePresidentaServidor.Jogo.Entrar(IdPartida, NomeJogador, SenhaPartida);
-            lblEntrou1.Text = "ENTROU NA PARTIDA";
 
             colunas = idesenha_jogador.Split(',');
             JogadorId = colunas[0];
             JogadorSenha = colunas[1];
             this.numJogadores++;
-        }
-
-        private void btn_iniciar_Click(object sender, EventArgs e)
-        {
-            if (numJogadores >= 1 && numJogadores < 7)
-            {
-                string IniciarPartida = MePresidentaServidor.Jogo.Iniciar(IdPartida, SenhaPartida);
-                iniciou_partida = true;
-                this.Close();
-            }
-            else
-            {
-                lblnumJog.Text = "JOGADORES INSUFICIENTES";
-                iniciou_partida = false;
-            }
+            entrou_partida = true;
+            this.Close();
         }
 
         private void listPartidas_SelectedIndexChanged(object sender, EventArgs e)
@@ -84,5 +75,16 @@ namespace President_Me
             String nome = id[3];
         }
 
+        private void btn_atualizar_Click(object sender, EventArgs e)
+        {
+            listPartidas.Items.Clear();
+            string listar = MePresidentaServidor.Jogo.ListarPartidas();
+            string[] listP = listar.Split('\n');
+
+            for (int i = 0; i < listP.Length; i++)
+            {
+                listPartidas.Items.Add(listP[i].ToString());
+            }
+        }
     }
 }

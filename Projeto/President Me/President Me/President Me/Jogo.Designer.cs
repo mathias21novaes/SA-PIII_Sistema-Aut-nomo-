@@ -74,12 +74,10 @@
             this.lblcartas = new System.Windows.Forms.Label();
             this.lbl_Voto = new System.Windows.Forms.Label();
             this.lblJogo = new System.Windows.Forms.Label();
-            this.cbPersonagens = new System.Windows.Forms.ComboBox();
-            this.cbSetores = new System.Windows.Forms.ComboBox();
             this.Timer_Verificavez = new System.Windows.Forms.Timer(this.components);
             this.lbljogadorvez = new System.Windows.Forms.Label();
             this.txthistorico = new System.Windows.Forms.TextBox();
-            this.txtpromover = new System.Windows.Forms.TextBox();
+            this.txt_personagem = new System.Windows.Forms.TextBox();
             this.lblidp = new System.Windows.Forms.Label();
             this.Fechar = new System.Windows.Forms.PictureBox();
             this.lbl_Aviso = new System.Windows.Forms.Label();
@@ -91,7 +89,7 @@
             this.btn_iniciar = new System.Windows.Forms.PictureBox();
             this.tempo_servidor = new System.Windows.Forms.ComboBox();
             this.Pont_Id = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txt_setor = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.btn_nao)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_sim)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_promover)).BeginInit();
@@ -687,22 +685,6 @@
             this.lblJogo.TabIndex = 86;
             this.lblJogo.Text = "*";
             // 
-            // cbPersonagens
-            // 
-            this.cbPersonagens.FormattingEnabled = true;
-            this.cbPersonagens.Location = new System.Drawing.Point(808, 389);
-            this.cbPersonagens.Name = "cbPersonagens";
-            this.cbPersonagens.Size = new System.Drawing.Size(121, 21);
-            this.cbPersonagens.TabIndex = 88;
-            // 
-            // cbSetores
-            // 
-            this.cbSetores.FormattingEnabled = true;
-            this.cbSetores.Location = new System.Drawing.Point(670, 389);
-            this.cbSetores.Name = "cbSetores";
-            this.cbSetores.Size = new System.Drawing.Size(121, 21);
-            this.cbSetores.TabIndex = 90;
-            // 
             // Timer_Verificavez
             // 
             this.Timer_Verificavez.Interval = 3000;
@@ -728,16 +710,16 @@
             this.txthistorico.Size = new System.Drawing.Size(47, 294);
             this.txthistorico.TabIndex = 92;
             // 
-            // txtpromover
+            // txt_personagem
             // 
-            this.txtpromover.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtpromover.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtpromover.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtpromover.Location = new System.Drawing.Point(861, 622);
-            this.txtpromover.Multiline = true;
-            this.txtpromover.Name = "txtpromover";
-            this.txtpromover.Size = new System.Drawing.Size(53, 28);
-            this.txtpromover.TabIndex = 93;
+            this.txt_personagem.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txt_personagem.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_personagem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_personagem.Location = new System.Drawing.Point(861, 622);
+            this.txt_personagem.Multiline = true;
+            this.txt_personagem.Name = "txt_personagem";
+            this.txt_personagem.Size = new System.Drawing.Size(53, 28);
+            this.txt_personagem.TabIndex = 93;
             // 
             // lblidp
             // 
@@ -767,7 +749,7 @@
             this.lbl_Aviso.BackColor = System.Drawing.Color.Transparent;
             this.lbl_Aviso.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Aviso.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lbl_Aviso.Location = new System.Drawing.Point(828, 441);
+            this.lbl_Aviso.Location = new System.Drawing.Point(727, 441);
             this.lbl_Aviso.Name = "lbl_Aviso";
             this.lbl_Aviso.Size = new System.Drawing.Size(17, 23);
             this.lbl_Aviso.TabIndex = 99;
@@ -839,7 +821,6 @@
             // 
             this.btn_iniciar.BackColor = System.Drawing.Color.Transparent;
             this.btn_iniciar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_iniciar.Enabled = false;
             this.btn_iniciar.Image = ((System.Drawing.Image)(resources.GetObject("btn_iniciar.Image")));
             this.btn_iniciar.Location = new System.Drawing.Point(326, 641);
             this.btn_iniciar.Name = "btn_iniciar";
@@ -847,6 +828,7 @@
             this.btn_iniciar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.btn_iniciar.TabIndex = 108;
             this.btn_iniciar.TabStop = false;
+            this.btn_iniciar.Click += new System.EventHandler(this.btn_iniciar_Click);
             // 
             // tempo_servidor
             // 
@@ -854,7 +836,7 @@
             this.tempo_servidor.FormattingEnabled = true;
             this.tempo_servidor.Location = new System.Drawing.Point(146, 674);
             this.tempo_servidor.Name = "tempo_servidor";
-            this.tempo_servidor.Size = new System.Drawing.Size(50, 21);
+            this.tempo_servidor.Size = new System.Drawing.Size(40, 21);
             this.tempo_servidor.TabIndex = 109;
             // 
             // Pont_Id
@@ -868,16 +850,16 @@
             this.Pont_Id.TabIndex = 110;
             this.Pont_Id.Text = "label2";
             // 
-            // textBox1
+            // txt_setor
             // 
-            this.textBox1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(861, 590);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(53, 28);
-            this.textBox1.TabIndex = 111;
+            this.txt_setor.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txt_setor.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_setor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_setor.Location = new System.Drawing.Point(861, 590);
+            this.txt_setor.Multiline = true;
+            this.txt_setor.Name = "txt_setor";
+            this.txt_setor.Size = new System.Drawing.Size(53, 28);
+            this.txt_setor.TabIndex = 111;
             // 
             // Jogo
             // 
@@ -886,7 +868,7 @@
             this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1049, 713);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txt_setor);
             this.Controls.Add(this.Pont_Id);
             this.Controls.Add(this.tempo_servidor);
             this.Controls.Add(this.btn_iniciar);
@@ -898,11 +880,9 @@
             this.Controls.Add(this.lbl_Aviso);
             this.Controls.Add(this.Fechar);
             this.Controls.Add(this.lblidp);
-            this.Controls.Add(this.txtpromover);
+            this.Controls.Add(this.txt_personagem);
             this.Controls.Add(this.txthistorico);
             this.Controls.Add(this.lbljogadorvez);
-            this.Controls.Add(this.cbSetores);
-            this.Controls.Add(this.cbPersonagens);
             this.Controls.Add(this.P);
             this.Controls.Add(this.O);
             this.Controls.Add(this.N);
@@ -1045,12 +1025,10 @@
         private System.Windows.Forms.Label lblcartas;
         private System.Windows.Forms.Label lbl_Voto;
         private System.Windows.Forms.Label lblJogo;
-        private System.Windows.Forms.ComboBox cbPersonagens;
-        private System.Windows.Forms.ComboBox cbSetores;
         private System.Windows.Forms.Timer Timer_Verificavez;
         private System.Windows.Forms.Label lbljogadorvez;
         private System.Windows.Forms.TextBox txthistorico;
-        private System.Windows.Forms.TextBox txtpromover;
+        private System.Windows.Forms.TextBox txt_personagem;
         private System.Windows.Forms.Label lblidp;
         private System.Windows.Forms.PictureBox Fechar;
         private System.Windows.Forms.Label lbl_Aviso;
@@ -1063,6 +1041,6 @@
         private System.Windows.Forms.PictureBox btn_iniciar;
         private System.Windows.Forms.ComboBox tempo_servidor;
         private System.Windows.Forms.Label Pont_Id;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_setor;
     }
 }

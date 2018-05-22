@@ -23,7 +23,10 @@ namespace President_Me
         public string[,] matriz { get; set; } = new string[30, 30];
         public bool Atualizacao { get; set; } = false;
         public string presidente { get; set; }
-
+        public string SenhaPartida { get; set; }
+        public string SituacaoPartida { get; set; }
+        public string SituacaoRodada { get; set; }
+        public int Permissao { get; set; } = 0;
         /*-----------------------------------*/
 
         int X = 0;
@@ -35,7 +38,7 @@ namespace President_Me
         public string Jog_Nome { get; set; }
         public int Part_Id { get; set; }
 
-        public string SituacaoPartida { get; set; }
+        //public string SituacaoPartida { get; set; }
         //public int estado_Jogo { get; set; } = 0;
         public string Status { get; set; }
 
@@ -77,6 +80,7 @@ namespace President_Me
             flob.ShowDialog();
 
             this.Part_Id = Entrar_Partida.IdPartida;
+            this.SenhaPartida = Entrar_Partida.SenhaPartida;
             this.Jog_Senha = Entrar_Partida.JogadorSenha;
             this.Jog_Nome = Entrar_Partida.NomeJogador;
             this.auxJog = Entrar_Partida.JogadorId;
@@ -93,42 +97,67 @@ namespace President_Me
 
         }
 
+        private void Jogo_Load(object sender, EventArgs e)
+        {
+            Timer_Verificavez.Enabled = true;
+
+            MostrarDados();
+            CriarMatriz();
+            Adicionarpersonagens();
+            AdicionarSetores();
+        }
+
         private void Timer_Verificavez_Tick(object sender, EventArgs e)
         {
-            string VerificarVez = MePresidentaServidor.Jogo.VerificarVez(Jog_Id);
-            VerificarVez = VerificarVez.Replace("\r", "");
-            string[] tabuleiro = VerificarVez.Split('\n');
-            string Vez = tabuleiro[0];
-            personagem = tabuleiro[tabuleiro.Length - 1];
-            lbljogadorvez.Text = Vez;
-
-            Atualizacao = true;
-
-            if (Vez == auxJog)
+            if (VerificaInicio() == 0)
             {
-                lblJogo.Text = "SUA VEZ DE JOGAR";
-                lblJogo.ForeColor = Color.LimeGreen;
-                txthistorico.Text = personagem;
-                this.btn_colocar.Enabled = true;
-                Jogada();
+                lbl_Aviso.Text = "JOGO NÃO INICIADO";
+                Pontuacao();
             }
             else
             {
-                lblJogo.Text = "AGUARDE SUA VEZ";
-                lbl_Aviso.Text = " ";
-                lbl_Voto.Text = " ";
-                lblJogo.ForeColor = Color.Red;
-                this.btn_colocar.Enabled = false;
-                if(SituacaoPartida == "E")
+                Pontuacao();
+                Situacao_Partida();
+                string VerificarVez = MePresidentaServidor.Jogo.VerificarVez(Jog_Id);
+                VerificarVez = VerificarVez.Replace("\r", "");
+                string[] tabuleiro = VerificarVez.Split('\n');
+                string Vez = tabuleiro[0];
+                personagem = tabuleiro[tabuleiro.Length - 1];
+                lbljogadorvez.Text = Vez;
+
+                Atualizacao = true;
+
+                if (Vez == auxJog)
                 {
-                    lbl_Aviso.ForeColor = Color.Red;
-                    lbl_Aviso.Text = "PARTIDA ENCERRADA";
+                    lblJogo.Text = "SUA VEZ DE JOGAR";
+                    lblJogo.ForeColor = Color.LimeGreen;
+                    txthistorico.Text = personagem;
+                    this.btn_colocar.Enabled = true;
+                    Situacao_Rodada();
                 }
-                UltimaVotacao();
+                else
+                {
+                    lblJogo.Text = "AGUARDE SUA VEZ";
+                    lbl_Aviso.Text = " ";
+                    lbl_Voto.Text = " ";
+                    txt_personagem.Text = " ";
+                    txt_setor.Text = " ";
+                    lblJogo.ForeColor = Color.Red;
+                    this.btn_colocar.Enabled = false;
+                    UltimaVotacao();
+                }
             }
         }
 
         //FUNÇÕES DO JOGO ----------------------------------------------------------
+        public void Cartas()
+        {
+            string minhasCartas = MePresidentaServidor.Jogo.ListarCartas(Jog_Id, Jog_Senha);
+            if (minhasCartas.Contains("ERRO"))
+            {
+                lblcartas.Text = " ";
+            }
+        }
 
         public void Adicionarpersonagens()
         {
@@ -184,18 +213,32 @@ namespace President_Me
             arraySetores.Add(this.setor10);
         }
 
+        int VerificaInicio()
+        {
+            string VerificaVez = MePresidentaServidor.Jogo.VerificarVez(Jog_Id);
+            if (VerificaVez.Contains("ERRO"))
+            {
+                return 0;
+            }
+            else
+                MostrarDados();
+            return 1;
+        }
+
         public void MostrarDados()
         {
-            //string minhasCartas = MePresidentaServidor.Jogo.ListarCartas(Jog_Id, Jog_Senha);
-            MinhasCartas();
-            
+            string minhasCartas = MePresidentaServidor.Jogo.ListarCartas(Jog_Id, Jog_Senha);
+            if (minhasCartas.Contains("ERRO"))
+            {
+                lblcartas.Text = " ";
+            }  
             Pontuacao();
             lblidj.Text = auxJog;
             lblnj.Text = Jog_Nome;
-            //lblsj.Text = Jog_Senha;
             lblidp.Text = Convert.ToString(Part_Id);
-            //lblcartas.Text = minhasCartas;
+            lblcartas.Text = minhasCartas;
         }
+
         public string MinhasCartas()
         {
             string minhasCartas = MePresidentaServidor.Jogo.ListarCartas(Jog_Id, Jog_Senha);
@@ -206,27 +249,6 @@ namespace President_Me
             }
             lblcartas.Text = minhasCartas;
             return minhasCartas;
-        }
-        public void CriarPersonagens()
-        {
-            cbPersonagens.Items.Clear();
-            string personagem = MePresidentaServidor.Jogo.ListarPersonagens();
-            //lblpersonagens.Text = personagem;
-            personagem = personagem.Replace("\r", "");
-            string[] psg = personagem.Split('\n');
-
-            for (int i = 0; i < psg.Length - 1; i++)
-            {
-                cbPersonagens.Items.Add(psg[i].Substring(0, 1));
-            }
-        }
-
-        public void CriarSetores()
-        {
-            cbSetores.Items.Add("1");
-            cbSetores.Items.Add("2");
-            cbSetores.Items.Add("3");
-            cbSetores.Items.Add("4");
         }
 
         public void CriarMatriz()
@@ -259,6 +281,7 @@ namespace President_Me
 
             presidente = "";
         }
+
         public bool BuscarCarta(char[] vetor, char letra)
         {
             for(int i = 0; i<= vetor.Length-1;i++)
@@ -270,48 +293,23 @@ namespace President_Me
             return false;
         }
 
-        public void Jogada()
+        public void Situacao_Partida()
         {
-            Pontuacao();
             Status = MePresidentaServidor.Jogo.VerificarStatus(Jog_Id);
             string sta = Status.Replace("\r", "");
             string[] tabuleiro = new string[2];
             tabuleiro = sta.Split(',');
             SituacaoPartida = tabuleiro[0];
-            string SituacaoRodada = tabuleiro[1];
+            SituacaoRodada = tabuleiro[1];
 
             switch (SituacaoPartida)
             {
                 case "J":
-                    switch (SituacaoRodada)
-                    {
-                        case "S":
-                            Pontuacao();
-                            lbl_Aviso.Text = "COLOQUE UM PERSONAGEM";
-                            lbl_Aviso.ForeColor = Color.LimeGreen;
-                            btn_sim.Enabled = false;
-                            btn_nao.Enabled = false;
-                            MoverPersonagem();
-                            break;
-
-                        case "J":
-                            lbl_Aviso.Text = "PROMOVA UM PERSONAGEM";
-                            Promover();
-                            //btn_promover.Enabled = true;
-                            break;
-
-                        case "V":
-                            lbl_Aviso.Text = "VOTE NO PERSONAGEM";
-                            btn_promover.Enabled = false;
-                            btn_sim.Enabled = true;
-                            btn_nao.Enabled = true;
-                            Votacao();
-                            break;
-                    }
+                    Permissao = 1;
                     break;
 
                 case "A":
-                    lbl_Aviso.Text = "A PARTIDA ESTA ABERTA";
+                    lbl_Aviso.Text = "PARTIDA ABERTA";
                     break;
 
                 case "E":
@@ -321,16 +319,41 @@ namespace President_Me
             }
         }
 
-        private void Jogo_Load(object sender, EventArgs e)
+        public void Situacao_Rodada()
         {
-            Timer_Verificavez.Enabled = true;
+            if (Permissao == 1)
+            {
+                switch (SituacaoRodada)
+                {
+                    case "S":
+                        lbl_Aviso.Text = "COLOQUE UM PERSONAGEM";
+                        lbl_Aviso.ForeColor = Color.LimeGreen;
+                        btn_colocar.Enabled = true;
+                        btn_promover.Enabled = false;
+                        btn_sim.Enabled = false;
+                        btn_nao.Enabled = false;
+                        if (Entrar_Partida.Automatico == 1) { MoverAuto(); }
+                        break;
 
-            MostrarDados();
-            CriarPersonagens();
-            CriarSetores();
-            CriarMatriz();
-            Adicionarpersonagens();
-            AdicionarSetores();
+                    case "J":
+                        lbl_Aviso.Text = "PROMOVA UM PERSONAGEM";
+                        btn_promover.Enabled = true;
+                        btn_colocar.Enabled = false;
+                        btn_sim.Enabled = false;
+                        btn_nao.Enabled = false;
+                        if (Entrar_Partida.Automatico == 1) { PromoverAuto(); }
+                        break;
+
+                    case "V":
+                        lbl_Aviso.Text = "VOTE NO PERSONAGEM";
+                        btn_promover.Enabled = false;
+                        btn_colocar.Enabled = false;
+                        btn_sim.Enabled = true;
+                        btn_nao.Enabled = true;
+                        if (Entrar_Partida.Automatico == 1) { VotacaoAuto(); }
+                        break;
+                }
+            }
         }
 
         public void UltimaVotacao()
@@ -347,11 +370,6 @@ namespace President_Me
         {
             string Aux = MePresidentaServidor.Jogo.ListarJogadores(Part_Id);
             lbljogadores.Text = Aux;
-            /*Aux = Aux.Replace("\r"," ");
-            string[] dados = new string[3];
-            dados = Aux.Split('\n');
-            string pontuacao = dados[dados.Length - 1];
-            lbljogadores.Text = pontuacao;*/
         }
 
         void AtualizarSetor(int setor)
@@ -372,8 +390,8 @@ namespace President_Me
                 arraySetores[6].contmais();
         }
 
-        //FUNÇÕES: COLOCAR, PROMOVER E VOTAR PERSONAGEM ------------------------------------------
-        public int MoverPersonagem()
+        //FUNÇÕES: COLOCAR, PROMOVER E VOTAR (ESTRATÉGIA) --------------------------------------
+        public int MoverAuto()
         {
             bool entrou = true;
             string[] aux = { };
@@ -755,7 +773,7 @@ namespace President_Me
 
         }
 
-        public void Promover()
+        public void PromoverAuto()
         {
             string cartas = MinhasCartas();
             cartas = cartas.Replace("\r","");
@@ -868,7 +886,7 @@ namespace President_Me
 
         }
 
-        public void Votacao()
+        public void VotacaoAuto()
         {
             int rand3;
             string cartas = MinhasCartas();
@@ -901,22 +919,147 @@ namespace President_Me
                 votar = MePresidentaServidor.Jogo.Votar(Jog_Id, Jog_Senha, Voto);
                 lbl_Voto.Text = "VOTOU SIM";
             }*/
-                if (rand3 == 0)
-                {
-                    Voto = "s";
-                    votar = MePresidentaServidor.Jogo.Votar(Jog_Id, Jog_Senha, Voto);
-                    lbl_Voto.Text = "VOTOU SIM";
-                }
-                else
-                {
-                    Voto = "n";
-                    votar = MePresidentaServidor.Jogo.Votar(Jog_Id, Jog_Senha, Voto);
-                    lbl_Voto.Text = "VOTOU NÃO";
-                }
-                if (votar.Contains("ERRO"))
+            if (rand3 == 0)
             {
-                Votacao();
+                Voto = "s";
+                votar = MePresidentaServidor.Jogo.Votar(Jog_Id, Jog_Senha, Voto);
+                lbl_Voto.Text = "VOTOU SIM";
             }
+            else
+            {
+                Voto = "n";
+                votar = MePresidentaServidor.Jogo.Votar(Jog_Id, Jog_Senha, Voto);
+                lbl_Voto.Text = "VOTOU NÃO";
+            }
+            if (votar.Contains("ERRO"))
+            {
+                //Votacao();
+            }
+        }
+
+        //FUNÇÕES: COLOCAR, PROMOVER E VOTAR (HUMANO) ------------------------------------------
+        public int Mover(string personagem, int setor, bool serv)
+        {
+            string[] aux = { };
+            bool entrou = true;
+
+            if (serv)
+            {
+                string ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, setor, personagem);
+                if (ColocarPersonagem.Contains("ERRO"))
+                {
+                    MessageBox.Show(ColocarPersonagem);
+                    return -1;
+                }
+            }
+
+            for (int i = 0; i < 4; i++)
+            {
+                aux = matriz[(Convert.ToInt32(setor) - 1), i].Split(',');
+                if (aux[2] == "false")
+                {
+                    if (txt_personagem.Text == "A")
+                    {
+                        A.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                        entrou = true;
+                        break;
+                    }
+                    else if (txt_personagem.Text == "B")
+                    {
+                        B.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                        entrou = true;
+                        break;
+                    }
+                    else if (txt_personagem.Text == "C")
+                    {
+                        C.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                        entrou = true;
+                        break;
+                    }
+                    else if (txt_personagem.Text == "D")
+                    {
+                        D.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                        entrou = true;
+                        break;
+                    }
+                    else if (txt_personagem.Text == "E")
+                    {
+                        E.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                        entrou = true;
+                        break;
+                    }
+                    else if (txt_personagem.Text == "F")
+                    {
+                        F.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                        entrou = true;
+                        break;
+                    }
+                    else if (txt_personagem.Text == "G")
+                    {
+                        G.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                        entrou = true;
+                        break;
+                    }
+                    else if (txt_personagem.Text == "I")
+                    {
+                        I.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                        entrou = true;
+                        break;
+                    }
+                    else if (txt_personagem.Text == "L")
+                    {
+                        L.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                        entrou = true;
+                        break;
+                    }
+                    else if (txt_personagem.Text == "M")
+                    {
+                        M.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                        entrou = true;
+                        break;
+                    }
+                    else if (txt_personagem.Text == "N")
+                    {
+                        N.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                        entrou = true;
+                        break;
+                    }
+                    else if (txt_personagem.Text == "O")
+                    {
+                        O.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                        entrou = true;
+                        break;
+                    }
+                    else if (txt_personagem.Text == "P")
+                    {
+                        P.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                        entrou = true;
+                        break;
+                    }
+                    return 1;
+                }
+                if (entrou == false)
+                {
+                    lblJogo.Text = "NÍVEL CHEIO";
+                    matriz[(Convert.ToInt32(txt_setor) - 1), i] = aux[0] + ',' + aux[1] + ',' + true;
+                }
+            }
+            return 0;
+        }
+
+        public void Promover()
+        {
+            string promover = MePresidentaServidor.Jogo.Promover(Jog_Id, Jog_Senha, personagem);
+            lbl_Aviso.Text = personagem + "PROMOVIDO";
+            if (promover.Contains("ERRO")) { lbl_Aviso.Text = promover; }
+        }
+
+        public void Votacao(string Voto)
+        {
+            string votar = MePresidentaServidor.Jogo.Votar(Jog_Id, Jog_Senha, Voto);
+            if (Voto == "S") { lbl_Voto.Text = "VOTOU SIM"; }
+            else { lbl_Voto.Text = "VOTOU NÃO"; }
+            if (votar.Contains("ERRO")) { lbl_Aviso.Text = votar; }
         }
 
         //FUNÇÃO DOS BOTÕES E SUAS INTERAÇÕES --------------------------------------------------
@@ -927,22 +1070,39 @@ namespace President_Me
 
         private void btn_promover_Click(object sender, EventArgs e)
         {
-            //string personagem = txtpromover.Text;
             Promover();
         }
 
         private void btn_sim_Click(object sender, EventArgs e)
         {
-            //string Voto = "s";
-            //Votacao(Voto);
-            lbl_Voto.Text = "VOTOU SIM";
+            string Voto = "S";
+            Votacao(Voto);
         }
 
         private void btn_nao_Click(object sender, EventArgs e)
         {
-            //string Voto = "n";
-            //Votacao(Voto);
-            lbl_Voto.Text = "VOTOU NÃO";
+            string Voto = "N";
+            Votacao(Voto);
+        }
+
+        private void btn_colocar_Click(object sender, EventArgs e)
+        {
+            if (String.IsNullOrEmpty(this.txt_personagem.Text) || String.IsNullOrEmpty(this.txt_setor.Text))
+            {
+                lblJogo.Text = "ESCOLHA O PERSONAGEM E DESTINO";
+                return;
+            }
+            Mover(txt_personagem.Text.Substring(0, 1), Convert.ToInt32(txt_setor.Text), true);
+            lblJogo.Text = "";
+        }
+
+        private void btn_iniciar_Click(object sender, EventArgs e)
+        {
+            string IniciarPartida = MePresidentaServidor.Jogo.Iniciar(Part_Id, SenhaPartida);
+            if (IniciarPartida.Contains("ERRO"))
+            {
+                lbl_Aviso.Text = "JOGADORES INSUFICIENTES";
+            }
         }
 
         //MOVER JOGO NA TELA -------------------------------------------------------------------
@@ -959,85 +1119,5 @@ namespace President_Me
             this.Left = X + MousePosition.X;
             this.Top = Y + MousePosition.Y;
         }
-
-        private void btn_colocar_Click(object sender, EventArgs e)
-        {
-            if (String.IsNullOrEmpty(this.cbPersonagens.Text) || String.IsNullOrEmpty(this.cbSetores.Text))
-            {
-                lblJogo.Text = "ESCOLHA O PERSONAGEM E DESTINO";
-                return;
-            }
-            lblJogo.Text = "";
-        }
     }
 }
-
-/*public void atualizaTabuleiro(string tabuleiro)
-        {
-           string[] personagem;
-           tabuleiro = verificavez.Split('\n');
-           if (tabuleiro.Length > 2)
-           {
-               for (int i = 0; i < tabuleiro.Length - 1; i++)
-               {
-                   personagem = tabuleiro[i].Split(',');
-                   if (cbPersonagens.Items.Contains(personagem[1]) && atualizacao == true)
-                   {
-                       atualizaPersonagem(personagem[1], Convert.ToInt32(personagem[0]));
-                   }
-                   else if (cbPersonagens.Items.Contains(personagem[1]))
-                   {
-                       moverPersonagem(personagem[1], Convert.ToInt32(personagem[0]), false);
-                   }
-               }
-           }
-        }*/
-
-/*public void setaTabuleiro()
-{
-    string tabuleiro = MePresidentaServidor.Jogo.VerificarVez(Jog_Id);
-    tabuleiro = tabuleiro.Replace("\r", "");
-    string[] posicoes = tabuleiro.Split('\n');
-    string[] personagem;
-    string[] aux = { };
-    Control persona = null;
-    if (posicoes.Length > 1)
-    {
-        for (int i = 1; i < posicoes.Length - 1; i++)
-        {
-            personagem = posicoes[i].Split(',');
-            foreach (Control con in this.Controls)
-            {
-                if (con is PictureBox)
-                {
-                    if (Convert.ToString(con.Tag) == personagem[1])
-                    {
-                        persona = con;
-                        break;
-                    }
-                }
-            }
-            if (Convert.ToInt32(personagem[0]) == 10)
-            {
-                presidente = personagem[1];
-                persona.Location = posPresidente.Location;
-                //inGame = 3;
-                return;
-            }
-            else
-            {
-                for (int j = 0; j < 4; j++)
-                {
-                    aux = this.matriz[Convert.ToInt32(Convert.ToInt32(personagem[0])), j].Split(',');
-                    if (aux[2] == "false")
-                    {
-                        persona.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
-                        this.matriz[Convert.ToInt32(Convert.ToInt32(personagem[0])), j] = aux[0] + ',' + aux[1] + ',' + personagem[1];
-                        this.cbPersonagens.Items.Remove(personagem[1]);
-                        break;
-                    }
-                }
-            }
-        }
-    }
-}*/
