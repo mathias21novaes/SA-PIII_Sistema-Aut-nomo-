@@ -1,0 +1,73 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Game", "Game\Game.csproj", "{9F8C85B0-7D29-476F-B067-97C2E35746FD}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Player", "Player\Player.csproj", "{2163D18F-F283-49F1-BF1A-BB0FF1EC0A82}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{2B714F56-509B-4356-91FC-38FDA05B6E13}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlackJack", "BlackJack\BlackJack.csproj", "{0D505FA8-B3E8-440B-B12B-8447A56FDBA3}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HumanPlayer", "HumanPlayer\HumanPlayer.csproj", "{9F57CEB2-E317-4E5F-93A7-418153EB64CE}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2F00E6E6-1474-4074-8D2E-4FA2F0188B73}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+	ProjectSection(SolutionItems) = preProject
+		Licence.txt = Licence.txt
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9F8C85B0-7D29-476F-B067-97C2E35746FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F8C85B0-7D29-476F-B067-97C2E35746FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F8C85B0-7D29-476F-B067-97C2E35746FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F8C85B0-7D29-476F-B067-97C2E35746FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2163D18F-F283-49F1-BF1A-BB0FF1EC0A82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2163D18F-F283-49F1-BF1A-BB0FF1EC0A82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2163D18F-F283-49F1-BF1A-BB0FF1EC0A82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2163D18F-F283-49F1-BF1A-BB0FF1EC0A82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B714F56-509B-4356-91FC-38FDA05B6E13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B714F56-509B-4356-91FC-38FDA05B6E13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B714F56-509B-4356-91FC-38FDA05B6E13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B714F56-509B-4356-91FC-38FDA05B6E13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D505FA8-B3E8-440B-B12B-8447A56FDBA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D505FA8-B3E8-440B-B12B-8447A56FDBA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D505FA8-B3E8-440B-B12B-8447A56FDBA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D505FA8-B3E8-440B-B12B-8447A56FDBA3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F57CEB2-E317-4E5F-93A7-418153EB64CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F57CEB2-E317-4E5F-93A7-418153EB64CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F57CEB2-E317-4E5F-93A7-418153EB64CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F57CEB2-E317-4E5F-93A7-418153EB64CE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
