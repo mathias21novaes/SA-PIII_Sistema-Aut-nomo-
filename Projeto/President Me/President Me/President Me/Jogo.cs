@@ -109,7 +109,7 @@ namespace President_Me
                 lblJogo.Text = "SUA VEZ DE JOGAR";
                 lblJogo.ForeColor = Color.LimeGreen;
                 txthistorico.Text = personagem;
-                this.btnColocar.Enabled = true;
+                this.btn_colocar.Enabled = true;
                 Jogada();
             }
             else
@@ -118,7 +118,7 @@ namespace President_Me
                 lbl_Aviso.Text = " ";
                 lbl_Voto.Text = " ";
                 lblJogo.ForeColor = Color.Red;
-                this.btnColocar.Enabled = false;
+                this.btn_colocar.Enabled = false;
                 if(SituacaoPartida == "E")
                 {
                     lbl_Aviso.ForeColor = Color.Red;
@@ -192,7 +192,7 @@ namespace President_Me
             Pontuacao();
             lblidj.Text = auxJog;
             lblnj.Text = Jog_Nome;
-            lblsj.Text = Jog_Senha;
+            //lblsj.Text = Jog_Senha;
             lblidp.Text = Convert.ToString(Part_Id);
             //lblcartas.Text = minhasCartas;
         }
@@ -211,7 +211,7 @@ namespace President_Me
         {
             cbPersonagens.Items.Clear();
             string personagem = MePresidentaServidor.Jogo.ListarPersonagens();
-            lblpersonagens.Text = personagem;
+            //lblpersonagens.Text = personagem;
             personagem = personagem.Replace("\r", "");
             string[] psg = personagem.Split('\n');
 
@@ -931,16 +931,6 @@ namespace President_Me
             Promover();
         }
 
-        private void btnColocar_Click(object sender, EventArgs e)
-        {
-            if (String.IsNullOrEmpty(this.cbPersonagens.Text) || String.IsNullOrEmpty(this.cbSetores.Text))
-            {
-                lblJogo.Text = "ESCOLHA O PERSONAGEM E DESTINO";
-                return;
-            }
-            lblJogo.Text = "";
-        }
-
         private void btn_sim_Click(object sender, EventArgs e)
         {
             //string Voto = "s";
@@ -968,6 +958,16 @@ namespace President_Me
             if (e.Button != MouseButtons.Left) return;
             this.Left = X + MousePosition.X;
             this.Top = Y + MousePosition.Y;
+        }
+
+        private void btn_colocar_Click(object sender, EventArgs e)
+        {
+            if (String.IsNullOrEmpty(this.cbPersonagens.Text) || String.IsNullOrEmpty(this.cbSetores.Text))
+            {
+                lblJogo.Text = "ESCOLHA O PERSONAGEM E DESTINO";
+                return;
+            }
+            lblJogo.Text = "";
         }
     }
 }
