@@ -92,6 +92,7 @@
             this.tempo_servidor = new System.Windows.Forms.ComboBox();
             this.Pont_Id = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.btn_nao)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_sim)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_promover)).BeginInit();
@@ -153,11 +154,11 @@
             // 
             this.lblidj.AutoSize = true;
             this.lblidj.BackColor = System.Drawing.Color.Transparent;
-            this.lblidj.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblidj.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblidj.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lblidj.Location = new System.Drawing.Point(881, 281);
             this.lblidj.Name = "lblidj";
-            this.lblidj.Size = new System.Drawing.Size(17, 23);
+            this.lblidj.Size = new System.Drawing.Size(15, 20);
             this.lblidj.TabIndex = 25;
             this.lblidj.Text = "*";
             // 
@@ -642,11 +643,11 @@
             // 
             this.lblnj.AutoSize = true;
             this.lblnj.BackColor = System.Drawing.Color.Transparent;
-            this.lblnj.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblnj.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblnj.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lblnj.Location = new System.Drawing.Point(774, 305);
             this.lblnj.Name = "lblnj";
-            this.lblnj.Size = new System.Drawing.Size(17, 23);
+            this.lblnj.Size = new System.Drawing.Size(15, 20);
             this.lblnj.TabIndex = 61;
             this.lblnj.Text = "*";
             // 
@@ -654,11 +655,11 @@
             // 
             this.lblcartas.AutoSize = true;
             this.lblcartas.BackColor = System.Drawing.Color.Transparent;
-            this.lblcartas.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblcartas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblcartas.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lblcartas.Location = new System.Drawing.Point(864, 340);
             this.lblcartas.Name = "lblcartas";
-            this.lblcartas.Size = new System.Drawing.Size(17, 23);
+            this.lblcartas.Size = new System.Drawing.Size(15, 20);
             this.lblcartas.TabIndex = 64;
             this.lblcartas.Text = "*";
             // 
@@ -666,11 +667,11 @@
             // 
             this.lbl_Voto.AutoSize = true;
             this.lbl_Voto.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_Voto.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Voto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Voto.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lbl_Voto.Location = new System.Drawing.Point(656, 441);
             this.lbl_Voto.Name = "lbl_Voto";
-            this.lbl_Voto.Size = new System.Drawing.Size(17, 23);
+            this.lbl_Voto.Size = new System.Drawing.Size(15, 20);
             this.lbl_Voto.TabIndex = 33;
             this.lbl_Voto.Text = "*";
             this.lbl_Voto.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -679,11 +680,11 @@
             // 
             this.lblJogo.AutoSize = true;
             this.lblJogo.BackColor = System.Drawing.Color.Transparent;
-            this.lblJogo.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblJogo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblJogo.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lblJogo.Location = new System.Drawing.Point(642, 238);
             this.lblJogo.Name = "lblJogo";
-            this.lblJogo.Size = new System.Drawing.Size(17, 23);
+            this.lblJogo.Size = new System.Drawing.Size(15, 20);
             this.lblJogo.TabIndex = 86;
             this.lblJogo.Text = "*";
             // 
@@ -712,10 +713,10 @@
             // 
             this.lbljogadorvez.AutoSize = true;
             this.lbljogadorvez.BackColor = System.Drawing.Color.Transparent;
-            this.lbljogadorvez.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbljogadorvez.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbljogadorvez.Location = new System.Drawing.Point(914, 243);
             this.lbljogadorvez.Name = "lbljogadorvez";
-            this.lbljogadorvez.Size = new System.Drawing.Size(13, 18);
+            this.lbljogadorvez.Size = new System.Drawing.Size(13, 16);
             this.lbljogadorvez.TabIndex = 91;
             this.lbljogadorvez.Text = "*";
             // 
@@ -743,11 +744,11 @@
             // 
             this.lblidp.AutoSize = true;
             this.lblidp.BackColor = System.Drawing.Color.Transparent;
-            this.lblidp.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblidp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblidp.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lblidp.Location = new System.Drawing.Point(752, 267);
             this.lblidp.Name = "lblidp";
-            this.lblidp.Size = new System.Drawing.Size(17, 23);
+            this.lblidp.Size = new System.Drawing.Size(15, 20);
             this.lblidp.TabIndex = 96;
             this.lblidp.Text = "*";
             // 
@@ -765,11 +766,11 @@
             // 
             this.lbl_Aviso.AutoSize = true;
             this.lbl_Aviso.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_Aviso.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Aviso.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Aviso.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lbl_Aviso.Location = new System.Drawing.Point(828, 441);
             this.lbl_Aviso.Name = "lbl_Aviso";
-            this.lbl_Aviso.Size = new System.Drawing.Size(17, 23);
+            this.lbl_Aviso.Size = new System.Drawing.Size(15, 20);
             this.lbl_Aviso.TabIndex = 99;
             this.lbl_Aviso.Text = "*";
             this.lbl_Aviso.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -878,6 +879,27 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(53, 28);
             this.textBox1.TabIndex = 111;
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "a.png");
+            this.imageList1.Images.SetKeyName(1, "b.png");
+            this.imageList1.Images.SetKeyName(2, "c.png");
+            this.imageList1.Images.SetKeyName(3, "d.png");
+            this.imageList1.Images.SetKeyName(4, "e.png");
+            this.imageList1.Images.SetKeyName(5, "f.png");
+            this.imageList1.Images.SetKeyName(6, "g.png");
+            this.imageList1.Images.SetKeyName(7, "h.png");
+            this.imageList1.Images.SetKeyName(8, "i.png");
+            this.imageList1.Images.SetKeyName(9, "j.png");
+            this.imageList1.Images.SetKeyName(10, "k.png");
+            this.imageList1.Images.SetKeyName(11, "l.png");
+            this.imageList1.Images.SetKeyName(12, "m.png");
+            this.imageList1.Images.SetKeyName(13, "n.png");
+            this.imageList1.Images.SetKeyName(14, "o.png");
+            this.imageList1.Images.SetKeyName(15, "p.png");
             // 
             // Jogo
             // 
@@ -1064,5 +1086,6 @@
         private System.Windows.Forms.ComboBox tempo_servidor;
         private System.Windows.Forms.Label Pont_Id;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ImageList imageList1;
     }
 }

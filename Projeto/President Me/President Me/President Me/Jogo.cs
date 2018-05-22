@@ -378,6 +378,9 @@ namespace President_Me
             bool entrou = true;
             string[] aux = { };
             int lugar = 0;
+            int rand1 = aleatorio.Next(0, 13);
+            int rand2 = aleatorio.Next(1, 5);
+            int rand3 = aleatorio.Next(0, 4);
             string cartas = MinhasCartas();
             cartas = cartas.Replace("\r", "");
             cartas = cartas.Replace("\n", "");
@@ -388,7 +391,7 @@ namespace President_Me
             {
                 matrizcartas[i] = cartas[i];
             }
-            if (BuscarCarta(matrizcartas, 'A'))
+            /*if (BuscarCarta(matrizcartas, 'A'))
             {
                 ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[4].setor, arrayPersonagens[0].nome);
                 if (ColocarPersonagem.Contains("ERRO: Personagem já está no tabuleiro"))
@@ -648,11 +651,12 @@ namespace President_Me
                         }
                     }
                 }
-            }
-
-            /*if (arrayPersonagens[rand1].setor == -1)
+            }*/
+            if (arrayPersonagens[rand1].setor == -1)
             {
-                    string ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[rand2].setor, arrayPersonagens[rand1].nome);
+                if (arraySetores[rand2].i <= 3)
+                {
+                    ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[rand2].setor, arrayPersonagens[rand1].nome);
                     if (ColocarPersonagem.Contains("ERRO"))
                     {
                         //lbl_Aviso.Text = ColocarPersonagem;
@@ -662,12 +666,153 @@ namespace President_Me
                     {
                         txthistorico.Text = ColocarPersonagem;
                     }
-
                     if (entrou == true)
                     {
                         aux = matriz[(Convert.ToInt32(rand2) - 1), lugar].Split(',');
                         if (aux[2] == "false")
                         {
+                            if (arrayPersonagens[rand1].nome == "A")
+                            {
+                                if (arraySetores[rand2].setor == 1)
+                                {
+                                    if(pos00.Image == null)
+                                    {
+                                        pos00.Image = Image.FromFile("C:\\Users\\Claudina\\Documents\\GitHub\\SA-PIII_Sistema-Autonomo\\Projeto\\President Me\\President Me\\President Me\\IMAGENS\\PERSONAGENS\\a.png");
+                                        A.Location = new Point(pos00.Location.X, pos00.Location.Y) ;
+                                    }
+                                    else if (pos01.Image == null)
+                                    {
+                                        pos01.Image = Image.FromFile("C:\\Users\\Claudina\\Documents\\GitHub\\SA-PIII_Sistema-Autonomo\\Projeto\\President Me\\President Me\\President Me\\IMAGENS\\PERSONAGENS\\a.png");
+                                        A.Location = new Point(pos01.Location.X, pos01.Location.Y);
+                                    }
+                                    else if (pos02.Image == null)
+                                    {
+                                        pos00.Image = Image.FromFile("C:\\Users\\Claudina\\Documents\\GitHub\\SA-PIII_Sistema-Autonomo\\Projeto\\President Me\\President Me\\President Me\\IMAGENS\\PERSONAGENS\\a.png");
+                                        A.Location = new Point(pos02.Location.X, pos02.Location.Y);
+                                    }
+                                    pos03.Image = Image.FromFile("C:\\Users\\Claudina\\Documents\\GitHub\\SA-PIII_Sistema-Autonomo\\Projeto\\President Me\\President Me\\President Me\\IMAGENS\\PERSONAGENS\\a.png");
+                                    //A.Location = pos03.Location;
+                                }
+                                else if (arraySetores[rand2].setor == 2)
+                                {
+                                    if (pos10.Image == null)
+                                    {
+                                        A.Location = new Point(pos10.Location.X, pos10.Location.Y);
+                                    }
+                                    else if (pos11.Image == null)
+                                    {
+                                        A.Location = new Point(pos11.Location.X, pos11.Location.Y);
+                                    }
+                                    else if (pos12.Image == null)
+                                    {
+                                        A.Location = new Point(pos12.Location.X, pos12.Location.Y);
+                                    }
+                                    pos13.Image = Image.FromFile("C:\\Users\\Claudina\\Documents\\GitHub\\SA-PIII_Sistema-Autonomo\\Projeto\\President Me\\President Me\\President Me\\IMAGENS\\PERSONAGENS\\a.png");
+                                    //A.Location = pos13.Location;
+                                }
+                                else if (arraySetores[rand2].setor == 3)
+                                {
+                                    if (pos20.Image == null)
+                                    {
+                                        A.Location = new Point(pos20.Location.X, pos20.Location.Y);
+                                    }
+                                    else if (pos21.Image == null)
+                                    {
+                                        A.Location = new Point(pos21.Location.X, pos21.Location.Y);
+                                    }
+                                    else if (pos22.Image == null)
+                                    {
+                                        A.Location = new Point(pos22.Location.X, pos22.Location.Y);
+                                    }
+                                    pos23.Image = Image.FromFile("C:\\Users\\Claudina\\Documents\\GitHub\\SA-PIII_Sistema-Autonomo\\Projeto\\President Me\\President Me\\President Me\\IMAGENS\\PERSONAGENS\\a.png"); 
+                                    //A.Location = pos23.Location;
+                                }
+                                else if (arraySetores[rand2].setor == 4)
+                                {
+                                    A.ImageLocation = pos31.ImageLocation;
+                                }
+                                //A.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                //aux[2] = "true";
+                                entrou = true;
+                            }
+                            else if (arrayPersonagens[rand1].nome == "B")
+                            {
+                                B.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                aux[2] = "true";
+                                entrou = true;
+                            }
+                            else if (arrayPersonagens[rand1].nome == "C")
+                            {
+                                C.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                aux[2] = "true";
+                                entrou = true;
+                            }
+                            else if (arrayPersonagens[rand1].nome == "D")
+                            {
+                                D.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                aux[2] = "true";
+                                entrou = true;
+                            }
+                            else if (arrayPersonagens[rand1].nome == "E")
+                            {
+                                E.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                aux[2] = "true";
+                                entrou = true;
+                            }
+                            else if (arrayPersonagens[rand1].nome == "F")
+                            {
+                                F.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                aux[2] = "true";
+                                entrou = true;
+                            }
+                            else if (arrayPersonagens[rand1].nome == "G")
+                            {
+                                G.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                aux[2] = "true";
+                                entrou = true;
+                            }
+                            else if (arrayPersonagens[rand1].nome == "I")
+                            {
+                                I.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                cbPersonagens.Items.Remove("I");
+                                entrou = true;
+                            }
+                            else if (arrayPersonagens[rand1].nome == "L")
+                            {
+                                L.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                cbPersonagens.Items.Remove("L");
+                                entrou = true;
+                            }
+                            else if (arrayPersonagens[rand1].nome == "M")
+                            {
+                                M.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                cbPersonagens.Items.Remove("M");
+                                entrou = true;
+                            }
+                            else if (arrayPersonagens[rand1].nome == "N")
+                            {
+                                N.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                cbPersonagens.Items.Remove("N");
+                                entrou = true;
+                            }
+                            else if (arrayPersonagens[rand1].nome == "O")
+                            {
+                                O.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                cbPersonagens.Items.Remove("O");
+                                entrou = true;
+                            }
+                            else if (arrayPersonagens[rand1].nome == "P")
+                            {
+                                P.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                cbPersonagens.Items.Remove("P");
+                                entrou = true;
+                            }
+                            lugar++;
+                            return 1;
+                        }
+                        else if (aux[2] == "true")
+                        {
+                            aux = matriz[(Convert.ToInt32(rand2) - 1), 1].Split(',');
                             if (arrayPersonagens[rand1].nome == "A")
                             {
                                 A.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
@@ -746,11 +891,11 @@ namespace President_Me
                                 cbPersonagens.Items.Remove("P");
                                 entrou = true;
                             }
-                            lugar++;
-                            return 1;
                         }
                     }
-            }*/
+                }
+            }
+
             return 0;
 
         }
@@ -883,6 +1028,15 @@ namespace President_Me
             string Voto;
             rand3 = aleatorio.Next(0, 2);
             string votar;
+            string cartab = txthistorico.Text;
+            cartas = cartab.Replace("\r", "");
+            cartas = cartab.Replace("\n", "");
+            char[] matrizcartab = new char[cartab.Length];
+
+            for (int i = 0; i < cartas.Length; i++)
+            {
+                matrizcartas[i] = cartab[i];
+            }
             /*if (BuscarCarta(matrizcartas, 'A') == true && )
             {
                 Voto = "s";
@@ -901,7 +1055,7 @@ namespace President_Me
                 votar = MePresidentaServidor.Jogo.Votar(Jog_Id, Jog_Senha, Voto);
                 lbl_Voto.Text = "VOTOU SIM";
             }*/
-                if (rand3 == 0)
+            if (rand3 == 0)
                 {
                     Voto = "s";
                     votar = MePresidentaServidor.Jogo.Votar(Jog_Id, Jog_Senha, Voto);
