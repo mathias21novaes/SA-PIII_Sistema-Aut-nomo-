@@ -1212,150 +1212,166 @@ namespace President_Me
             string[] tab = { };
             string[] aux = { };
             int lugar = 0;
-            if(tabuleiro.Length >= 2)
+            if(tabuleiro.Length >= 3)
             {
-                for (int i = 1; i < tabuleiro.Length; i++)
+                
+
+                for (int i = 1; i <= tabuleiro.Length - 1; i++)
                 {
-                    tab = tabuleiro[i].Split(',');
-                    aux = matriz[Convert.ToInt32(tab[0]), lugar].Split(',');
-                    if (aux[2] == "false")
+                    try
                     {
-                        if (tab[1] == "A")
+                        tab = tabuleiro[i].Split(',');
+                        string perso = tab[1];
+                        string setor = tab[0];
+                        lbl_Aviso.Text = tabuleiro[1];
+                        lbl_Voto.Text = tab[1];
+                        aux = matriz[Convert.ToInt32(setor) - 1, lugar].Split(',');
+                        if (aux[2] == "false")
                         {
-                            A.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
-                            matriz[Convert.ToInt32(tab[0]), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true";
+                            //if(perso == "A" && matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true"){
+
+                            //} 
+                            if (perso == "A")
+                            {
+                                A.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true";
+                            }
+                            else if (perso == "B")
+                            {
+                                B.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true";
+                            }
+                            else if (perso == "C")
+                            {
+                                C.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true";
+                            }
+                            else if (perso == "D")
+                            {
+                                D.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true";
+                            }
+                            else if (perso == "E")
+                            {
+                                E.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true";
+                            }
+                            else if (perso == "F")
+                            {
+                                F.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true";
+                            }
+                            else if (perso == "G")
+                            {
+                                G.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true";
+                            }
+                            else if (perso == "I")
+                            {
+                                I.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true";
+                            }
+                            else if (perso == "L")
+                            {
+                                L.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true";
+                            }
+                            else if (perso == "M")
+                            {
+                                M.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true";
+                            }
+                            else if (perso == "N")
+                            {
+                                N.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true";
+                            }
+                            else if (perso == "O")
+                            {
+                                O.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true";
+                            }
+                            else if (perso == "P")
+                            {
+                                P.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true";
+                            }
                         }
-                        else if (tab[1] == "B")
+                        if (aux[2] == "true")
                         {
-                            A.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
-                            matriz[Convert.ToInt32(tab[0]), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true";
+                            lugar++;
+                            aux = matriz[Convert.ToInt32(setor) - 1, lugar].Split(',');
+                            if (perso == "A")
+                            {
+                                A.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true";
+                            }
+                            else if (perso == "B")
+                            {
+                                B.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true";
+                            }
+                            else if (perso == "C")
+                            {
+                                C.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true";
+                            }
+                            else if (tab[1] == "D")
+                            {
+                                D.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                matriz[Convert.ToInt32(tab[0]), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true";
+                            }
+                            else if (tab[1] == "E")
+                            {
+                                E.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                matriz[Convert.ToInt32(tab[0]), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true";
+                            }
+                            else if (tab[1] == "F")
+                            {
+                                F.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                matriz[Convert.ToInt32(tab[0]), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true";
+                            }
+                            else if (tab[1] == "G")
+                            {
+                                G.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                matriz[Convert.ToInt32(tab[0]), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true";
+                            }
+                            else if (tab[1] == "I")
+                            {
+                                I.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                matriz[Convert.ToInt32(tab[0]), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true";
+                            }
+                            else if (tab[1] == "L")
+                            {
+                                L.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                matriz[Convert.ToInt32(tab[0]), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true";
+                            }
+                            else if (tab[1] == "M")
+                            {
+                                M.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                matriz[Convert.ToInt32(tab[0]), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true";
+                            }
+                            else if (tab[1] == "N")
+                            {
+                                N.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                matriz[Convert.ToInt32(tab[0]), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true";
+                            }
+                            else if (tab[1] == "O")
+                            {
+                                O.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                matriz[Convert.ToInt32(tab[0]), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true";
+                            }
+                            else if (tab[1] == "P")
+                            {
+                                P.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                matriz[Convert.ToInt32(tab[0]), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true";
+                            }
                         }
-                        else if (tab[1] == "C")
-                        {
-                            A.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
-                            matriz[Convert.ToInt32(tab[0]), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true";
-                        }
-                        else if (tab[1] == "D")
-                        {
-                            A.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
-                            matriz[Convert.ToInt32(tab[0]), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true";
-                        }
-                        else if (tab[1] == "E")
-                        {
-                            A.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
-                            matriz[Convert.ToInt32(tab[0]), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true";
-                        }
-                        else if (tab[1] == "F")
-                        {
-                            A.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
-                            matriz[Convert.ToInt32(tab[0]), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true";
-                        }
-                        else if (tab[1] == "G")
-                        {
-                            A.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
-                            matriz[Convert.ToInt32(tab[0]), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true";
-                        }
-                        else if (tab[1] == "I")
-                        {
-                            A.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
-                            matriz[Convert.ToInt32(tab[0]), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true";
-                        }
-                        else if (tab[1] == "L")
-                        {
-                            A.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
-                            matriz[Convert.ToInt32(tab[0]), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true";
-                        }
-                        else if (tab[1] == "M")
-                        {
-                            A.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
-                            matriz[Convert.ToInt32(tab[0]), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true";
-                        }
-                        else if (tab[1] == "N")
-                        {
-                            A.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
-                            matriz[Convert.ToInt32(tab[0]), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true";
-                        }
-                        else if (tab[1] == "O")
-                        {
-                            A.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
-                            matriz[Convert.ToInt32(tab[0]), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true";
-                        }
-                        else if (tab[1] == "P")
-                        {
-                            A.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
-                            matriz[Convert.ToInt32(tab[0]), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true";
-                        }
-                    }
-                    if (aux[2] == "true")
+                    }catch(IndexOutOfRangeException e)
                     {
-                        lugar++;
-                        aux = matriz[Convert.ToInt32(tab[0]), lugar].Split(',');
-                        if (tab[1] == "A")
-                        {
-                            A.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
-                            matriz[Convert.ToInt32(tab[0]), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true";
-                        }
-                        else if (tab[1] == "B")
-                        {
-                            A.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
-                            matriz[Convert.ToInt32(tab[0]), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true";
-                        }
-                        else if (tab[1] == "C")
-                        {
-                            A.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
-                            matriz[Convert.ToInt32(tab[0]), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true";
-                        }
-                        else if (tab[1] == "D")
-                        {
-                            A.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
-                            matriz[Convert.ToInt32(tab[0]), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true";
-                        }
-                        else if (tab[1] == "E")
-                        {
-                            A.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
-                            matriz[Convert.ToInt32(tab[0]), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true";
-                        }
-                        else if (tab[1] == "F")
-                        {
-                            A.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
-                            matriz[Convert.ToInt32(tab[0]), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true";
-                        }
-                        else if (tab[1] == "G")
-                        {
-                            A.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
-                            matriz[Convert.ToInt32(tab[0]), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true";
-                        }
-                        else if (tab[1] == "I")
-                        {
-                            A.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
-                            matriz[Convert.ToInt32(tab[0]), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true";
-                        }
-                        else if (tab[1] == "L")
-                        {
-                            A.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
-                            matriz[Convert.ToInt32(tab[0]), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true";
-                        }
-                        else if (tab[1] == "M")
-                        {
-                            A.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
-                            matriz[Convert.ToInt32(tab[0]), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true";
-                        }
-                        else if (tab[1] == "N")
-                        {
-                            A.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
-                            matriz[Convert.ToInt32(tab[0]), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true";
-                        }
-                        else if (tab[1] == "O")
-                        {
-                            A.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
-                            matriz[Convert.ToInt32(tab[0]), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true";
-                        }
-                        else if (tab[1] == "P")
-                        {
-                            A.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
-                            matriz[Convert.ToInt32(tab[0]), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true";
-                        }
+                        break;
                     }
+                    
                 }
             }
         }
