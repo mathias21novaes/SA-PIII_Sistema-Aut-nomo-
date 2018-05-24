@@ -147,6 +147,28 @@ namespace President_Me
                     UltimaVotacao();
                 }
             }
+            switch (tempo_servidor.Text)
+            {
+                case "1":
+                    Timer_Verificavez.Interval = 1000;
+                    break;
+                case "2":
+                    Timer_Verificavez.Interval = 2000;
+                    break;
+                case "3":
+                    Timer_Verificavez.Interval = 3000;
+                    break;
+                case "4":
+                    Timer_Verificavez.Interval = 4000;
+                    break;
+                case "5":
+                    Timer_Verificavez.Interval = 5000;
+                    break;
+                default:
+                    Timer_Verificavez.Interval = 3000;
+                    break;
+
+            }
         }
 
         //FUNÇÕES DO JOGO ----------------------------------------------------------
