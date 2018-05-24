@@ -359,11 +359,21 @@ namespace President_Me
         public void UltimaVotacao()
         {
             string exibir = MePresidentaServidor.Jogo.ExibirUltimaVotacao(Jog_Id, Jog_Senha);
-            txtVotacao.Text = exibir;
             if (exibir.Contains("ERRO"))
             {
                 txtVotacao.Text = exibir;
             }
+            txtVotacao.Text = exibir;
+            /*if(exibir != "ERRO")
+            {
+                exibir = exibir.Replace("\r", "");
+                exibir = exibir.Replace("\n", "");
+                string[] voto = exibir.Split(',');
+                string letravoto = voto[1];
+
+                if (voto[1] == "S")
+                    CriarMatriz();
+            }*/
         }
 
         public void Pontuacao()
@@ -396,6 +406,9 @@ namespace President_Me
             bool entrou = true;
             string[] aux = { };
             int lugar = 0;
+            int rand1 = aleatorio.Next(0, 13);
+            int rand2 = aleatorio.Next(1, 5);
+            int rand3 = aleatorio.Next(0, 4);
             string cartas = MinhasCartas();
             cartas = cartas.Replace("\r", "");
             cartas = cartas.Replace("\n", "");
@@ -406,7 +419,7 @@ namespace President_Me
             {
                 matrizcartas[i] = cartas[i];
             }
-            if (BuscarCarta(matrizcartas, 'A'))
+            /*if (BuscarCarta(matrizcartas, 'A'))
             {
                 ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[4].setor, arrayPersonagens[0].nome);
                 if (ColocarPersonagem.Contains("ERRO: Personagem já está no tabuleiro"))
@@ -666,21 +679,21 @@ namespace President_Me
                         }
                     }
                 }
-            }
-
-            /*if (arrayPersonagens[rand1].setor == -1)
+            }*/
+            if (arrayPersonagens[rand1].setor == -1)
             {
-                    string ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[rand2].setor, arrayPersonagens[rand1].nome);
+                if (arraySetores[rand2].i <= 3)
+                {
+                    ColocarPersonagem = MePresidentaServidor.Jogo.ColocarPersonagem(Jog_Id, Jog_Senha, arraySetores[rand2].setor, arrayPersonagens[rand1].nome);
                     if (ColocarPersonagem.Contains("ERRO"))
                     {
                         //lbl_Aviso.Text = ColocarPersonagem;
-                        MoverPersonagem();
+                        MoverAuto();
                     }
                     else
                     {
                         txthistorico.Text = ColocarPersonagem;
                     }
-
                     if (entrou == true)
                     {
                         aux = matriz[(Convert.ToInt32(rand2) - 1), lugar].Split(',');
@@ -689,86 +702,170 @@ namespace President_Me
                             if (arrayPersonagens[rand1].nome == "A")
                             {
                                 A.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
-                                aux[2] = "true";
+                                matriz[(Convert.ToInt32(rand2) - 1), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true";
                                 entrou = true;
                             }
                             else if (arrayPersonagens[rand1].nome == "B")
                             {
                                 B.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
-                                aux[2] = "true";
+                                matriz[(Convert.ToInt32(rand2) - 1), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true";
                                 entrou = true;
                             }
                             else if (arrayPersonagens[rand1].nome == "C")
                             {
                                 C.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
-                                aux[2] = "true";
+                                matriz[(Convert.ToInt32(rand2) - 1), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true";
                                 entrou = true;
                             }
                             else if (arrayPersonagens[rand1].nome == "D")
                             {
                                 D.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
-                                aux[2] = "true";
+                                matriz[(Convert.ToInt32(rand2) - 1), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true";
                                 entrou = true;
                             }
                             else if (arrayPersonagens[rand1].nome == "E")
                             {
                                 E.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
-                                aux[2] = "true";
+                                matriz[(Convert.ToInt32(rand2) - 1), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true";
                                 entrou = true;
                             }
                             else if (arrayPersonagens[rand1].nome == "F")
                             {
                                 F.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
-                                aux[2] = "true";
+                                matriz[(Convert.ToInt32(rand2) - 1), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true";
                                 entrou = true;
                             }
                             else if (arrayPersonagens[rand1].nome == "G")
                             {
                                 G.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
-                                aux[2] = "true";
+                                matriz[(Convert.ToInt32(rand2) - 1), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true";
                                 entrou = true;
                             }
                             else if (arrayPersonagens[rand1].nome == "I")
                             {
                                 I.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
-                                cbPersonagens.Items.Remove("I");
+                                matriz[(Convert.ToInt32(rand2) - 1), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true";
                                 entrou = true;
                             }
                             else if (arrayPersonagens[rand1].nome == "L")
                             {
                                 L.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
-                                cbPersonagens.Items.Remove("L");
+                                matriz[(Convert.ToInt32(rand2) - 1), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true";
                                 entrou = true;
                             }
                             else if (arrayPersonagens[rand1].nome == "M")
                             {
                                 M.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
-                                cbPersonagens.Items.Remove("M");
+                                matriz[(Convert.ToInt32(rand2) - 1), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true";
                                 entrou = true;
                             }
                             else if (arrayPersonagens[rand1].nome == "N")
                             {
                                 N.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
-                                cbPersonagens.Items.Remove("N");
+                                matriz[(Convert.ToInt32(rand2) - 1), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true";
                                 entrou = true;
                             }
                             else if (arrayPersonagens[rand1].nome == "O")
                             {
                                 O.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
-                                cbPersonagens.Items.Remove("O");
+                                matriz[(Convert.ToInt32(rand2) - 1), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true";
                                 entrou = true;
                             }
                             else if (arrayPersonagens[rand1].nome == "P")
                             {
                                 P.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
-                                cbPersonagens.Items.Remove("P");
+                                matriz[(Convert.ToInt32(rand2) - 1), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true";
                                 entrou = true;
                             }
                             lugar++;
                             return 1;
                         }
+                        else if (aux[2] == "true")
+                        {
+                            lugar++;
+                            aux = matriz[(Convert.ToInt32(rand2) - 1), lugar].Split(',');
+                            if (arrayPersonagens[rand1].nome == "A")
+                            {
+                                A.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                matriz[(Convert.ToInt32(rand2) - 1), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true";
+                                entrou = true;
+                            }
+                            else if (arrayPersonagens[rand1].nome == "B")
+                            {
+                                B.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                matriz[(Convert.ToInt32(rand2) - 1), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true";
+                                entrou = true;
+                            }
+                            else if (arrayPersonagens[rand1].nome == "C")
+                            {
+                                C.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                matriz[(Convert.ToInt32(rand2) - 1), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true";
+                                entrou = true;
+                            }
+                            else if (arrayPersonagens[rand1].nome == "D")
+                            {
+                                D.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                matriz[(Convert.ToInt32(rand2) - 1), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true";
+                                entrou = true;
+                            }
+                            else if (arrayPersonagens[rand1].nome == "E")
+                            {
+                                E.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                matriz[(Convert.ToInt32(rand2) - 1), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true";
+                                entrou = true;
+                            }
+                            else if (arrayPersonagens[rand1].nome == "F")
+                            {
+                                F.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                matriz[(Convert.ToInt32(rand2) - 1), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true";
+                                entrou = true;
+                            }
+                            else if (arrayPersonagens[rand1].nome == "G")
+                            {
+                                G.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                matriz[(Convert.ToInt32(rand2) - 1), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true";
+                                entrou = true;
+                            }
+                            else if (arrayPersonagens[rand1].nome == "I")
+                            {
+                                I.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                matriz[(Convert.ToInt32(rand2) - 1), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true";
+                                entrou = true;
+                            }
+                            else if (arrayPersonagens[rand1].nome == "L")
+                            {
+                                L.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                matriz[(Convert.ToInt32(rand2) - 1), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true";
+                                entrou = true;
+                            }
+                            else if (arrayPersonagens[rand1].nome == "M")
+                            {
+                                M.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                matriz[(Convert.ToInt32(rand2) - 1), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true";
+                                entrou = true;
+                            }
+                            else if (arrayPersonagens[rand1].nome == "N")
+                            {
+                                N.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                matriz[(Convert.ToInt32(rand2) - 1), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true";
+                            }
+                            else if (arrayPersonagens[rand1].nome == "O")
+                            {
+                                O.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                matriz[(Convert.ToInt32(rand2) - 1), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true";
+                                entrou = true;
+                            }
+                            else if (arrayPersonagens[rand1].nome == "P")
+                            {
+                                P.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                matriz[(Convert.ToInt32(rand2) - 1), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ",true";
+                                entrou = true;
+                            }
+                        }
                     }
-            }*/
+                }
+            }
+
             return 0;
 
         }
@@ -776,7 +873,7 @@ namespace President_Me
         public void PromoverAuto()
         {
             string cartas = MinhasCartas();
-            cartas = cartas.Replace("\r","");
+            cartas = cartas.Replace("\r", "");
             cartas = cartas.Replace("\n", "");
             char[] matrizcartas = new char[cartas.Length];
 
@@ -784,7 +881,20 @@ namespace President_Me
             {
                 matrizcartas[i] = cartas[i];
             }
-            //lbl_Aviso.Text = vetor[i];
+            int rand;
+            rand = aleatorio.Next(0, 13);
+            string promover = MePresidentaServidor.Jogo.Promover(Jog_Id, Jog_Senha, arrayPersonagens[rand].nome);
+            txthistorico.Text = promover;
+            if (promover.Contains("ERRO"))
+            {
+                //lbl_Aviso.Text = ColocarPersonagem;
+                PromoverAuto();
+            }
+            else
+            {
+                txthistorico.Text = promover;
+            }
+            /*lbl_Aviso.Text = vetor[i];
             string promover;
             //string promover = MePresidentaServidor.Jogo.Promover(Jog_Id, Jog_Senha, arrayPersonagens[rand].nome);
             if (BuscarCarta(matrizcartas, 'A') == true && BuscarCarta(matrizcartas, 'B') == true && BuscarCarta(matrizcartas, 'C'))
@@ -901,6 +1011,15 @@ namespace President_Me
             string Voto;
             rand3 = aleatorio.Next(0, 2);
             string votar;
+            string cartab = txthistorico.Text;
+            cartas = cartab.Replace("\r", "");
+            cartas = cartab.Replace("\n", "");
+            char[] matrizcartab = new char[cartab.Length];
+
+            for (int i = 0; i < cartas.Length; i++)
+            {
+                matrizcartas[i] = cartab[i];
+            }
             /*if (BuscarCarta(matrizcartas, 'A') == true && )
             {
                 Voto = "s";
@@ -933,7 +1052,7 @@ namespace President_Me
             }
             if (votar.Contains("ERRO"))
             {
-                //Votacao();
+                VotacaoAuto();
             }
         }
 
