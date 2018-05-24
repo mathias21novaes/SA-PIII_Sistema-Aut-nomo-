@@ -27,6 +27,8 @@ namespace President_Me
         public string SituacaoPartida { get; set; }
         public string SituacaoRodada { get; set; }
         public int Permissao { get; set; } = 0;
+        public int [,] jogadores = new int[6, 2];
+        private string[] LtJogadores;
         /*-----------------------------------*/
 
         int X = 0;
@@ -99,6 +101,7 @@ namespace President_Me
 
         private void Jogo_Load(object sender, EventArgs e)
         {
+            //this.Visible = true;
             Timer_Verificavez.Enabled = true;
 
             MostrarDados();
@@ -139,7 +142,6 @@ namespace President_Me
                 {
                     lblJogo.Text = "AGUARDE SUA VEZ";
                     lbl_Aviso.Text = " ";
-                    lbl_Voto.Text = " ";
                     txt_personagem.Text = " ";
                     txt_setor.Text = " ";
                     lblJogo.ForeColor = Color.Red;
@@ -249,27 +251,14 @@ namespace President_Me
 
         public void MostrarDados()
         {
-            string minhasCartas = MePresidentaServidor.Jogo.ListarCartas(Jog_Id, Jog_Senha);
-            if (minhasCartas.Contains("ERRO"))
-            {
-                lblcartas.Text = " ";
-            }  
             Pontuacao();
-            lblidj.Text = auxJog;
             lblnj.Text = Jog_Nome;
-            lblidp.Text = Convert.ToString(Part_Id);
-            lblcartas.Text = minhasCartas;
+            lblcartas.Text = MinhasCartas();
         }
-
         public string MinhasCartas()
         {
             string minhasCartas = MePresidentaServidor.Jogo.ListarCartas(Jog_Id, Jog_Senha);
-
-            if (minhasCartas.Contains("ERRO"))
-            {
-                lbl_Aviso.Text = minhasCartas;
-            }
-            lblcartas.Text = minhasCartas;
+            if (minhasCartas.Contains("ERRO")) { minhasCartas = null; }
             return minhasCartas;
         }
 
@@ -400,8 +389,58 @@ namespace President_Me
 
         public void Pontuacao()
         {
+            string Jogadores_lista;
+            string[] jogador;
+            int pontos1 = jogadores[0, 1];
+            int pontos2 = jogadores[1, 1];
+
             string Aux = MePresidentaServidor.Jogo.ListarJogadores(Part_Id);
-            lbljogadores.Text = Aux;
+            if (Aux.Contains("ERRO"))
+            {
+                lbl_Aviso.Text = Aux;
+            }
+            Jogadores_lista = Aux.Replace("\r","");
+            LtJogadores = Jogadores_lista.Split('\n');
+
+            for (int i = 0; i < LtJogadores.Length - 1; i++)
+            {
+                jogador = LtJogadores[i].Split(',');
+                jogadores[i, 0] = Convert.ToInt32(jogador[0]);
+                jogadores[i, 1] = Convert.ToInt32(jogador[2]);
+
+                switch (i)
+                {
+                    case 0:
+                        n1.Text = jogador[1];
+                        p1.Text = jogador[2];
+                        break;
+                    case 1:
+                        n2.Text = jogador[1];
+                        p2.Text = jogador[2];
+                        break;
+                    case 2:
+                        n3.Text = jogador[1];
+                        p3.Text = jogador[2];
+                        break;
+                    case 3:
+                        n4.Text = jogador[1];
+                        p4.Text = jogador[2];
+                        break;
+                    case 4:
+                        n5.Text = jogador[1];
+                        p5.Text = jogador[2];
+                        break;
+                    case 5:
+                        n6.Text = jogador[1];
+                        p6.Text = jogador[2];
+                        break;
+                    default:
+                        break;
+                }
+
+            }
+
+
         }
 
         void AtualizarSetor(int setor)
@@ -1064,13 +1103,11 @@ namespace President_Me
             {
                 Voto = "s";
                 votar = MePresidentaServidor.Jogo.Votar(Jog_Id, Jog_Senha, Voto);
-                lbl_Voto.Text = "VOTOU SIM";
             }
             else
             {
                 Voto = "n";
                 votar = MePresidentaServidor.Jogo.Votar(Jog_Id, Jog_Senha, Voto);
-                lbl_Voto.Text = "VOTOU NÃO";
             }
             if (votar.Contains("ERRO"))
             {
@@ -1198,8 +1235,6 @@ namespace President_Me
         public void Votacao(string Voto)
         {
             string votar = MePresidentaServidor.Jogo.Votar(Jog_Id, Jog_Senha, Voto);
-            if (Voto == "S") { lbl_Voto.Text = "VOTOU SIM"; }
-            else { lbl_Voto.Text = "VOTOU NÃO"; }
             if (votar.Contains("ERRO")) { lbl_Aviso.Text = votar; }
         }
 
@@ -1207,6 +1242,11 @@ namespace President_Me
         private void Fechar_Click(object sender, EventArgs e)
         {
             Application.Exit();
+            //Timer_Verificavez.Enabled = false;
+            //this.Visible = false;
+            //string versao = "5.0";
+            //Lobby flob = new Lobby(versao);
+            //flob.ShowDialog();
         }
 
         private void btn_promover_Click(object sender, EventArgs e)
