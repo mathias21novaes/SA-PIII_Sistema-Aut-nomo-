@@ -654,7 +654,7 @@
             this.lblJogo.BackColor = System.Drawing.Color.Transparent;
             this.lblJogo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblJogo.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblJogo.Location = new System.Drawing.Point(611, 126);
+            this.lblJogo.Location = new System.Drawing.Point(634, 126);
             this.lblJogo.Name = "lblJogo";
             this.lblJogo.Size = new System.Drawing.Size(15, 20);
             this.lblJogo.TabIndex = 86;
@@ -671,7 +671,7 @@
             this.lbljogadorvez.AutoSize = true;
             this.lbljogadorvez.BackColor = System.Drawing.Color.Transparent;
             this.lbljogadorvez.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbljogadorvez.Location = new System.Drawing.Point(897, 137);
+            this.lbljogadorvez.Location = new System.Drawing.Point(873, 141);
             this.lbljogadorvez.Name = "lbljogadorvez";
             this.lbljogadorvez.Size = new System.Drawing.Size(13, 16);
             this.lbljogadorvez.TabIndex = 91;
@@ -714,7 +714,7 @@
             this.lbl_Aviso.BackColor = System.Drawing.Color.Transparent;
             this.lbl_Aviso.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Aviso.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lbl_Aviso.Location = new System.Drawing.Point(651, 460);
+            this.lbl_Aviso.Location = new System.Drawing.Point(622, 460);
             this.lbl_Aviso.Name = "lbl_Aviso";
             this.lbl_Aviso.Size = new System.Drawing.Size(15, 20);
             this.lbl_Aviso.TabIndex = 99;
@@ -982,7 +982,7 @@
             this.lblJogadas.BackColor = System.Drawing.Color.Transparent;
             this.lblJogadas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblJogadas.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblJogadas.Location = new System.Drawing.Point(652, 240);
+            this.lblJogadas.Location = new System.Drawing.Point(609, 238);
             this.lblJogadas.Name = "lblJogadas";
             this.lblJogadas.Size = new System.Drawing.Size(15, 20);
             this.lblJogadas.TabIndex = 124;
