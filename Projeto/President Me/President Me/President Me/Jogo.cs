@@ -39,6 +39,9 @@ namespace President_Me
         public string Jog_Senha { get; set; }
         public string Jog_Nome { get; set; }
         public int Part_Id { get; set; }
+        public string[] setorquant { get; set; } = new string[5];
+        public int quant { get; set; } = 0;
+
 
         //public string SituacaoPartida { get; set; }
         //public int estado_Jogo { get; set; } = 0;
@@ -127,6 +130,7 @@ namespace President_Me
                 string Vez = tabuleiro[0];
                 personagem = tabuleiro[tabuleiro.Length - 1];
                 lbljogadorvez.Text = Vez;
+                MoverGrafica();
 
                 Atualizacao = true;
 
@@ -1059,7 +1063,6 @@ namespace President_Me
 
         public void VotacaoAuto()
         {
-            int rand3;
             string cartas = MinhasCartas();
             cartas = cartas.Replace("\r", "");
             cartas = cartas.Replace("\n", "");
@@ -1069,49 +1072,72 @@ namespace President_Me
             {
                 matrizcartas[i] = cartas[i];
             }
-            string Voto;
-            rand3 = aleatorio.Next(0, 2);
-            string votar;
-            string cartab = txthistorico.Text;
-            cartas = cartab.Replace("\r", "");
-            cartas = cartab.Replace("\n", "");
-            char[] matrizcartab = new char[cartab.Length];
 
-            for (int i = 0; i < cartas.Length; i++)
+            string VerificarVez = MePresidentaServidor.Jogo.VerificarVez(Jog_Id);
+            VerificarVez = VerificarVez.Replace("\r", "");
+            string[] tabuleiro = VerificarVez.Split('\n');
+            string[] tab = { };
+
+            string exibir = MePresidentaServidor.Jogo.ExibirUltimaVotacao(Jog_Id, Jog_Senha);
+            exibir = exibir.Replace("\r", "");
+            string[] tabuleirovotacao = exibir.Split('\n');
+            string[] tabvot = { };
+
+            string Voto;
+            string votar;
+
+            if (tabuleiro.Length >= 3)
             {
-                matrizcartas[i] = cartab[i];
-            }
-            /*if (BuscarCarta(matrizcartas, 'A') == true && )
-            {
-                Voto = "s";
-                votar = MePresidentaServidor.Jogo.Votar(Jog_Id, Jog_Senha, Voto);
-                lbl_Voto.Text = "VOTOU SIM";
-            }
-            if (BuscarCarta(matrizcartas,'A') == true)
-            {
-                Voto = "s";
-                votar = MePresidentaServidor.Jogo.Votar(Jog_Id, Jog_Senha, Voto);
-                lbl_Voto.Text = "VOTOU SIM";
-            }
-            if (BuscarCarta(matrizcartas, 'B') == true)
-            {
-                Voto = "s";
-                votar = MePresidentaServidor.Jogo.Votar(Jog_Id, Jog_Senha, Voto);
-                lbl_Voto.Text = "VOTOU SIM";
-            }*/
-            if (rand3 == 0)
-            {
-                Voto = "s";
-                votar = MePresidentaServidor.Jogo.Votar(Jog_Id, Jog_Senha, Voto);
-            }
-            else
-            {
-                Voto = "n";
-                votar = MePresidentaServidor.Jogo.Votar(Jog_Id, Jog_Senha, Voto);
-            }
-            if (votar.Contains("ERRO"))
-            {
-                VotacaoAuto();
+                tab = tabuleiro[tabuleiro.Length - 2].Split(',');
+                string perso = tab[1];
+                string setor = tab[0];
+
+                if (Convert.ToInt32(setor) == 10)
+                {
+                    if (tabuleirovotacao.Contains("ERRO"))
+                    {
+
+                    }
+                    for (int i = 0; i < tabuleirovotacao.Length - 1; i++)
+                    {
+                        tabvot = tabuleirovotacao[i].Split(',');
+                        if (tabvot[0].Contains("ERRO"))
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            if (Convert.ToInt32(tabvot[0]) == Jog_Id)
+                            {
+                                if (tabvot[1] == "N")
+                                {
+                                    Voto = "s";
+                                    votar = MePresidentaServidor.Jogo.Votar(Jog_Id, Jog_Senha, Voto);
+                                    lblJogadas.Text = "VOTOU SIM";
+                                }
+                            }
+                        }
+                    }
+                    if (BuscarCarta(matrizcartas, Convert.ToChar(perso)) == true)
+                    {
+                        Voto = "s";
+                        votar = MePresidentaServidor.Jogo.Votar(Jog_Id, Jog_Senha, Voto);
+                        lblJogadas.Text = "VOTOU SIM";
+                    }
+                    else
+                    {
+                        Voto = "n";
+                        votar = MePresidentaServidor.Jogo.Votar(Jog_Id, Jog_Senha, Voto);
+                        lblJogadas.Text = "VOTOU NÃO";
+                    }
+                    if (votar.Contains("ERRO"))
+                    {
+                        Voto = "s";
+                        votar = MePresidentaServidor.Jogo.Votar(Jog_Id, Jog_Senha, Voto);
+                        lblJogadas.Text = "VOTOU SIM";
+                    }
+                }
+
             }
         }
 
@@ -1236,6 +1262,674 @@ namespace President_Me
         {
             string votar = MePresidentaServidor.Jogo.Votar(Jog_Id, Jog_Senha, Voto);
             if (votar.Contains("ERRO")) { lbl_Aviso.Text = votar; }
+        }
+
+        public void MoverGrafica()
+        {
+            string VerificarVez = MePresidentaServidor.Jogo.VerificarVez(Jog_Id);
+            VerificarVez = VerificarVez.Replace("\r", "");
+            string[] tabuleiro = VerificarVez.Split('\n');
+            string[] tab = { };
+            string[] aux = { };
+            //int lugar = 0;
+            //Control persona = null;
+            /*setorquant[0] = "0" + ',' + quant;
+            setorquant[1] = "1" + ',' + quant;
+            setorquant[2] = "2" + ',' + quant;
+            setorquant[3] = "3" + ',' + quant;
+            setorquant[4] = "4" + ',' + quant;
+            setorquant[5] = "5" + ',' + quant;*/
+
+
+
+
+
+            if (tabuleiro.Length >= 2)
+            {
+                for (int i = 1; i <= tabuleiro.Length - 1; i++)
+                {
+                    try
+                    {
+                        tab = tabuleiro[i].Split(',');
+                        string perso = tab[1];
+                        string setor = tab[0];
+                        //setorquant = setorquant[Convert.ToInt32(setor)].Split(',');
+                        //aux = matriz[Convert.ToInt32(setor) - 1, lugar].Split(',');
+                        /*foreach (Control con in this.Controls)
+                        {
+                            if (con is PictureBox)
+                            {
+                                if (Convert.ToString(con.Tag) == perso)
+                                {
+                                    persona = con;
+                                    break;
+                                }
+                            }
+                        }*/
+
+                        if (setor == "10")
+                        {
+                            presidente = perso;
+                            //persona.Location = posPresidente.Location;
+                            if (perso == "A")
+                            {
+                                A.Location = posPresidente.Location;
+                            }
+                            else if (perso == "B")
+                            {
+                                B.Location = posPresidente.Location;
+                            }
+                            else if (perso == "C")
+                            {
+                                C.Location = posPresidente.Location;
+                            }
+                            else if (perso == "D")
+                            {
+                                D.Location = posPresidente.Location;
+                            }
+                            else if (perso == "E")
+                            {
+                                E.Location = posPresidente.Location;
+                            }
+                            else if (perso == "F")
+                            {
+                                F.Location = posPresidente.Location;
+                            }
+                            else if (perso == "G")
+                            {
+                                G.Location = posPresidente.Location;
+                            }
+                            else if (perso == "I")
+                            {
+                                I.Location = posPresidente.Location;
+                            }
+                            else if (perso == "L")
+                            {
+                                L.Location = posPresidente.Location;
+                            }
+                            else if (perso == "M")
+                            {
+                                M.Location = posPresidente.Location;
+                            }
+                            else if (perso == "N")
+                            {
+                                N.Location = posPresidente.Location;
+                            }
+                            else if (perso == "O")
+                            {
+                                O.Location = posPresidente.Location;
+                            }
+                            else if (perso == "P")
+                            {
+                                P.Location = posPresidente.Location;
+                            }
+
+                        }
+                        else
+                        {
+                            for (int lugar = 0; lugar < 4; lugar++)
+                            {
+                                aux = this.matriz[Convert.ToInt32(setor) - 1, lugar].Split(',');
+                                if (aux[2] == "false")
+                                {
+                                    //persona.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                    //matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + "," + perso;
+                                    //break;
+                                    if (perso == "A")
+                                    {
+
+                                        if (quant == 0)
+                                        {
+                                            lugar = 0;
+                                            A.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                            matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + "," + perso;
+                                            quant++;
+                                            setorquant[Convert.ToInt32(setor)] = setor + ',' + quant;
+                                            break;
+                                        }
+                                        else if (quant == 1)
+                                        {
+                                            lugar = 1;
+                                            A.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                            matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + "," + perso;
+                                            quant++;
+                                            setorquant[Convert.ToInt32(setor)] = setor + ',' + quant;
+                                            break;
+                                        }
+                                        else if (quant == 2)
+                                        {
+                                            lugar = 2;
+                                            A.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                            matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + "," + perso;
+                                            quant++;
+                                            setorquant[Convert.ToInt32(setor)] = setor + ',' + quant;
+                                            break;
+                                        }
+                                        lugar = 3;
+                                        A.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                        matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + "," + perso;
+                                        quant++;
+                                        setorquant[Convert.ToInt32(setor)] = setor + ',' + quant;
+                                        break;
+
+                                    }
+                                    else if (perso == "B")
+                                    {
+                                        if (quant == 0)
+                                        {
+                                            lugar = 0;
+                                            B.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                            matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + "," + perso;
+                                            quant++;
+                                            setorquant[Convert.ToInt32(setor)] = setor + ',' + quant;
+                                            break;
+                                        }
+                                        else if (quant == 1)
+                                        {
+                                            lugar = 1;
+                                            B.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                            matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + "," + perso;
+                                            quant++;
+                                            setorquant[Convert.ToInt32(setor)] = setor + ',' + quant;
+                                            break;
+                                        }
+                                        else if (quant == 2)
+                                        {
+                                            lugar = 2;
+                                            B.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                            matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + "," + perso;
+                                            quant++;
+                                            setorquant[Convert.ToInt32(setor)] = setor + ',' + quant;
+                                            break;
+                                        }
+                                        lugar = 3;
+                                        B.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                        matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + "," + perso;
+                                        quant++;
+                                        setorquant[Convert.ToInt32(setor)] = setor + ',' + quant;
+                                        break;
+                                    }
+                                    else if (perso == "C")
+                                    {
+                                        if (quant == 0)
+                                        {
+                                            lugar = 0;
+                                            C.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                            matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + "," + perso;
+                                            quant++;
+                                            setorquant[Convert.ToInt32(setor)] = setor + ',' + quant;
+                                            break;
+                                        }
+                                        else if (quant == 1)
+                                        {
+                                            lugar = 1;
+                                            C.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                            matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + "," + perso;
+                                            quant++;
+                                            setorquant[Convert.ToInt32(setor)] = setor + ',' + quant;
+                                            break;
+                                        }
+                                        else if (quant == 2)
+                                        {
+                                            lugar = 2;
+                                            C.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                            matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + "," + perso;
+                                            quant++;
+                                            setorquant[Convert.ToInt32(setor)] = setor + ',' + quant;
+                                            break;
+                                        }
+                                        lugar = 3;
+                                        C.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                        matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + "," + perso;
+                                        quant++;
+                                        setorquant[Convert.ToInt32(setor)] = setor + ',' + quant;
+                                        break;
+                                    }
+                                    else if (perso == "D")
+                                    {
+                                        if (quant == 0)
+                                        {
+                                            lugar = 0;
+                                            D.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                            matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + "," + perso;
+                                            quant++;
+                                            setorquant[Convert.ToInt32(setor)] = setor + ',' + quant;
+                                            break;
+                                        }
+                                        else if (quant == 1)
+                                        {
+                                            lugar = 1;
+                                            D.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                            matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + "," + perso;
+                                            quant++;
+                                            setorquant[Convert.ToInt32(setor)] = setor + ',' + quant;
+                                            break;
+                                        }
+                                        else if (quant == 2)
+                                        {
+                                            lugar = 2;
+                                            D.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                            matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + "," + perso;
+                                            quant++;
+                                            setorquant[Convert.ToInt32(setor)] = setor + ',' + quant;
+                                            break;
+                                        }
+                                        lugar = 3;
+                                        D.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                        matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + "," + perso;
+                                        quant++;
+                                        setorquant[Convert.ToInt32(setor)] = setor + ',' + quant;
+                                        break;
+                                    }
+                                    else if (perso == "E")
+                                    {
+                                        if (quant == 0)
+                                        {
+                                            lugar = 0;
+                                            E.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                            matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + "," + perso;
+                                            quant++;
+                                            setorquant[Convert.ToInt32(setor)] = setor + ',' + quant;
+                                            break;
+                                        }
+                                        else if (quant == 1)
+                                        {
+                                            lugar = 1;
+                                            E.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                            matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + "," + perso;
+                                            quant++;
+                                            setorquant[Convert.ToInt32(setor)] = setor + ',' + quant;
+                                            break;
+                                        }
+                                        else if (quant == 2)
+                                        {
+                                            lugar = 2;
+                                            E.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                            matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + "," + perso;
+                                            quant++;
+                                            setorquant[Convert.ToInt32(setor)] = setor + ',' + quant;
+                                            break;
+                                        }
+                                        lugar = 3;
+                                        E.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                        matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + "," + perso;
+                                        quant++;
+                                        setorquant[Convert.ToInt32(setor)] = setor + ',' + quant;
+                                        break;
+                                    }
+                                    else if (perso == "F")
+                                    {
+                                        if (quant == 0)
+                                        {
+                                            lugar = 0;
+                                            F.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                            matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + "," + perso;
+                                            quant++;
+                                            setorquant[Convert.ToInt32(setor)] = setor + ',' + quant;
+                                            break;
+                                        }
+                                        else if (quant == 1)
+                                        {
+                                            lugar = 1;
+                                            F.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                            matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + "," + perso;
+                                            quant++;
+                                            setorquant[Convert.ToInt32(setor)] = setor + ',' + quant;
+                                            break;
+                                        }
+                                        else if (quant == 2)
+                                        {
+                                            lugar = 2;
+                                            F.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                            matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + "," + perso;
+                                            quant++;
+                                            setorquant[Convert.ToInt32(setor)] = setor + ',' + quant;
+                                            break;
+                                        }
+                                        lugar = 3;
+                                        F.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                        matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + "," + perso;
+                                        quant++;
+                                        setorquant[Convert.ToInt32(setor)] = setor + ',' + quant;
+                                        break;
+                                    }
+                                    else if (perso == "G")
+                                    {
+                                        if (quant == 0)
+                                        {
+                                            lugar = 0;
+                                            G.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                            matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + "," + perso;
+                                            quant++;
+                                            setorquant[Convert.ToInt32(setor)] = setor + ',' + quant;
+                                            break;
+                                        }
+                                        else if (quant == 1)
+                                        {
+                                            lugar = 1;
+                                            G.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                            matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + "," + perso;
+                                            quant++;
+                                            setorquant[Convert.ToInt32(setor)] = setor + ',' + quant;
+                                            break;
+                                        }
+                                        else if (quant == 2)
+                                        {
+                                            lugar = 2;
+                                            G.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                            matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + "," + perso;
+                                            quant++;
+                                            setorquant[Convert.ToInt32(setor)] = setor + ',' + quant;
+                                            break;
+                                        }
+                                        lugar = 3;
+                                        G.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                        matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + "," + perso;
+                                        quant++;
+                                        setorquant[Convert.ToInt32(setor)] = setor + ',' + quant;
+                                        break;
+                                    }
+                                    else if (perso == "I")
+                                    {
+                                        if (quant == 0)
+                                        {
+                                            lugar = 0;
+                                            I.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                            matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + "," + perso;
+                                            quant++;
+                                            setorquant[Convert.ToInt32(setor)] = setor + ',' + quant;
+                                            break;
+                                        }
+                                        else if (quant == 1)
+                                        {
+                                            lugar = 1;
+                                            I.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                            matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + "," + perso;
+                                            quant++;
+                                            setorquant[Convert.ToInt32(setor)] = setor + ',' + quant;
+                                            break;
+                                        }
+                                        else if (quant == 2)
+                                        {
+                                            lugar = 2;
+                                            I.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                            matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + "," + perso;
+                                            quant++;
+                                            setorquant[Convert.ToInt32(setor)] = setor + ',' + quant;
+                                            break;
+                                        }
+                                        lugar = 3;
+                                        I.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                        matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + "," + perso;
+                                        quant++;
+                                        setorquant[Convert.ToInt32(setor)] = setor + ',' + quant;
+                                        break;
+                                    }
+                                    else if (perso == "L")
+                                    {
+                                        if (quant == 0)
+                                        {
+                                            lugar = 0;
+                                            L.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                            matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + "," + perso;
+                                            quant++;
+                                            setorquant[Convert.ToInt32(setor)] = setor + ',' + quant;
+                                            break;
+                                        }
+                                        else if (quant == 1)
+                                        {
+                                            lugar = 1;
+                                            L.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                            matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + "," + perso;
+                                            quant++;
+                                            setorquant[Convert.ToInt32(setor)] = setor + ',' + quant;
+                                            break;
+                                        }
+                                        else if (quant == 2)
+                                        {
+                                            lugar = 2;
+                                            L.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                            matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + "," + perso;
+                                            quant++;
+                                            setorquant[Convert.ToInt32(setor)] = setor + ',' + quant;
+                                            break;
+                                        }
+                                        lugar = 3;
+                                        L.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                        matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + "," + perso;
+                                        quant++;
+                                        setorquant[Convert.ToInt32(setor)] = setor + ',' + quant;
+                                        break;
+                                    }
+                                    else if (perso == "M")
+                                    {
+                                        if (quant == 0)
+                                        {
+                                            lugar = 0;
+                                            M.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                            matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + "," + perso;
+                                            quant++;
+                                            setorquant[Convert.ToInt32(setor)] = setor + ',' + quant;
+                                            break;
+                                        }
+                                        else if (quant == 1)
+                                        {
+                                            lugar = 1;
+                                            M.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                            matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + "," + perso;
+                                            quant++;
+                                            setorquant[Convert.ToInt32(setor)] = setor + ',' + quant;
+                                            break;
+                                        }
+                                        else if (quant == 2)
+                                        {
+                                            lugar = 2;
+                                            M.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                            matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + "," + perso;
+                                            quant++;
+                                            setorquant[Convert.ToInt32(setor)] = setor + ',' + quant;
+                                            break;
+                                        }
+                                        lugar = 3;
+                                        M.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                        matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + "," + perso;
+                                        quant++;
+                                        setorquant[Convert.ToInt32(setor)] = setor + ',' + quant;
+                                        break;
+                                    }
+                                    else if (perso == "N")
+                                    {
+                                        if (quant == 0)
+                                        {
+                                            lugar = 0;
+                                            N.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                            matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + "," + perso;
+                                            quant++;
+                                            setorquant[Convert.ToInt32(setor)] = setor + ',' + quant;
+                                            break;
+                                        }
+                                        else if (quant == 1)
+                                        {
+                                            lugar = 1;
+                                            N.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                            matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + "," + perso;
+                                            quant++;
+                                            setorquant[Convert.ToInt32(setor)] = setor + ',' + quant;
+                                            break;
+                                        }
+                                        else if (quant == 2)
+                                        {
+                                            lugar = 2;
+                                            N.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                            matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + "," + perso;
+                                            quant++;
+                                            setorquant[Convert.ToInt32(setor)] = setor + ',' + quant;
+                                            break;
+                                        }
+                                        lugar = 3;
+                                        N.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                        matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + "," + perso;
+                                        quant++;
+                                        setorquant[Convert.ToInt32(setor)] = setor + ',' + quant;
+                                        break;
+                                    }
+                                    else if (perso == "O")
+                                    {
+                                        if (quant == 0)
+                                        {
+                                            lugar = 0;
+                                            O.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                            matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + "," + perso;
+                                            quant++;
+                                            setorquant[Convert.ToInt32(setor)] = setor + ',' + quant;
+                                            break;
+                                        }
+                                        else if (quant == 1)
+                                        {
+                                            lugar = 1;
+                                            O.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                            matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + "," + perso;
+                                            quant++;
+                                            setorquant[Convert.ToInt32(setor)] = setor + ',' + quant;
+                                            break;
+                                        }
+                                        else if (quant == 2)
+                                        {
+                                            lugar = 2;
+                                            O.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                            matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + "," + perso;
+                                            quant++;
+                                            setorquant[Convert.ToInt32(setor)] = setor + ',' + quant;
+                                            break;
+                                        }
+                                        lugar = 3;
+                                        O.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                        matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + "," + perso;
+                                        quant++;
+                                        setorquant[Convert.ToInt32(setor)] = setor + ',' + quant;
+                                        break;
+                                    }
+                                    else if (perso == "P")
+                                    {
+                                        if (quant == 0)
+                                        {
+                                            lugar = 0;
+                                            P.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                            matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + "," + perso;
+                                            quant++;
+                                            setorquant[Convert.ToInt32(setor)] = setor + ',' + quant;
+                                            break;
+                                        }
+                                        else if (quant == 1)
+                                        {
+                                            lugar = 1;
+                                            P.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                            matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + "," + perso;
+                                            quant++;
+                                            setorquant[Convert.ToInt32(setor)] = setor + ',' + quant;
+                                            break;
+                                        }
+                                        else if (quant == 2)
+                                        {
+                                            lugar = 2;
+                                            P.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                            matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + "," + perso;
+                                            quant++;
+                                            setorquant[Convert.ToInt32(setor)] = setor + ',' + quant;
+                                            break;
+                                        }
+                                        lugar = 3;
+                                        P.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                        matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + "," + perso;
+                                        quant++;
+                                        setorquant[Convert.ToInt32(setor)] = setor + ',' + quant;
+                                        break;
+                                    }
+
+                                }
+
+
+
+                                /*else if (aux[2] != "false")
+                                {
+                                    lugar++;
+                                    aux = matriz[Convert.ToInt32(setor) - 1, lugar].Split(',');
+                                    if (perso == "A")
+                                    {
+                                        A.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                        matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + ","  + perso;
+                                    }
+                                    else if (perso == "B")
+                                    {
+                                        B.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                        matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + "," + perso;
+                                    }
+                                    else if (perso == "C")
+                                    {
+                                        C.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                        matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + "," + perso;
+                                    }
+                                    else if (perso == "D")
+                                    {
+                                        D.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                        matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + "," + perso;
+                                    }
+                                    else if (perso == "E")
+                                    {
+                                        E.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                        matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + "," + perso;
+                                    }
+                                    else if (perso == "F")
+                                    {
+                                        F.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                        matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + "," + perso;
+                                    }
+                                    else if (perso == "G")
+                                    {
+                                        G.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                        matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + "," + perso;
+                                    }
+                                    else if (perso == "I")
+                                    {
+                                        I.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                        matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + "," + perso;
+                                    }
+                                    else if (perso == "L")
+                                    {
+                                        L.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                        matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + "," + perso;
+                                    }
+                                    else if (perso == "M")
+                                    {
+                                        M.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                        matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + "," + perso;
+                                    }
+                                    else if (perso == "N")
+                                    {
+                                        N.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                        matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + "," + perso;
+                                    }
+                                    else if (perso == "O")
+                                    {
+                                        O.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                        matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + "," + perso;
+                                    }
+                                    else if (perso == "P")
+                                    {
+                                        P.Location = new Point(Convert.ToInt32(aux[0]), Convert.ToInt32(aux[1]));
+                                        matriz[Convert.ToInt32(setor), lugar] = Convert.ToString(aux[0]) + ',' + Convert.ToString(aux[1]) + "," + perso;
+                                    }
+                                }*/
+                            }
+                        }
+                    }
+                    catch (IndexOutOfRangeException e)
+                    {
+                        break;
+                    }
+
+                }
+            }
         }
 
         //FUNÇÃO DOS BOTÕES E SUAS INTERAÇÕES --------------------------------------------------
